@@ -3,30 +3,29 @@ import PropTypes from 'prop-types'
 
 class Button extends Component {
   render() {
-    const { primary, secondary, disabled } = this.props
+    const { type, disabled } = this.props
 
-    if (secondary && primary) {
-      throw new Error('Button component cannot be primary AND secondary')
-    }
-
-    let classes = 'fw5 ph5 pv3 ttu br2 fw4 f7 '
-
-    if (!secondary && !primary && !disabled) {
-      classes += 'bw1 ba b--white blue hover-bg-light-silver hover-b--light-silver '
-    }
-
-    if (secondary && !disabled) {
-      classes += 'bw1 ba b--blue blue hover-bg-blue hover-white '
-    }
-
-    if (primary && !disabled) {
-      classes += 'bw1 ba b--blue bg-blue white hover-bg-heavy-blue hover-b--heavy-blue '
-    }
+    let classes = 'br2 bw1 ph6 pv3 fw6 f3 '
 
     if (disabled) {
-      classes += 'bw1 ba b--light-gray bg-light-gray gray '
+      classes += 'ba b--navy-20 bg-navy-20 navy-60 '
     } else {
-      classes += 'pointer '
+      switch (type) {
+        default:
+        case 'primary':
+          classes += 'ba b--blue hover-b--blue-80 bg-blue hover-bg-blue-80 white pointer '
+          break
+        case 'secondary':
+          classes += 'ba b--navy hover-b--navy-80 bg-navy hover-bg-navy-80 white pointer '
+          break
+        case 'outline':
+          classes += 'ba b--blue bg-transparent hover-bg-blue blue hover-white pointer '
+          break
+      }
+    }
+
+    if (this.props.className) {
+      classes += this.props.className
     }
 
     return (
@@ -38,16 +37,15 @@ class Button extends Component {
 }
 
 Button.defaultProps = {
-  primary: false,
-  secondary: false,
+  type: 'primary',
   disabled: false,
   htmlProps: {},
 }
 
 Button.propTypes = {
-  primary: PropTypes.bool,
-  secondary: PropTypes.bool,
+  type: 'primary' | 'secondary' | 'outline',
   disabled: PropTypes.bool,
+  className: PropTypes.string,
   htmlProps: PropTypes.object,
   children: PropTypes.node.isRequired,
 }

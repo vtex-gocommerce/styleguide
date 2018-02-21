@@ -1,19 +1,19 @@
 Default
 
 ```js
-<Button>Save</Button>
+<Button type="primary">Save</Button>
 ```
 
 Secondary
 
 ```js
-<Button secondary>Save</Button>
+<Button type="secondary">Save</Button>
 ```
 
-Primary
+Outline
 
 ```js
-<Button primary>Save</Button>
+<Button type="outline">Save</Button>
 ```
 
 Disabled
@@ -26,9 +26,15 @@ Side by side
 
 ```js
 <div>
-  <Button>Save</Button>
-  <Button secondary>Save</Button>
-  <Button primary>Save</Button>
+  <Button className="mr2" type="primary">
+    Save
+  </Button>
+  <Button className="mr2" type="secondary">
+    Save
+  </Button>
+  <Button className="mr2" type="outline">
+    Save
+  </Button>
   <Button disabled>Save</Button>
 </div>
 ```
