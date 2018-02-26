@@ -5,11 +5,12 @@
     "deploy": "gh-pages -d styleguide",
     "styleguide": "styleguidist server",
     "styleguide:build": "styleguidist build",
-    "compile": "npm run cleanlib && NODE_ENV=production babel --plugins transform-es2015-modules-commonjs ./src --out-dir ./lib --ignore '__tests__,*.spec.js' && npm run copycss",
+    "compile": "npm run cleanlib && NODE_ENV=production babel --plugins transform-es2015-modules-commonjs ./src --out-dir ./ --ignore '__tests__,*.spec.js' && npm run copycss",
     "copycss": "copyfiles -u 2 src/**/*.css lib",
     "cleanlib": "sudo rm -rf lib"
   },
   "files": [
+    "index.js",
     "lib"
   ],
   "homepage": "https://vtex-gocommerce.github.io/styleguide",
