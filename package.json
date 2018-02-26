@@ -1,6 +1,6 @@
 {
   "name": "@gocommerce/styleguide",
-  "version": "1.0.1",
+  "version": "1.0.4",
   "scripts": {
     "test": "react-scripts test --env=jsdom",
     "deploy": "gh-pages -d styleguide",
