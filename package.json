@@ -1,6 +1,6 @@
 {
   "name": "@gocommerce/styleguide",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "scripts": {
     "deploy": "gh-pages -d styleguide",
     "styleguide": "styleguidist server",
