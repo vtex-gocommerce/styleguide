@@ -1,6 +1,6 @@
 {
   "name": "@gocommerce/styleguide",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "scripts": {
     "test": "react-scripts test --env=jsdom",
     "predeploy": "npm run styleguide:build",
