@@ -1,47 +1,45 @@
 ### Styleguide
 
-https://vtex.github.io/styleguide
+https://vtex-gocommerce.github.io/styleguide
 
 ### Setup
 
 ```sh
-yarn install
+npm install
 ```
 
 ### Developing using Styleguidist
 
 ```sh
-yarn styleguide
+npm styleguide
 ```
 
 ### Developing using another project
 
 Run this in this repo:
+
 ```sh
-yarn develop
+npm develop
 ```
 
 In your project run:
+
 ```
-npm link @vtex/styleguide
+npm link @gocommerce/styleguide
 ```
+
 Import (case a `<Button>` component in lib):
+
 ```js
-import Button from '@vtex/styleguide/lib/Button'
-```
-
-### Creating a new release and publishing on NPM
-
-```sh
-releasy pre
-npm publish 
+import { Button } from '@gocommerce/styleguide'
 ```
 
 ### Publishing Styleguide page
 
 ```sh
-yarn deploy
+npm deploy
 ```
 
 #### Known issues
-Your project has to run with webpack >= 2. Here's a [guide](https://webpack.js.org/guides/migrating/) for upgrading Webpack to v2. 
+
+Your project has to run with webpack >= 2. Here's a [guide](https://webpack.js.org/guides/migrating/) for upgrading Webpack to v2.
