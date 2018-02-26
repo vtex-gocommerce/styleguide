@@ -19,6 +19,7 @@
 .env.production.local
 .vscode
 .npmrc
+yarn.lock
 
 npm-debug.log*
 yarn-debug.log*
