@@ -1,7 +1,15 @@
 const path = require('path')
 
 module.exports = {
-  require: ['@gocommerce/tachyons'],
+  require: [
+    '@gocommerce/tachyons',
+    '@fortawesome/fontawesome',
+    '@fortawesome/fontawesome-free-brands',
+    '@fortawesome/fontawesome-pro-light',
+    '@fortawesome/fontawesome-pro-regular',
+    '@fortawesome/fontawesome-pro-solid',
+    '@fortawesome/react-fontawesome'
+  ],
   showUsage: true,
   title: 'GoCommerce Styleguide',
   sections: [
