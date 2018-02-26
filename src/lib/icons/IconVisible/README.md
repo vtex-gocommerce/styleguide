@@ -1,5 +1,3 @@
-Icons
-
 ```js
 <IconVisible />
 ```

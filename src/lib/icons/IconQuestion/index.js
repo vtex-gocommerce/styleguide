@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import FontAwesome from '@fortawesome/react-fontawesome'
-import icon from '@fortawesome/fontawesome-pro-solid/faQuestion'
+import icon from '@fortawesome/fontawesome-pro-regular/faQuestionCircle'
 
 class IconQuestion extends Component {
   render() {

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import IconClose from '../../icons/IconClose'
+import IconClose from '../../icons/IconCloseAlt'
 
 class Tag extends Component {
   render() {

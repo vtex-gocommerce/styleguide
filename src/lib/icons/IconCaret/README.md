@@ -1,5 +1,3 @@
-Icons
-
 ```js
 <div>
   <IconCaret side="up" />

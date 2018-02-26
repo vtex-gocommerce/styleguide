@@ -14,12 +14,12 @@ module.exports = {
   title: 'GoCommerce Styleguide',
   sections: [
     {
-      name: 'Icons',
-      components: 'src/icons/**/*.js',
+      name: 'Components',
+      components: 'src/lib/components/**/*.js',
     },
     {
-      name: 'Components',
-      components: 'src/components/**/*.js',
+      name: 'Icons',
+      components: 'src/lib/icons/**/*.js',
     },
   ],
   skipComponentsWithoutExample: true,

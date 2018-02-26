@@ -1,11 +1,10 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import FontAwesome from '@fortawesome/react-fontawesome'
-import faCheckCircle from '@fortawesome/fontawesome-pro-solid/faCheckCircle'
-import faExclamationTriangle from '@fortawesome/fontawesome-pro-solid/faExclamationTriangle'
-import faInfoCircle from '@fortawesome/fontawesome-pro-solid/faInfoCircle'
-import faTimesCircle from '@fortawesome/fontawesome-pro-solid/faTimesCircle'
-import faTimes from '@fortawesome/fontawesome-pro-light/faTimes'
+import IconSuccess from '../../icons/IconSuccess'
+import IconWarning from '../../icons/IconWarning'
+import IconDanger from '../../icons/IconDanger'
+import IconInfo from '../../icons/IconInfo'
+import IconClose from '../../icons/IconCloseAlt'
 
 class Alert extends Component {
   componentDidMount() {
@@ -29,25 +28,25 @@ class Alert extends Component {
       case 'success': {
         showIcon = true
         classes += 'b--green bg-green-light green '
-        Icon = faCheckCircle
+        Icon = IconSuccess
         break
       }
       case 'error': {
         showIcon = true
         classes += 'b--red bg-red-light red '
-        Icon = faTimesCircle
+        Icon = IconDanger
         break
       }
       case 'warning': {
         showIcon = true
         classes += 'b--yellow bg-yellow-light yellow '
-        Icon = faExclamationTriangle
+        Icon = IconWarning
         break
       }
       default: {
         showIcon = true
         classes += 'b--blue bg-blue-20 blue '
-        Icon = faInfoCircle
+        Icon = IconInfo
         break
       }
     }
@@ -55,14 +54,14 @@ class Alert extends Component {
     return (
       <div className={`flex items-center ${classes}`}>
         <div className="w-100">
-          {showIcon && <FontAwesome icon={Icon} />}
+          {showIcon && <Icon />}
 
           <span className={showIcon ? 'ph3' : ''}>{this.props.children}</span>
         </div>
 
         {onClose && (
           <div className={`pointer ${closeClass}`} onClick={onClose}>
-            <FontAwesome icon={faTimes} />
+            <IconClose />
           </div>
         )}
       </div>
