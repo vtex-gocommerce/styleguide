@@ -1,9 +1,11 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import Close from '../Icons/Close'
-import Success from '../Icons/Success'
-import Error from '../Icons/Error'
-import Warning from '../Icons/Warning'
+import FontAwesome from '@fortawesome/react-fontawesome'
+import faCheckCircle from '@fortawesome/fontawesome-pro-solid/faCheckCircle'
+import faExclamationTriangle from '@fortawesome/fontawesome-pro-solid/faExclamationTriangle'
+import faInfoCircle from '@fortawesome/fontawesome-pro-solid/faInfoCircle'
+import faTimesCircle from '@fortawesome/fontawesome-pro-solid/faTimesCircle'
+import faTimes from '@fortawesome/fontawesome-pro-light/faTimes'
 
 class Alert extends Component {
   componentDidMount() {
@@ -18,58 +20,49 @@ class Alert extends Component {
 
   render() {
     const { type, onClose } = this.props
-    let classes = 'pa5 br2 '
-    let closeClass = ''
+    let classes = 'pa3 ba br2 tc '
+    const closeClass = ''
     let showIcon = false
-    let Icon = <div />
+    let Icon
 
     switch (type) {
       case 'success': {
         showIcon = true
-        classes += 'bg-washed-green '
-        Icon = Success
+        classes += 'b--green bg-green-light green '
+        Icon = faCheckCircle
         break
       }
       case 'error': {
         showIcon = true
-        classes += 'bg-washed-red '
-        Icon = Error
+        classes += 'b--red bg-red-light red '
+        Icon = faTimesCircle
         break
       }
       case 'warning': {
         showIcon = true
-        classes += 'bg-washed-yellow '
-        Icon = Warning
-        break
-      }
-      case 'info-dark': {
-        classes += 'bg-serious-black light-silver '
+        classes += 'b--yellow bg-yellow-light yellow '
+        Icon = faExclamationTriangle
         break
       }
       default: {
-        classes += 'bg-near-white '
-        closeClass += 'blue '
+        showIcon = true
+        classes += 'b--blue bg-blue-20 blue '
+        Icon = faInfoCircle
         break
       }
     }
 
     return (
-      <div className={`flex justify-between ${classes}`}>
-        <div className="flex items-center">
-          {showIcon && (
-            <div className="flex">
-              <Icon />
-            </div>
-          )}
+      <div className={`flex items-center ${classes}`}>
+        <div className="w-100">
+          {showIcon && <FontAwesome icon={Icon} />}
 
-          <div className={`${showIcon ? 'ph5 flex' : 'pr5'}`}>
-            {this.props.children}
-          </div>
+          <span className={showIcon ? 'ph3' : ''}>{this.props.children}</span>
         </div>
 
         {onClose && (
           <div className={`pointer ${closeClass}`} onClick={onClose}>
-            <Close />
+            <FontAwesome icon={faTimes} />
           </div>
         )}
       </div>
@@ -78,10 +71,13 @@ class Alert extends Component {
 }
 
 Alert.propTypes = {
+  /** Define how the alert will look. */
   type: PropTypes.oneOf(['success', 'error', 'warning', 'info', 'info-dark']),
-  children: PropTypes.node.isRequired,
+  /** Function that will be called when user click to close Alert. */
   onClose: PropTypes.func,
+  /** Set a timeout for alert execute **onClose** function. */
   autoClose: PropTypes.number,
+  children: PropTypes.node.isRequired,
 }
 
 Alert.defaultProps = {

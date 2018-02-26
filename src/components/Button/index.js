@@ -3,11 +3,24 @@ import PropTypes from 'prop-types'
 
 class Button extends Component {
   render() {
-    const { type, disabled } = this.props
+    const { size, type, isDisabled } = this.props
 
-    let classes = 'br2 bw1 ph6 pv3 fw6 f3 '
+    let classes = 'br2 bw1 fw6 f3 '
 
-    if (disabled) {
+    switch (size) {
+      case 'large':
+        classes += 'ph8 pv4 '
+        break
+      default:
+      case 'normal':
+        classes += 'ph6 pv3 '
+        break
+      case 'small':
+        classes += 'ph4 pv2 '
+        break
+    }
+
+    if (isDisabled) {
       classes += 'ba b--navy-20 bg-navy-20 navy-60 '
     } else {
       switch (type) {
@@ -29,7 +42,7 @@ class Button extends Component {
     }
 
     return (
-      <button type="button" className={`${classes}`} {...this.props.htmlProps} disabled={disabled}>
+      <button type="button" className={classes} {...this.props.htmlProps} disabled={isDisabled}>
         {this.props.children}
       </button>
     )
@@ -37,14 +50,20 @@ class Button extends Component {
 }
 
 Button.defaultProps = {
+  size: 'normal',
   type: 'primary',
-  disabled: false,
+  isDisabled: false,
   htmlProps: {},
 }
 
 Button.propTypes = {
-  type: 'primary' | 'secondary' | 'outline',
-  disabled: PropTypes.bool,
+  /** Define the size of the button. */
+  size: PropTypes.oneOf(['small', 'normal', 'large']),
+  /** Define how the button will look. */
+  type: PropTypes.oneOf(['primary', 'secondary', 'outline']),
+  /** Make button disabled. */
+  isDisabled: PropTypes.bool,
+  /** Append css classes to the button. */
   className: PropTypes.string,
   htmlProps: PropTypes.object,
   children: PropTypes.node.isRequired,

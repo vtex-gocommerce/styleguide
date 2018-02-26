@@ -1,0 +1,5 @@
+Icons
+
+```js
+<IconAdd />
+```
