@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import IconGoogle from '../../icons/Google'
+import IconGoogle from '../../icons/IconGoogle'
 
 class AuthButton extends Component {
   render() {

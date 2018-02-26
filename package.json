@@ -1,9 +1,8 @@
 {
   "name": "@gocommerce/styleguide",
-  "version": "1.0.3",
+  "version": "1.0.1",
   "scripts": {
     "test": "react-scripts test --env=jsdom",
-    "predeploy": "npm run styleguide:build",
     "deploy": "gh-pages -d styleguide",
     "styleguide": "styleguidist server",
     "styleguide:build": "styleguidist build",
@@ -14,7 +13,7 @@
     "develop": "npm link && watch 'npm run compile' src"
   },
   "files": [
-    "lib/"
+    "lib"
   ],
   "homepage": "https://gocommerce.github.io/styleguide",
   "devDependencies": {

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import IconTimes from '../../icons/Times'
+import IconClose from '../../icons/IconClose'
 
 class Tag extends Component {
   render() {
@@ -14,7 +14,7 @@ class Tag extends Component {
         {this.props.children}
         <span className="v-base">
           {count && <span className="ml2 ph2 bg-white br-pill f1 blue">{count}</span>}
-          {onRemove && <IconTimes className="ml2" />}
+          {onRemove && <IconClose className="ml2" />}
         </span>
       </span>
     )
