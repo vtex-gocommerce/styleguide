@@ -1,20 +1,21 @@
 {
   "name": "@gocommerce/styleguide",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "scripts": {
     "test": "react-scripts test --env=jsdom",
     "predeploy": "npm run styleguide:build",
     "deploy": "gh-pages -d styleguide",
     "styleguide": "styleguidist server",
     "styleguide:build": "styleguidist build",
-    "compile":
-      "npm run cleanlib && NODE_ENV=production babel --plugins transform-es2015-modules-commonjs ./src --out-dir ./lib --ignore '__tests__,*.spec.js' && npm run copycss",
+    "compile": "npm run cleanlib && NODE_ENV=production babel --plugins transform-es2015-modules-commonjs ./src --out-dir ./lib --ignore '__tests__,*.spec.js' && npm run copycss",
     "copycss": "copyfiles -u 2 src/**/*.css lib",
     "cleanlib": "sudo rm -rf lib",
     "prepublishOnly": "npm run compile",
     "develop": "npm link && watch 'npm run compile' src"
   },
-  "files": ["lib/"],
+  "files": [
+    "lib/"
+  ],
   "homepage": "https://gocommerce.github.io/styleguide",
   "devDependencies": {
     "@fortawesome/fontawesome": "^1.1.3",
