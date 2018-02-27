@@ -14,30 +14,10 @@ npm install
 npm styleguide
 ```
 
-### Developing using another project
-
-Run this in this repo:
-
-```sh
-npm develop
-```
-
-In your project run:
-
-```
-npm link @gocommerce/styleguide
-```
-
-Import (case a `<Button>` component in lib):
-
-```js
-import { Button } from '@gocommerce/styleguide'
-```
-
 ### Publishing Styleguide page
 
 ```sh
-npm deploy
+npm github
 ```
 
 #### Known issues
