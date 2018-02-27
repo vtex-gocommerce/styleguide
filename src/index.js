@@ -2,7 +2,6 @@ import Alert from './lib/components/Alert'
 import AuthButton from './lib/components/AuthButton'
 import Button from './lib/components/Button'
 import Tag from './lib/components/Tag'
-import Tooltip from './lib/components/Tooltip'
 import IconAdd from './lib/icons/IconAdd'
 import IconArc from './lib/icons/IconArc'
 import IconArrow from './lib/icons/IconArrow'
@@ -41,7 +40,6 @@ exports.Alert = Alert
 exports.AuthButton = AuthButton
 exports.Button = Button
 exports.Tag = Tag
-exports.Tooltip = Tooltip
 exports.IconAdd = IconAdd
 exports.IconArc = IconArc
 exports.IconArrow = IconArrow
