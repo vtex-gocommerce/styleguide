@@ -6,7 +6,7 @@ class AuthButton extends Component {
   render() {
     const { provider, url } = this.props
 
-    let classes = 'br2 bw0 fw6 f3 ph4 pv2 '
+    let classes = 'dib br2 bw0 fw6 f3 ph5 pv3 '
     let Icon
 
     switch (provider) {
@@ -31,7 +31,6 @@ class AuthButton extends Component {
 }
 
 AuthButton.defaultProps = {
-  size: 'small',
   provider: 'google',
   url: '',
 }
