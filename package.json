@@ -6,7 +6,7 @@
     "github": "gh-pages -d styleguide",
     "styleguide": "styleguidist server",
     "styleguide:build": "styleguidist build",
-    "compile": "npm run build && npm run cleanlib && NODE_ENV=production babel --plugins transform-es2015-modules-commonjs ./src --out-dir ./ --ignore '__tests__,*.spec.js' --presets=react-app && npm run copycss",
+    "compile": "npm run build && npm run cleanlib && NODE_ENV=production babel --plugins transform-es2015-modules-commonjs ./src --out-dir ./ --ignore '__tests__,*.spec.js,builder.js' --presets=react-app && npm run copycss",
     "copycss": "copyfiles -u 2 src/**/*.css lib",
     "cleanlib": "sudo rm -rf lib"
   },
