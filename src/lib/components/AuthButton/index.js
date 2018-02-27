@@ -30,11 +30,6 @@ class AuthButton extends Component {
   }
 }
 
-AuthButton.defaultProps = {
-  provider: 'google',
-  url: '',
-}
-
 AuthButton.propTypes = {
   /** Auth providers we accept. */
   provider: PropTypes.oneOf(['google']),
@@ -44,5 +39,11 @@ AuthButton.propTypes = {
   className: PropTypes.string,
   children: PropTypes.node.isRequired,
 }
+
+AuthButton.defaultProps = {
+  provider: 'google',
+  url: '',
+}
+
 
 export default AuthButton

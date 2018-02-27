@@ -49,13 +49,6 @@ class Button extends Component {
   }
 }
 
-Button.defaultProps = {
-  size: 'normal',
-  type: 'primary',
-  isDisabled: false,
-  htmlProps: {},
-}
-
 Button.propTypes = {
   /** Define the size of the button. */
   size: PropTypes.oneOf(['small', 'normal', 'large']),
@@ -67,6 +60,13 @@ Button.propTypes = {
   className: PropTypes.string,
   htmlProps: PropTypes.object,
   children: PropTypes.node.isRequired,
+}
+
+Button.defaultProps = {
+  size: 'normal',
+  type: 'primary',
+  isDisabled: false,
+  htmlProps: {},
 }
 
 export default Button
