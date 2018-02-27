@@ -10,6 +10,7 @@
 /build
 /lib
 /styleguide
+index.js
 
 # misc
 .DS_Store
