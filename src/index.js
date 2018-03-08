@@ -2,7 +2,6 @@ import Alert from './lib/components/Alert'
 import AuthButton from './lib/components/AuthButton'
 import Button from './lib/components/Button'
 import Input from './lib/components/Input'
-import NumberCard from './lib/components/NumberCard'
 import Select from './lib/components/Select'
 import Tag from './lib/components/Tag'
 import IconAdd from './lib/icons/IconAdd'
@@ -43,7 +42,6 @@ exports.Alert = Alert
 exports.AuthButton = AuthButton
 exports.Button = Button
 exports.Input = Input
-exports.NumberCard = NumberCard
 exports.Select = Select
 exports.Tag = Tag
 exports.IconAdd = IconAdd
