@@ -8,7 +8,7 @@ class Input extends Component {
 
     this.state = {
       active: false,
-      value: props.htmlProps.value
+      value: props.value
     }
   }
 
@@ -29,7 +29,7 @@ class Input extends Component {
   }
 
   render() {
-    const { hasError, isDisabled } = this.props
+    const { hasError, isDisabled, type, placeholder } = this.props
     const { value } = this.state
 
     let classes = `${styles.input} pa3 ba br1 `
@@ -52,7 +52,8 @@ class Input extends Component {
 
     return (
       <input
-        {...this.props.htmlProps}
+        type={type}
+        placeholder={placeholder}
         onBlur={this.handleBlur}
         onFocus={this.handleFocus}
         onChange={this.handleChange}
@@ -65,19 +66,26 @@ class Input extends Component {
 }
 
 Input.propTypes = {
+  /** Set input's type. */
+  type: PropTypes.oneOf(['text', 'password']),
+  /** Set the value of the input. */
+  value: PropTypes.string,
+  /** Add placeholder text. */
+  placeholder: PropTypes.string,
   /** Visually change input to present error. */
   hasError: PropTypes.bool,
   /** Make input disabled. */
   isDisabled: PropTypes.bool,
   /** Append css classes to the Input. */
-  className: PropTypes.string,
-  htmlProps: PropTypes.object
+  className: PropTypes.string
 }
 
 Input.defaultProps = {
+  type: 'text',
+  value: '',
+  placeholder: '',
   hasError: false,
-  isDisabled: false,
-  htmlProps: {},
+  isDisabled: false
 }
 
 export default Input

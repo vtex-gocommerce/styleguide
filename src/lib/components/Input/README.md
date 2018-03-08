@@ -7,23 +7,23 @@ Plain text input
 Input with placeholder
 
 ```js
-<Input htmlProps={{ placeholder: 'Look this placeholder...' }} />
+<Input placeholder='Look this placeholder...' />
 ```
 
 Input with error
 
 ```js
-<Input htmlProps={{ value: 'This is so wrong' }} hasError />
+<Input value='This is so wrong' hasError />
 ```
 
 Input that is password
 
 ```js
-<Input htmlProps={{ type: 'password', value: 'topsecret' }} />
+<Input type='password' value='topsecret' />
 ```
 
 Disabled input
 
 ```js
-<Input htmlProps={{ value: 'Disabled' }} isDisabled />
+<Input value='Disabled' isDisabled />
 ```

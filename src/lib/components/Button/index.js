@@ -2,21 +2,25 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
 class Button extends Component {
+  handleClick = event => {
+    !this.props.isDisabled && this.props.onClick && this.props.onClick(event)
+  }
+
   render() {
     const { size, type, isDisabled } = this.props
 
-    let classes = 'br2 bw1 fw6 f3 '
+    let classes = 'br2 bw1 fw6 '
 
     switch (size) {
       case 'large':
-        classes += 'ph8 pv4 '
+        classes += 'ph8 pv4 f3 '
         break
       default:
       case 'normal':
-        classes += 'ph6 pv3 '
+        classes += 'ph6 pv3 f2 '
         break
       case 'small':
-        classes += 'ph4 pv2 '
+        classes += 'ph2 pv1 f1 '
         break
     }
 
@@ -26,14 +30,16 @@ class Button extends Component {
       switch (type) {
         default:
         case 'primary':
-          classes += 'ba b--blue hover-b--blue-80 bg-blue hover-bg-blue-80 white pointer '
+          classes += 'bg-animate ba b--blue hover-b--blue-80 bg-blue hover-bg-blue-80 white pointer '
           break
         case 'secondary':
-          classes += 'ba b--navy hover-b--navy-80 bg-navy hover-bg-navy-80 white pointer '
+          classes += 'bg-animate ba b--navy hover-b--navy-80 bg-navy hover-bg-navy-80 white pointer '
           break
         case 'outline':
-          classes += 'ba b--blue bg-transparent hover-bg-blue blue hover-white pointer '
+          classes += 'bg-animate ba b--blue bg-transparent hover-bg-blue-20 blue pointer '
           break
+        case 'danger':
+          classes += 'ba b--red bg-red dim white pointer '
       }
     }
 
@@ -42,7 +48,7 @@ class Button extends Component {
     }
 
     return (
-      <button type="button" className={classes} {...this.props.htmlProps} disabled={isDisabled}>
+      <button type="button" className={classes} disabled={isDisabled} onClick={this.handleClick}>
         {this.props.children}
       </button>
     )
@@ -56,9 +62,10 @@ Button.propTypes = {
   type: PropTypes.oneOf(['primary', 'secondary', 'outline']),
   /** Make button disabled. */
   isDisabled: PropTypes.bool,
+  /** Function that will be called when user click on button. */
+  handleClick: PropTypes.func,
   /** Append css classes to the button. */
   className: PropTypes.string,
-  htmlProps: PropTypes.object,
   children: PropTypes.node.isRequired,
 }
 
@@ -66,7 +73,6 @@ Button.defaultProps = {
   size: 'normal',
   type: 'primary',
   isDisabled: false,
-  htmlProps: {},
 }
 
 export default Button

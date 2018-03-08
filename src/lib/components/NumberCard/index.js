@@ -30,8 +30,7 @@ NumberCard.propTypes = {
   /** Icon that will be showed. */
   icon: PropTypes.element,
   /** Make input disabled. */
-  value: PropTypes.string.isRequired,
-  htmlProps: PropTypes.object
+  value: PropTypes.string.isRequired
 }
 
 NumberCard.defaultProps = {

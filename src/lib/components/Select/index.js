@@ -17,7 +17,7 @@ class Select extends Component {
   }
 
   render() {
-    const { placeholder, list, isDisabled, hasError } = this.props
+    const { placeholder, list, isDisabled, hasError, defaultValue } = this.props
     const { selectedOption } = this.state
     const value = selectedOption && selectedOption.value
 
@@ -41,8 +41,8 @@ class Select extends Component {
 
     return (
       <span className={styles.selectWrapper}>
-        <select className={classes} disabled={isDisabled} onChange={this.handleChange}>
-          <option value="" selected disabled hidden>{placeholder}</option>
+        <select className={classes} disabled={isDisabled} onChange={this.handleChange} defaultValue={defaultValue}>
+          <option value="" disabled hidden>{placeholder}</option>
           {list.map((el, index) => {
             return <option key={el.value} value={el.value} disabled={el.disabled}>{el.label}</option>
           })}
@@ -61,6 +61,8 @@ Select.propTypes = {
   hasError: PropTypes.bool,
   /** Make input disabled. */
   isDisabled: PropTypes.bool,
+  /** Defines default selected value. */
+  defaultValue: PropTypes.string,
   /** Append css classes to the Input. */
   className: PropTypes.string
 }
@@ -68,6 +70,7 @@ Select.propTypes = {
 Select.defaultProps = {
   placeholder: 'Select...',
   className: '',
+  defaultValue: ''
 }
 
 export default Select

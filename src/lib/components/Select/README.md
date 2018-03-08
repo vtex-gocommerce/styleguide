@@ -19,6 +19,17 @@ const Items = [
 <Select list={Items} />
 ```
 
+Select with default value
+
+```js
+const Items = [
+  {label: 'Apple', value: 'apple'},
+  {label: 'Banana', value: 'banana'},
+  {label: 'Orange', value: 'orange', disabled: true},
+];
+<Select list={Items} defaultValue="orange" />
+```
+
 Select with a **obviously** error
 
 ```js

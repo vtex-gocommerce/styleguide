@@ -1,5 +1,7 @@
 import Alert from './lib/components/Alert'
 import AuthButton from './lib/components/AuthButton'
+import Avatar from './lib/components/Avatar'
+import Badge from './lib/components/Badge'
 import Button from './lib/components/Button'
 import Input from './lib/components/Input'
 import NumberCard from './lib/components/NumberCard'
@@ -41,6 +43,8 @@ import IconWarning from './lib/icons/IconWarning'
 
 exports.Alert = Alert
 exports.AuthButton = AuthButton
+exports.Avatar = Avatar
+exports.Badge = Badge
 exports.Button = Button
 exports.Input = Input
 exports.NumberCard = NumberCard
