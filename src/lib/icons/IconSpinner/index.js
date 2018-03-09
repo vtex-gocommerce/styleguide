@@ -1,9 +1,9 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import FontAwesome from '@fortawesome/react-fontawesome'
 import icon from '@fortawesome/fontawesome-pro-regular/faSpinner'
 
-class IconSpinner extends Component {
+class IconSpinner extends PureComponent {
   render() {
     const { className, fixedWidth, spin, pulse } = this.props
 
@@ -12,11 +12,11 @@ class IconSpinner extends Component {
 }
 
 IconSpinner.propTypes = {
-  /** Spin icon. */
+  /** Makes icon spin. */
   spin: PropTypes.bool,
-  /** Pulse icon. */
+  /** Makes icon pulse. */
   pulse: PropTypes.bool,
-  /** Fix the icon width. */
+  /** Used a fixed width on icon. */
   fixedWidth: PropTypes.bool,
   className: PropTypes.string,
 }

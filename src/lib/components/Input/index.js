@@ -1,31 +1,28 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import styles from './style.css'
 
-class Input extends Component {
+class Input extends PureComponent {
   constructor(props) {
     super(props)
 
     this.state = {
       active: false,
-      value: props.value
+      value: props.value,
     }
   }
 
   handleChange = event => {
     const value = event.target.value
     this.setState({ value })
-    this.props.onChange && this.props.onChange(value)
   }
 
   handleFocus = event => {
     this.setState({ active: true })
-    this.props.onFocus && this.props.onFocus(event)
   }
 
   handleBlur = event => {
     this.setState({ active: false })
-    this.props.onBlur && this.props.onBlur(event)
   }
 
   render() {
@@ -33,22 +30,10 @@ class Input extends Component {
     const { value } = this.state
 
     let classes = `${styles.input} pa3 ba br1 `
-
-    if (isDisabled || hasError) {
-      if (isDisabled) {
-        classes += 'b--navy-40 bg-navy-20 navy-80 '
-      }
-
-      if (hasError) {
-        classes += 'b--red bg-red-light red '
-      }
-    } else {
-      classes += 'b--navy-40 hover-b--navy-60 bg-white navy '
-    }
-
-    if (this.props.className) {
-      classes += this.props.className
-    }
+    if (isDisabled) classes += 'b--navy-40 bg-navy-20 navy-80 '
+    if (hasError) classes += 'b--red bg-red-light red '
+    if (!isDisabled || !hasError) classes += 'b--navy-40 hover-b--navy-60 bg-white navy '
+    if (this.props.className) classes += this.props.className
 
     return (
       <input
@@ -77,7 +62,7 @@ Input.propTypes = {
   /** Make input disabled. */
   isDisabled: PropTypes.bool,
   /** Append css classes to the Input. */
-  className: PropTypes.string
+  className: PropTypes.string,
 }
 
 Input.defaultProps = {
@@ -85,7 +70,7 @@ Input.defaultProps = {
   value: '',
   placeholder: '',
   hasError: false,
-  isDisabled: false
+  isDisabled: false,
 }
 
 export default Input

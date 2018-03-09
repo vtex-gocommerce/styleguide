@@ -1,20 +1,17 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 
-class Avatar extends Component {
+class Avatar extends PureComponent {
   render() {
     const { size, img, letters, alt } = this.props
-    let areaSize = `${size}px`
-    let content = ''
+    const areaSize = `${size}px`
+    const letterFontSize = `${(size / 2.25)}px`
 
-    if (img) {
-      content = <div className="cover bg-top br-100" style={{ width: areaSize, height: areaSize, backgroundImage: `url(${img})` }}></div>
-    } else {
-      const letterFontSize = `${(size / 2.25)}px`
-      content = <div className="flex justify-center items-center br-100 bg-blue fw6 white" alt={alt} style={{ width: areaSize, height: areaSize, fontSize: letterFontSize }}>{letters}</div>
-    }
-
-    return content
+    return img ? (
+      <div className="cover bg-top br-100" style={{ width: areaSize, height: areaSize, backgroundImage: `url(${img})` }}></div>
+    ) : (
+      <div className="flex justify-center items-center br-100 bg-blue fw6 white" alt={alt} style={{ width: areaSize, height: areaSize, fontSize: letterFontSize }}>{letters}</div>
+    )
   }
 }
 
@@ -26,7 +23,7 @@ Avatar.propTypes = {
   /** Letters to show, recommended 2 letters. **Only show if no image is sent.** */
   letters: PropTypes.string,
   /** Alternative text for the image. */
-  alt: PropTypes.string.isRequired
+  alt: PropTypes.string.isRequired,
 }
 
 Avatar.defaultProps = {

@@ -1,9 +1,9 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import FontAwesome from '@fortawesome/react-fontawesome'
 import icon from '@fortawesome/fontawesome-pro-regular/faEdit'
 
-class IconEdit extends Component {
+class IconEdit extends PureComponent {
   render() {
     const { className, fixedWidth } = this.props
 
@@ -12,7 +12,7 @@ class IconEdit extends Component {
 }
 
 IconEdit.propTypes = {
-  /** Fix the icon width. */
+  /** Used a fixed width on icon. */
   fixedWidth: PropTypes.bool,
   className: PropTypes.string,
 }

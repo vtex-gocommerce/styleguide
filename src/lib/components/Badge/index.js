@@ -1,37 +1,24 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
-import IconClose from '../../icons/IconCloseAlt'
 import styles from './style.css'
 
-class Badge extends Component {
+class Badge extends PureComponent {
   render() {
     const { outline, icon } = this.props
     const Icon = (props) => (icon)
 
-    let content
     let classes = 'ba bw1 b--red br-pill fw5 f1 '
+    classes += outline ? 'bg-transparent red ' : 'bg-red white '
+    classes += icon ? 'absolute' : 'ph2 pv f2'
 
-    if (outline) {
-      classes += 'bg-transparent red '
-    } else {
-      classes += 'bg-red white '
-    }
+    const badge = <span className={classes}>{this.props.children}</span>
 
-
-    if (icon) {
-      classes += 'absolute'
-      content = (
-        <span className={`${styles.badgeBox} relative blue`}>
-          <span className={classes}>{this.props.children}</span>
-          <Icon />
-        </span>
-      )
-    } else {
-      classes += 'ph2 pv f2'
-      content = <span className={classes}>{this.props.children}</span>
-    }
-
-    return content
+    return icon ? (
+      <span className={`${styles.badgeBox} relative blue`}>
+        {badge}
+        <Icon />
+      </span>
+    ) : badge
   }
 }
 
@@ -45,6 +32,7 @@ Badge.propTypes = {
 
 Badge.defaultProps = {
   outline: false,
+  icon: false,
 }
 
 export default Badge

@@ -1,9 +1,9 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import FontAwesome from '@fortawesome/react-fontawesome'
 import icon from '@fortawesome/fontawesome-free-brands/faGoogle'
 
-class IconGoogle extends Component {
+class IconGoogle extends PureComponent {
   render() {
     const { className, fixedWidth } = this.props
 
@@ -12,7 +12,7 @@ class IconGoogle extends Component {
 }
 
 IconGoogle.propTypes = {
-  /** Fix the icon width. */
+  /** Used a fixed width on icon. */
   fixedWidth: PropTypes.bool,
   className: PropTypes.string,
 }
