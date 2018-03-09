@@ -59,7 +59,7 @@ Button.propTypes = {
   /** Define the size of the button. */
   size: PropTypes.oneOf(['small', 'normal', 'large']),
   /** Define how the button will look. */
-  type: PropTypes.oneOf(['primary', 'secondary', 'outline']),
+  type: PropTypes.oneOf(['primary', 'secondary', 'outline', 'danger']),
   /** Make button disabled. */
   isDisabled: PropTypes.bool,
   /** Function that will be called when user click on button. */

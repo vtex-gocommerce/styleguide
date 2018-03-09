@@ -8,8 +8,10 @@ import iconLight from '@fortawesome/fontawesome-pro-light/faTrashAlt'
 class IconTrash extends Component {
   render() {
     const { className, fixedWidth, style } = this.props
-    let icon = null
+    let icon
+
     switch (style) {
+      default:
       case 'solid':
         icon = iconSolid
         break
@@ -19,9 +21,8 @@ class IconTrash extends Component {
       case 'light':
         icon = iconLight
         break
-      default:
-        icon = iconSolid
     }
+
     return <FontAwesome className={className} icon={icon} fixedWidth={fixedWidth} />
   }
 }
@@ -29,9 +30,9 @@ class IconTrash extends Component {
 IconTrash.propTypes = {
   /** Fix the icon width. */
   fixedWidth: PropTypes.bool,
-  className: PropTypes.string,
-  /** solid | regular | light */
-  style: PropTypes.string,
+  /** Defines which font style will be used */
+  style: PropTypes.oneOf(['solid', 'regular', 'light']),
+  className: PropTypes.string
 }
 
 IconTrash.defaultProps = {
