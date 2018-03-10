@@ -6,7 +6,7 @@ class NumberCard extends Component {
     const { title, icon, value } = this.props
     const Icon = (props) => (icon)
 
-    let classes = 'br2 bg-white pa9'
+    const classes = 'br2 bg-white pa9'
 
     return (
       <div className={classes}>
@@ -28,14 +28,9 @@ NumberCard.propTypes = {
   /** Title of the card. */
   title: PropTypes.string.isRequired,
   /** Icon that will be showed. */
-  icon: PropTypes.element,
+  icon: PropTypes.element.isRequired,
   /** Make input disabled. */
-  value: PropTypes.string.isRequired
-}
-
-NumberCard.defaultProps = {
-  title: '',
-  value: ''
+  value: PropTypes.string.isRequired,
 }
 
 export default NumberCard

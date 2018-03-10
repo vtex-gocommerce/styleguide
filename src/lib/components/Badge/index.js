@@ -33,7 +33,7 @@ Badge.propTypes = {
 
 Badge.defaultProps = {
   outline: false,
-  icon: false,
+  icon: null,
 }
 
 export default Badge

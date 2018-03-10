@@ -57,11 +57,11 @@ Select.propTypes = {
 }
 
 Select.defaultProps = {
+  name: null,
   placeholder: 'Select...',
   hasError: false,
   isDisabled: false,
   defaultValue: '',
-  className: '',
 }
 
 export default Select

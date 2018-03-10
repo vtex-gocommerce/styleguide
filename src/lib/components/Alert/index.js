@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import IconSuccess from '../../icons/IconSuccess'
 import IconWarning from '../../icons/IconWarning'
@@ -6,7 +6,26 @@ import IconDanger from '../../icons/IconDanger'
 import IconInfo from '../../icons/IconInfo'
 import IconClose from '../../icons/IconCloseAlt'
 
-class Alert extends Component {
+const types = {
+  success: {
+    icon: IconSuccess,
+    classes: 'b--green bg-green-light green',
+  },
+  warning: {
+    icon: IconWarning,
+    classes: 'b--yellow bg-yellow-light yellow',
+  },
+  error: {
+    icon: IconDanger,
+    classes: 'b--red bg-red-light red',
+  },
+  info: {
+    icon: IconInfo,
+    classes: 'b--blue bg-blue-20 blue',
+  },
+}
+
+class Alert extends PureComponent {
   componentDidMount() {
     if (this.props.autoClose && this.props.onClose) {
       this.timeout = setTimeout(this.props.onClose, this.props.autoClose)
@@ -19,48 +38,18 @@ class Alert extends Component {
 
   render() {
     const { type, onClose } = this.props
-    let classes = 'pa3 ba br2 tc '
-    const closeClass = ''
-    let showIcon = false
-    let Icon
-
-    switch (type) {
-      case 'success': {
-        showIcon = true
-        classes += 'b--green bg-green-light green '
-        Icon = IconSuccess
-        break
-      }
-      case 'error': {
-        showIcon = true
-        classes += 'b--red bg-red-light red '
-        Icon = IconDanger
-        break
-      }
-      case 'warning': {
-        showIcon = true
-        classes += 'b--yellow bg-yellow-light yellow '
-        Icon = IconWarning
-        break
-      }
-      default: {
-        showIcon = true
-        classes += 'b--blue bg-blue-20 blue '
-        Icon = IconInfo
-        break
-      }
-    }
+    const classes = `pa3 ba br2 tc ${types[type].classes}`
+    const Icon = types[type].icon
 
     return (
       <div className={`flex items-center ${classes}`}>
         <div className="w-100">
-          {showIcon && <Icon />}
-
-          <span className={showIcon ? 'ph3' : ''}>{this.props.children}</span>
+          <Icon />
+          <span className="ph3">{this.props.children}</span>
         </div>
 
         {onClose && (
-          <div className={`pointer ${closeClass}`} onClick={onClose}>
+          <div className="pointer" onClick={onClose}>
             <IconClose />
           </div>
         )}
@@ -71,7 +60,7 @@ class Alert extends Component {
 
 Alert.propTypes = {
   /** Define how the alert will look. */
-  type: PropTypes.oneOf(['success', 'error', 'warning', 'info', 'info-dark']),
+  type: PropTypes.oneOf(['success', 'error', 'warning', 'info']),
   /** Function that will be called when user click to close Alert. */
   onClose: PropTypes.func,
   /** Set a timeout for alert execute **onClose** function. */
@@ -81,6 +70,8 @@ Alert.propTypes = {
 
 Alert.defaultProps = {
   type: 'info',
+  onClose: null,
+  autoClose: null,
 }
 
 export default Alert

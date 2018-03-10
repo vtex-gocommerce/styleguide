@@ -52,6 +52,7 @@ Button.defaultProps = {
   size: 'normal',
   type: 'primary',
   isDisabled: false,
+  onClick: null,
 }
 
 export default Button

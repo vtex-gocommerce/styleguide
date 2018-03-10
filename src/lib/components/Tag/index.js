@@ -28,7 +28,7 @@ Tag.propTypes = {
 
 Tag.defaultProps = {
   count: null,
-  onRemove: null
+  onRemove: null,
 }
 
 export default Tag

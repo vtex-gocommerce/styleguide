@@ -6,6 +6,7 @@ import Button from './lib/components/Button'
 import Input from './lib/components/Input'
 import NumberCard from './lib/components/NumberCard'
 import Select from './lib/components/Select'
+import Status from './lib/components/Status'
 import Tag from './lib/components/Tag'
 import IconAdd from './lib/icons/IconAdd'
 import IconArc from './lib/icons/IconArc'
@@ -49,6 +50,7 @@ exports.Button = Button
 exports.Input = Input
 exports.NumberCard = NumberCard
 exports.Select = Select
+exports.Status = Status
 exports.Tag = Tag
 exports.IconAdd = IconAdd
 exports.IconArc = IconArc

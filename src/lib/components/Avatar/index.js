@@ -28,6 +28,8 @@ Avatar.propTypes = {
 
 Avatar.defaultProps = {
   size: 36,
+  img: null,
+  letters: 'GC',
 }
 
 export default Avatar
