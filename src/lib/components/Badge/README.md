@@ -1,7 +1,7 @@
 Badge
 
 ```js
-<Badge>5</Badge>
+<Badge count={5} />
 ```
 
 Badge with Icon
@@ -9,10 +9,10 @@ Badge with Icon
 ```js
 <div>
     <div className="dib mr10">
-        <Badge icon={<IconBell className="f4 blue" fixedWidth />}>8</Badge>
+        <Badge count={8} icon={<IconBell className="f4 blue" fixedWidth />} />
     </div>
     <div className="dib">
-        <Badge icon={<IconFilter className="f4 blue" fixedWidth />}>56</Badge>
+        <Badge count={56} icon={<IconFilter className="f4 blue" fixedWidth />} />
     </div>
 </div>
 ```
@@ -20,5 +20,5 @@ Badge with Icon
 Outline
 
 ```js
-<Badge outline>3</Badge>
+<Badge count={3} outline />
 ```
