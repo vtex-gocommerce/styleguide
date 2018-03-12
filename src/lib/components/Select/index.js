@@ -24,17 +24,16 @@ class Select extends PureComponent {
     if (isDisabled) classes += 'b--navy-40 bg-navy-20 navy-80 '
     if (hasError) classes += 'b--red bg-red-light red '
     if (!isDisabled && !hasError) classes += 'b--navy-40 hover-b--navy-60 bg-white navy '
-    if (this.props.className) classes += this.props.className
 
     return (
-      <span className={styles.selectWrapper}>
+      <div className={`${styles.selectWrapper} ${this.props.className}`}>
         <select name={name} className={classes} disabled={isDisabled} onChange={this.handleChange} value={value}>
           <option value="" disabled hidden>{placeholder}</option>
           {list.map((item, index) => {
             return <option key={item.value} value={item.value} disabled={item.disabled}>{item.label}</option>
           })}
         </select>
-      </span>
+      </div >
     )
   }
 }
@@ -52,7 +51,7 @@ Select.propTypes = {
   isDisabled: PropTypes.bool,
   /** Receive a key from the list to be the default value. */
   defaultValue: PropTypes.string,
-  /** Append css classes to the Input. */
+  /** Append css classes to the select wrapper. */
   className: PropTypes.string,
 }
 

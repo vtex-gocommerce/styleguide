@@ -25,7 +25,7 @@ Select with default value
 const Items = [
   {label: 'Apple', value: 'apple'},
   {label: 'Banana', value: 'banana'},
-  {label: 'Orange', value: 'orange', disabled: true},
+  {label: 'Orange', value: 'orange'},
 ];
 <Select list={Items} defaultValue="orange" />
 ```

@@ -10,6 +10,7 @@
   appearance: none;
   min-width: 195px;
   padding-right: 20px;
+  width: 100%;
 }
 
 .selectWrapper::before {
