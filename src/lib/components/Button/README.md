@@ -1,25 +1,25 @@
 Primary (Default)
 
 ```js
-<Button type="primary">Primary</Button>
+<Button style="primary">Primary</Button>
 ```
 
 Secondary
 
 ```js
-<Button type="secondary">Secondary</Button>
+<Button style="secondary">Secondary</Button>
 ```
 
 Danger
 
 ```js
-<Button type="danger">Danger</Button>
+<Button style="danger">Danger</Button>
 ```
 
 Outline
 
 ```js
-<Button type="outline">Outline</Button>
+<Button style="outline">Outline</Button>
 ```
 
 Disabled
@@ -34,20 +34,20 @@ Button with action
 <Button onClick={() => console.log('Clicked!')}>Click me!</Button>
 ```
 
-Button Types
+Button styles
 
 ```js
 <div>
-  <Button className="mr2" type="primary">
+  <Button className="mr2" style="primary">
     Primary
   </Button>
-  <Button className="mr2" type="secondary">
+  <Button className="mr2" style="secondary">
     Secondary
   </Button>
-  <Button className="mr2" type="danger">
+  <Button className="mr2" style="danger">
     Danger
   </Button>
-  <Button className="mr2" type="outline">
+  <Button className="mr2" style="outline">
     Outline
   </Button>
   <Button isDisabled>Disabled</Button>
@@ -72,7 +72,7 @@ Icon Buttons
 
 ```js
 <div>
-  <Button type="danger" className="mr2">
+  <Button style="danger" className="mr2">
     <IconClose />
   </Button>
   <Button className="mr2" isDisabled>
