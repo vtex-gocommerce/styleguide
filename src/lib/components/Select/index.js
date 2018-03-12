@@ -14,6 +14,15 @@ class Select extends PureComponent {
   handleChange = event => {
     const value = event.target.value
     this.setState({ value })
+    this.props.onChange && this.props.onChange(event)
+  }
+
+  handleFocus = event => {
+    this.props.onFocus && this.props.onFocus(event)
+  }
+
+  handleBlur = event => {
+    this.props.onBlur && this.props.onBlur(event)
   }
 
   render() {
@@ -27,7 +36,7 @@ class Select extends PureComponent {
 
     return (
       <div className={`${styles.selectWrapper} ${this.props.className}`}>
-        <select name={name} className={classes} disabled={isDisabled} onChange={this.handleChange} value={value}>
+        <select name={name} className={classes} disabled={isDisabled} onChange={this.handleChange} onFocus={this.handleFocus} onBlur={this.handleBlur} value={value}>
           <option value="" disabled hidden>{placeholder}</option>
           {list.map((item, index) => {
             return <option key={item.value} value={item.value} disabled={item.disabled}>{item.label}</option>
@@ -51,6 +60,12 @@ Select.propTypes = {
   isDisabled: PropTypes.bool,
   /** Receive a key from the list to be the default value. */
   defaultValue: PropTypes.string,
+  /** Callback on change */
+  onChange: PropTypes.func,
+  /** Callback on focus */
+  onFocus: PropTypes.func,
+  /** Callback on blur */
+  onBlur: PropTypes.func,
   /** Append css classes to the select wrapper. */
   className: PropTypes.string,
 }

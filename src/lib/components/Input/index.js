@@ -7,22 +7,22 @@ class Input extends PureComponent {
     super(props)
 
     this.state = {
-      active: false,
-      value: props.value,
+      value: props.value
     }
   }
 
   handleChange = event => {
     const value = event.target.value
     this.setState({ value })
+    this.props.onChange && this.props.onChange(event)
   }
 
   handleFocus = event => {
-    this.setState({ active: true })
+    this.props.onFocus && this.props.onFocus(event)
   }
 
   handleBlur = event => {
-    this.setState({ active: false })
+    this.props.onBlur && this.props.onBlur(event)
   }
 
   render() {
@@ -52,7 +52,7 @@ class Input extends PureComponent {
 
 Input.propTypes = {
   /** Set input's type. */
-  type: PropTypes.oneOf(['text', 'password']),
+  type: PropTypes.oneOf(['text', 'password', 'tel']),
   /** Set the value of the input. */
   value: PropTypes.string,
   /** Add placeholder text. */
@@ -61,6 +61,12 @@ Input.propTypes = {
   hasError: PropTypes.bool,
   /** Make input disabled. */
   isDisabled: PropTypes.bool,
+  /** Callback on change */
+  onChange: PropTypes.func,
+  /** Callback on focus */
+  onFocus: PropTypes.func,
+  /** Callback on blur */
+  onBlur: PropTypes.func,
   /** Append css classes to the Input. */
   className: PropTypes.string,
 }
@@ -71,6 +77,7 @@ Input.defaultProps = {
   placeholder: '',
   hasError: false,
   isDisabled: false,
+  onChange: null
 }
 
 export default Input

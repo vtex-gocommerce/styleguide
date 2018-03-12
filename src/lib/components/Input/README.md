@@ -22,6 +22,12 @@ Input that is password
 <Input type='password' value='topsecret' />
 ```
 
+Input Tel
+
+```js
+<Input type='tel' value='1234124' />
+```
+
 Disabled input
 
 ```js
