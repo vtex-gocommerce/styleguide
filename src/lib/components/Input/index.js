@@ -36,7 +36,7 @@ class Input extends PureComponent {
     let classes = `${styles.input} pa3 ba br1 `
     if (isDisabled) classes += 'b--navy-40 bg-navy-20 navy-80 '
     if (hasError) classes += 'b--red bg-red-light red '
-    if (!isDisabled || !hasError) classes += 'b--navy-40 hover-b--navy-60 bg-white navy '
+    if (!isDisabled && !hasError) classes += 'b--navy-40 hover-b--navy-60 bg-white navy '
     if (this.props.className) classes += this.props.className
 
     return (
