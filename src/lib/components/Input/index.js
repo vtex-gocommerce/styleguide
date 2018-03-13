@@ -11,11 +11,14 @@ class Input extends PureComponent {
     }
   }
 
-  handleChange = event => {
-    this.props.onChange && this.props.onChange(event)
+  componentWillReceiveProps = (nextProps) => {
+    if (nextProps.value != this.props.value) this.setState({ value: nextProps.value })
+  }
 
+  handleChange = event => {
     const value = event.target.value
     this.setState({ value })
+    this.props.onChange && this.props.onChange(event)
   }
 
   handleFocus = event => {

@@ -53,7 +53,7 @@ Button.propTypes = {
   onClick: PropTypes.func,
   /** Append css classes to the button. */
   className: PropTypes.string,
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node,
 }
 
 Button.defaultProps = {
