@@ -5,6 +5,7 @@ import IconWarning from '../../icons/IconWarning'
 import IconDanger from '../../icons/IconDanger'
 import IconInfo from '../../icons/IconInfo'
 import IconClose from '../../icons/IconCloseAlt'
+import styles from './style.css'
 
 const types = {
   success: {
@@ -38,18 +39,17 @@ class Alert extends PureComponent {
 
   render() {
     const { type, onClose } = this.props
-    const classes = `pa3 ba br2 tc ${types[type].classes}`
+    const classes = `relative pa3 ba br2 ${types[type].classes}`
     const Icon = types[type].icon
 
     return (
-      <div className={`flex items-center ${classes}`}>
-        <div className="w-100">
+      <div className={classes}>
+        <div className="flex justify-center items-center mr3">
           <Icon />
-          <span className="ph3">{this.props.children}</span>
+          <div className="ph3">{this.props.children}</div>
         </div>
-
         {onClose && (
-          <div className="pointer" onClick={onClose}>
+          <div className={`${styles.close} absolute pointer`} onClick={onClose}>
             <IconClose />
           </div>
         )}

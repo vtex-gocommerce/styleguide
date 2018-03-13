@@ -72,14 +72,10 @@ Icon Buttons
 
 ```js
 <div>
-  <Button style="danger" className="mr2">
-    <IconClose />
-  </Button>
-  <Button className="mr2" isDisabled>
-    <IconSpinner pulse />
-  </Button>
-  <Button className="mr2">
-    <IconAdd className="mr2" /> Add Product
+  <Button style="danger" icon={<IconClose />} className="mr2" />
+  <Button className="mr2" icon={<IconSpinner pulse />} isDisabled />
+  <Button className="mr2" icon={<IconAdd className="mr2" />}>
+    Add Product
   </Button>
 </div>
 ```

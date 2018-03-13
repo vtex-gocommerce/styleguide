@@ -19,7 +19,7 @@ class AuthButton extends PureComponent {
 
     return (
       <a href={url} className={classes}>
-        <Icon className="mr2" fixedWidth />
+        <Icon className="mr3" />
         {this.props.children}
       </a>
     )

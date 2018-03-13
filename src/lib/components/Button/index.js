@@ -20,7 +20,8 @@ class Button extends PureComponent {
   }
 
   render() {
-    const { size, style, type, isDisabled } = this.props
+    const { size, style, type, isDisabled, icon } = this.props
+    const Icon = (props) => (icon)
 
     let classes = `br2 bw1 fw6 ${sizes[size]}`
     classes += isDisabled ? 'ba b--navy-20 bg-navy-20 navy-60 ' : `${styles[style]} `
@@ -28,7 +29,10 @@ class Button extends PureComponent {
 
     return (
       <button type={type} className={classes} disabled={isDisabled} onClick={this.handleClick}>
-        {this.props.children}
+        <span className="flex items-center">
+          {icon && <Icon />}
+          {this.props.children}
+        </span>
       </button>
     )
   }
@@ -43,6 +47,8 @@ Button.propTypes = {
   type: PropTypes.oneOf(['button', 'submit', 'reset']),
   /** Make button disabled. */
   isDisabled: PropTypes.bool,
+  /** Add icon to a button. */
+  icon: PropTypes.element,
   /** Function that will be called when user click on button. */
   onClick: PropTypes.func,
   /** Append css classes to the button. */

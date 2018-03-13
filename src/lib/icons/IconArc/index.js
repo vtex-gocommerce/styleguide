@@ -5,9 +5,10 @@ import icon from '@fortawesome/fontawesome-pro-regular/faSpinnerThird'
 
 class IconArc extends PureComponent {
   render() {
-    const { className, fixedWidth, spin, pulse } = this.props
+    const { className, ignoreSize, spin, pulse, width, height } = this.props
+    const style = !ignoreSize ? { width: width, height: height } : {}
 
-    return <FontAwesome className={className} icon={icon} fixedWidth={fixedWidth} spin={spin} pulse={pulse} />
+    return <FontAwesome className={className} icon={icon} spin={spin} pulse={pulse} style={style} />
   }
 }
 
@@ -16,15 +17,21 @@ IconArc.propTypes = {
   spin: PropTypes.bool,
   /** Make icon pulse. */
   pulse: PropTypes.bool,
-  /** Used a fixed width on icon. */
-  fixedWidth: PropTypes.bool,
+  /** Ignore fixed width and height. */
+  ignoreSize: PropTypes.bool,
+  /** Define width of the icon. */
+  width: PropTypes.string,
+  /** Define height of the icon. */
+  height: PropTypes.string,
   className: PropTypes.string,
 }
 
 IconArc.defaultProps = {
   spin: false,
   pulse: false,
-  fixedWidth: false,
+  ignoreSize: false,
+  height: '16px',
+  width: '16px',
   className: '',
 }
 

@@ -1,5 +1,14 @@
+.badgeBox {
+    position: relative;
+}
+
+.badgeBox svg {
+    height: 100% !important;
+    width: 100% !important;
+}
+
 .badgeBox span {
-    left: 12px;
-    top: -8px;
+    left: 50%;
+    top: -20%;
     padding: 2px 4px;
 }

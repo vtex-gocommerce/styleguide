@@ -5,23 +5,30 @@ import icon from '@fortawesome/fontawesome-pro-regular/faCog'
 
 class IconSettings extends PureComponent {
   render() {
-    const { className, fixedWidth, spin } = this.props
+    const { className, ignoreSize, spin, width, height } = this.props
+    const style = !ignoreSize ? { width: width, height: height } : {}
 
-    return <FontAwesome className={className} icon={icon} fixedWidth={fixedWidth} spin={spin} />
+    return <FontAwesome className={className} icon={icon} spin={spin} style={style} />
   }
 }
 
 IconSettings.propTypes = {
   /** Make icon spin. */
   spin: PropTypes.bool,
-  /** Used a fixed width on icon. */
-  fixedWidth: PropTypes.bool,
+  /** Ignore fixed width and height. */
+  ignoreSize: PropTypes.bool,
+  /** Define width of the icon. */
+  width: PropTypes.string,
+  /** Define height of the icon. */
+  height: PropTypes.string,
   className: PropTypes.string,
 }
 
 IconSettings.defaultProps = {
   spin: false,
-  fixedWidth: false,
+  ignoreSize: false,
+  height: '16px',
+  width: '16px',
   className: '',
 }
 

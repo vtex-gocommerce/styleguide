@@ -5,25 +5,27 @@ import icon from '@fortawesome/fontawesome-pro-regular/faPlusCircle'
 
 class IconAdd extends PureComponent {
   render() {
-    const { className, fixedWidth, width, height } = this.props
-    const style = { width: width, height: height }
+    const { className, ignoreSize, width, height } = this.props
+    const style = !ignoreSize ? { width: width, height: height } : {}
 
-    return <FontAwesome className={className} icon={icon} fixedWidth={fixedWidth} style={style} />
+    return <FontAwesome className={className} icon={icon} style={style} />
   }
 }
 
 IconAdd.propTypes = {
-  /** Used a fixed width on icon. */
-  fixedWidth: PropTypes.bool,
+  /** Ignore fixed width and height. */
+  ignoreSize: PropTypes.bool,
   /** Define width of the icon. */
-  width: PropTypes.string.isRequired,
+  width: PropTypes.string,
   /** Define height of the icon. */
-  height: PropTypes.string.isRequired,
+  height: PropTypes.string,
   className: PropTypes.string,
 }
 
 IconAdd.defaultProps = {
-  fixedWidth: false,
+  ignoreSize: false,
+  height: '16px',
+  width: '16px',
   className: '',
 }
 

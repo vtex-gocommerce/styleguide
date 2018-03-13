@@ -5,14 +5,16 @@ import IconClose from '../../icons/IconCloseAlt'
 class Tag extends PureComponent {
   render() {
     const { count, onRemove } = this.props
-    let classes = 'ph2 fw5 pv1 br2 bg-blue white f2 '
+    let classes = 'dib ph2 fw5 pv1 br2 bg-blue white f2 '
     if (onRemove) classes += 'hover-bg-red pointer'
 
     return (
       <span className={classes} onClick={onRemove}>
-        {this.props.children}
-        {count && <span className="ml2 ph2 bg-white br-pill f1 blue">{count}</span>}
-        {onRemove && <IconClose className="ml2" />}
+        <span className="flex items-center">
+          {this.props.children}
+          {count && <span className="ml2 ph2 bg-white br-pill f1 blue">{count}</span>}
+          {onRemove && <IconClose className="ml2" ignoreSize />}
+        </span>
       </span>
     )
   }

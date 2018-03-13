@@ -12,9 +12,10 @@ class Select extends PureComponent {
   }
 
   handleChange = event => {
+    this.props.onChange && this.props.onChange(event)
+
     const value = event.target.value
     this.setState({ value })
-    this.props.onChange && this.props.onChange(event)
   }
 
   handleFocus = event => {
@@ -59,7 +60,7 @@ Select.propTypes = {
   /** Make input disabled. */
   isDisabled: PropTypes.bool,
   /** Receive a key from the list to be the default value. */
-  defaultValue: PropTypes.string,
+  defaultValue: PropTypes.any,
   /** Callback on change */
   onChange: PropTypes.func,
   /** Callback on focus */

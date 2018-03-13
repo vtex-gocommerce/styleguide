@@ -9,10 +9,13 @@ Badge with Icon
 ```js
 <div>
     <div className="dib mr10">
-        <Badge count={8} icon={<IconBell className="f4 blue" fixedWidth />} />
+        <Badge count={8} size={16} icon={<IconBell ignoreSize />} />
+    </div>
+    <div className="dib mr10">
+        <Badge count={56} size={32} icon={<IconFilter width="64px" height="64px"/>} />
     </div>
     <div className="dib">
-        <Badge count={56} icon={<IconFilter className="f4 blue" fixedWidth />} />
+        <Badge count={565} size={64} icon={<IconFilter />} />
     </div>
 </div>
 ```

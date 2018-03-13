@@ -12,9 +12,10 @@ class Input extends PureComponent {
   }
 
   handleChange = event => {
+    this.props.onChange && this.props.onChange(event)
+
     const value = event.target.value
     this.setState({ value })
-    this.props.onChange && this.props.onChange(event)
   }
 
   handleFocus = event => {
@@ -54,7 +55,7 @@ Input.propTypes = {
   /** Set input's type. */
   type: PropTypes.oneOf(['text', 'password', 'tel']),
   /** Set the value of the input. */
-  value: PropTypes.string,
+  value: PropTypes.any,
   /** Add placeholder text. */
   placeholder: PropTypes.string,
   /** Visually change input to present error. */
