@@ -12,14 +12,13 @@ class Select extends PureComponent {
   }
 
   componentWillReceiveProps = (nextProps) => {
-    if (nextProps.value != this.props.value) this.setState({ value: nextProps.value })
+    if (nextProps.value !== this.props.value) this.setState({ value: nextProps.value })
   }
 
   handleChange = event => {
-    this.props.onChange && this.props.onChange(event)
-
     const value = event.target.value
     this.setState({ value })
+    this.props.onChange && this.props.onChange(event)
   }
 
   handleFocus = event => {

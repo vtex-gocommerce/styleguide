@@ -49,4 +49,3 @@ const Items = [
 ];
 <Select placeholder="Don't choose anything!" list={Items} isDisabled />
 ```
-
