@@ -56,7 +56,7 @@ class Input extends PureComponent {
 
 Input.propTypes = {
   /** Set input's type. */
-  type: PropTypes.oneOf(['text', 'password', 'tel']),
+  type: PropTypes.oneOf(['text', 'password', 'tel', 'hidden']),
   /** Set the value of the input. */
   value: PropTypes.any,
   /** Add placeholder text. */
