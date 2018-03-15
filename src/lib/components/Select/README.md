@@ -30,6 +30,17 @@ const Items = [
 <Select list={Items} defaultValue="orange" />
 ```
 
+Don't allow select first null value
+
+```js
+const Items = [
+  {label: 'Apple', value: 'apple'},
+  {label: 'Banana', value: 'banana'},
+  {label: 'Orange', value: 'orange'},
+];
+<Select list={Items} required={true} />
+```
+
 Select with a **obviously** error
 
 ```js

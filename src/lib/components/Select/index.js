@@ -30,7 +30,7 @@ class Select extends PureComponent {
   }
 
   render() {
-    const { name, placeholder, list, isDisabled, hasError } = this.props
+    const { name, placeholder, list, isDisabled, hasError, required } = this.props
     const { value } = this.state
 
     let classes = 'pa3 ba br1 '
@@ -41,12 +41,12 @@ class Select extends PureComponent {
     return (
       <div className={`${styles.selectWrapper} ${this.props.className}`}>
         <select name={name} className={classes} disabled={isDisabled} onChange={this.handleChange} onFocus={this.handleFocus} onBlur={this.handleBlur} value={value}>
-          <option value="" disabled hidden>{placeholder}</option>
+          <option value="" disabled={required}>{placeholder}</option>
           {list.map((item, index) => {
             return <option key={item.value} value={item.value} disabled={item.disabled}>{item.label}</option>
           })}
         </select>
-      </div >
+      </div>
     )
   }
 }
@@ -60,6 +60,8 @@ Select.propTypes = {
   list: PropTypes.array.isRequired,
   /** Visually change input to show error. */
   hasError: PropTypes.bool,
+  /** Allow select value blank */
+  required: PropTypes.bool,
   /** Make input disabled. */
   isDisabled: PropTypes.bool,
   /** Receive a key from the list to be the default value. */
@@ -80,6 +82,7 @@ Select.defaultProps = {
   hasError: false,
   isDisabled: false,
   defaultValue: '',
+  required: false,
 }
 
 export default Select
