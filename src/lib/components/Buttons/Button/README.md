@@ -1,41 +1,3 @@
-Primary (Default)
-
-```js
-<Button style="primary">Primary</Button>
-```
-
-Secondary
-
-```js
-<Button style="secondary">Secondary</Button>
-```
-
-Danger
-
-```js
-<Button style="danger">Danger</Button>
-```
-
-Outline
-
-```js
-<Button style="outline">Outline</Button>
-```
-
-Disabled
-
-```js
-<Button isDisabled>Disabled</Button>
-```
-
-Button with action
-
-```js
-<Button onClick={() => console.log('Clicked!')}>Click me!</Button>
-```
-
-Button styles
-
 ```js
 <div>
   <Button className="mr2" style="primary">
@@ -78,4 +40,10 @@ Icon Buttons
     Add Product
   </Button>
 </div>
+```
+
+Button with action
+
+```js
+<Button onClick={() => console.log('Clicked!')}>Click me!</Button>
 ```

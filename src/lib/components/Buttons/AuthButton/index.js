@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
-import IconGoogle from '../../icons/IconGoogle'
+import IconGoogle from '../../../icons/IconGoogle'
 
 const providers = {
   google: {

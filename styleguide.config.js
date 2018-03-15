@@ -10,15 +10,40 @@ module.exports = {
     '@fortawesome/fontawesome-pro-solid',
     '@fortawesome/react-fontawesome'
   ],
-  showUsage: true,
   title: 'GoCommerce Styleguide',
   sections: [
     {
       name: 'Components',
-      components: 'src/lib/components/**/*.js',
+      sections: [
+        {
+          name: 'Buttons',
+          components: 'src/lib/components/Buttons/**/*.js'
+        },
+        {
+          name: 'Cards',
+          components: 'src/lib/components/Cards/**/*.js'
+        },
+        {
+          name: 'Form',
+          components: 'src/lib/components/Form/**/*.js'
+        },
+        {
+          name: 'General',
+          components: 'src/lib/components/General/**/*.js'
+        },
+        {
+          name: 'Notifications',
+          components: 'src/lib/components/Notifications/**/*.js'
+        },
+        {
+          name: 'Profile',
+          components: 'src/lib/components/Profile/**/*.js'
+        }
+      ]
     },
     {
       name: 'Icons',
+      content: 'src/lib/icons/icons.md',
       components: 'src/lib/icons/**/*.js',
     },
   ],

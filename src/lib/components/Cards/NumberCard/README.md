@@ -1,5 +1,3 @@
-Number Card
-
 ```js { "props": { "style": {"backgroundColor": "lightgray"} } }
 <div className="flex flex-column flex-row-l flex-row-xl">
   <div className="w-100 w-50-xl mb2 mt0-l mt0-xl mr2-l mr2-xl">

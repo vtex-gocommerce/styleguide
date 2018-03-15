@@ -14,7 +14,7 @@ class Badge extends PureComponent {
     const badgeFontSize = this.getBadgeFontSize(size)
 
     let classes = 'ba bw1 b--red br-pill fw5 '
-    classes += outline ? 'bg-transparent red ' : 'bg-red white '
+    classes += outline ? 'bg-white red ' : 'bg-red white '
     classes += icon ? 'absolute' : 'ph2'
 
     const badge = <span className={classes} style={{ fontSize: badgeFontSize }}>{count}</span>

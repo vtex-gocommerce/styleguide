@@ -1,10 +1,10 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
-import IconSuccess from '../../icons/IconSuccess'
-import IconWarning from '../../icons/IconWarning'
-import IconDanger from '../../icons/IconDanger'
-import IconInfo from '../../icons/IconInfo'
-import IconClose from '../../icons/IconCloseAlt'
+import IconSuccess from '../../../icons/IconSuccess'
+import IconWarning from '../../../icons/IconWarning'
+import IconDanger from '../../../icons/IconDanger'
+import IconInfo from '../../../icons/IconInfo'
+import IconClose from '../../../icons/IconCloseAlt'
 import styles from './style.css'
 
 const types = {

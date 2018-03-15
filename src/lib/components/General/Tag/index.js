@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
-import IconClose from '../../icons/IconCloseAlt'
+import IconClose from '../../../icons/IconCloseAlt'
 
 class Tag extends PureComponent {
   render() {
