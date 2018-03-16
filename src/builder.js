@@ -1,6 +1,6 @@
 import fs from 'fs'
 
-let path = './lib/'
+let path = './src/lib'
 let impComponents = []
 let expComponents = []
 
@@ -13,19 +13,26 @@ const walk = function (dir, done) {
     let i = 0;
 
     (function next() {
-      let file = list[i++]
+      let child = list[i++]
+      let full_path = dir + '/' + child
 
-      if (!file) {
+      if (!child) {
         return done(null)
       }
 
-      fs.stat(dir + file, function (error, stat) {
+      fs.stat(full_path, function (error, stat) {
         if (stat && stat.isDirectory()) {
-          walk(dir + file, (error) => next())
+          walk(full_path, (error) => next())
         } else {
-          console.log(`Importing & Exporting: ${file}`)
-          impComponents.push(`import ${file} from '${dir}/${file}'`)
-          expComponents.push(`exports.${file} = ${file}`)
+          const fileParams = child.split('.')
+          let componentName = dir.split('/')
+          componentName = componentName[componentName.length - 1]
+
+          if (fileParams.length > 0 && fileParams[fileParams.length - 1] == 'js') {
+            console.log(`Importing & Exporting: ${dir}`)
+            impComponents.push(`import ${componentName} from '${dir}'`)
+            expComponents.push(`exports.${componentName} = ${componentName}`)
+          }
           next()
         }
       })
@@ -33,11 +40,12 @@ const walk = function (dir, done) {
   })
 }
 
-process.argv.forEach((val, index, array) => {
-  if (val.indexOf('source') !== -1) {
-    path = val.split('=')[1]
-  }
-})
+// process.argv.forEach((val, index, array) => {
+//   if (val.indexOf('source') !== -1) {
+//     path = val.split('=')[1]
+//   }
+//   console.log(val)
+// })
 
 walk(path, (error) => {
   if (error) {
