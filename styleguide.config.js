@@ -61,7 +61,7 @@ module.exports = {
           loader: 'style-loader!css-loader'
         },
         {
-          // VAI DAR MERDA! Se qualquer componente externo usar css style.css!
+          // Deu merda! Não use para css modules.
           test: /.*style.css/,
           loader: 'style-loader!css-loader?modules'
         }

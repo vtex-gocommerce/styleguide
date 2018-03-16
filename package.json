@@ -39,6 +39,7 @@
     "@fortawesome/fontawesome-pro-solid": "^5.0.6",
     "@fortawesome/react-fontawesome": "0.0.17",
     "@gocommerce/tachyons": "^1.0.2-gc.16",
+    "react-tippy": "^1.2.2",
     "vtex": "^2.20.0"
   }
 }

@@ -6,6 +6,7 @@ import Select from './lib/components/Form/Select'
 import Badge from './lib/components/General/Badge'
 import Status from './lib/components/General/Status'
 import Tag from './lib/components/General/Tag'
+import Tooltip from './lib/components/General/Tooltip'
 import Alert from './lib/components/Notifications/Alert'
 import Avatar from './lib/components/Profile/Avatar'
 import IconAdd from './lib/icons/IconAdd'
@@ -50,6 +51,7 @@ exports.Select = Select
 exports.Badge = Badge
 exports.Status = Status
 exports.Tag = Tag
+exports.Tooltip = Tooltip
 exports.Alert = Alert
 exports.Avatar = Avatar
 exports.IconAdd = IconAdd
