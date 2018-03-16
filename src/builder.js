@@ -1,6 +1,6 @@
 import fs from 'fs'
 
-let path = './src/lib'
+const path = './src/lib'
 let impComponents = []
 let expComponents = []
 
@@ -29,8 +29,13 @@ const walk = function (dir, done) {
           componentName = componentName[componentName.length - 1]
 
           if (fileParams.length > 0 && fileParams[fileParams.length - 1] == 'js') {
-            console.log(`Importing & Exporting: ${dir}`)
-            impComponents.push(`import ${componentName} from '${dir}'`)
+            let finalPath = dir.split('/')
+            finalPath.splice(1, 1);
+            finalPath = finalPath.join('/');
+
+            // const finalPath = dir.splice(1, 1, dir.split('/'));
+            // console.log(`Importing & Exporting: ${dir}`)
+            impComponents.push(`import ${componentName} from '${finalPath}'`)
             expComponents.push(`exports.${componentName} = ${componentName}`)
           }
           next()
