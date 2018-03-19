@@ -30,6 +30,14 @@ Button Sizes
 </div>
 ```
 
+Button Full Width
+
+```js
+<div>
+  <Button className="mt2" fullWidth>Full Width</Button>
+</div>
+```
+
 Icon Buttons
 
 ```js

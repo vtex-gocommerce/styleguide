@@ -20,16 +20,17 @@ class Button extends PureComponent {
   }
 
   render() {
-    const { size, style, type, isDisabled, icon } = this.props
+    const { size, style, type, fullWidth, isDisabled, icon } = this.props
     const Icon = (props) => (icon)
 
     let classes = `br2 bw1 fw6 ${sizes[size]}`
     classes += isDisabled ? 'ba b--navy-20 bg-navy-20 navy-60 ' : `${styles[style]} `
+    if (fullWidth) classes += 'w-100 '
     if (this.props.className) classes += this.props.className
 
     return (
       <button type={type} className={classes} disabled={isDisabled} onClick={this.handleClick}>
-        <span className="flex items-center">
+        <span className="flex justify-center items-center">
           {icon && <Icon />}
           {this.props.children}
         </span>
@@ -45,6 +46,8 @@ Button.propTypes = {
   style: PropTypes.oneOf(['primary', 'secondary', 'outline', 'danger']),
   /** Define type of the button. */
   type: PropTypes.oneOf(['button', 'submit', 'reset']),
+  /** Make button full width. */
+  fullWidth: PropTypes.bool,
   /** Make button disabled. */
   isDisabled: PropTypes.bool,
   /** Add icon to a button. */
@@ -60,6 +63,7 @@ Button.defaultProps = {
   size: 'normal',
   style: 'primary',
   type: 'button',
+  fullWidth: false,
   isDisabled: false,
   onClick: null,
 }
