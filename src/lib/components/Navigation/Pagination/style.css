@@ -1,0 +1,43 @@
+.pagination {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.pagination li {
+    display: inline-block;
+    user-select: none;
+}
+
+.pagination li a {
+    display: block;
+    color: #212E5F;
+    padding: 5px;
+    height: 30px;
+    width: 100%;
+    min-width: 40px;
+    text-align: center;
+}
+
+.pagination li a:hover {
+    background: #EAEFFF;
+    cursor: pointer;
+}
+
+.pagination li a:focus {
+    outline: 0;
+}
+
+.active a {
+    background: #4B71FC;
+    border-radius: 4px;
+    color: #fff!important;
+}
+
+.active a:hover {
+    background: #4B71FC!important;
+}
+
+.break {
+    margin: 0 5px;
+}

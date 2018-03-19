@@ -7,6 +7,15 @@
         </div>
     </div>
     <div class="flex flex-column items-center w-20 mb6">
+        <a href="#!/IconAngle" class="mb2 blue no-underline">IconAngle</a>
+        <div>
+            <IconAngle className="mr2" side="up" />
+            <IconAngle className="mr2" side="right" />
+            <IconAngle className="mr2" side="down" />
+            <IconAngle side="left" />
+        </div>
+    </div>
+    <div class="flex flex-column items-center w-20 mb6">
         <a href="#!/IconArc" class="mb2 blue no-underline">IconArc</a>
         <div>
             <IconArc className="mr2" />

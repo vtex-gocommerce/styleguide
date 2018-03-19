@@ -8,10 +8,12 @@ import Badge from './lib/components/General/Badge'
 import Status from './lib/components/General/Status'
 import Tag from './lib/components/General/Tag'
 import Tooltip from './lib/components/General/Tooltip'
+import Pagination from './lib/components/Navigation/Pagination'
 import Tab from './lib/components/Navigation/Tab'
 import Alert from './lib/components/Notifications/Alert'
 import Avatar from './lib/components/Profile/Avatar'
 import IconAdd from './lib/icons/IconAdd'
+import IconAngle from './lib/icons/IconAngle'
 import IconArc from './lib/icons/IconArc'
 import IconArrow from './lib/icons/IconArrow'
 import IconBarcode from './lib/icons/IconBarcode'
@@ -59,10 +61,12 @@ exports.Badge = Badge
 exports.Status = Status
 exports.Tag = Tag
 exports.Tooltip = Tooltip
+exports.Pagination = Pagination
 exports.Tab = Tab
 exports.Alert = Alert
 exports.Avatar = Avatar
 exports.IconAdd = IconAdd
+exports.IconAngle = IconAngle
 exports.IconArc = IconArc
 exports.IconArrow = IconArrow
 exports.IconBarcode = IconBarcode
