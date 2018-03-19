@@ -1,15 +1,15 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import FontAwesome from '@fortawesome/react-fontawesome'
-import Solid from '@fortawesome/fontawesome-pro-solid/faTimesCircle'
-import Regular from '@fortawesome/fontawesome-pro-Regular/faTimesCircle'
+import Solid from '@fortawesome/fontawesome-pro-solid/faClock'
+import Regular from '@fortawesome/fontawesome-pro-Regular/faClock'
 
 const families = {
   solid: Solid,
   regular: Regular
 }
 
-class IconClose extends PureComponent {
+class IconClock extends PureComponent {
   render() {
     const { className, ignoreSize, width, height, family } = this.props
     const style = !ignoreSize ? { width: width, height: height } : {}
@@ -19,7 +19,7 @@ class IconClose extends PureComponent {
   }
 }
 
-IconClose.propTypes = {
+IconClock.propTypes = {
   /** Defines which font family will be used */
   family: PropTypes.oneOf(['solid', 'regular']),
   /** Ignore fixed width and height. */
@@ -31,7 +31,7 @@ IconClose.propTypes = {
   className: PropTypes.string,
 }
 
-IconClose.defaultProps = {
+IconClock.defaultProps = {
   family: 'solid',
   ignoreSize: false,
   height: '16px',
@@ -39,4 +39,4 @@ IconClose.defaultProps = {
   className: '',
 }
 
-export default IconClose
+export default IconClock

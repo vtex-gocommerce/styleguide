@@ -1,9 +1,9 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import FontAwesome from '@fortawesome/react-fontawesome'
-import icon from '@fortawesome/fontawesome-pro-regular/faQuestionCircle'
+import icon from '@fortawesome/fontawesome-pro-regular/faBarcode'
 
-class IconQuestion extends PureComponent {
+class IconBarcode extends PureComponent {
   render() {
     const { className, ignoreSize, width, height } = this.props
     const style = !ignoreSize ? { width: width, height: height } : {}
@@ -12,7 +12,7 @@ class IconQuestion extends PureComponent {
   }
 }
 
-IconQuestion.propTypes = {
+IconBarcode.propTypes = {
   /** Ignore fixed width and height. */
   ignoreSize: PropTypes.bool,
   /** Define width of the icon. */
@@ -22,11 +22,11 @@ IconQuestion.propTypes = {
   className: PropTypes.string,
 }
 
-IconQuestion.defaultProps = {
+IconBarcode.defaultProps = {
   ignoreSize: false,
   height: '16px',
   width: '16px',
   className: '',
 }
 
-export default IconQuestion
+export default IconBarcode

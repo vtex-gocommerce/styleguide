@@ -63,8 +63,15 @@
         </div>
     </div>
     <div class="flex flex-column items-center w-20 mb6">
+        <a href="#!/IconCheck" class="mb2 blue no-underline">IconCheck</a>
+        <div>
+            <IconCheck />
+        </div>
+    </div>
+    <div class="flex flex-column items-center w-20 mb6">
         <a href="#!/IconClose" class="mb2 blue no-underline">IconClose</a>
         <div>
+            <IconClose className="mr2" family="regular" />
             <IconClose />
         </div>
     </div>
@@ -72,12 +79,6 @@
         <a href="#!/IconCloseAlt" class="mb2 blue no-underline">IconCloseAlt</a>
         <div>
             <IconCloseAlt />
-        </div>
-    </div>
-    <div class="flex flex-column items-center w-20 mb6">
-        <a href="#!/IconDanger" class="mb2 blue no-underline">IconDanger</a>
-        <div>
-            <IconDanger />
         </div>
     </div>
     <div class="flex flex-column items-center w-20 mb6">
@@ -111,6 +112,12 @@
         </div>
     </div>
     <div class="flex flex-column items-center w-20 mb6">
+        <a href="#!/IconHelp" class="mb2 blue no-underline">IconHelp</a>
+        <div>
+            <IconHelp />
+        </div>
+    </div>
+    <div class="flex flex-column items-center w-20 mb6">
         <a href="#!/IconHome" class="mb2 blue no-underline">IconHome</a>
         <div>
             <IconHome />
@@ -138,12 +145,6 @@
         <a href="#!/IconMore" class="mb2 blue no-underline">IconMore</a>
         <div>
             <IconMore />
-        </div>
-    </div>
-    <div class="flex flex-column items-center w-20 mb6">
-        <a href="#!/IconQuestion" class="mb2 blue no-underline">IconQuestion</a>
-        <div>
-            <IconQuestion />
         </div>
     </div>
     <div class="flex flex-column items-center w-20 mb6">
@@ -210,6 +211,7 @@
     <div class="flex flex-column items-center w-20 mb6">
         <a href="#!/IconWarning" class="mb2 blue no-underline">IconWarning</a>
         <div>
+            <IconWarning className="mr2" family="regular" />
             <IconWarning />
         </div>
     </div>

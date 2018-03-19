@@ -1,9 +1,9 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import FontAwesome from '@fortawesome/react-fontawesome'
-import icon from '@fortawesome/fontawesome-pro-solid/faTimesCircle'
+import icon from '@fortawesome/fontawesome-pro-light/faCheck'
 
-class IconDanger extends PureComponent {
+class IconCheck extends PureComponent {
   render() {
     const { className, ignoreSize, width, height } = this.props
     const style = !ignoreSize ? { width: width, height: height } : {}
@@ -12,7 +12,7 @@ class IconDanger extends PureComponent {
   }
 }
 
-IconDanger.propTypes = {
+IconCheck.propTypes = {
   /** Ignore fixed width and height. */
   ignoreSize: PropTypes.bool,
   /** Define width of the icon. */
@@ -22,11 +22,11 @@ IconDanger.propTypes = {
   className: PropTypes.string,
 }
 
-IconDanger.defaultProps = {
+IconCheck.defaultProps = {
   ignoreSize: false,
   height: '16px',
   width: '16px',
   className: '',
 }
 
-export default IconDanger
+export default IconCheck
