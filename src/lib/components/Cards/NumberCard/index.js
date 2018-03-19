@@ -6,12 +6,12 @@ class NumberCard extends Component {
     const { title, icon, value } = this.props
     const Icon = (props) => (icon)
 
-    const classes = 'br2 bg-white pa9'
+    const classes = 'ba b--navy-40 bg-white'
 
     return (
       <div className={classes}>
-        <h3 className="ma0 fw4 navy">{title}</h3>
-        <div className="flex items-center mt4">
+        <h3 className="bb b--navy-40 ma0 pa4 f2 fw5 bg-navy-20 navy">{title}</h3>
+        <div className="flex items-center ph5 pv7">
           <span className="flex items-center br-100 pa4 bg-blue white f5">
             <Icon />
           </span>
