@@ -13,26 +13,30 @@ import Avatar from './lib/components/Profile/Avatar'
 import IconAdd from './lib/icons/IconAdd'
 import IconArc from './lib/icons/IconArc'
 import IconArrow from './lib/icons/IconArrow'
+import IconBarcode from './lib/icons/IconBarcode'
 import IconBell from './lib/icons/IconBell'
 import IconBullhorn from './lib/icons/IconBullhorn'
 import IconCalendar from './lib/icons/IconCalendar'
 import IconCaret from './lib/icons/IconCaret'
 import IconCart from './lib/icons/IconCart'
 import IconChartBar from './lib/icons/IconChartBar'
+import IconCheck from './lib/icons/IconCheck'
+import IconClock from './lib/icons/IconClock'
 import IconClose from './lib/icons/IconClose'
 import IconCloseAlt from './lib/icons/IconCloseAlt'
-import IconDanger from './lib/icons/IconDanger'
 import IconDesktop from './lib/icons/IconDesktop'
+import IconDownload from './lib/icons/IconDownload'
 import IconEdit from './lib/icons/IconEdit'
 import IconExchange from './lib/icons/IconExchange'
 import IconFilter from './lib/icons/IconFilter'
 import IconGoogle from './lib/icons/IconGoogle'
+import IconHelp from './lib/icons/IconHelp'
 import IconHome from './lib/icons/IconHome'
 import IconInbox from './lib/icons/IconInbox'
 import IconInfo from './lib/icons/IconInfo'
 import IconMoney from './lib/icons/IconMoney'
 import IconMore from './lib/icons/IconMore'
-import IconQuestion from './lib/icons/IconQuestion'
+import IconPrint from './lib/icons/IconPrint'
 import IconSearch from './lib/icons/IconSearch'
 import IconSettings from './lib/icons/IconSettings'
 import IconSpinner from './lib/icons/IconSpinner'
@@ -59,26 +63,30 @@ exports.Avatar = Avatar
 exports.IconAdd = IconAdd
 exports.IconArc = IconArc
 exports.IconArrow = IconArrow
+exports.IconBarcode = IconBarcode
 exports.IconBell = IconBell
 exports.IconBullhorn = IconBullhorn
 exports.IconCalendar = IconCalendar
 exports.IconCaret = IconCaret
 exports.IconCart = IconCart
 exports.IconChartBar = IconChartBar
+exports.IconCheck = IconCheck
+exports.IconClock = IconClock
 exports.IconClose = IconClose
 exports.IconCloseAlt = IconCloseAlt
-exports.IconDanger = IconDanger
 exports.IconDesktop = IconDesktop
+exports.IconDownload = IconDownload
 exports.IconEdit = IconEdit
 exports.IconExchange = IconExchange
 exports.IconFilter = IconFilter
 exports.IconGoogle = IconGoogle
+exports.IconHelp = IconHelp
 exports.IconHome = IconHome
 exports.IconInbox = IconInbox
 exports.IconInfo = IconInfo
 exports.IconMoney = IconMoney
 exports.IconMore = IconMore
-exports.IconQuestion = IconQuestion
+exports.IconPrint = IconPrint
 exports.IconSearch = IconSearch
 exports.IconSettings = IconSettings
 exports.IconSpinner = IconSpinner

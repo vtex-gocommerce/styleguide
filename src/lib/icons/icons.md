@@ -24,6 +24,12 @@
         </div>
     </div>
     <div class="flex flex-column items-center w-20 mb6">
+        <a href="#!/IconBarcode" class="mb2 blue no-underline">IconBarcode</a>
+        <div>
+            <IconBarcode />
+        </div>
+    </div>
+    <div class="flex flex-column items-center w-20 mb6">
         <a href="#!/IconBell" class="mb2 blue no-underline">IconBell</a>
         <div>
             <IconBell />
@@ -66,6 +72,13 @@
         <a href="#!/IconCheck" class="mb2 blue no-underline">IconCheck</a>
         <div>
             <IconCheck />
+        </div>
+    </div>
+    <div class="flex flex-column items-center w-20 mb6">
+        <a href="#!/IconClock" class="mb2 blue no-underline">IconClock</a>
+        <div>
+            <IconClock className="mr2" family="regular" />
+            <IconClock />
         </div>
     </div>
     <div class="flex flex-column items-center w-20 mb6">
@@ -145,6 +158,12 @@
         <a href="#!/IconMore" class="mb2 blue no-underline">IconMore</a>
         <div>
             <IconMore />
+        </div>
+    </div>
+    <div class="flex flex-column items-center w-20 mb6">
+        <a href="#!/IconPrint" class="mb2 blue no-underline">IconPrint</a>
+        <div>
+            <IconPrint />
         </div>
     </div>
     <div class="flex flex-column items-center w-20 mb6">
