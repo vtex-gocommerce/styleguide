@@ -1,5 +1,6 @@
 import AuthButton from './lib/components/Buttons/AuthButton'
 import Button from './lib/components/Buttons/Button'
+import Card from './lib/components/Cards/Card'
 import NumberCard from './lib/components/Cards/NumberCard'
 import Input from './lib/components/Form/Input'
 import Select from './lib/components/Form/Select'
@@ -50,6 +51,7 @@ import IconWarning from './lib/icons/IconWarning'
 
 exports.AuthButton = AuthButton
 exports.Button = Button
+exports.Card = Card
 exports.NumberCard = NumberCard
 exports.Input = Input
 exports.Select = Select
