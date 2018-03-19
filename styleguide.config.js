@@ -32,6 +32,10 @@ module.exports = {
           components: 'src/lib/components/General/**/*.js'
         },
         {
+          name: 'Navigation',
+          components: 'src/lib/components/Navigation/**/*.js'
+        },
+        {
           name: 'Notifications',
           components: 'src/lib/components/Notifications/**/*.js'
         },
