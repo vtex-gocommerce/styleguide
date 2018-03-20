@@ -1,7 +1,6 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { Tooltip as Tippy } from 'react-tippy'
-import './tooltip.css'
 
 class Tooltip extends PureComponent {
     render() {
