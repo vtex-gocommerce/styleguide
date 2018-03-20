@@ -7,7 +7,6 @@ import Select from './lib/components/Form/Select'
 import Badge from './lib/components/General/Badge'
 import Status from './lib/components/General/Status'
 import Tag from './lib/components/General/Tag'
-import Tooltip from './lib/components/General/Tooltip'
 import Pagination from './lib/components/Navigation/Pagination'
 import Tab from './lib/components/Navigation/Tab'
 import Alert from './lib/components/Notifications/Alert'
@@ -60,7 +59,6 @@ exports.Select = Select
 exports.Badge = Badge
 exports.Status = Status
 exports.Tag = Tag
-exports.Tooltip = Tooltip
 exports.Pagination = Pagination
 exports.Tab = Tab
 exports.Alert = Alert
