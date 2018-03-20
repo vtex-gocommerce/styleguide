@@ -8,7 +8,16 @@ class Tooltip extends PureComponent {
         const { content, side, follow, size, trigger, isDisabled, interactive } = this.props
 
         return (
-            <Tippy theme='transparent' html={content} position={side} followCursor={follow} size={size} trigger={trigger} disabled={isDisabled} interactive={interactive}>
+            <Tippy
+                theme='transparent'
+                html={content}
+                position={side}
+                followCursor={follow}
+                size={size}
+                trigger={trigger}
+                disabled={isDisabled}
+                interactive={interactive}
+            >
                 {this.props.children}
             </Tippy>
         )
@@ -17,7 +26,7 @@ class Tooltip extends PureComponent {
 
 Tooltip.propTypes = {
     /** Shows a number counter at the end. */
-    content: PropTypes.oneOfType([PropTypes.element, PropTypes.string]),
+    content: PropTypes.element,
     /** Side of tooltip. */
     side: PropTypes.oneOf(['top', 'right', 'bottom', 'left']),
     /** Makes tooltip follow cursor. */
