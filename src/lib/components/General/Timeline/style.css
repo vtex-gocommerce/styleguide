@@ -1,0 +1,17 @@
+.timeline {
+    margin: 0;
+    list-style: none;
+    padding: 50px 0 30px;
+    position: relative;
+}
+
+.timeline::before {
+    background: #E7E9F0;
+    bottom: 0;
+    content: '';
+    left: 30%;
+    margin-left: -10px;
+    position: absolute;
+    width: 4px;
+    top: 0;
+}

@@ -7,6 +7,8 @@ import Select from './lib/components/Form/Select'
 import Badge from './lib/components/General/Badge'
 import Status from './lib/components/General/Status'
 import Tag from './lib/components/General/Tag'
+import Timeline from './lib/components/General/Timeline'
+import TimelineHistory from './lib/components/General/TimelineHistory'
 import Pagination from './lib/components/Navigation/Pagination'
 import Tab from './lib/components/Navigation/Tab'
 import Alert from './lib/components/Notifications/Alert'
@@ -59,6 +61,8 @@ exports.Select = Select
 exports.Badge = Badge
 exports.Status = Status
 exports.Tag = Tag
+exports.Timeline = Timeline
+exports.TimelineHistory = TimelineHistory
 exports.Pagination = Pagination
 exports.Tab = Tab
 exports.Alert = Alert
