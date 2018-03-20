@@ -81,7 +81,8 @@ Input.defaultProps = {
   placeholder: '',
   hasError: false,
   isDisabled: false,
-  onChange: null
+  onChange: null,
+  className: ''
 }
 
 export default Input

@@ -17,7 +17,7 @@ class Tooltip extends PureComponent {
 
 Tooltip.propTypes = {
     /** Shows a number counter at the end. */
-    content: PropTypes.element,
+    content: PropTypes.oneOfType([PropTypes.element, PropTypes.string]),
     /** Side of tooltip. */
     side: PropTypes.oneOf(['top', 'right', 'bottom', 'left']),
     /** Makes tooltip follow cursor. */

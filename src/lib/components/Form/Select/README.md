@@ -14,27 +14,27 @@ const Disabled = [
 <div>
   <div className="mb2">
     <Select placeholder="Select a fruit..." list={Simple} />
-    <span class="ml4 no-underline navy-60">Simple Select</span>
+    <span className="ml4 no-underline navy-60">Simple Select</span>
   </div>
   <div className="mb2">
     <Select placeholder="Select a fruit..." list={Disabled} />
-    <span class="ml4 no-underline navy-60">Select with some disable options</span>
+    <span className="ml4 no-underline navy-60">Select with some disable options</span>
   </div>
   <div className="mb2">
     <Select placeholder="Select a fruit..." list={Simple} defaultValue="orange"  />
-    <span class="ml4 no-underline navy-60">Select with default option</span>
+    <span className="ml4 no-underline navy-60">Select with default option</span>
   </div>
   <div className="mb2">
     <Select placeholder="Select a fruit..." list={Simple} required />
-    <span class="ml4 no-underline navy-60">Placeholder can't be selected</span>
+    <span className="ml4 no-underline navy-60">Placeholder can't be selected</span>
   </div>
   <div className="mb2">
     <Select placeholder="Select a fruit..." list={Simple} hasError />
-    <span class="ml4 no-underline navy-60">Select with error</span>
+    <span className="ml4 no-underline navy-60">Select with error</span>
   </div>
   <div>
     <Select placeholder="You can't pick any..." list={Simple} isDisabled />
-    <span class="ml4 no-underline navy-60">Disabled Select</span>
+    <span className="ml4 no-underline navy-60">Disabled Select</span>
   </div>
 </div>
 ```

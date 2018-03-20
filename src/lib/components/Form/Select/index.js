@@ -83,6 +83,7 @@ Select.defaultProps = {
   isDisabled: false,
   defaultValue: '',
   required: false,
+  className: ''
 }
 
 export default Select

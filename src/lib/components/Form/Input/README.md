@@ -2,27 +2,27 @@
 <div>
   <div className="mb2">
     <Input />
-    <span class="ml4 no-underline navy-60">Plain Input</span>
+    <span className="ml4 no-underline navy-60">Plain Input</span>
   </div>
   <div className="mb2">
     <Input placeholder='Look this placeholder...' />
-    <span class="ml4 no-underline navy-60">Input with placeholder</span>
+    <span className="ml4 no-underline navy-60">Input with placeholder</span>
   </div>
   <div className="mb2">
     <Input value='This is so wrong' hasError />
-    <span class="ml4 no-underline navy-60">Input with error</span>
+    <span className="ml4 no-underline navy-60">Input with error</span>
   </div>
   <div className="mb2">
     <Input type='password' value='topsecret' />
-    <span class="ml4 no-underline navy-60">Password</span>
+    <span className="ml4 no-underline navy-60">Password</span>
   </div>
   <div className="mb2">
     <Input type='tel' value='1234124' />
-    <span class="ml4 no-underline navy-60">Telephone</span>
+    <span className="ml4 no-underline navy-60">Telephone</span>
   </div>
   <div className="mb2">
     <Input value='Disabled' isDisabled />
-    <span class="ml4 no-underline navy-60">Disabled</span>
+    <span className="ml4 no-underline navy-60">Disabled</span>
   </div>
 </div>
 ```

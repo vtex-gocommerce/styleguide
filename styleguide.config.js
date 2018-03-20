@@ -19,18 +19,18 @@ module.exports = {
           name: 'Buttons',
           components: 'src/lib/components/Buttons/**/*.js'
         },
-        {
-          name: 'Cards',
-          components: 'src/lib/components/Cards/**/*.js'
-        },
+        // {
+        //   name: 'Cards',
+        //   components: 'src/lib/components/Cards/**/*.js'
+        // },
         {
           name: 'Form',
           components: 'src/lib/components/Form/**/*.js'
         },
-        {
-          name: 'General',
-          components: 'src/lib/components/General/**/*.js'
-        },
+        // {
+        //   name: 'General',
+        //   components: 'src/lib/components/General/**/*.js'
+        // },
         {
           name: 'Navigation',
           components: 'src/lib/components/Navigation/**/*.js'
