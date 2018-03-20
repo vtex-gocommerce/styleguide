@@ -1,6 +1,6 @@
 ```js
 <div className="flex">
-  <div className="w-33 mr2">
+  <div className="w-third mr2">
     <Card title='Customer Data'>
       <p className="mt0 f4 blue">Steven Johnson</p>
       <ul className="list pl0">
@@ -14,7 +14,7 @@
       </Button>
     </Card>
   </div>
-  <div className="w-33 mr2">
+  <div className="w-third mr2">
     <Card title='Delivery Address'>
       <p className="mt0 f4 blue">Steven Johnson</p>
       <ul className="list pl0">
@@ -24,7 +24,7 @@
       </ul>
     </Card>
   </div>
-  <div className="w-33">
+  <div className="w-third">
     <Card title='Total Value'>
       <p className="mt0 f4 blue">R$ 332,34</p>
       <ul className="list pl0">

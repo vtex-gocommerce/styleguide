@@ -4,15 +4,15 @@ import PropTypes from 'prop-types'
 class Tab extends PureComponent {
     constructor(props) {
         super(props)
+
         this.state = {
             active: this.props.initialTab
         }
     }
 
     handleClick = value => {
-        this.setState({
-            active: value
-        })
+        this.setState({ active: value })
+
         this.props.onClick(value)
     }
 
