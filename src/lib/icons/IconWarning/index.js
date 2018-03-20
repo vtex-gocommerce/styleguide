@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import FontAwesome from '@fortawesome/react-fontawesome'
 import Solid from '@fortawesome/fontawesome-pro-solid/faExclamationTriangle'
-import Regular from '@fortawesome/fontawesome-pro-Regular/faExclamationTriangle'
+import Regular from '@fortawesome/fontawesome-pro-regular/faExclamationTriangle'
 
 const families = {
   solid: Solid,
