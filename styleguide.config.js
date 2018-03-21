@@ -32,6 +32,10 @@ module.exports = {
           components: 'src/lib/components/General/**/*.js'
         },
         {
+          name: 'Indicators',
+          components: 'src/lib/components/Indicators/**/*.js'
+        },
+        {
           name: 'Navigation',
           components: 'src/lib/components/Navigation/**/*.js'
         },

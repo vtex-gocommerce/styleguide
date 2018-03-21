@@ -5,11 +5,12 @@ import NumberCard from './lib/components/Cards/NumberCard'
 import Input from './lib/components/Form/Input'
 import Select from './lib/components/Form/Select'
 import Toggle from './lib/components/Form/Toggle'
-import Badge from './lib/components/General/Badge'
-import Status from './lib/components/General/Status'
-import Tag from './lib/components/General/Tag'
+import LoadingBar from './lib/components/General/LoadingBar'
 import Timeline from './lib/components/General/Timeline'
 import TimelineHistory from './lib/components/General/TimelineHistory'
+import Badge from './lib/components/Indicators/Badge'
+import Status from './lib/components/Indicators/Status'
+import Tag from './lib/components/Indicators/Tag'
 import Pagination from './lib/components/Navigation/Pagination'
 import Tab from './lib/components/Navigation/Tab'
 import Alert from './lib/components/Notifications/Alert'
@@ -60,11 +61,12 @@ exports.NumberCard = NumberCard
 exports.Input = Input
 exports.Select = Select
 exports.Toggle = Toggle
+exports.LoadingBar = LoadingBar
+exports.Timeline = Timeline
+exports.TimelineHistory = TimelineHistory
 exports.Badge = Badge
 exports.Status = Status
 exports.Tag = Tag
-exports.Timeline = Timeline
-exports.TimelineHistory = TimelineHistory
 exports.Pagination = Pagination
 exports.Tab = Tab
 exports.Alert = Alert
