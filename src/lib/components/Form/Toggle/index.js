@@ -15,6 +15,8 @@ class Toggle extends PureComponent {
         this.setState((prev) => ({
             isChecked: !prev.isChecked
         }))
+
+        this.props.onClick(!this.state.isChecked)
     }
 
     handleChange = event => {
@@ -22,7 +24,7 @@ class Toggle extends PureComponent {
     }
 
     render() {
-        const { isDisabled } = this.props
+        const { isDisabled, value } = this.props
         const { isChecked } = this.state
 
         let classes = `flex items-center relative h6 w10 ph2 br-pill ${styles.toggle} `
@@ -47,6 +49,7 @@ class Toggle extends PureComponent {
                     className="dn"
                     disabled={isDisabled}
                     checked={isChecked}
+                    value={value}
                     onClick={this.handleClick}
                     onChange={this.handleChange}
                 />
@@ -60,6 +63,8 @@ Toggle.propTypes = {
     isChecked: PropTypes.bool,
     /** Make toggle disabled! */
     isDisabled: PropTypes.bool,
+    /** Set value of toggle. */
+    value: PropTypes.string.isRequired,
     /** On click callback function. */
     onClick: PropTypes.func,
     /** On click callback function. */
