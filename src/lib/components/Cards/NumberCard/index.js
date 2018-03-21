@@ -1,17 +1,15 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import Card from '../Card'
 
 class NumberCard extends Component {
   render() {
     const { title, icon, value } = this.props
     const Icon = (props) => (icon)
 
-    const classes = 'ba b--navy-40 bg-white'
-
     return (
-      <div className={classes}>
-        <h3 className="bb b--navy-40 ma0 pa4 f2 fw5 bg-navy-20 navy">{title}</h3>
-        <div className="flex items-center ph5 pv7">
+      <Card title={title}>
+        <div className="flex items-center ph4 pv6">
           <span className="flex items-center br-100 pa4 bg-blue white f5">
             <Icon />
           </span>
@@ -19,7 +17,7 @@ class NumberCard extends Component {
             {value}
           </span>
         </div>
-      </div>
+      </Card>
     )
   }
 }
