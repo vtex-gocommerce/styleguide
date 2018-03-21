@@ -4,6 +4,7 @@ import Card from './lib/components/Cards/Card'
 import NumberCard from './lib/components/Cards/NumberCard'
 import Input from './lib/components/Form/Input'
 import Select from './lib/components/Form/Select'
+import Toggle from './lib/components/Form/Toggle'
 import Badge from './lib/components/General/Badge'
 import Status from './lib/components/General/Status'
 import Tag from './lib/components/General/Tag'
@@ -58,6 +59,7 @@ exports.Card = Card
 exports.NumberCard = NumberCard
 exports.Input = Input
 exports.Select = Select
+exports.Toggle = Toggle
 exports.Badge = Badge
 exports.Status = Status
 exports.Tag = Tag
