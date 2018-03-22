@@ -2,6 +2,7 @@ import AuthButton from './lib/components/Buttons/AuthButton'
 import Button from './lib/components/Buttons/Button'
 import Card from './lib/components/Cards/Card'
 import NumberCard from './lib/components/Cards/NumberCard'
+import CheckBox from './lib/components/Form/CheckBox'
 import Input from './lib/components/Form/Input'
 import Select from './lib/components/Form/Select'
 import Toggle from './lib/components/Form/Toggle'
@@ -58,6 +59,7 @@ exports.AuthButton = AuthButton
 exports.Button = Button
 exports.Card = Card
 exports.NumberCard = NumberCard
+exports.CheckBox = CheckBox
 exports.Input = Input
 exports.Select = Select
 exports.Toggle = Toggle

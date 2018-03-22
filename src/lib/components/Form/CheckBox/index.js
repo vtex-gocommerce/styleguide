@@ -1,8 +1,9 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
+import IconCheck from '../../../icons/IconCheck'
 import styles from './style.css'
 
-class Toggle extends PureComponent {
+class CheckBox extends PureComponent {
     constructor(props) {
         super(props)
 
@@ -23,28 +24,24 @@ class Toggle extends PureComponent {
         const { isDisabled, value } = this.props
         const { isChecked } = this.state
 
-        let classes = `flex items-center relative h6 w10 ph2 br-pill ${styles.toggle} `
-        let circle = `absolute br-100 ${styles.toggleCircle} `
+        let classes = `flex justify-center items-center ba br2 pa1 ${styles.checkbox} `
 
         if (isDisabled) {
-            classes += 'bg-navy-40'
-            circle += 'bg-navy-60'
+            classes += 'bg-navy-40 b--navy-60'
         } else {
-            classes += isChecked ? 'bg-blue' : 'bg-navy-40'
-            circle += 'bg-white '
-            circle += isChecked ? `${styles.toggledCircle}` : 'left-0 '
+            classes += isChecked ? 'bg-blue b--blue' : 'bg-white b--navy-60'
         }
 
         return (
-            <label className={`flex flex-row items-center ${!isDisabled && 'pointer'}`}>
+            <label className={`${!isDisabled && 'pointer'}`}>
                 <div className={classes}>
-                    <div className={circle} />
+                    <IconCheck className={`white ${!isChecked && 'o-0'}`} ignoreSize />
                 </div>
                 <input
                     type="checkbox"
                     className="dn"
                     disabled={isDisabled}
-                    defaultChecked={isChecked}
+                    checked={isChecked}
                     value={value}
                     onClick={this.handleClick}
                 />
@@ -53,7 +50,7 @@ class Toggle extends PureComponent {
     }
 }
 
-Toggle.propTypes = {
+CheckBox.propTypes = {
     /** Make toggle checked! */
     isChecked: PropTypes.bool,
     /** Make toggle disabled! */
@@ -64,10 +61,10 @@ Toggle.propTypes = {
     onClick: PropTypes.func
 }
 
-Toggle.defaultProps = {
+CheckBox.defaultProps = {
     isChecked: false,
     isDisabled: false,
-    onClick: (checked) => { },
+    onClick: (checked) => { }
 }
 
-export default Toggle
+export default CheckBox
