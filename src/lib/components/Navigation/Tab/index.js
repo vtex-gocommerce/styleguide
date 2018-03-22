@@ -21,7 +21,7 @@ class Tab extends PureComponent {
         const { active } = this.state
 
         return (
-            <div className={`f2 w-100 bb b--navy-40 mb4 ${className}`}>
+            <div className={`f2 w-100 ${className}`}>
                 {list.map(element => {
                     return (
                         <div
