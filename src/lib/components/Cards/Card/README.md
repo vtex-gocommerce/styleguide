@@ -9,7 +9,7 @@
         <li className="navy">CPF: 999.999.999-99</li>
       </ul>
       <Button fullWidth style="outline">
-        <IconVisible className="mr2" />
+        <IconVisibility className="mr2" isVisible />
         Customer Details
       </Button>
     </Card>
