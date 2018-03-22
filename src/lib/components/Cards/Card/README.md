@@ -1,7 +1,7 @@
 ```js
 <div className="flex">
   <div className="w-third mr2">
-    <Card title='Customer Data'>
+    <Card title={<p>Customer Data</p>}>
       <p className="mt0 f4 blue">Steven Johnson</p>
       <ul className="list pl0">
         <li className="navy mb3">shipping@mailnator.com</li>
@@ -15,7 +15,7 @@
     </Card>
   </div>
   <div className="w-third mr2">
-    <Card title='Delivery Address'>
+    <Card title={<span>Customer Data</span>}>
       <p className="mt0 f4 blue">Steven Johnson</p>
       <ul className="list pl0">
         <li className="navy mb3">St. Fourth</li>
@@ -25,7 +25,7 @@
     </Card>
   </div>
   <div className="w-third">
-    <Card title='Total Value'>
+    <Card title={<span>Total Value</span>}>
       <p className="mt0 f4 blue">R$ 332,34</p>
       <ul className="list pl0">
         <li className="flex justify-between navy mb3">

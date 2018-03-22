@@ -80,6 +80,7 @@
     <div className="flex flex-column items-center w-20 mb6">
         <a href="#!/IconCheck" className="mb2 blue no-underline">IconCheck</a>
         <div>
+            <IconCheck className="mr2" family="light" />
             <IconCheck />
         </div>
     </div>

@@ -9,7 +9,7 @@ class Card extends Component {
 
     return (
       <div className={classes}>
-        <h3 className="bb b--navy-40 ma0 pa4 f2 fw5 bg-navy-20 navy">{title}</h3>
+        <h3 className="flex items-center bb b--navy-40 ma0 h10 ph3 f2 fw5 bg-navy-20 navy">{title}</h3>
         <div className="pa4">
           {this.props.children}
         </div>
@@ -20,7 +20,7 @@ class Card extends Component {
 
 Card.propTypes = {
   /** Title of the card. */
-  title: PropTypes.string.isRequired,
+  title: PropTypes.element.isRequired,
   children: PropTypes.node.isRequired,
 }
 
