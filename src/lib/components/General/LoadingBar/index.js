@@ -1,14 +1,18 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
+import styles from './style.css'
 
 class LoadingBar extends PureComponent {
     render() {
-        const { current, showLabel } = this.props
+        const { current, withLabel, withStripes } = this.props
 
         return (
-            <div className={`h3 br-pill bg-navy-40 ${showLabel && 'mt8'}`}>
-                <div className="relative h3 br-pill bg-blue" style={{ width: `${current}%` }}>
-                    {showLabel && (
+            <div className={`h3 br-pill bg-navy-40 ${withLabel && 'mt8'}`}>
+                <div className={`relative h3 br-pill bg-blue ${styles.bar}`} style={{ width: `${current}%` }}>
+                    {withStripes && (
+                        <span className={styles.stripes} />
+                    )}
+                    {withLabel && (
                         <span className="absolute bottom-1 right-0 fw6 blue">{current}%</span>
                     )}
                 </div>
@@ -21,12 +25,15 @@ LoadingBar.propTypes = {
     /** Current percent value. */
     current: PropTypes.number,
     /** Hide percentage label. */
-    hideLabel: PropTypes.bool
+    withLabel: PropTypes.bool,
+    /** Show transparent stripes on loading bar. */
+    withStripes: PropTypes.bool
 }
 
 LoadingBar.defaultProps = {
     current: 0,
-    showLabel: false
+    withLabel: false,
+    withStripes: false
 }
 
 export default LoadingBar
