@@ -1,18 +1,22 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import FontAwesome from '@fortawesome/react-fontawesome'
-import icon from '@fortawesome/fontawesome-pro-regular/faEye'
+import open from '@fortawesome/fontawesome-pro-regular/faEye'
+import closed from '@fortawesome/fontawesome-pro-regular/faEyeSlash'
 
-class IconVisible extends PureComponent {
+class IconVisibility extends PureComponent {
   render() {
-    const { className, ignoreSize, width, height } = this.props
+    const { className, ignoreSize, width, height, isVisible } = this.props
     const style = !ignoreSize ? { width: width, height: height } : {}
+    const icon = isVisible ? open : closed
 
     return <FontAwesome className={className} icon={icon} style={style} />
   }
 }
 
-IconVisible.propTypes = {
+IconVisibility.propTypes = {
+  /** Set icon to open or closed. */
+  isVisible: PropTypes.bool,
   /** Ignore fixed width and height. */
   ignoreSize: PropTypes.bool,
   /** Define width of the icon. */
@@ -22,11 +26,12 @@ IconVisible.propTypes = {
   className: PropTypes.string,
 }
 
-IconVisible.defaultProps = {
+IconVisibility.defaultProps = {
+  isVisible: false,
   ignoreSize: false,
   height: '16px',
   width: '16px',
   className: '',
 }
 
-export default IconVisible
+export default IconVisibility

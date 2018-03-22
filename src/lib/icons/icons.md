@@ -189,6 +189,12 @@
         </div>
     </div>
     <div className="flex flex-column items-center w-20 mb6">
+        <a href="#!/IconSettingsAlt" className="mb2 blue no-underline">IconSettingsAlt</a>
+        <div>
+            <IconSettingsAlt />
+        </div>
+    </div>
+    <div className="flex flex-column items-center w-20 mb6">
         <a href="#!/IconSpinner" className="mb2 blue no-underline">IconSpinner</a>
         <div>
             <IconSpinner className="mr2" />
@@ -231,9 +237,10 @@
         </div>
     </div>
     <div className="flex flex-column items-center w-20 mb6">
-        <a href="#!/IconVisible" className="mb2 blue no-underline">IconVisible</a>
+        <a href="#!/IconVisibility" className="mb2 blue no-underline">IconVisibility</a>
         <div>
-            <IconVisible />
+            <IconVisibility className="mr2" isVisible />
+            <IconVisibility />
         </div>
     </div>
     <div className="flex flex-column items-center w-20 mb6">

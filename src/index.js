@@ -46,13 +46,14 @@ import IconMore from './lib/icons/IconMore'
 import IconPrint from './lib/icons/IconPrint'
 import IconSearch from './lib/icons/IconSearch'
 import IconSettings from './lib/icons/IconSettings'
+import IconSettingsAlt from './lib/icons/IconSettingsAlt'
 import IconSpinner from './lib/icons/IconSpinner'
 import IconSuccess from './lib/icons/IconSuccess'
 import IconSync from './lib/icons/IconSync'
 import IconTags from './lib/icons/IconTags'
 import IconTrash from './lib/icons/IconTrash'
 import IconUpload from './lib/icons/IconUpload'
-import IconVisible from './lib/icons/IconVisible'
+import IconVisibility from './lib/icons/IconVisibility'
 import IconWarning from './lib/icons/IconWarning'
 
 exports.AuthButton = AuthButton
@@ -103,11 +104,12 @@ exports.IconMore = IconMore
 exports.IconPrint = IconPrint
 exports.IconSearch = IconSearch
 exports.IconSettings = IconSettings
+exports.IconSettingsAlt = IconSettingsAlt
 exports.IconSpinner = IconSpinner
 exports.IconSuccess = IconSuccess
 exports.IconSync = IconSync
 exports.IconTags = IconTags
 exports.IconTrash = IconTrash
 exports.IconUpload = IconUpload
-exports.IconVisible = IconVisible
+exports.IconVisibility = IconVisibility
 exports.IconWarning = IconWarning
