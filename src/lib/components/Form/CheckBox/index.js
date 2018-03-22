@@ -24,7 +24,7 @@ class CheckBox extends PureComponent {
         const { isDisabled, value } = this.props
         const { isChecked } = this.state
 
-        let classes = `flex justify-center items-center ba br2 pa1 ${styles.checkbox} `
+        let classes = `flex justify-center items-center ba br2 ${styles.checkbox} `
 
         if (isDisabled) {
             classes += 'bg-navy-40 b--navy-60'

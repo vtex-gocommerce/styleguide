@@ -1,3 +1,4 @@
 .checkbox {
+    padding: 1px;
     transition: background .25s ease-in-out;
 }
