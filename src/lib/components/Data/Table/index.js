@@ -85,7 +85,16 @@ class Table extends PureComponent {
 
 Table.propTypes = {
     /** Columns that will have on table. */
-    columns: PropTypes.array.isRequired,
+    columns: PropTypes.arrayOf(PropTypes.shape({
+        /** Label of the column. */
+        label: PropTypes.string.isRequired,
+        /** Size of the column in percentage. */
+        size: PropTypes.number,
+        /** Make the column centered. */
+        isCentered: PropTypes.bool,
+        /** Hides column label. */
+        hideLabel: PropTypes.bool
+    })).isRequired,
     /** Rows that will be show on table. */
     rows: PropTypes.array.isRequired,
     /** Makes rows selectable. */
