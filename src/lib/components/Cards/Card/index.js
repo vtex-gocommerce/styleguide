@@ -20,7 +20,10 @@ class Card extends Component {
 
 Card.propTypes = {
   /** Title of the card. */
-  title: PropTypes.element.isRequired,
+  title: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.element
+  ]).isRequired,
   children: PropTypes.node.isRequired,
 }
 

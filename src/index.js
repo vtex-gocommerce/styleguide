@@ -2,13 +2,14 @@ import AuthButton from './lib/components/Buttons/AuthButton'
 import Button from './lib/components/Buttons/Button'
 import Card from './lib/components/Cards/Card'
 import NumberCard from './lib/components/Cards/NumberCard'
+import Table from './lib/components/Data/Table'
+import Timeline from './lib/components/Data/Timeline'
+import TimelineHistory from './lib/components/Data/TimelineHistory'
 import CheckBox from './lib/components/Form/CheckBox'
 import Input from './lib/components/Form/Input'
 import Select from './lib/components/Form/Select'
 import Toggle from './lib/components/Form/Toggle'
 import LoadingBar from './lib/components/General/LoadingBar'
-import Timeline from './lib/components/General/Timeline'
-import TimelineHistory from './lib/components/General/TimelineHistory'
 import Badge from './lib/components/Indicators/Badge'
 import Status from './lib/components/Indicators/Status'
 import Tag from './lib/components/Indicators/Tag'
@@ -60,13 +61,14 @@ exports.AuthButton = AuthButton
 exports.Button = Button
 exports.Card = Card
 exports.NumberCard = NumberCard
+exports.Table = Table
+exports.Timeline = Timeline
+exports.TimelineHistory = TimelineHistory
 exports.CheckBox = CheckBox
 exports.Input = Input
 exports.Select = Select
 exports.Toggle = Toggle
 exports.LoadingBar = LoadingBar
-exports.Timeline = Timeline
-exports.TimelineHistory = TimelineHistory
 exports.Badge = Badge
 exports.Status = Status
 exports.Tag = Tag

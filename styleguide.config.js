@@ -24,6 +24,10 @@ module.exports = {
           components: 'src/lib/components/Cards/**/*.js'
         },
         {
+          name: 'Data',
+          components: 'src/lib/components/Data/**/*.js'
+        },
+        {
           name: 'Form',
           components: 'src/lib/components/Form/**/*.js'
         },

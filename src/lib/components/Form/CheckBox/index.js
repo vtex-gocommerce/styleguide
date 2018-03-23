@@ -12,6 +12,12 @@ class CheckBox extends PureComponent {
         }
     }
 
+    componentWillReceiveProps(nextProps, nextState) {
+        if (nextProps.isChecked != this.state.isChecked) {
+            this.setState({ isChecked: nextProps.isChecked })
+        }
+    }
+
     handleClick = event => {
         this.setState((prev) => ({
             isChecked: !prev.isChecked
@@ -21,7 +27,7 @@ class CheckBox extends PureComponent {
     }
 
     render() {
-        const { isDisabled, value } = this.props
+        const { isDisabled, value, name } = this.props
         const { isChecked } = this.state
 
         let classes = `flex justify-center items-center ba br2 ${styles.checkbox} `
@@ -33,7 +39,7 @@ class CheckBox extends PureComponent {
         }
 
         return (
-            <label className={`${!isDisabled && 'pointer'}`}>
+            <label className={`dib w5 ${!isDisabled && 'pointer'}`}>
                 <div className={classes}>
                     <IconCheck className={`white ${!isChecked && 'o-0'}`} ignoreSize />
                 </div>
@@ -41,7 +47,8 @@ class CheckBox extends PureComponent {
                     type="checkbox"
                     className="dn"
                     disabled={isDisabled}
-                    checked={isChecked}
+                    defaultChecked={isChecked}
+                    name={name}
                     value={value}
                     onClick={this.handleClick}
                 />
@@ -55,8 +62,10 @@ CheckBox.propTypes = {
     isChecked: PropTypes.bool,
     /** Make toggle disabled! */
     isDisabled: PropTypes.bool,
+    /** Set name of toggle. */
+    name: PropTypes.string,
     /** Set value of toggle. */
-    value: PropTypes.string.isRequired,
+    value: PropTypes.string,
     /** On click callback function. */
     onClick: PropTypes.func
 }
