@@ -20,6 +20,7 @@ npm run styleguide
 ### Publish new version with Releasy
 ```sh
 npm run compile
+git commit -a && git push
 releasy --stable
 ```
 
