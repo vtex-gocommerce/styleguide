@@ -9,7 +9,7 @@ class NumberCard extends Component {
 
     return (
       <Card title={title}>
-        <div className="flex items-center ph4 pv6">
+        <div className="flex items-center ph4 pv4 h-100">
           <span className="flex items-center br-100 pa4 bg-blue white f5">
             <Icon />
           </span>
