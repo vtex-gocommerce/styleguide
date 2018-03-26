@@ -1,33 +1,39 @@
 ```js
 const columns = [
     {
-        label: 'Name'
+        id: 'Name',
+        label: 'Name',
     },
     {
-        label: 'Address'
+        id: 'Address',
+        label: 'Address',
     },
     {
-        label: 'Price',
+        id: 'Price',
+        label: <IconMoney />,
+        isCentered: true,
         size: 15
     },
     {
+        id: 'Count',
         label: 'Count',
         size: 10
     },
     {
-        label: 'Active'
+        id: 'Active',
+        label: 'Active',
     },
     {
-        label: 'Actions',
+        id: 'Actions',
+        label: '',
         size: 7,
-        isCentered: true,
-        hideLabel: true
+        isCentered: true
     }
 ];
 
 const rows = [
     {
-        ID: 1,
+        id: 1,
         Name: 'Teste',
         Address: 'Rua Teste',
         Count: 245,
@@ -39,13 +45,13 @@ const rows = [
         Active: <Toggle value="isActive" isDisabled />,
         Name: 'Teste com nome grande demais para ver o que acontece',
         Address: 'Rua Teste',
-        ID: 2,
+        id: 2,
         Count: 2454,
         Lala: 'Land',
         Actions: <IconMore className="blue" width="20" height="20" />
     },
     {
-        ID: 3,
+        id: 3,
         Name: 'Teste',
         Address: 'Rua Teste grande demais para ver o que acontece',
         Count: <p className="yellow">24 <IconWarning className="ml1" family="regular" /></p>,

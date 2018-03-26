@@ -56,8 +56,8 @@ class Table extends PureComponent {
                             <th className="bb b--navy-40 pv4 ph4 tc" style={{ width: "40px" }}><CheckBox onClick={this.selectAll} /></th>
                         )}
                         {columns.map(column => {
-                            return <th key={column.label} className={`bb b--navy-40 pv4 ph4 navy-60 fw4 ${column.isCentered && 'tc'}`} style={{ width: column.size + '%' }}>
-                                {!column.hideLabel && column.label}
+                            return <th key={column.id} className={`bb b--navy-40 pv4 ph4 navy-60 fw4 ${column.isCentered && 'tc'}`} style={{ width: column.size + '%' }}>
+                                {column.label}
                             </th>
                         })}
                     </tr>
@@ -65,7 +65,7 @@ class Table extends PureComponent {
                 <tbody className="bg-white">
                     {rows.map((fields, index) => {
                         const formatted_row = columns.map(column => {
-                            return <td key={index + column.label} className={`bb b--navy-40 pv5 ph4 navy ${column.isCentered && 'tc'}`}>{fields[column.label]}</td>
+                            return <td key={index + column.id} className={`bb b--navy-40 pv5 ph4 navy ${column.isCentered && 'tc'}`}>{fields[column.id]}</td>
                         })
 
                         return (
@@ -86,14 +86,17 @@ class Table extends PureComponent {
 Table.propTypes = {
     /** Columns that will have on table. */
     columns: PropTypes.arrayOf(PropTypes.shape({
+        /** ID of the column. */
+        id: PropTypes.string.isRequired,
         /** Label of the column. */
-        label: PropTypes.string.isRequired,
+        label: PropTypes.oneOfType([
+            PropTypes.string,
+            PropTypes.element
+        ]).isRequired,
         /** Size of the column in percentage. */
         size: PropTypes.number,
         /** Make the column centered. */
-        isCentered: PropTypes.bool,
-        /** Hides column label. */
-        hideLabel: PropTypes.bool
+        isCentered: PropTypes.bool
     })).isRequired,
     /** Rows that will be show on table. */
     rows: PropTypes.array.isRequired,

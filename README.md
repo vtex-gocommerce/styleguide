@@ -5,21 +5,26 @@ https://vtex-gocommerce.github.io/styleguide
 ### Setup
 
 ```sh
+git clone https://github.com/vtex-gocommerce/styleguide.git
+cd styleguide
 npm install
 ```
 
 ### Developing using Styleguidist
 
+Start the server with:
 ```sh
-npm styleguide
+npm run styleguide
 ```
 
-### Publishing Styleguide page
-
+### Publish new version with Releasy
 ```sh
-npm github
+npm run compile
+releasy --stable
 ```
 
-#### Known issues
-
-Your project has to run with webpack >= 2. Here's a [guide](https://webpack.js.org/guides/migrating/) for upgrading Webpack to v2.
+### Publishing Styleguide page on Github
+```sh
+npm run styleguide:build
+npm run github
+```
