@@ -1,4 +1,4 @@
-```js { "props": { "style": {"backgroundColor": "#F9FAFC"} } } 
+```js { "props": { "style": {"backgroundColor": "#EFF1F9"} } } 
 <Timeline>
     <TimelineHistory
         datetime='13/03/2018 - 16:55:24'
