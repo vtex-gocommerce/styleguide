@@ -21,8 +21,14 @@ class Table extends PureComponent {
             updatedList = []
         }
 
+        const mapped = this.props.rows.filter((element, index) => {
+            if (updatedList.includes(index)) {
+                return element
+            }
+        })
+
         this.setState({ selectedList: updatedList })
-        this.props.onChange(updatedList)
+        this.props.onChange(mapped)
     }
 
     select = (index, checked) => {
