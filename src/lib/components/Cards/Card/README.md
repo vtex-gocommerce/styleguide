@@ -25,7 +25,7 @@
     </Card>
   </div>
   <div className="w-third">
-    <Card title='Total Value'>
+    <Card title='Total Value' isLoading>
       <p className="mt0 f4 blue">R$ 332,34</p>
       <ul className="list pl0">
         <li className="flex justify-between navy mb3">
