@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import styles from './style.css'
 
 class Card extends Component {
   render() {
@@ -10,7 +11,7 @@ class Card extends Component {
     return (
       <div className={classes}>
         <h3 className="flex items-center bb b--navy-40 ma0 h11 ph3 f2 fw5 bg-navy-20 navy">{title}</h3>
-        <div className="pa4">
+        <div className={`pa4 ${styles.content}`}>
           {this.props.children}
         </div>
       </div>

@@ -34,26 +34,26 @@ const columns = [
 const rows = [
     {
         id: 1,
-        Name: 'Teste',
-        Address: 'Rua Teste',
+        Name: 'Example Test',
+        Address: 'Street of Test',
         Count: 245,
-        Price: <div><span className="navy-60 strike">R$ 2.399,00</span><br />R$ 2.199,90</div>,
+        Price: <div><span className="navy-60 strike">$ 2399.00</span><br />$ 2199.90</div>,
         Active: <Toggle value="isActive" isChecked />,
         Actions: <IconMore className="blue" width="20" height="20" />
     },
     {
         Active: <Toggle value="isActive" isDisabled />,
-        Name: 'Teste com nome grande demais para ver o que acontece',
-        Address: 'Rua Teste',
+        Name: 'Too big example test name, just to see what will happen',
+        Address: 'Street of Test',
         id: 2,
         Count: 2454,
-        Lala: 'Land',
+        Hidden: 'Property',
         Actions: <IconMore className="blue" width="20" height="20" />
     },
     {
         id: 3,
-        Name: 'Teste',
-        Address: 'Rua Teste grande demais para ver o que acontece',
+        Name: 'Last Test',
+        Address: 'Just a big street, also to see what will happen',
         Count: <p className="yellow">24 <IconWarning className="ml1" family="regular" /></p>,
         Active: <Toggle value="isActive" />,
         Actions: <IconMore className="blue" width="20" height="20" />
