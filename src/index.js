@@ -10,6 +10,7 @@ import Input from './lib/components/Form/Input'
 import Select from './lib/components/Form/Select'
 import Toggle from './lib/components/Form/Toggle'
 import LoadingBar from './lib/components/General/LoadingBar'
+import Modal from './lib/components/General/Modal'
 import Badge from './lib/components/Indicators/Badge'
 import Status from './lib/components/Indicators/Status'
 import Tag from './lib/components/Indicators/Tag'
@@ -69,6 +70,7 @@ exports.Input = Input
 exports.Select = Select
 exports.Toggle = Toggle
 exports.LoadingBar = LoadingBar
+exports.Modal = Modal
 exports.Badge = Badge
 exports.Status = Status
 exports.Tag = Tag

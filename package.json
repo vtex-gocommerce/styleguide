@@ -17,8 +17,8 @@
   "homepage": "https://vtex-gocommerce.github.io/styleguide",
   "devDependencies": {
     "babel-cli": "^6.26.0",
-    "babel-preset-es2015": "^6.24.1",
     "babel-plugin-transform-es2015-modules-commonjs": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
     "copyfiles": "^1.2.0",
     "eslint-config-vtex": "^7.0.0",
     "eslint-config-vtex-react": "^3.0.3",
@@ -41,6 +41,7 @@
     "@gocommerce/tachyons": "^1.0.2-gc.16",
     "npm": "^5.7.1",
     "react-paginate": "^5.2.0",
+    "react-responsive-modal": "^2.0.1",
     "vtex": "^2.20.0"
   }
 }
