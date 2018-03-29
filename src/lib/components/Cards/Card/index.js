@@ -11,17 +11,17 @@ class Card extends Component {
 
     return (
       <div className={classes}>
-        <h3 className="flex items-center bb b--navy-40 ma0 pv5 ph3 f2 fw5 bg-navy-20 navy">{title}</h3>
+        <h3 className="bb b--navy-40 ma0 pv4 ph3 f2 fw5 bg-navy-20 navy">{title}</h3>
         {
           isLoading ? (
-            <div className={`flex flex-grow-1 items-center justify-center h-100 pa4 ${styles.cardContent}`}>
+            <div className={`flex flex-auto items-center justify-center h-100 pa4 ${styles.cardContent}`}>
               <IconSpinner width="32" height="32" pulse />
             </div>
           ) : (
-              <div className={`pa4 h-100 ${styles.cardContent}`}>
-                {this.props.children}
-              </div>
-            )
+            <div className={`pa4 flex flex-column flex-auto ${styles.cardContent}`}>
+              {this.props.children}
+            </div>
+          )
         }
       </div>
     )
@@ -32,7 +32,7 @@ Card.propTypes = {
   /** Title of the card. */
   title: PropTypes.oneOfType([
     PropTypes.string,
-    PropTypes.element
+    PropTypes.element,
   ]).isRequired,
   /** Display a loading spinner. */
   isLoading: PropTypes.bool,

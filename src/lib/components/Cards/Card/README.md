@@ -2,22 +2,20 @@
 <div className="flex">
   <div className="w-third mr2">
     <Card title='Customer Data'>
-      <p className="mt0 f4 blue">Steven Johnson</p>
-      <ul className="list pl0">
-        <li className="navy mb3">shipping@mailnator.com</li>
-        <li className="navy mb3">(21) 99999-9999</li>
-        <li className="navy">CPF: 999.999.999-99</li>
-      </ul>
+      <p className="flex-auto ma0 f4 blue">Steven Johnson</p>
+      
+      <div className="w-100">
       <Button fullWidth style="outline">
         <IconVisibility className="mr2" isVisible />
         Customer Details
       </Button>
+      </div>
     </Card>
   </div>
   <div className="w-third mr2">
     <Card title='Customer Data'>
-      <p className="mt0 f4 blue">Steven Johnson</p>
-      <ul className="list pl0">
+      <p className="ma0 f4 blue">Steven Johnson</p>
+      <ul className="flex-auto list pl0">
         <li className="navy mb3">St. Fourth</li>
         <li className="navy mb3">Nowhere Land - IDK</li>
         <li className="navy">Phone: (21) 99999-9999</li>
