@@ -24,6 +24,20 @@
     <Input value='Disabled' isDisabled />
     <span className="ml4 no-underline navy-60">Disabled</span>
   </div>
+  <div className="mb2">
+    <Input mask="+4\\9 99 999 99" alwaysShowMask={true} maskChar="_" />
+    <span className="ml4 no-underline navy-60">With a mask</span>
+    <div className="mt3 navy-60">
+      <strong className="db mb1">How to write a mask:</strong>
+      Default format characters are:
+      <pre>
+        9: 0-9<br />
+        a: A-Z, a-z<br />
+        *: A-Z, a-z, 0-9
+      </pre>
+      Any character can be escaped with a backslash. It will appear as a double backslash in JS strings. For example, a German phone mask with unremoveable prefix +49 will look like <strong>mask="+4\\9 99 999 99"</strong>.
+    </div>
+  </div>
 </div>
 ```
 

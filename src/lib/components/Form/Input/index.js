@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
+import InputMask from 'react-input-mask'
 import styles from './style.css'
 
 class Input extends PureComponent {
@@ -12,7 +13,7 @@ class Input extends PureComponent {
   }
 
   componentWillReceiveProps = (nextProps) => {
-    if (nextProps.value != this.props.value) this.setState({ value: nextProps.value })
+    if (nextProps.value !== this.props.value) this.setState({ value: nextProps.value })
   }
 
   handleChange = event => {
@@ -30,7 +31,7 @@ class Input extends PureComponent {
   }
 
   render() {
-    const { hasError, isDisabled, type, placeholder } = this.props
+    const { hasError, isDisabled, type, placeholder, mask, maskChar, alwaysShowMask } = this.props
     const { value } = this.state
 
     let classes = `${styles.input} pa3 ba br1 `
@@ -39,7 +40,21 @@ class Input extends PureComponent {
     if (!isDisabled && !hasError) classes += 'b--navy-40 hover-b--navy-60 bg-white navy '
     if (this.props.className) classes += this.props.className
 
-    return (
+    return this.props.mask ? (
+      <InputMask
+        type={type}
+        placeholder={placeholder}
+        onBlur={this.handleBlur}
+        onFocus={this.handleFocus}
+        onChange={this.handleChange}
+        className={classes}
+        disabled={isDisabled}
+        value={value}
+        mask={mask}
+        maskChar={maskChar}
+        alwaysShowMask={alwaysShowMask}
+      />
+    ) : (
       <input
         type={type}
         placeholder={placeholder}
@@ -73,6 +88,16 @@ Input.propTypes = {
   onBlur: PropTypes.func,
   /** Append css classes to the Input. */
   className: PropTypes.string,
+  /** Mask string. Default format characters are:
+  9: 0-9
+  a: A-Z, a-z
+  *: A-Z, a-z, 0-9
+  */
+  mask: PropTypes.string,
+  /** Character to cover unfilled parts of the mask */
+  maskChar: PropTypes.string,
+  /** Show mask when input is empty and has no focus. */
+  alwaysShowMask: PropTypes.bool,
 }
 
 Input.defaultProps = {
@@ -82,7 +107,10 @@ Input.defaultProps = {
   hasError: false,
   isDisabled: false,
   onChange: null,
-  className: ''
+  className: '',
+  mask: null,
+  maskChar: ' ',
+  alwaysShowMask: false,
 }
 
 export default Input
