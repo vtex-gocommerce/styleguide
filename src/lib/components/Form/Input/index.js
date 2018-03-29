@@ -31,7 +31,7 @@ class Input extends PureComponent {
   }
 
   render() {
-    const { hasError, isDisabled, type, placeholder, mask, maskChar, alwaysShowMask } = this.props
+    const { hasError, isDisabled, type, placeholder, maxLength, mask, maskChar, alwaysShowMask } = this.props
     const { value } = this.state
 
     let classes = `${styles.input} pa3 ba br1 `
@@ -49,6 +49,7 @@ class Input extends PureComponent {
         onChange={this.handleChange}
         className={classes}
         disabled={isDisabled}
+        maxLength={maxLength}
         value={value}
         mask={mask}
         maskChar={maskChar}
@@ -63,6 +64,7 @@ class Input extends PureComponent {
         onChange={this.handleChange}
         className={classes}
         disabled={isDisabled}
+        maxLength={maxLength}
         value={value}
       />
     )
@@ -88,6 +90,8 @@ Input.propTypes = {
   onBlur: PropTypes.func,
   /** Append css classes to the Input. */
   className: PropTypes.string,
+  /** Max number of characters */
+  maxLength: PropTypes.number,
   /** Mask string. Default format characters are:
   9: 0-9
   a: A-Z, a-z
@@ -108,6 +112,7 @@ Input.defaultProps = {
   isDisabled: false,
   onChange: null,
   className: '',
+  maxLength: null,
   mask: null,
   maskChar: ' ',
   alwaysShowMask: false,
