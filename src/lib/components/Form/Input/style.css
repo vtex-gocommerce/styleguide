@@ -2,3 +2,7 @@
   outline: 0;
   border-color: #4B71FC;
 }
+
+.input::placeholder {
+  color: #9FA6BF;
+}

@@ -8,12 +8,14 @@ class Input extends PureComponent {
     super(props)
 
     this.state = {
-      value: props.value
+      value: props.value,
     }
   }
 
   componentWillReceiveProps = (nextProps) => {
-    if (nextProps.value !== this.props.value) this.setState({ value: nextProps.value })
+    if (nextProps.value !== this.props.value) {
+      this.setState({ value: nextProps.value })
+    }
   }
 
   handleChange = event => {
@@ -31,42 +33,31 @@ class Input extends PureComponent {
   }
 
   render() {
-    const { hasError, isDisabled, type, placeholder, maxLength, mask, maskChar, alwaysShowMask } = this.props
+    const { hasError, isDisabled, type, placeholder, maxLength, mask, maskChar, alwaysShowMask, className } = this.props
     const { value } = this.state
 
     let classes = `${styles.input} pa3 ba br1 `
     if (isDisabled) classes += 'b--navy-40 bg-navy-20 navy-80 '
     if (hasError) classes += 'b--red bg-red-light red '
     if (!isDisabled && !hasError) classes += 'b--navy-40 hover-b--navy-60 bg-white navy '
-    if (this.props.className) classes += this.props.className
+    if (className) classes += className
+
+    const props = {
+      type: type,
+      placeholder: placeholder,
+      onBlur: this.handleBlur,
+      onFocus: this.handleFocus,
+      onChange: this.handleChange,
+      className: classes,
+      disabled: isDisabled,
+      maxLength: maxLength,
+      value: value,
+    }
 
     return this.props.mask ? (
-      <InputMask
-        type={type}
-        placeholder={placeholder}
-        onBlur={this.handleBlur}
-        onFocus={this.handleFocus}
-        onChange={this.handleChange}
-        className={classes}
-        disabled={isDisabled}
-        maxLength={maxLength}
-        value={value}
-        mask={mask}
-        maskChar={maskChar}
-        alwaysShowMask={alwaysShowMask}
-      />
+      <InputMask {...props} mask={mask} maskChar={maskChar} alwaysShowMask={alwaysShowMask} />
     ) : (
-      <input
-        type={type}
-        placeholder={placeholder}
-        onBlur={this.handleBlur}
-        onFocus={this.handleFocus}
-        onChange={this.handleChange}
-        className={classes}
-        disabled={isDisabled}
-        maxLength={maxLength}
-        value={value}
-      />
+      <input {...props} />
     )
   }
 }

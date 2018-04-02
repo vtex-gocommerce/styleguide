@@ -7,6 +7,7 @@ import Timeline from './lib/components/Data/Timeline'
 import TimelineHistory from './lib/components/Data/TimelineHistory'
 import CheckBox from './lib/components/Form/CheckBox'
 import Input from './lib/components/Form/Input'
+import Search from './lib/components/Form/Search'
 import Select from './lib/components/Form/Select'
 import Toggle from './lib/components/Form/Toggle'
 import LoadingBar from './lib/components/General/LoadingBar'
@@ -67,6 +68,7 @@ exports.Timeline = Timeline
 exports.TimelineHistory = TimelineHistory
 exports.CheckBox = CheckBox
 exports.Input = Input
+exports.Search = Search
 exports.Select = Select
 exports.Toggle = Toggle
 exports.LoadingBar = LoadingBar

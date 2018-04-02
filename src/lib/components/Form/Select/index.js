@@ -12,7 +12,7 @@ class Select extends PureComponent {
   }
 
   componentWillReceiveProps = (nextProps) => {
-    if (nextProps.value !== this.props.value) this.setState({ value: nextProps.value })
+    if (nextProps.value !== this.props.value)this.setState({ value: nextProps.value })
   }
 
   handleChange = event => {
@@ -37,6 +37,7 @@ class Select extends PureComponent {
     if (isDisabled) classes += 'b--navy-40 bg-navy-20 navy-80 '
     if (hasError) classes += 'b--red bg-red-light red '
     if (!isDisabled && !hasError) classes += 'b--navy-40 hover-b--navy-60 bg-white navy '
+    classes += this.props.elementClassName
 
     return (
       <div className={`${styles.selectWrapper} ${this.props.className}`}>
@@ -74,6 +75,8 @@ Select.propTypes = {
   onBlur: PropTypes.func,
   /** Append css classes to the select wrapper. */
   className: PropTypes.string,
+  /** Append css classes to the select */
+  elementClassName: PropTypes.string,
 }
 
 Select.defaultProps = {
@@ -83,7 +86,8 @@ Select.defaultProps = {
   isDisabled: false,
   defaultValue: '',
   required: false,
-  className: ''
+  className: '',
+  elementClassName: '',
 }
 
 export default Select
