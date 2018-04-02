@@ -36,7 +36,7 @@ class Search extends PureComponent {
     const { placeholder, withOptions, options } = this.props
 
     return (
-      <div className="ba b--navy-40 flex items-center h11">
+      <div className="ba b--navy-40 flex flex-auto items-center h11">
         {withOptions && (
           <Select placeholder="Select an option"
             list={options}
