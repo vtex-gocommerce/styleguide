@@ -40,11 +40,12 @@ Pagination.propTypes = {
   /** Set pagination to compact mode. */
   isCompact: PropTypes.bool,
   /**  To override selected page with parent prop. */
-  forcePage: PropTypes.number
+  forcePage: PropTypes.number,
 }
 
 Pagination.defaultProps = {
-  onPageChange: () => {}
+  onPageChange: () => {},
+  isCompact: false,
 }
 
 export default Pagination
