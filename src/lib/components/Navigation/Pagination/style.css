@@ -12,15 +12,15 @@
 .pagination li a {
     display: block;
     color: #212E5F;
-    padding: 5px;
-    height: 30px;
+    padding: 12px 0;
+    height: 42px;
     width: 100%;
     min-width: 40px;
     text-align: center;
 }
 
 .pagination li a:hover {
-    background: #EAEFFF;
+    background: #BDCCFF;
     cursor: pointer;
 }
 
@@ -30,7 +30,6 @@
 
 .active a {
     background: #4B71FC;
-    border-radius: 4px;
     color: #fff!important;
 }
 
@@ -40,4 +39,18 @@
 
 .break {
     margin: 0 5px;
+}
+
+.previous,
+.next {
+    color: #4B71FC!important;
+}
+
+.disabled a {
+    color: #9FA6BF!important;
+}
+
+.disabled a:hover {
+    background: transparent!important;
+    cursor: default!important;
 }

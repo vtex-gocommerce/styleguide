@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import Paginate from 'react-paginate'
-import IconAngle from '../../../icons/IconAngle'
+import IconCaret from '../../../icons/IconCaret'
 import styles from './style.css'
 
 class Pagination extends PureComponent {
@@ -14,8 +14,8 @@ class Pagination extends PureComponent {
 
     return (
       <Paginate
-        previousLabel={<IconAngle side="left" />}
-        nextLabel={<IconAngle side="right" />}
+        previousLabel={<IconCaret side="left" />}
+        nextLabel={<IconCaret side="right" />}
         initialPage={initialPage}
         pageCount={pageCount}
         onPageChange={this.handleChange}
@@ -24,6 +24,9 @@ class Pagination extends PureComponent {
         containerClassName={styles.pagination}
         activeClassName={styles.active}
         breakClassName={styles.break}
+        previousLinkClassName={styles.previous}
+        nextLinkClassName={styles.next}
+        disabledClassName={styles.disabled}
         forcePage={forcePage}
       />
     )
