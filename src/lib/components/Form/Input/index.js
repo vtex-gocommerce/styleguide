@@ -54,11 +54,9 @@ class Input extends PureComponent {
       value: value,
     }
 
-    return this.props.mask ? (
-      <InputMask {...props} mask={mask} maskChar={maskChar} alwaysShowMask={alwaysShowMask} />
-    ) : (
-      <input {...props} />
-    )
+    return this.props.mask
+      ? <InputMask {...props} mask={mask} maskChar={maskChar} alwaysShowMask={alwaysShowMask} />
+      : <input {...props} />
   }
 }
 
