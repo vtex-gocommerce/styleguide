@@ -20,7 +20,7 @@ class Placeholder extends PureComponent {
     )
   }
 }
-
+//
 Placeholder.propTypes = {
   /** Append css classes to the Input. */
   className: PropTypes.string,
