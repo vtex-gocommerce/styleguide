@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import placeholder from './../Placeholder'
 import './styles.css'
 
-const placeholder = classNameArray => {
+const placeholderFunc = classNameArray => {
   return classNameArray.map((className, index) => (
     <Placeholder key={index + className} className={className} isPlaceholderActive />
   ))
@@ -20,7 +20,7 @@ const placeholderFadeOut = classNameArray => {
 class PlaceholderContainer extends PureComponent {
   render() {
     return this.props.isPlaceholderActive ? (
-      <div>{placeholder(this.props.classNameArray)}</div>
+      <div>{placeholderFunc(this.props.classNameArray)}</div>
     ) : (
       <div className="fadeIn flex flex-column flex-auto">{this.props.children}</div>
     )
