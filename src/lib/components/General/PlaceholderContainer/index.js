@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
+import placeholder from './../Placeholder'
 import './styles.css'
 
 const placeholder = classNameArray => {
