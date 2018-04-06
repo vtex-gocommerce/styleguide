@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import style from './style.css'
+import Placeholder from './../../General/Placeholder'
 import CheckBox from '../../Form/CheckBox'
 
 class Table extends PureComponent {

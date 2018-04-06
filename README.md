@@ -13,18 +13,21 @@ npm install
 ### Developing using Styleguidist
 
 Start the server with:
+
 ```sh
 npm run styleguide
 ```
 
 ### Publish new version with Releasy
+
 ```sh
 npm run compile
-git commit -a && git push
+git commit -a
 releasy --stable
 ```
 
 ### Publishing Styleguide page on Github
+
 ```sh
 npm run styleguide:build
 npm run github
