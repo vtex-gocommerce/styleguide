@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import styles from './style.css'
 import IconSpinner from '../../../icons/IconSpinner'
+import PlaceholderContainer from './../../General/PlaceholderContainer'
 
 class Card extends Component {
   render() {

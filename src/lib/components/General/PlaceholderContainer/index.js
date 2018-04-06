@@ -3,12 +3,14 @@ import PropTypes from 'prop-types'
 import './styles.css'
 
 const placeholder = classNameArray => {
-  return classNameArray.map(className => <Placeholder className={className} isPlaceholderActive />)
+  return classNameArray.map((className, index) => (
+    <Placeholder key={index + className} className={className} isPlaceholderActive />
+  ))
 }
 
 const placeholderFadeOut = classNameArray => {
-  return classNameArray.map(className => (
-    <div className={`fadeOut `}>
+  return classNameArray.map((className, index) => (
+    <div key={index + className} className={`fadeOut `}>
       <Placeholder className={className} isPlaceholderActive />
     </div>
   ))
