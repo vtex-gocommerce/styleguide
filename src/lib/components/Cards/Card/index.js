@@ -14,7 +14,12 @@ class Card extends Component {
       <div className={classes}>
         <h3 className="bb b--navy-40 ma0 pv4 ph3 f2 fw5 bg-navy-20 navy">{title}</h3>
         <PlaceholderContainer
-          classNameArray={['w-30 h6 ml4 mt5 br3', 'w-60 h4 ml4 mt6 br2', 'w-70 h4 ml4 mt3 br2', 'w-40 h4 ml4 mt3 br2']}
+          classNameArray={[
+            'w-30 h6 ml4 mt5 br3',
+            'w-60 h4 ml4 mt6 br2',
+            'w-70 h4 ml4 mt3 br2',
+            'w-40 h4 ml4 mt3 br2 mb5'
+          ]}
           isPlaceholderActive={this.props.isLoading}
         >
           <div className={`pa4 flex flex-column flex-auto ${styles.cardContent}`}>{this.props.children}</div>
