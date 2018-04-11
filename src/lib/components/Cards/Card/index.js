@@ -12,7 +12,7 @@ class Card extends Component {
 
     return (
       <div className={classes}>
-        <h3 className="bb b--navy-40 ma0 pv4 ph3 f2 fw5 bg-navy-20 navy">{title}</h3>
+        <h3 className="flex items-center h11 bb b--navy-40 ma0 ph3 f2 fw5 bg-navy-20 navy">{title}</h3>
         <PlaceholderContainer
           classNameArray={[
             'w-30 h6 ml4 mt5 br3',

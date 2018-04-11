@@ -79,12 +79,12 @@ class Table extends PureComponent {
         </thead>
         <tbody className="bg-white">
           {this.props.isLoading
-            ? Array(3)
-                .fill()
+            ? [...Array(3)
+                .keys()]
                 .map(e => (
                   <tr key={e}>
-                    {Array(this.props.columns.length)
-                      .fill()
+                    {[...Array(this.props.columns.length)
+                      .keys()]
                       .map(e => (
                         <td key={e} className={`bb b--navy-40 pv5 ph4 navy tc`}>
                           <Placeholder className="h2 w-100 mt2 br4" isPlaceholderActive={this.props.isLoading} />

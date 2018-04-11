@@ -29,7 +29,7 @@ class PlaceholderContainer extends PureComponent {
 
 PlaceholderContainer.propTypes = {
   /** Append css classes to the Input. each element in the array represent a placeholder */
-  classNameArray: PropTypes.array.required,
+  classNameArray: PropTypes.array.isRequired,
   /** Show place holde */
   isPlaceholderActive: PropTypes.bool,
   /** Component Shown after the placeholde fades */
