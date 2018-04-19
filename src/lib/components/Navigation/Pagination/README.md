@@ -32,7 +32,7 @@ class WithForcePage extends React.Component {
   }
 }
 
-<div>
+;<div>
   <div className="flex justify-center mb5">
     <Pagination initialPage={1} pageCount={600} onPageChange={data => console.log('Page changed!')} />
   </div>

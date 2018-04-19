@@ -2,60 +2,67 @@ import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 
 class Tab extends PureComponent {
-    constructor(props) {
-        super(props)
+  constructor(props) {
+    super(props)
 
-        this.state = {
-            active: this.props.initialTab
-        }
+    this.state = {
+      active: this.props.initialTab
     }
+  }
 
-    handleClick = value => {
-        this.setState({ active: value })
-
-        this.props.onClick(value)
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.forceValue && nextProps.forceValue != this.props.forceValue) {
+      this.setState({ active: nextProps.forceValue })
     }
+  }
 
-    render() {
-        const { list, initialTab, className } = this.props
-        const { active } = this.state
+  handleClick = value => {
+    this.setState({ active: value })
+    this.props.onClick(value)
+  }
 
-        return (
-            <div className={`f2 w-100 ${className}`}>
-                {list.map(element => {
-                    return (
-                        <div
-                            key={element.id}
-                            className={`dib pa3 pointer ${
-                                element.id === active ? 'bw2 bb blue b--blue' : 'navy-80'
-                                }`}
-                            onClick={() => this.handleClick(element.id)}
-                        >
-                            {element.label}
-                        </div>
-                    )
-                })}
+  render() {
+    const { list, initialTab, className } = this.props
+    const { active } = this.state
+
+    return (
+      <div className={`f2 w-100 ${className}`}>
+        {list.map(element => {
+          return (
+            <div
+              key={element.id}
+              className={`dib pa3 pointer ${element.id === active ? 'bw2 bb blue b--blue' : 'navy-80'}`}
+              onClick={() => this.handleClick(element.id)}
+            >
+              {element.label}
             </div>
-        )
-    }
+          )
+        })}
+      </div>
+    )
+  }
 }
 
 Tab.propTypes = {
-    /** List of tab labels. */
-    list: PropTypes.arrayOf(PropTypes.shape({
-        id: PropTypes.string.isRequired,
-        label: PropTypes.string.isRequired,
-    })).isRequired,
-    /** Set initial tab value. */
-    initialTab: PropTypes.string.isRequired,
-    /** Callback when clicking a tab. */
-    onClick: PropTypes.func.isRequired,
-    /** Append css classes to the tab. */
-    className: PropTypes.string,
+  /** List of tab labels. */
+  list: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      label: PropTypes.string.isRequired
+    })
+  ).isRequired,
+  /** Set initial tab value. */
+  initialTab: PropTypes.string.isRequired,
+  /** Callback when clicking a tab. */
+  onClick: PropTypes.func.isRequired,
+  /** Append css classes to the tab. */
+  className: PropTypes.string,
+  /** force a new active tab */
+  forceValue: PropTypes.string
 }
 
 Tab.defaultProps = {
-    className: '',
+  className: ''
 }
 
 export default Tab

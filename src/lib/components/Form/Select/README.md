@@ -1,17 +1,17 @@
 ```js
 const Simple = [
-  {label: 'Apple', value: 'apple'},
-  {label: 'Banana', value: 'banana'},
-  {label: 'Orange', value: 'orange'},
-];
+  { label: 'Apple', value: 'apple' },
+  { label: 'Banana', value: 'banana' },
+  { label: 'Orange', value: 'orange' }
+]
 
 const Disabled = [
-  {label: 'Apple', value: 'apple'},
-  {label: 'Banana', value: 'banana'},
-  {label: 'Orange', value: 'orange', disabled: true},
-];
+  { label: 'Apple', value: 'apple' },
+  { label: 'Banana', value: 'banana' },
+  { label: 'Orange', value: 'orange', disabled: true }
+]
 
-<div>
+;<div>
   <div className="mb2">
     <Select placeholder="Select a fruit..." list={Simple} />
     <span className="ml4 no-underline navy-60">Simple Select</span>
@@ -21,7 +21,7 @@ const Disabled = [
     <span className="ml4 no-underline navy-60">Select with some disable options</span>
   </div>
   <div className="mb2">
-    <Select placeholder="Select a fruit..." list={Simple} defaultValue="orange"  />
+    <Select placeholder="Select a fruit..." list={Simple} defaultValue="orange" />
     <span className="ml4 no-underline navy-60">Select with default option</span>
   </div>
   <div className="mb2">

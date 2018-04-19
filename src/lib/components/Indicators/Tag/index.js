@@ -25,12 +25,12 @@ Tag.propTypes = {
   count: PropTypes.number,
   /** Function that will be called when user click to remove tag. */
   onRemove: PropTypes.func,
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node.isRequired
 }
 
 Tag.defaultProps = {
   count: null,
-  onRemove: null,
+  onRemove: null
 }
 
 export default Tag
