@@ -20,6 +20,7 @@ import Tag from './lib/components/Indicators/Tag'
 import Pagination from './lib/components/Navigation/Pagination'
 import Tab from './lib/components/Navigation/Tab'
 import Alert from './lib/components/Notifications/Alert'
+import ContextualAlert from './lib/components/Notifications/ContextualAlert'
 import Avatar from './lib/components/Profile/Avatar'
 import IconAdd from './lib/icons/IconAdd'
 import IconAngle from './lib/icons/IconAngle'
@@ -83,6 +84,7 @@ exports.Tag = Tag
 exports.Pagination = Pagination
 exports.Tab = Tab
 exports.Alert = Alert
+exports.ContextualAlert = ContextualAlert
 exports.Avatar = Avatar
 exports.IconAdd = IconAdd
 exports.IconAngle = IconAngle

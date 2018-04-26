@@ -24,6 +24,7 @@ npm run styleguide
 npm run compile
 git commit -a
 releasy --stable
+npm publish
 ```
 
 ### Publishing Styleguide page on Github
