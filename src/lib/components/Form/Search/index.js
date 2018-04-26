@@ -10,15 +10,15 @@ class Search extends PureComponent {
 
     this.state = {
       searchValue: '',
-      optionValue: '',
+      optionValue: ''
     }
   }
 
-  handleChangeOption = (event) => {
+  handleChangeOption = event => {
     this.setState({ optionValue: event.target.value })
   }
 
-  handleSearch = (event) => {
+  handleSearch = event => {
     this.setState({ searchValue: event.target.value })
   }
 
@@ -26,30 +26,34 @@ class Search extends PureComponent {
     const { searchValue, optionValue } = this.state
     const values = {
       searchValue,
-      optionValue,
+      optionValue
     }
 
     this.props.onClick && this.props.onClick(values)
   }
 
   render() {
-    const { placeholder, withOptions, options } = this.props
+    const { placeholder, withOptions, options, name } = this.props
 
     return (
       <div className="ba b--navy-40 flex flex-auto items-center h11">
         {withOptions && (
-          <Select placeholder="Select an option"
+          <Select
+            placeholder="Select an option"
+            name={name}
             list={options}
             elementClassName="bn h-100"
             className="h-100 br b--navy-40"
-            onChange={this.handleChangeOption} />
+            onChange={this.handleChangeOption}
+          />
         )}
         <div className="flex flex-auto items-center h-100">
           <Input
             placeholder={placeholder}
             className="bn w-100 h-100"
             onBlue={this.handleSearch}
-            onChange={this.handleSearch} />
+            onChange={this.handleSearch}
+          />
           <div className="pa3 pointer blue hover-navy" onClick={this.handleClick}>
             <IconSearch />
           </div>
@@ -60,25 +64,29 @@ class Search extends PureComponent {
 }
 
 Search.propTypes = {
+  /** Set input's name. */
+  name: PropTypes.string,
   /** Set placeholder for search input. */
   placeholder: PropTypes.string,
   /** Set if Search will have filter options. */
   withOptions: PropTypes.bool,
   /** Option list. */
-  options: PropTypes.arrayOf(PropTypes.shape({
-    /** Label of the option. */
-    label: PropTypes.string.isRequired,
-    /** Value of the option. */
-    value: PropTypes.string.isRequired,
-  })),
+  options: PropTypes.arrayOf(
+    PropTypes.shape({
+      /** Label of the option. */
+      label: PropTypes.string.isRequired,
+      /** Value of the option. */
+      value: PropTypes.string.isRequired
+    })
+  ),
   /** Set function when clicking search button. Receive `values`. */
-  onClick: PropTypes.func,
+  onClick: PropTypes.func
 }
 
 Search.defaultProps = {
   placeholder: 'Search...',
   withOptions: false,
-  options: [],
+  options: []
 }
 
 export default Search

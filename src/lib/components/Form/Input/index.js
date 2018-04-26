@@ -8,11 +8,11 @@ class Input extends PureComponent {
     super(props)
 
     this.state = {
-      value: props.value,
+      value: props.value
     }
   }
 
-  componentWillReceiveProps = (nextProps) => {
+  componentWillReceiveProps = nextProps => {
     if (nextProps.value !== this.props.value) {
       this.setState({ value: nextProps.value })
     }
@@ -33,7 +33,18 @@ class Input extends PureComponent {
   }
 
   render() {
-    const { hasError, isDisabled, type, placeholder, maxLength, mask, maskChar, alwaysShowMask, className } = this.props
+    const {
+      hasError,
+      isDisabled,
+      type,
+      placeholder,
+      maxLength,
+      mask,
+      maskChar,
+      alwaysShowMask,
+      className,
+      name
+    } = this.props
     const { value } = this.state
 
     let classes = `${styles.input} pa3 ba br1 `
@@ -44,6 +55,7 @@ class Input extends PureComponent {
 
     const props = {
       type: type,
+      name: name,
       placeholder: placeholder,
       onBlur: this.handleBlur,
       onFocus: this.handleFocus,
@@ -51,16 +63,20 @@ class Input extends PureComponent {
       className: classes,
       disabled: isDisabled,
       maxLength: maxLength,
-      value: value,
+      value: value
     }
 
-    return this.props.mask
-      ? <InputMask {...props} mask={mask} maskChar={maskChar} alwaysShowMask={alwaysShowMask} />
-      : <input {...props} />
+    return this.props.mask ? (
+      <InputMask {...props} mask={mask} maskChar={maskChar} alwaysShowMask={alwaysShowMask} />
+    ) : (
+      <input {...props} />
+    )
   }
 }
 
 Input.propTypes = {
+  /** Set input's name. */
+  name: PropTypes.string,
   /** Set input's type. */
   type: PropTypes.oneOf(['text', 'password', 'tel', 'hidden']),
   /** Set the value of the input. */
@@ -90,7 +106,7 @@ Input.propTypes = {
   /** Character to cover unfilled parts of the mask */
   maskChar: PropTypes.string,
   /** Show mask when input is empty and has no focus. */
-  alwaysShowMask: PropTypes.bool,
+  alwaysShowMask: PropTypes.bool
 }
 
 Input.defaultProps = {
@@ -104,7 +120,7 @@ Input.defaultProps = {
   maxLength: null,
   mask: null,
   maskChar: ' ',
-  alwaysShowMask: false,
+  alwaysShowMask: false
 }
 
 export default Input

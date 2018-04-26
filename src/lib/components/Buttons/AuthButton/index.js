@@ -5,8 +5,8 @@ import IconGoogle from '../../../icons/IconGoogle'
 const providers = {
   google: {
     classes: 'white pointer no-underline bg-blue hover-bg-blue-80',
-    icon: IconGoogle,
-  },
+    icon: IconGoogle
+  }
 }
 
 class AuthButton extends PureComponent {
@@ -33,12 +33,12 @@ AuthButton.propTypes = {
   url: PropTypes.string,
   /** Append css classes to the button. */
   className: PropTypes.string,
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node.isRequired
 }
 
 AuthButton.defaultProps = {
   provider: 'google',
-  url: '',
+  url: ''
 }
 
 export default AuthButton
