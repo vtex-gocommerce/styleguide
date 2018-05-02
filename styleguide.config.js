@@ -69,7 +69,7 @@ module.exports = {
         },
         {
           test: /\.css$/,
-          exclude: /.*style.css/,
+          exclude: /.*.global.css/,
           loader: 'style-loader!css-loader'
         },
         {
