@@ -1,8 +1,8 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
-import Select from 'react-select';
-import './component.global.css';
-// import styles from './style.css'
+import Select from 'react-select'
+import './reactSelect.global.css'
+import './component.global.css'
 
 class SearchSelect extends PureComponent {
   constructor(props) {
@@ -17,7 +17,8 @@ class SearchSelect extends PureComponent {
     if (nextProps.value !== this.props.value)this.setState({ value: nextProps.value })
   }
 
-  handleChange = value => {
+  handleChange = event => {
+    const value = event
     this.setState({ value })
     this.props.onChange && this.props.onChange(value)
   }
@@ -38,11 +39,11 @@ class SearchSelect extends PureComponent {
     if (isDisabled) classes += 'b--navy-40 bg-navy-20 navy-80 '
     if (hasError) classes += 'b--red bg-red-light red '
     if (!isDisabled && !hasError) classes += 'b--navy-40 hover-b--navy-60 bg-white navy '
-    classes = ''
+    classes += this.props.elementClassName
 
     return (
       <div className={`${this.props.className}`}>
-        <Select name={name} options={list} className={classes} disabled={isDisabled} onChange={this.handleChange} onFocus={this.handleFocus} onBlur={this.handleBlur} value={value} />
+        <Select name={name} options={list} className="searchSelect" disabled={isDisabled} onChange={this.handleChange} onFocus={this.handleFocus} onBlur={this.handleBlur} value={value} placeholder={placeholder} required={required} />
       </div>
     )
   }
