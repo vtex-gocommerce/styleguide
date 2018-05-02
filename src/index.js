@@ -74,6 +74,7 @@ exports.TimelineHistory = TimelineHistory
 exports.CheckBox = CheckBox
 exports.Input = Input
 exports.Search = Search
+exports.SearchSelect = SearchSelect
 exports.Select = Select
 exports.SelectCountry = SelectCountry
 exports.Toggle = Toggle
