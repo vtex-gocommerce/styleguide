@@ -79,25 +79,21 @@ class Table extends PureComponent {
         </thead>
         <tbody className="bg-white">
           {this.props.isLoading
-            ? [...Array(3)
-                .keys()]
-                .map(e => (
-                  <tr key={e}>
-                    {[...Array(this.props.columns.length)
-                      .keys()]
-                      .map(e => (
-                        <td key={e} className={`bb b--navy-40 pv5 ph4 navy tc`}>
-                          <Placeholder className="h2 w-100 mt2 br4" isPlaceholderActive={this.props.isLoading} />
-                        </td>
-                      ))}
-                  </tr>
-                ))
+            ? [...Array(3).keys()].map(e => (
+                <tr key={e}>
+                  {[...Array(this.props.columns.length).keys()].map(e => (
+                    <td key={e} className={`bb b--navy-40 pv5 ph4 navy tc`}>
+                      <Placeholder className="h2 w-100 mt2 br4" isPlaceholderActive={this.props.isLoading} />
+                    </td>
+                  ))}
+                </tr>
+              ))
             : rows.map((fields, index) => {
                 const formatted_row = columns.map(column => {
                   return (
                     <td key={index + column.id} className={`bb b--navy-40 pv5 ph4 navy ${column.isCentered && 'tc'}`}>
                       <Placeholder className="h2 w-100 mt2 br4" isPlaceholderActive={false}>
-                        {fields[column.id]}
+                        {() => fields[column.id]}
                       </Placeholder>
                     </td>
                   )

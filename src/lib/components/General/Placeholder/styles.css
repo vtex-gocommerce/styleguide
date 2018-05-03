@@ -56,7 +56,7 @@
 
 .fadeOut {
   opacity: 0;
-  height: 0px;
+  height: inherit;
   animation-name: fadeOutAnimation;
-  animation-duration: 0.3s;
+  animation-duration: 0.5s;
 }

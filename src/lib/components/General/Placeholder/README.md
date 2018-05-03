@@ -20,16 +20,22 @@ class ShowModal extends React.Component {
           <div className="pt4">
             Simple text
             <Placeholder className="h7 w12 mt2" isPlaceholderActive={this.state.placeholderIsActive}>
-              <span className="f5 fw5"> Title </span>
+              {() => <span className="f5 fw5"> Title </span>}
             </Placeholder>
             <Placeholder className="h5 w15 mt2" isPlaceholderActive={this.state.placeholderIsActive}>
-              this is a simple text example
+              {() => 'this is a simple text example'}
             </Placeholder>
           </div>
           <div className="pt4">
             Component
             <Placeholder className="h12 w12 br-100" isPlaceholderActive={this.state.placeholderIsActive}>
-              <Avatar size={64} img="http://assets.papelpop.com/wp-content/uploads/2016/01/avatar.jpeg" alt="Avatar" />
+              {() => (
+                <Avatar
+                  size={64}
+                  img="http://assets.papelpop.com/wp-content/uploads/2016/01/avatar.jpeg"
+                  alt="Avatar"
+                />
+              )}
             </Placeholder>
           </div>
         </div>
