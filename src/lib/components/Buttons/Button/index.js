@@ -8,9 +8,9 @@ const sizes = {
 }
 
 const styles = {
-  primary: 'bg-animate ba b--blue hover-b--blue-80 bg-blue hover-bg-blue-80 white pointer ',
-  secondary: 'bg-animate ba b--navy hover-b--navy-80 bg-navy hover-bg-navy-80 white pointer ',
-  outline: 'bg-animate ba b--blue bg-transparent hover-bg-blue-20 blue pointer ',
+  primary: 'all-animate ba b--blue hover-b--blue-80 bg-blue hover-bg-blue-80 white pointer ',
+  secondary: 'all-animate ba b--navy hover-b--navy-80 bg-navy hover-bg-navy-80 white pointer ',
+  outline: 'all-animate ba b--blue bg-transparent hover-bg-blue-20 blue pointer ',
   danger: 'ba b--red bg-red dim white pointer '
 }
 
