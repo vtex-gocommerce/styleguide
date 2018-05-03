@@ -13,7 +13,7 @@ class Placeholder extends PureComponent {
             <div className={`fadeOut ${this.props.className}`}>
               <div className={`animated-background ${this.props.className}`} />
             </div>
-            <div className="fadeIn">{this.props.children}</div>
+            <div className="fadeIn">{this.props.children()}</div>
           </div>
         )}
       </div>

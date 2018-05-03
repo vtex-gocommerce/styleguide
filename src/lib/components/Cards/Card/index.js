@@ -22,7 +22,7 @@ class Card extends Component {
           ]}
           isPlaceholderActive={this.props.isLoading}
         >
-          <div className={`pa4 flex flex-column flex-auto ${styles.cardContent}`}>{this.props.children}</div>
+          {() => <div className={`pa4 flex flex-column flex-auto ${styles.cardContent}`}>{this.props.children}</div>}
         </PlaceholderContainer>
       </div>
     )
