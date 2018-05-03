@@ -22,7 +22,7 @@ class PlaceholderContainer extends PureComponent {
     return this.props.isPlaceholderActive ? (
       <div>{placeholderFunc(this.props.classNameArray)}</div>
     ) : (
-      <div className="fadeIn flex flex-column flex-auto">{this.props.children}</div>
+      <div className="fadeIn flex flex-column flex-auto">{this.props.children()}</div>
     )
   }
 }

@@ -9,12 +9,12 @@ class Placeholder extends PureComponent {
         {this.props.isPlaceholderActive ? (
           <div className={`animated-background ${this.props.className}`} />
         ) : (
-          <div>
+          <React.Fragment>
             <div className={`fadeOut ${this.props.className}`}>
               <div className={`animated-background ${this.props.className}`} />
             </div>
-            <div className="fadeIn">{this.props.children}</div>
-          </div>
+            <div className="fadeIn">{this.props.children()}</div>
+          </React.Fragment>
         )}
       </div>
     )
