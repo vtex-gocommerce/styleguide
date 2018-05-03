@@ -6,15 +6,13 @@ class Placeholder extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      ready: false,
+      ready: !props.isPlaceholderActive,
       loading: false
     }
   }
 
   componentWillReceiveProps(nextProps) {
-    console.log(nextProps)
-    if (!this.state.ready && !nextProps.isPlaceholderActive) {
-      console.log(nextProps)
+    if (this.props.isPlaceholderActive && !nextProps.isPlaceholderActive) {
       this.setState(prevState => ({
         ...prevState,
         loading: true
@@ -33,7 +31,6 @@ class Placeholder extends Component {
 
   render() {
     const { ready, loading } = this.state
-    console.log(ready, loading)
     if (!ready && !loading) return <div className={`animated-background ${this.props.className}`} />
     if (!ready && loading)
       return (
