@@ -1,5 +1,6 @@
 import AuthButton from './lib/components/Buttons/AuthButton'
 import Button from './lib/components/Buttons/Button'
+import DropdownButton from './lib/components/Buttons/DropdownButton'
 import Card from './lib/components/Cards/Card'
 import NumberCard from './lib/components/Cards/NumberCard'
 import Table from './lib/components/Data/Table'
@@ -66,6 +67,7 @@ import IconWarning from './lib/icons/IconWarning'
 
 exports.AuthButton = AuthButton
 exports.Button = Button
+exports.DropdownButton = DropdownButton
 exports.Card = Card
 exports.NumberCard = NumberCard
 exports.Table = Table
