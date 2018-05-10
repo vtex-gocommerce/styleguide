@@ -4,8 +4,9 @@ import IconClose from '../../../icons/IconCloseAlt'
 
 class Tag extends PureComponent {
   render() {
-    const { count, onRemove } = this.props
-    let classes = 'dib ph2 fw5 pv1 br2 bg-blue white f2 '
+    const { count, onRemove, bgColor } = this.props
+    const tagBgColor = bgColor ? `bg-${bgColor}` : 'bg-blue'
+    let classes = `dib ph2 fw5 pv1 br2 ${tagBgColor} white f2 `
     if (onRemove) classes += 'hover-bg-red pointer'
 
     return (
@@ -25,6 +26,8 @@ Tag.propTypes = {
   count: PropTypes.number,
   /** Function that will be called when user click to remove tag. */
   onRemove: PropTypes.func,
+  /** Define Tag Color. */
+  bgColor: PropTypes.string,
   children: PropTypes.node.isRequired
 }
 
