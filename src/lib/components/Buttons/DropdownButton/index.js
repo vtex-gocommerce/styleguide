@@ -20,7 +20,7 @@ class DropdownButton extends PureComponent {
       super(props)
 
       this.state = {
-        isOpen: this.props.opened
+        isOpen: this.props.isOpened
       }
   }
 
@@ -33,14 +33,14 @@ class DropdownButton extends PureComponent {
   }
 
   render() {
-    const { options } = this.props
+    const { options, buttonType } = this.props
     const { isOpen } = this.state
 
     return (
-      <div className="flex flex-column" onClick={this.handleClick}>
+      <div className="relative" onClick={this.handleClick}>
         {this.props.children}
         {isOpen && (
-          <div className="ba b--navy-40 mh1">
+          <div className="absolute ba b--navy-40 w-100 z-4">
             <ul className="list ma0 pa0">
             {options.map((option) => {
               return (
