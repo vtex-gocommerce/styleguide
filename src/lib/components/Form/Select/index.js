@@ -1,18 +1,17 @@
-import React, { PureComponent } from 'react'
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import styles from './style.css'
 
-class Select extends PureComponent {
+class Select extends Component {
   constructor(props) {
     super(props)
-
     this.state = {
-      value: this.props.defaultValue,
+      value: this.props.defaultValue || this.props.value || ''
     }
   }
 
-  componentWillReceiveProps = (nextProps) => {
-    if (nextProps.value !== this.props.value)this.setState({ value: nextProps.value })
+  componentWillReceiveProps = nextProps => {
+    if (nextProps.value !== this.props.value) this.setState({ value: nextProps.value })
   }
 
   handleChange = event => {
@@ -38,13 +37,26 @@ class Select extends PureComponent {
     if (hasError) classes += 'b--red bg-red-light red '
     if (!isDisabled && !hasError) classes += 'b--navy-40 hover-b--navy-60 bg-white navy '
     classes += this.props.elementClassName
-
     return (
       <div className={`${styles.selectWrapper} ${this.props.className}`}>
-        <select name={name} className={classes} disabled={isDisabled} onChange={this.handleChange} onFocus={this.handleFocus} onBlur={this.handleBlur} value={value}>
-          <option value="" disabled={required}>{placeholder}</option>
+        <select
+          name={name}
+          className={classes}
+          disabled={isDisabled}
+          onChange={this.handleChange}
+          onFocus={this.handleFocus}
+          onBlur={this.handleBlur}
+          value={value}
+        >
+          <option value="" disabled={required}>
+            {placeholder}
+          </option>
           {list.map((item, index) => {
-            return <option key={item.value} value={`${item.value}`} disabled={item.disabled}>{item.label}</option>
+            return (
+              <option key={item.value} value={`${item.value}`} disabled={item.disabled}>
+                {item.label}
+              </option>
+            )
           })}
         </select>
       </div>
@@ -77,6 +89,8 @@ Select.propTypes = {
   className: PropTypes.string,
   /** Append css classes to the select */
   elementClassName: PropTypes.string,
+  /** Set the value of the Select. */
+  value: PropTypes.string
 }
 
 Select.defaultProps = {
@@ -87,7 +101,7 @@ Select.defaultProps = {
   defaultValue: '',
   required: false,
   className: '',
-  elementClassName: '',
+  elementClassName: ''
 }
 
 export default Select

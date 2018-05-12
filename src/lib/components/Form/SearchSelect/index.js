@@ -9,12 +9,12 @@ class SearchSelect extends PureComponent {
     super(props)
 
     this.state = {
-      value: this.props.defaultValue,
+      value: this.props.defaultValue
     }
   }
 
-  componentWillReceiveProps = (nextProps) => {
-    if (nextProps.value !== this.props.value)this.setState({ value: nextProps.value })
+  componentWillReceiveProps = nextProps => {
+    if (nextProps.value !== this.props.value) this.setState({ value: nextProps.value })
   }
 
   handleChange = event => {
@@ -43,7 +43,18 @@ class SearchSelect extends PureComponent {
 
     return (
       <div className={`${this.props.className}`}>
-        <Select name={name} options={list} className="searchSelect" disabled={isDisabled} onChange={this.handleChange} onFocus={this.handleFocus} onBlur={this.handleBlur} value={value} placeholder={placeholder} required={required} />
+        <Select
+          name={name}
+          options={list}
+          className="searchSelect"
+          disabled={isDisabled}
+          onChange={this.handleChange}
+          onFocus={this.handleFocus}
+          onBlur={this.handleBlur}
+          value={value}
+          placeholder={placeholder}
+          required={required}
+        />
       </div>
     )
   }
@@ -74,6 +85,8 @@ SearchSelect.propTypes = {
   className: PropTypes.string,
   /** Append css classes to the select */
   elementClassName: PropTypes.string,
+  /** Append css classes to the select */
+  value: PropTypes.string
 }
 
 SearchSelect.defaultProps = {
@@ -84,7 +97,7 @@ SearchSelect.defaultProps = {
   defaultValue: '',
   required: false,
   className: '',
-  elementClassName: '',
+  elementClassName: ''
 }
 
 export default SearchSelect
