@@ -29,6 +29,7 @@ import IconAdd from './lib/icons/IconAdd'
 import IconAngle from './lib/icons/IconAngle'
 import IconArc from './lib/icons/IconArc'
 import IconArrow from './lib/icons/IconArrow'
+import IconArrows from './lib/icons/IconArrows'
 import IconBarcode from './lib/icons/IconBarcode'
 import IconBell from './lib/icons/IconBell'
 import IconBullhorn from './lib/icons/IconBullhorn'
@@ -96,6 +97,7 @@ exports.IconAdd = IconAdd
 exports.IconAngle = IconAngle
 exports.IconArc = IconArc
 exports.IconArrow = IconArrow
+exports.IconArrows = IconArrows
 exports.IconBarcode = IconBarcode
 exports.IconBell = IconBell
 exports.IconBullhorn = IconBullhorn
