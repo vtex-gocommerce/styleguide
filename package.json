@@ -1,17 +1,19 @@
 {
   "name": "@gocommerce/styleguide",
-  "version": "1.1.10",
+  "version": "1.2.0",
   "scripts": {
     "styleguide": "styleguidist server",
     "styleguide:build": "styleguidist build",
     "github": "gh-pages -d styleguide",
-    "compile":
-      "npm run build && npm run cleanlib && NODE_ENV=production babel --plugins transform-es2015-modules-commonjs ./src --out-dir ./ --ignore '__tests__,*.spec.js,builder.js' --presets=react-app && npm run copycss",
+    "compile": "npm run build && npm run cleanlib && NODE_ENV=production babel --plugins transform-es2015-modules-commonjs ./src --out-dir ./ --ignore '__tests__,*.spec.js,builder.js' --presets=react-app && npm run copycss",
     "build": "NODE_ENV=production babel-node src/builder.js --presets es2015",
     "copycss": "copyfiles -u 2 src/**/*.css lib",
     "cleanlib": "[ -d lib ] && sudo rm -rf lib || echo Nothing to clean!"
   },
-  "files": ["index.js", "lib"],
+  "files": [
+    "index.js",
+    "lib"
+  ],
   "homepage": "https://vtex-gocommerce.github.io/styleguide",
   "devDependencies": {
     "babel-loader": "7.1.4",
