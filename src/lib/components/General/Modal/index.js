@@ -16,7 +16,7 @@ class Modal extends PureComponent {
         showCloseIcon={showCloseIcon}
         little={centered}
       >
-        <div className="pa5">
+        <div className="g-pa5">
           {this.props.children}
         </div>
       </ModalComponent>

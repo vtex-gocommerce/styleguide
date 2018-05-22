@@ -26,12 +26,12 @@ class Tab extends PureComponent {
     const { active } = this.state
 
     return (
-      <div className={`f2 w-100 ${className}`}>
+      <div className={`g-f2 w-100 ${className}`}>
         {list.map(element => {
           return (
             <div
               key={element.id}
-              className={`dib pa3 pointer ${element.id === active ? 'bw2 bb blue b--blue' : 'navy-80'}`}
+              className={`dib g-pa3 pointer ${element.id === active ? 'bw2 bb blue b--blue' : 'navy-80'}`}
               onClick={() => this.handleClick(element.id)}
             >
               {element.label}

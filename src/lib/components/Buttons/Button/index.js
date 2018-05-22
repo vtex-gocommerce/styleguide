@@ -2,9 +2,9 @@ import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 
 const sizes = {
-  large: 'ph8 pv4 f3 ',
-  normal: 'ph6 pv3 f2 ',
-  small: 'ph2 pv1 f1 '
+  large: 'g-ph8 g-pv4 g-f3 ',
+  normal: 'g-ph6 g-pv3 g-f2 ',
+  small: 'g-ph2 g-pv1$2 g-f1 '
 }
 
 const styles = {

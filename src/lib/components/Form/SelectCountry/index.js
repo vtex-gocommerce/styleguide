@@ -35,7 +35,7 @@ class SelectCountry extends PureComponent {
     const { value } = this.state
 
     const list = Object.keys(countries).reduce((prev, element) => ([...prev, { label: countries[element], value: element } ]), [])
-    let classes = 'pa3 ba br1 '
+    let classes = 'g-pa3 ba br1 '
     if (isDisabled) classes += 'b--navy-40 bg-navy-20 navy-80 '
     if (hasError) classes += 'b--red bg-red-light red '
     if (!isDisabled && !hasError) classes += 'b--navy-40 hover-b--navy-60 bg-white navy '

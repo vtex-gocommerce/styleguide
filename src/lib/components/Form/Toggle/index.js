@@ -23,7 +23,7 @@ class Toggle extends PureComponent {
     const { isDisabled, value, name } = this.props
     const { isChecked } = this.state
 
-    let classes = `flex items-center relative h6 w10 ph2 br-pill ${styles.toggle} `
+    let classes = `flex items-center relative g-h6 g-w10 g-ph2 br-pill ${styles.toggle} `
     let circle = `absolute br-100 ${styles.toggleCircle} `
 
     if (isDisabled) {

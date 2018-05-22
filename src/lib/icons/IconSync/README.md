@@ -1,7 +1,7 @@
 ```js
 <div>
   <IconSync />
-  <IconSync className="ml2" spin />
-  <IconSync className="ml2" pulse />
+  <IconSync className="g-ml2" spin />
+  <IconSync className="g-ml2" pulse />
 </div>
 ```

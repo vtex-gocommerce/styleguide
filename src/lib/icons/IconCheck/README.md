@@ -1,6 +1,6 @@
 ```js
 <div>
-    <IconCheck className="mr2" family="light" />
+    <IconCheck className="g-mr2" family="light" />
     <IconCheck />
 </div>
 ```

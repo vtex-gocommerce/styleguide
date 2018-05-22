@@ -6,15 +6,15 @@ class Tag extends PureComponent {
   render() {
     const { count, onRemove, bgColor } = this.props
     const tagBgColor = bgColor ? `bg-${bgColor}` : 'bg-blue'
-    let classes = `dib ph2 fw5 pv1 br2 ${tagBgColor} white f2 `
+    let classes = `dib g-ph2 fw5 g-pv1 br2 ${tagBgColor} whiteg-f2 `
     if (onRemove) classes += 'hover-bg-red pointer'
 
     return (
       <span className={classes} onClick={onRemove}>
         <span className="flex items-center">
           {this.props.children}
-          {count && <span className="ml2 ph2 bg-white br-pill f1 blue">{count}</span>}
-          {onRemove && <IconClose className="ml2" ignoreSize />}
+          {count && <span className="g-ml2 g-ph2 bg-white br-pill g-f1 blue">{count}</span>}
+          {onRemove && <IconClose className="g-ml2" ignoreSize />}
         </span>
       </span>
     )

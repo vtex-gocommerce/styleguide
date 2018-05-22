@@ -1,7 +1,7 @@
 ```js
 <div>
   <IconSpinner />
-  <IconSpinner className="ml2" spin />
-  <IconSpinner className="ml2" pulse />
+  <IconSpinner className="g-ml2" spin />
+  <IconSpinner className="g-ml2" pulse />
 </div>
 ```

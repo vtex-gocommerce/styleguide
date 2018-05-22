@@ -3,9 +3,9 @@ import PropTypes from 'prop-types'
 import onClickOutside from 'react-onclickoutside'
 
 const sizes = {
-  large: 'ph8 pv4 f3 ',
-  normal: 'ph6 pv3  f2 ',
-  small: 'ph2 pv1 f1 '
+  large: 'g-ph8 g-pv4 g-f3 ',
+  normal: 'g-ph6  g-pv3 g-f2 ',
+  small: 'g-ph2  g-pv1 g-f1 '
 }
 
 const styles = {
@@ -17,11 +17,11 @@ const styles = {
 
 class DropdownButton extends PureComponent {
   constructor(props) {
-      super(props)
+    super(props)
 
-      this.state = {
-        isOpen: this.props.isOpened
-      }
+    this.state = {
+      isOpen: this.props.isOpened
+    }
   }
 
   handleClick = event => {
@@ -41,12 +41,14 @@ class DropdownButton extends PureComponent {
         {this.props.children}
         {isOpen && (
           <div className="absolute ba b--navy-40 w-100 z-4">
-            <ul className="list ma0 pa0">
-            {options.map((option) => {
-              return (
-                <li className="bb b--navy-20 bg-white hover-bg-navy-20 pa3 navy pointer" onClick={option.callback}>{option.label}</li>
-              )
-            })}
+            <ul className="list g-ma0 g-pa0">
+              {options.map(option => {
+                return (
+                  <li className="bb b--navy-20 bg-white hover-bg-navy-20 g-pa3 navy pointer" onClick={option.callback}>
+                    {option.label}
+                  </li>
+                )
+              })}
             </ul>
           </div>
         )}
@@ -59,11 +61,11 @@ DropdownButton.propTypes = {
   /** Define the size of the button. */
   options: PropTypes.array.isRequired,
   isOpened: PropTypes.boolean,
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node.isRequired
 }
 
 DropdownButton.defaultProps = {
-  isOpened: false,
+  isOpened: false
 }
 
 export default onClickOutside(DropdownButton)

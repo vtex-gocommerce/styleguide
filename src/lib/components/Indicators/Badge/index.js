@@ -3,28 +3,34 @@ import PropTypes from 'prop-types'
 import styles from './style.css'
 
 class Badge extends PureComponent {
-  getBadgeFontSize = (value) => {
-    return Math.max(12, Math.min(22, (value / 2.25)))
+  getBadgeFontSize = value => {
+    return Math.max(12, Math.min(22, value / 2.25))
   }
 
   render() {
     const { count, outline, icon, size } = this.props
-    const Icon = (props) => (icon)
+    const Icon = props => icon
     const areaSize = `${size}px`
     const badgeFontSize = this.getBadgeFontSize(size)
 
     let classes = 'ba bw1 b--red br-pill fw5 '
     classes += outline ? 'bg-white red ' : 'bg-red white '
-    classes += icon ? 'absolute' : 'ph2'
+    classes += icon ? 'absolute' : 'g-ph2'
 
-    const badge = <span className={classes} style={{ fontSize: badgeFontSize }}>{count}</span>
+    const badge = (
+      <span className={classes} style={{ fontSize: badgeFontSize }}>
+        {count}
+      </span>
+    )
 
     return icon ? (
-      <div className={`${styles.badgeBox} dib f5 blue`} style={{ width: areaSize, height: areaSize }}>
+      <div className={`${styles.badgeBox} dib g-f5 blue`} style={{ width: areaSize, height: areaSize }}>
         {badge}
         <Icon />
       </div>
-    ) : badge
+    ) : (
+      badge
+    )
   }
 }
 
@@ -36,7 +42,7 @@ Badge.propTypes = {
   /** Applies a badge to an Icon */
   icon: PropTypes.element,
   /** Size of the badge when using icons. */
-  size: PropTypes.number,
+  size: PropTypes.number
 }
 
 Badge.defaultProps = {

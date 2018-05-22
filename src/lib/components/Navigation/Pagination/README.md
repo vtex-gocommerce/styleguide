@@ -15,7 +15,7 @@ class WithForcePage extends React.Component {
     const number = (Math.random(1, 15) * 100).toFixed(0)
     return (
       <div>
-        <div className="flex justify-center mb5">
+        <div className="flex justify-center g-mb5">
           <Pagination
             initialPage={parseInt(this.state.value)}
             forcePage={parseInt(this.state.value)}
@@ -24,7 +24,7 @@ class WithForcePage extends React.Component {
             isCompact
           />
         </div>
-        <div className="flex justify-center mb5">
+        <div className="flex justify-center g-mb5">
           <Button onClick={() => this.handleChange(number)}>Next value: {parseFloat(number) + 1}</Button>
         </div>
       </div>
@@ -33,14 +33,14 @@ class WithForcePage extends React.Component {
 }
 
 ;<div>
-  <div className="flex justify-center mb5">
+  <div className="flex justify-center g-mb5">
     <Pagination initialPage={1} pageCount={600} onPageChange={data => console.log('Page changed!')} />
   </div>
   <div className="flex justify-center">
     <Pagination initialPage={15} pageCount={30} isCompact />
   </div>
-  <div className="bt b--navy-40 pt4 mt4">
-    <span className="w-100 mb3 no-underline navy-60 db tc">With force page</span>
+  <div className="bt b--navy-40 g-pt4 g-mt4">
+    <span className="w-100 g-mb3 no-underline navy-60 db tc">With force page</span>
     <WithForcePage />
   </div>
 </div>

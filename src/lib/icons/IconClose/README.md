@@ -1,6 +1,6 @@
 ```js
 <div>
-    <IconClose className="mr2" family="regular" />
+    <IconClose className="g-mr2" family="regular" />
     <IconClose />
 </div>
 ```

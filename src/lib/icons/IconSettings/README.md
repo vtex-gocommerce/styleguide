@@ -1,6 +1,6 @@
 ```js
 <div>
   <IconSettings />
-  <IconSettings className="ml2" spin />
+  <IconSettings className="g-ml2" spin />
 </div>
 ```

@@ -60,7 +60,7 @@ class Table extends PureComponent {
         <thead className="tl bg-navy-20">
           <tr>
             {selectable && (
-              <th className="bb b--navy-40 pv4 ph4 tc" style={{ width: '40px' }}>
+              <th className="bb b--navy-40 g-pv4 g-ph4 tc" style={{ width: '40px' }}>
                 <CheckBox onClick={this.selectAll} />
               </th>
             )}
@@ -68,7 +68,7 @@ class Table extends PureComponent {
               return (
                 <th
                   key={column.id}
-                  className={`bb b--navy-40 pv4 ph4 navy-60 fw4 ${column.isCentered && 'tc'}`}
+                  className={`bb b--navy-40 g-pv4 g-ph4 navy-60 fw4 ${column.isCentered && 'tc'}`}
                   style={{ width: column.size + '%' }}
                 >
                   {column.label}
@@ -82,8 +82,8 @@ class Table extends PureComponent {
             ? [...Array(3).keys()].map(e => (
                 <tr key={e}>
                   {[...Array(this.props.columns.length).keys()].map(e => (
-                    <td key={e} className={`bb b--navy-40 pv5 ph4 navy tc`}>
-                      <Placeholder className="h2 w-100 mt2 br4" isPlaceholderActive={this.props.isLoading} />
+                    <td key={e} className={`bb b--navy-40 g-pv5 g-ph4 navy tc`}>
+                      <Placeholder className="g-h2 w-100 g-mt2 br4" isPlaceholderActive={this.props.isLoading} />
                     </td>
                   ))}
                 </tr>
@@ -91,8 +91,11 @@ class Table extends PureComponent {
             : rows.map((fields, index) => {
                 const formatted_row = columns.map(column => {
                   return (
-                    <td key={index + column.id} className={`bb b--navy-40 pv5 ph4 navy ${column.isCentered && 'tc'}`}>
-                      <Placeholder className="h2 w-100 mt2 br4" isPlaceholderActive={false}>
+                    <td
+                      key={index + column.id}
+                      className={`bb b--navy-40 g-pv5 g-ph4 navy ${column.isCentered && 'tc'}`}
+                    >
+                      <Placeholder className="g-h2 w-100 g-mt2 br4" isPlaceholderActive={false}>
                         {() => fields[column.id]}
                       </Placeholder>
                     </td>
@@ -102,7 +105,7 @@ class Table extends PureComponent {
                 return (
                   <tr key={index}>
                     {selectable && (
-                      <th className="bb b--navy-40 ph4 tc" style={{ width: '40px' }}>
+                      <th className="bb b--navy-40 g-ph4 tc" style={{ width: '40px' }}>
                         <CheckBox
                           onClick={checked => this.select(index, checked)}
                           isChecked={this.state.selectedList.includes(index)}

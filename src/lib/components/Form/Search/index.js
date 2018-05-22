@@ -36,7 +36,7 @@ class Search extends PureComponent {
     const { placeholder, withOptions, options, name } = this.props
 
     return (
-      <div className="ba b--navy-40 flex flex-auto items-center h11">
+      <div className="ba b--navy-40 flex flex-auto items-center g-h11">
         {withOptions && (
           <Select
             placeholder="Select an option"
@@ -47,14 +47,14 @@ class Search extends PureComponent {
             onChange={this.handleChangeOption}
           />
         )}
-        <div className="flex flex-auto items-center h-100">
+        <div className="flex flex-auto items-center w-100">
           <Input
             placeholder={placeholder}
-            className="bn w-100 h-100"
+            className="bn w-100 w-100"
             onBlue={this.handleSearch}
             onChange={this.handleSearch}
           />
-          <div className="pa3 pointer blue hover-navy" onClick={this.handleClick}>
+          <div className="g-pa3 pointer blue hover-navy" onClick={this.handleClick}>
             <IconSearch />
           </div>
         </div>

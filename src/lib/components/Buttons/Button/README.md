@@ -1,15 +1,15 @@
 ```js
 <div>
-  <Button className="mr2" style="primary">
+  <Button className="g-mr2" style="primary">
     Primary
   </Button>
-  <Button className="mr2" style="secondary">
+  <Button className="g-mr2" style="secondary">
     Secondary
   </Button>
-  <Button className="mr2" style="danger">
+  <Button className="g-mr2" style="danger">
     Danger
   </Button>
-  <Button className="mr2" style="outline">
+  <Button className="g-mr2" style="outline">
     Outline
   </Button>
   <Button isDisabled>Disabled</Button>
@@ -20,10 +20,10 @@ Button Sizes
 
 ```js
 <div>
-  <Button className="mr2" size="small">
+  <Button className="g-mr2" size="small">
     Small
   </Button>
-  <Button className="mr2" size="normal">
+  <Button className="g-mr2" size="normal">
     Normal
   </Button>
   <Button size="large">Large</Button>
@@ -34,7 +34,9 @@ Button Full Width
 
 ```js
 <div>
-  <Button className="mt2" fullWidth>Full Width</Button>
+  <Button className="g-mt2" fullWidth>
+    Full Width
+  </Button>
 </div>
 ```
 
@@ -42,9 +44,9 @@ Icon Buttons
 
 ```js
 <div>
-  <Button style="danger" icon={<IconClose />} className="mr2" />
-  <Button className="mr2" icon={<IconSpinner pulse />} isDisabled />
-  <Button className="mr2" icon={<IconAdd className="mr2" />}>
+  <Button style="danger" icon={<IconClose />} className="g-mr2" />
+  <Button className="g-mr2" icon={<IconSpinner pulse />} isDisabled />
+  <Button className="g-mr2" icon={<IconAdd className="g-mr2" />}>
     Add Product
   </Button>
 </div>

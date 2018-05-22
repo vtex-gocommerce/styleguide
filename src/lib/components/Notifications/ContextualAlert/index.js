@@ -40,12 +40,12 @@ class ContextualAlert extends PureComponent {
   render() {
     const { type, onClose } = this.props
 
-    const classes = `relative pa3 ba bw2 bt-0 br-0 bb-0 br1 ${types[type].classes}`
+    const classes = `relative g-pa3 ba bw2 bt-0 br-0 bb-0 br1 ${types[type].classes}`
     const Icon = types[type].icon
 
     return (
       <div className={classes}>
-        <div className="flex justify-center items-center mr3">
+        <div className="flex justify-center items-center g-mr3">
           <div className="ph3">{this.props.children}</div>
         </div>
         {onClose && (

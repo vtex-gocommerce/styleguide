@@ -5,17 +5,15 @@ import Card from '../Card'
 class NumberCard extends Component {
   render() {
     const { title, icon, value } = this.props
-    const Icon = (props) => (icon)
+    const Icon = props => icon
 
     return (
       <Card title={title}>
-        <div className="flex items-center ph4 pv4 h-100">
-          <span className="flex items-center br-100 pa4 bg-blue white f5">
+        <div className="flex items-center g-ph4 g-pv4 h-100">
+          <span className="flex items-center br-100 g-pa4 bg-blue white g-f5">
             <Icon />
           </span>
-          <span className="ml4 blue f7">
-            {value}
-          </span>
+          <span className="g-ml4 blue g-f7">{value}</span>
         </div>
       </Card>
     )
@@ -28,7 +26,7 @@ NumberCard.propTypes = {
   /** Icon that will be showed. */
   icon: PropTypes.element.isRequired,
   /** Make input disabled. */
-  value: PropTypes.string.isRequired,
+  value: PropTypes.string.isRequired
 }
 
 export default NumberCard

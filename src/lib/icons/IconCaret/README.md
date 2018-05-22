@@ -1,8 +1,8 @@
 ```js
 <div>
   <IconCaret side="up" />
-  <IconCaret side="right" className="ml2" />
-  <IconCaret side="down" className="ml2" />
-  <IconCaret side="left" className="ml2" />
+  <IconCaret side="right" className="g-ml2" />
+  <IconCaret side="down" className="g-ml2" />
+  <IconCaret side="left" className="g-ml2" />
 </div>
 ```

@@ -1,6 +1,6 @@
 ```js
 <div>
-    <IconVisibility className="mr2" isVisible />
+    <IconVisibility className="g-mr2" isVisible />
     <IconVisibility />
 </div>
 ```

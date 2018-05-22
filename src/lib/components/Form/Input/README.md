@@ -1,34 +1,34 @@
 ```js
 <div>
-  <div className="mb2">
+  <div className="g-mb2">
     <Input />
-    <span className="ml4 no-underline navy-60">Plain Input</span>
+    <span className="g-ml4 no-underline navy-60">Plain Input</span>
   </div>
-  <div className="mb2">
+  <div className="g-mb2">
     <Input placeholder='Look this placeholder...' />
-    <span className="ml4 no-underline navy-60">Input with placeholder</span>
+    <span className="g-ml4 no-underline navy-60">Input with placeholder</span>
   </div>
-  <div className="mb2">
+  <div className="g-mb2">
     <Input value='This is so wrong' hasError />
-    <span className="ml4 no-underline navy-60">Input with error</span>
+    <span className="g-ml4 no-underline navy-60">Input with error</span>
   </div>
-  <div className="mb2">
+  <div className="g-mb2">
     <Input type='password' value='topsecret' />
-    <span className="ml4 no-underline navy-60">Password</span>
+    <span className="g-ml4 no-underline navy-60">Password</span>
   </div>
-  <div className="mb2">
+  <div className="g-mb2">
     <Input type='tel' value='1234124' />
-    <span className="ml4 no-underline navy-60">Telephone</span>
+    <span className="g-ml4 no-underline navy-60">Telephone</span>
   </div>
-  <div className="mb2">
+  <div className="g-mb2">
     <Input value='Disabled' isDisabled />
-    <span className="ml4 no-underline navy-60">Disabled</span>
+    <span className="g-ml4 no-underline navy-60">Disabled</span>
   </div>
-  <div className="mb2">
+  <div className="g-mb2">
     <Input mask="+4\\9 99 999 99" alwaysShowMask={true} maskChar="_" />
-    <span className="ml4 no-underline navy-60">With a mask</span>
-    <div className="mt3 navy-60">
-      <strong className="db mb1">How to write a mask:</strong>
+    <span className="g-ml4 no-underline navy-60">With a mask</span>
+    <div className="g-mt3 navy-60">
+      <strong className="db g-mb1">How to write a mask:</strong>
       Default format characters are:
       <pre>
         9: 0-9<br />
@@ -60,7 +60,7 @@ class ExternalValueProp extends React.Component {
     const number = (Math.random(1,100) * 100).toFixed(1);
 
     return <div>
-        <Input {...this.props} value={this.state.value} className="mr2" />
+        <Input {...this.props} value={this.state.value} className="g-mr2" />
         <Button onClick={()=>this.handleChange(number)}>Next value: {number}</Button>
     </div>
   }

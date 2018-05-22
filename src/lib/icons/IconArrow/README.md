@@ -1,8 +1,8 @@
 ```js
 <div>
   <IconArrow side="up" />
-  <IconArrow side="right" className="ml2" />
-  <IconArrow side="down" className="ml2" />
-  <IconArrow side="left" className="ml2" />
+  <IconArrow side="right" className="g-ml2" />
+  <IconArrow side="down" className="g-ml2" />
+  <IconArrow side="left" className="g-ml2" />
 </div>
 ```

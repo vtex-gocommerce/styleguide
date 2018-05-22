@@ -61,7 +61,7 @@ const rows = [
     Address: 'Just a big street, also to see what will happen',
     Count: (
       <p className="yellow">
-        24 <IconWarning className="ml1" family="regular" />
+        24 <IconWarning className="g-ml1" family="regular" />
       </p>
     ),
     Active: <Toggle value="isActive" />,
@@ -87,7 +87,7 @@ class ShowModal extends React.Component {
         <Button onClick={this.tooglePlaceHolderStatus}> Change status </Button> Is Placeholder Active:{' '}
         {this.state.placeholderIsActive ? 'active' : 'inactive'}
         <div>
-          <div className="mb4">
+          <div className="g-mb4">
             <Table columns={columns} rows={rows} isLoading={this.state.placeholderIsActive} />
           </div>
           <div>

@@ -39,12 +39,12 @@ class Alert extends PureComponent {
 
   render() {
     const { type, onClose } = this.props
-    const classes = `relative pa3 ba br2 ${types[type].classes}`
+    const classes = `relative g-pa3 ba br2 ${types[type].classes}`
     const Icon = types[type].icon
 
     return (
       <div className={classes}>
-        <div className="flex justify-center items-center mr3">
+        <div className="flex justify-center items-center g-mr3">
           <Icon />
           <div className="ph3">{this.props.children}</div>
         </div>

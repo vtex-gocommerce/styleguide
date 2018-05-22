@@ -2,6 +2,7 @@ const path = require('path')
 
 module.exports = {
   require: [
+    'vtex-tachyons',
     '@gocommerce/tachyons',
     '@fortawesome/fontawesome',
     '@fortawesome/fontawesome-free-brands',
@@ -56,8 +57,8 @@ module.exports = {
     {
       name: 'Icons',
       content: 'src/lib/icons/icons.md',
-      components: 'src/lib/icons/**/*.js',
-    },
+      components: 'src/lib/icons/**/*.js'
+    }
   ],
   webpackConfig: {
     module: {
@@ -65,7 +66,7 @@ module.exports = {
         {
           test: /\.jsx?$/,
           exclude: /node_modules/,
-          loader: 'babel-loader',
+          loader: 'babel-loader'
         },
         {
           test: /\.css$/,
@@ -86,5 +87,5 @@ module.exports = {
     const componentName = pathArray[pathArray.length - 1]
     const dir = path.relative(path.join('src'), path.dirname(componentPath))
     return `import { ${componentName} } from '@gocommerce/styleguide';`
-  },
+  }
 }
