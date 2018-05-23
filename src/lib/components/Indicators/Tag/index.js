@@ -6,7 +6,7 @@ class Tag extends PureComponent {
   render() {
     const { count, onRemove, bgColor } = this.props
     const tagBgColor = bgColor ? `bg-${bgColor}` : 'bg-blue'
-    let classes = `dib g-ph2 fw5 g-pv1 br2 ${tagBgColor} whiteg-f2 `
+    let classes = `dib g-ph2 fw5 g-pv1 br2 ${tagBgColor} white g-f2 `
     if (onRemove) classes += 'hover-bg-red pointer'
 
     return (
