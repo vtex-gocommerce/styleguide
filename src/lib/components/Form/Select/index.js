@@ -90,7 +90,7 @@ Select.propTypes = {
   /** Append css classes to the select */
   elementClassName: PropTypes.string,
   /** Set the value of the Select. */
-  value: PropTypes.string
+  value: PropTypes.any
 }
 
 Select.defaultProps = {

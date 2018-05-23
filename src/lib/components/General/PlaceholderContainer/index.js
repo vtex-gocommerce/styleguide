@@ -33,7 +33,7 @@ PlaceholderContainer.propTypes = {
   /** Show place holde */
   isPlaceholderActive: PropTypes.bool,
   /** Component Shown after the placeholde fades */
-  children: PropTypes.node
+  children: PropTypes.func
 }
 
 export default PlaceholderContainer
