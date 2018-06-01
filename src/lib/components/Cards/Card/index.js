@@ -8,11 +8,11 @@ class Card extends Component {
   render() {
     const { title, isLoading } = this.props
 
-    const classes = 'flex flex-column w-100 h-100 ba b--navy-40 bg-white'
+    const classes = 'flex flex-column w-100 h-100 ba b--light-gray bg-white br1'
 
     return (
       <div className={classes}>
-        <h3 className="flex items-center g-h11 bb b--navy-40 g-ma0 g-ph3 g-f2 fw5 bg-navy-20 navy">{title}</h3>
+        <h3 className="flex items-center g-pt4 b--navy-40 g-ma0 g-ph4 g-f1 fw5">{title}</h3>
         <PlaceholderContainer
           classNameArray={[
             'w-30 g-h6 g-ml4 g-mt5 br3',
@@ -22,7 +22,7 @@ class Card extends Component {
           ]}
           isPlaceholderActive={this.props.isLoading}
         >
-          {() => <div className={`g-pa4 flex flex-column flex-auto ${styles.cardContent}`}>{this.props.children}</div>}
+          {() => <div className={`g-pv4 flex flex-column flex-auto ${styles.cardContent}`}>{this.props.children}</div>}
         </PlaceholderContainer>
       </div>
     )
