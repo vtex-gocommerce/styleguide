@@ -10,7 +10,7 @@ const sizes = {
 const styles = {
   primary: 'all-animate ba b--blue hover-b--blue-80 bg-blue hover-bg-blue-80 white pointer ',
   secondary: 'all-animate ba b--navy hover-b--navy-80 bg-navy hover-bg-navy-80 white pointer ',
-  outline: 'all-animate ba b--blue bg-transparent hover-bg-blue-20 blue pointer ',
+  outline: 'all-animate ba b--light-gray bg-transparent hover-bg-blue-20 navy pointer ',
   danger: 'ba b--red bg-red dim white pointer '
 }
 
@@ -23,7 +23,7 @@ class Button extends PureComponent {
     const { size, style, type, fullWidth, isDisabled, icon, name } = this.props
     const Icon = props => icon
 
-    let classes = `br2 bw1 fw6 ${sizes[size]}`
+    let classes = `br2 fw6 ${sizes[size]}`
     classes += isDisabled ? 'ba b--navy-20 bg-navy-20 navy-60 ' : `${styles[style]} `
     if (fullWidth) classes += 'w-100 '
     if (this.props.className) classes += this.props.className
