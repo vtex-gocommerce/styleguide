@@ -1,0 +1,28 @@
+.gc_radiobutton {
+    position: relative;
+}
+
+.gc_radiobutton input {
+    
+}
+
+.gc_radiobutton input + div {
+ position: relative;
+ border-style: solid;
+ border-width: .9px;
+ border-radius: 100%;
+}
+
+.gc_radiobutton input + div span {
+    
+}
+
+.gc_radiobutton input:checked + div span {
+    position: absolute;
+    border-radius: 100%;
+    width: 55%;
+    height: 55%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}

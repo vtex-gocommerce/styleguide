@@ -7,6 +7,7 @@ import Table from './lib/components/Data/Table'
 import Timeline from './lib/components/Data/Timeline'
 import TimelineHistory from './lib/components/Data/TimelineHistory'
 import CheckBox from './lib/components/Form/CheckBox'
+import RadioButton from './lib/components/Form/RadioButton'
 import Input from './lib/components/Form/Input'
 import Search from './lib/components/Form/Search'
 import SearchSelect from './lib/components/Form/SearchSelect'
@@ -77,6 +78,7 @@ exports.Table = Table
 exports.Timeline = Timeline
 exports.TimelineHistory = TimelineHistory
 exports.CheckBox = CheckBox
+exports.RadioButton = RadioButton
 exports.Input = Input
 exports.Search = Search
 exports.SearchSelect = SearchSelect
