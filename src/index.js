@@ -34,6 +34,8 @@ import IconBarcode from './lib/icons/IconBarcode'
 import IconBell from './lib/icons/IconBell'
 import IconBullhorn from './lib/icons/IconBullhorn'
 import IconCalendar from './lib/icons/IconCalendar'
+import IconCardBack from './lib/icons/IconCardBack'
+import IconCardFront from './lib/icons/IconCardFront'
 import IconCaret from './lib/icons/IconCaret'
 import IconCart from './lib/icons/IconCart'
 import IconChartBar from './lib/icons/IconChartBar'
@@ -102,6 +104,8 @@ exports.IconBarcode = IconBarcode
 exports.IconBell = IconBell
 exports.IconBullhorn = IconBullhorn
 exports.IconCalendar = IconCalendar
+exports.IconCardBack = IconCardBack
+exports.IconCardFront = IconCardFront
 exports.IconCaret = IconCaret
 exports.IconCart = IconCart
 exports.IconChartBar = IconChartBar

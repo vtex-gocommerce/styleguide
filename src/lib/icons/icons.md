@@ -312,6 +312,26 @@
     </div>
   </div>
   <div className="flex flex-column items-center w-20 g-mb6">
+    <a href="#!/IconCardBack" className="g-mb2 blue no-underline">
+      IconCardBack
+    </a>
+    <div>
+      <IconCardBack className="g-mr2" family="light" />
+      <IconCardBack className="g-mr2" family="regular" />
+      <IconCardBack />
+    </div>
+  </div>
+  <div className="flex flex-column items-center w-20 g-mb6">
+    <a href="#!/IconCardFront" className="g-mb2 blue no-underline">
+      IconCardFront
+    </a>
+    <div>
+      <IconCardFront className="g-mr2" family="light" />
+      <IconCardFront className="g-mr2" family="regular" />
+      <IconCardFront />
+    </div>
+  </div>
+  <div className="flex flex-column items-center w-20 g-mb6">
     <a href="#!/IconUpload" className="g-mb2 blue no-underline">
       IconUpload
     </a>
