@@ -39,7 +39,7 @@
     "@fortawesome/fontawesome-pro-regular": "^5.0.9",
     "@fortawesome/fontawesome-pro-solid": "^5.0.9",
     "@fortawesome/react-fontawesome": "0.0.17",
-    "@gocommerce/tachyons": "^2.0.0",
+    "@gocommerce/tachyons": "^2.0.2",
     "i18n-country-code": "^1.0.0",
     "npm": "^5.8.0",
     "react-input-mask": "^1.2.2",
