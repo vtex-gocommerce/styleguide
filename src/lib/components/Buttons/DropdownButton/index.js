@@ -40,11 +40,11 @@ class DropdownButton extends PureComponent {
       <div className="relative" onClick={this.handleClick}>
         {this.props.children}
         {isOpen && (
-          <div className="absolute ba b--navy-40 w-100 z-4">
+          <div className="absolute ba b--base-3 w-100 z-4">
             <ul className="list g-ma0 g-pa0">
               {options.map(option => {
                 return (
-                  <li className="bb b--navy-20 bg-white hover-bg-navy-20 g-pa3 navy pointer" onClick={option.callback}>
+                  <li className="bb b--base-3 bg-base-1 hover-bg-base-3 g-pa3 c-on-base-1 pointer" onClick={option.callback}>
                     {option.label}
                   </li>
                 )
