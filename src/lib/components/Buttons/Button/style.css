@@ -1,0 +1,36 @@
+.activeBgActivePrimary:active {
+    background-color: #2B4191;
+    border-color: #2B4191;
+}
+
+.activeBgActivePrimary:focus{
+    outline: none;
+}
+
+.activeBgActiveSecondary:active {
+    background-color: #15161C;
+    border-color: #15161C;
+}
+
+.activeBgActiveSecondary:focus{
+    outline: none;
+}
+
+.activeBgActiveDanger:active {
+    background-color: #942227;
+    border-color: #942227;
+    
+}
+
+.activeBgActiveDanger:focus{
+    outline: none;
+}
+
+.activeBgActiveOutline:active {
+    background-color: #E7E9F0;
+    border-color: #E7E9F0;
+}
+
+.activeBgActiveOutline:focus{
+    outline: none;
+}

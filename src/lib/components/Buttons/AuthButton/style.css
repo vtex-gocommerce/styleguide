@@ -1,0 +1,8 @@
+.activeBgActivePrimary:active {
+    background-color: #2B4191;
+    border-color: #2B4191;
+}
+
+.activeBgActivePrimary:focus {
+    outline: none;
+}

@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
+import styles from './style.css'
 
 const sizes = {
   large: 'g-ph8 g-pv4 g-f3 ',
@@ -7,11 +8,11 @@ const sizes = {
   small: 'g-ph2 g-pv1$2 g-f1 '
 }
 
-const styles = {
-  primary: 'all-animate ba b--primary bg-primary c-on-primary dim pointer ',
-  secondary: 'all-animate ba b--navy bg-navy c-white dim pointer ',
-  outline: 'all-animate ba b--base-3 bg-transparent hover-bg-base-3 c-on-base-1 pointer ',
-  danger: 'ba b--danger bg-danger c-on-danger dim pointer '
+const listOfStyles = {
+  primary: `all-animate ba b--primary bg-primary c-on-primary hover-bg-dark-primary ${styles.activeBgActivePrimary} pointer `,
+  secondary: `all-animate ba b--secondary bg-secondary c-white hover-bg-dark-secondary ${styles.activeBgActiveSecondary} pointer `,
+  outline: `all-animate ba b--base-3 bg-outiline hover-bg-dark-outline c-on-outline ${styles.activeBgActiveOutline} pointer `,
+  danger: `ba b--danger bg-danger c-on-danger hover-bg-dark-danger ${styles.activeBgActiveDanger} pointer `
 }
 
 class Button extends PureComponent {
@@ -24,7 +25,7 @@ class Button extends PureComponent {
     const Icon = props => icon
 
     let classes = `br2 fw6 ${sizes[size]}`
-    classes += isDisabled ? 'ba b--base-3 bg-base-3 c-on-base-2 ' : `${styles[style]} `
+    classes += isDisabled ? 'ba b--base-3 bg-base-3 c-on-base-2 ' : `${listOfStyles[style]} `
     if (fullWidth) classes += 'w-100 '
     if (this.props.className) classes += this.props.className
 

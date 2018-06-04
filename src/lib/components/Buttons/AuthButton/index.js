@@ -1,10 +1,10 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import IconGoogle from '../../../icons/IconGoogle'
-
+import styles from './style.css'
 const providers = {
   google: {
-    classes: 'white pointer no-underline bg-blue hover-bg-blue-80',
+    classes: 'c-on-primary pointer no-underline bg-primary hover-bg-dark-primary',
     icon: IconGoogle
   }
 }
@@ -14,7 +14,7 @@ class AuthButton extends PureComponent {
     const { provider, url } = this.props
     const Icon = providers[provider].icon
 
-    let classes = `dib br2 bw0 fw6 g-f3 g-ph5 g-pv3 ${providers[provider].classes} `
+    let classes = `dib br2 bw0 fw6 g-f3 g-ph5 g-pv3 ${providers[provider].classes} ${styles.activeBgActivePrimary} `
     if (this.props.className) classes += this.props.className
 
     return (
