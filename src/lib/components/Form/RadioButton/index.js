@@ -25,21 +25,21 @@ class RadioButton extends PureComponent {
   }
 
   render() {
-    const { isDisabled, value, name, width, height } = this.props
+    const { isDisabled, value, name, width, height, className } = this.props
     const { isChecked } = this.state
 
-    let classesOutside = `b--navy-40 `
-    let classesInside = ''
+    let classesCircleOutside = `b--navy-40 `
+    let classesCircleInside = ''
 
     if (isDisabled) {
-      classesOutside += 'bg-navy-20 b--navy-20'
+      classesCircleOutside += 'bg-navy-20 b--navy-20'
     } else {
-      classesOutside += 'bg-white'
-      classesInside += isChecked ? 'bg-blue' : 'bg-white'
+      classesCircleOutside += 'bg-white'
+      classesCircleInside += isChecked ? 'bg-blue' : 'bg-white'
     }
 
     return (
-      <label className={`gc-radiobutton dib w-auto ${!isDisabled && 'pointer'} ${styles.gc_radiobutton}`}>
+      <label className={`gc-radiobutton dib w-auto ${className} ${!isDisabled && 'pointer'} ${styles.gc_radiobutton}`}>
         <input
           type="radio"
           className="dn"
@@ -49,8 +49,8 @@ class RadioButton extends PureComponent {
           value={value}
           onClick={this.handleClick}
         />
-        <div className={classesOutside} style={{width: width || "20px", height: height || "20px"}}>
-          <span className={`icon ${classesInside}`}></span>
+        <div className={classesCircleOutside} style={{width: width || "20px", height: height || "20px"}}>
+          <span className={`icon ${classesCircleInside}`}></span>
         </div>
       </label>
     )
@@ -70,6 +70,8 @@ RadioButton.propTypes = {
   width: PropTypes.string,
   /** Set height of radio */
   height: PropTypes.string,
+  /** Append css classes to the Input. */
+  className: PropTypes.string,
   /** On click callback function. */
   onClick: PropTypes.func
 }
@@ -77,6 +79,7 @@ RadioButton.propTypes = {
 RadioButton.defaultProps = {
   isChecked: false,
   isDisabled: false,
+  className: '',
   onClick: checked => {}
 }
 
