@@ -3,9 +3,9 @@ import PropTypes from 'prop-types'
 import styles from './style.css'
 
 const backgrounds = {
-    'success': 'bg-green',
-    'warning': 'bg-yellow',
-    'danger': 'bg-red',
+    'success': 'bg-success',
+    'warning': 'bg-warning',
+    'danger': 'bg-danger',
     'info': 'bg-blue',
 }
 

@@ -2,32 +2,32 @@
 <div>
   <div className="g-mb2">
     <Input />
-    <span className="g-ml4 no-underline navy-60">Plain Input</span>
+    <span className="g-ml4 no-underline c-on-base-1">Plain Input</span>
   </div>
   <div className="g-mb2">
     <Input placeholder='Look this placeholder...' />
-    <span className="g-ml4 no-underline navy-60">Input with placeholder</span>
+    <span className="g-ml4 no-underline c-on-base-1">Input with placeholder</span>
   </div>
   <div className="g-mb2">
     <Input value='This is so wrong' hasError />
-    <span className="g-ml4 no-underline navy-60">Input with error</span>
+    <span className="g-ml4 no-underline c-on-base-1">Input with error</span>
   </div>
   <div className="g-mb2">
     <Input type='password' value='topsecret' />
-    <span className="g-ml4 no-underline navy-60">Password</span>
+    <span className="g-ml4 no-underline c-on-base-1">Password</span>
   </div>
   <div className="g-mb2">
     <Input type='tel' value='1234124' />
-    <span className="g-ml4 no-underline navy-60">Telephone</span>
+    <span className="g-ml4 no-underline c-on-base-1">Telephone</span>
   </div>
   <div className="g-mb2">
     <Input value='Disabled' isDisabled />
-    <span className="g-ml4 no-underline navy-60">Disabled</span>
+    <span className="g-ml4 no-underline c-on-base-1">Disabled</span>
   </div>
   <div className="g-mb2">
     <Input mask="+4\\9 99 999 99" alwaysShowMask={true} maskChar="_" />
-    <span className="g-ml4 no-underline navy-60">With a mask</span>
-    <div className="g-mt3 navy-60">
+    <span className="g-ml4 no-underline c-on-base-1">With a mask</span>
+    <div className="g-mt3 c-on-base-1">
       <strong className="db g-mb1">How to write a mask:</strong>
       Default format characters are:
       <pre>
