@@ -20,7 +20,7 @@ class Toggle extends PureComponent {
   }
 
   render() {
-    const { isDisabled, value, name } = this.props
+    const { isDisabled, value, name, className } = this.props
     const { isChecked } = this.state
 
     let classes = `flex items-center relative g-h6 g-w10 g-ph2 br-pill ${styles.toggle} `
@@ -31,13 +31,13 @@ class Toggle extends PureComponent {
       circle += 'bg-white '
       circle += isChecked ? `${styles.toggledCircle}` : 'left-0 '
     } else {
-      classes += isChecked ? 'bg-primary' : 'bg-secondary'
+      classes += isChecked ? 'bg-blue' : 'bg-navy-60'
       circle += 'bg-white '
       circle += isChecked ? `${styles.toggledCircle}` : 'left-0 '
     }
 
     return (
-      <label className={`flex flex-row items-center ${!isDisabled && 'pointer'}`}>
+      <label className={`${className} ${!isDisabled && 'pointer'}`}>
         <div className={classes}>
           <div className={circle} />
         </div>
@@ -64,6 +64,8 @@ Toggle.propTypes = {
   isDisabled: PropTypes.bool,
   /** Set value of toggle. */
   value: PropTypes.string.isRequired,
+  /** Append css classes to the parent. */
+  className: PropTypes.string,
   /** On click callback function. */
   onClick: PropTypes.func
 }
@@ -71,6 +73,7 @@ Toggle.propTypes = {
 Toggle.defaultProps = {
   isChecked: false,
   isDisabled: false,
+  className: '',
   onClick: checked => {}
 }
 

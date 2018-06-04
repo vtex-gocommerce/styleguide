@@ -70,7 +70,7 @@ RadioButton.propTypes = {
   width: PropTypes.string,
   /** Set height of radio */
   height: PropTypes.string,
-  /** Append css classes to the Input. */
+  /** Append css classes to the parent. */
   className: PropTypes.string,
   /** On click callback function. */
   onClick: PropTypes.func
