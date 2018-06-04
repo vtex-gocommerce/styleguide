@@ -27,11 +27,11 @@ class Toggle extends PureComponent {
     let circle = `absolute br-100 ${styles.toggleCircle} `
 
     if (isDisabled) {
-      classes += isChecked ? 'bg-blue-60' : 'bg-navy-40'
+      classes += isChecked ? 'bg-primary' : 'bg-secondary'
       circle += 'bg-white '
       circle += isChecked ? `${styles.toggledCircle}` : 'left-0 '
     } else {
-      classes += isChecked ? 'bg-blue' : 'bg-navy-60'
+      classes += isChecked ? 'bg-primary' : 'bg-secondary'
       circle += 'bg-white '
       circle += isChecked ? `${styles.toggledCircle}` : 'left-0 '
     }
