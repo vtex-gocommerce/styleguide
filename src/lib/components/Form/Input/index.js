@@ -72,7 +72,7 @@ class Input extends PureComponent {
       return (
         <div className={`dib ${className}`}>
           <div className="flex">
-            <input {...props} className={`${inputClasses} pa0 w-90 dib ba br-0 br1 br--left`} />
+            <input {...props} className={`${inputClasses} w-90 dib ba br-0 br1 br--left`} />
             <span className={`${inputClasses} w-10 tc g-pa3 ba br--right`}>{this.props.suffix}</span>
           </div>
         </div>
