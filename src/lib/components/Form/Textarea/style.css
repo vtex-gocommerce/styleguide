@@ -1,0 +1,7 @@
+.input:focus {
+  outline: 0;
+}
+
+.input::placeholder {
+  color: #9FA6BF;
+}
