@@ -21,6 +21,10 @@
     <span className="g-ml4 no-underline c-on-base-1">Telephone</span>
   </div>
   <div className="g-mb2">
+    <Input type='text' value='' suffix="kg" />
+    <span className="g-ml4 no-underline c-on-base-1">Suffix</span>
+  </div>
+  <div className="g-mb2">
     <Input value='Disabled' isDisabled />
     <span className="g-ml4 no-underline c-on-base-1">Disabled</span>
   </div>

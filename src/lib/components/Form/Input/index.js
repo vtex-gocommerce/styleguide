@@ -47,11 +47,12 @@ class Input extends PureComponent {
     } = this.props
     const { value } = this.state
 
-    let classes = `${styles.input} g-pa3 ba br1 `
-    if (isDisabled) classes += 'ba b--base-4 bg-base-3 c-on-base-2 '
-    if (hasError) classes += 'b--danger bg-light-danger c-danger '
-    if (!isDisabled && !hasError) classes += 'b--base-4 hover-b--base-3 bg-base-1 c-on-base-1 '
-    if (className) classes += className
+    let inputClasses = `${styles.input} g-pa3 ba br1 `
+    if (isDisabled) inputClasses += 'b--base-4 bg-base-3 c-on-base-2 '
+    if (hasError) inputClasses += 'b--danger bg-light-danger c-danger '
+    if (!isDisabled && !hasError) inputClasses += 'b--base-4 bg-base-1 c-on-base-1 '
+
+    inputClasses += className
 
     const props = {
       type: type,
@@ -60,17 +61,26 @@ class Input extends PureComponent {
       onBlur: this.handleBlur,
       onFocus: this.handleFocus,
       onChange: this.handleChange,
-      className: classes,
       disabled: isDisabled,
       maxLength: maxLength,
       value: value
     }
 
-    return this.props.mask ? (
-      <InputMask {...props} mask={mask} maskChar={maskChar} alwaysShowMask={alwaysShowMask} />
-    ) : (
-      <input {...props} />
-    )
+    if (this.props.mask) {
+      return <InputMask {...props} className={inputClasses} mask={mask} maskChar={maskChar} alwaysShowMask={alwaysShowMask} />
+    } if (this.props.suffix) {
+      return (
+        <div className={`dib ${className}`}>
+          <div className="flex">
+            <input {...props} className={`${inputClasses} pa0 w-90 dib ba br-0 br1 br--left`} />
+            <span className={`${inputClasses} w-10 tc g-pa3 ba br--right`}>{this.props.suffix}</span>
+          </div>
+        </div>
+      )
+    } else {
+      return <input {...props} className={inputClasses} />
+    }
+
   }
 }
 
@@ -106,7 +116,9 @@ Input.propTypes = {
   /** Character to cover unfilled parts of the mask */
   maskChar: PropTypes.string,
   /** Show mask when input is empty and has no focus. */
-  alwaysShowMask: PropTypes.bool
+  alwaysShowMask: PropTypes.bool,
+  /** Show a field after input. */
+  suffix: PropTypes.string
 }
 
 Input.defaultProps = {
@@ -120,7 +132,8 @@ Input.defaultProps = {
   maxLength: null,
   mask: null,
   maskChar: ' ',
-  alwaysShowMask: false
+  alwaysShowMask: false,
+  suffix: null
 }
 
 export default Input
