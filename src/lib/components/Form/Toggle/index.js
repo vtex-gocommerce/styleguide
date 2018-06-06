@@ -16,7 +16,7 @@ class Toggle extends PureComponent {
       isChecked: !prev.isChecked
     }))
 
-    this.props.onClick(!this.state.isChecked)
+    this.props.onClick(event, !this.state.isChecked)
   }
 
   render() {

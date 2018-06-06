@@ -1,10 +1,10 @@
 ```js
 <div>
     <div className="dib g-mr2">
-        <Toggle value="isEnabled" onClick={(checked)=>console.log(`Toggle to ${checked}`)} />
+        <Toggle name="toggleName" value="isEnabled" onClick={(event, checked)=>console.log(`Toggle ${event.target.name} to ${checked}`)} />
     </div>
     <div className="dib g-mr2">
-        <Toggle value="isHuman" onClick={(checked)=>console.log(`Toggle to ${checked}`)} isChecked />
+        <Toggle name="toggleName" value="isHuman" onClick={(event, checked)=>console.log(`Toggle ${event.target.name} to ${checked}`)} isChecked />
     </div>
     <div className="dib g-mr2">
         <Toggle value="isActive" isDisabled />
