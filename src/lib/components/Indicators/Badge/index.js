@@ -8,13 +8,16 @@ class Badge extends PureComponent {
   }
 
   render() {
-    const { count, outline, icon, size } = this.props
+    const { count, outline, icon, size, color } = this.props
+    console.log('=--------')
+    console.log(color)
+    const badgeColor = color ? color : 'danger'
     const Icon = props => icon
     const areaSize = `${size}px`
     const badgeFontSize = this.getBadgeFontSize(size)
 
-    let classes = 'ba bw1 b--red br-pill fw5 '
-    classes += outline ? 'bg-white red ' : 'bg-red white '
+    let classes = 'ba bw1 br-pill fw5 '
+    classes += outline ? `bg-white c-${badgeColor} b--${badgeColor} ` : `bg-${badgeColor} white b--${badgeColor} `
     classes += icon ? 'absolute' : 'g-ph2'
 
     const badge = (
@@ -24,7 +27,7 @@ class Badge extends PureComponent {
     )
 
     return icon ? (
-      <div className={`${styles.badgeBox} dib g-f5 blue`} style={{ width: areaSize, height: areaSize }}>
+      <div className={`${styles.badgeBox} dib g-f5 c-primary`} style={{ width: areaSize, height: areaSize }}>
         {badge}
         <Icon />
       </div>
@@ -42,7 +45,9 @@ Badge.propTypes = {
   /** Applies a badge to an Icon */
   icon: PropTypes.element,
   /** Size of the badge when using icons. */
-  size: PropTypes.number
+  size: PropTypes.number,
+  /** Define Badge Color. */
+  color: PropTypes.string
 }
 
 Badge.defaultProps = {
