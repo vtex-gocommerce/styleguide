@@ -33,9 +33,9 @@ class Select extends Component {
     const { value } = this.state
 
     let classes = 'g-pa3 ba br1 '
-    if (isDisabled) classes += 'b--navy-40 bg-navy-20 navy-80 '
-    if (hasError) classes += 'b--red bg-red-light red '
-    if (!isDisabled && !hasError) classes += 'b--navy-40 hover-b--navy-60 bg-white navy '
+    if (isDisabled) classes += 'b--base-4 bg-base-3 c-on-base-2  '
+    if (hasError) classes += 'b--danger bg-light-danger c-danger '
+    if (!isDisabled && !hasError) classes += 'b--base-4 bg-base-1 c-on-base-1 '
     classes += this.props.elementClassName
     return (
       <div className={`${styles.selectWrapper} ${this.props.className}`}>
