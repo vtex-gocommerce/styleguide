@@ -5,8 +5,6 @@ import IconWarning from '../../../icons/IconWarning'
 import IconDanger from '../../../icons/IconClose'
 import IconInfo from '../../../icons/IconInfo'
 import IconClose from '../../../icons/IconCloseAlt'
-
-
 const types = {
   success: {
     icon: IconSuccess,
@@ -15,7 +13,7 @@ const types = {
   },
   warning: {
     icon: IconWarning,
-    classes: 'b--warning  c-warning',
+    classes: 'b--warning c-warning',
     fill: 'bg-light-warning'
   },
   error: {
@@ -44,22 +42,20 @@ class ContextualAlert extends PureComponent {
   render() {
     const { type, onClose, fill } = this.props
 
-    const classes = `g-pa4 ba br2 b--dashed flex ${types[type].classes} ${(fill ? types[type].fill: '')}` 
+    const classes = `g-pa4 ba br2 b--dashed flex ${types[type].classes} ${fill ? types[type].fill : ''}`
     const Icon = types[type].icon
 
-    return (     
+    return (
       <div className={classes}>
         <div className="flex justify-center g-mr3 w-100">
-          <div className="dib ph3 fw5">
-            {this.props.children}
-          </div>
+          <div className="dib ph3 fw5">{this.props.children}</div>
         </div>
         {onClose && (
           <div className="pointer" onClick={onClose}>
             <IconClose />
           </div>
         )}
-      </div>  
+      </div>
     )
   }
 }

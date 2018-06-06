@@ -357,5 +357,14 @@
       <IconWarning />
     </div>
   </div>
+  <div className="flex flex-column items-center w-20 g-mb6">
+    <a href="#!/IconDanger" className="g-mb2 blue no-underline">
+      IconDanger
+    </a>
+    <div>
+      <IconDanger className="g-mr2" family="regular" />
+      <IconDanger />
+    </div>
+  </div>
 </div>
 ```

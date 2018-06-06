@@ -17,7 +17,7 @@
   </div>
   <div className="g-mb2">
     <ContextualAlert type="success" onClose={() => console.log('Closed!')}>
-      Your action was complete! 
+      Your action was complete!
     </ContextualAlert>
   </div>
   <div className="g-mb2">
