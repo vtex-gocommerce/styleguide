@@ -32,6 +32,10 @@ class Input extends PureComponent {
     this.props.onBlur && this.props.onBlur(event)
   }
 
+  handleKeyPress = event => {
+    this.props.onKeyPress && this.props.onKeyPress(event)
+  }
+
   render() {
     const {
       hasError,
@@ -61,6 +65,7 @@ class Input extends PureComponent {
       onBlur: this.handleBlur,
       onFocus: this.handleFocus,
       onChange: this.handleChange,
+      onKeyPress: this.handleKeyPress,
       disabled: isDisabled,
       maxLength: maxLength,
       value: value
@@ -103,6 +108,8 @@ Input.propTypes = {
   onFocus: PropTypes.func,
   /** Callback on blur */
   onBlur: PropTypes.func,
+  /** Callback on key press */
+  onKeyPress: PropTypes.func,
   /** Append css classes to the Input. */
   className: PropTypes.string,
   /** Max number of characters */
