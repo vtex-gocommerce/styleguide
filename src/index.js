@@ -20,6 +20,7 @@ import Modal from './lib/components/General/Modal'
 import Placeholder from './lib/components/General/Placeholder'
 import PlaceholderContainer from './lib/components/General/PlaceholderContainer'
 import Badge from './lib/components/Indicators/Badge'
+import Label from './lib/components/Indicators/Label'
 import Status from './lib/components/Indicators/Status'
 import Tag from './lib/components/Indicators/Tag'
 import Pagination from './lib/components/Navigation/Pagination'
@@ -45,6 +46,7 @@ import IconCheck from './lib/icons/IconCheck'
 import IconClock from './lib/icons/IconClock'
 import IconClose from './lib/icons/IconClose'
 import IconCloseAlt from './lib/icons/IconCloseAlt'
+import IconDelete from './lib/icons/IconDelete'
 import IconDesktop from './lib/icons/IconDesktop'
 import IconDownload from './lib/icons/IconDownload'
 import IconEdit from './lib/icons/IconEdit'
@@ -92,6 +94,7 @@ exports.Modal = Modal
 exports.Placeholder = Placeholder
 exports.PlaceholderContainer = PlaceholderContainer
 exports.Badge = Badge
+exports.Label = Label
 exports.Status = Status
 exports.Tag = Tag
 exports.Pagination = Pagination
@@ -117,6 +120,7 @@ exports.IconCheck = IconCheck
 exports.IconClock = IconClock
 exports.IconClose = IconClose
 exports.IconCloseAlt = IconCloseAlt
+exports.IconDelete = IconDelete
 exports.IconDesktop = IconDesktop
 exports.IconDownload = IconDownload
 exports.IconEdit = IconEdit
