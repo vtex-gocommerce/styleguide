@@ -36,6 +36,14 @@ class Input extends PureComponent {
     this.props.onKeyPress && this.props.onKeyPress(event)
   }
 
+  handleKeyDown = event => {
+    this.props.onKeyDown && this.props.onKeyDown(event)
+  }
+
+  handleKeyUp = event => {
+    this.props.onKeyUp && this.props.onKeyUp(event)
+  }
+
   render() {
     const {
       hasError,
@@ -66,14 +74,25 @@ class Input extends PureComponent {
       onFocus: this.handleFocus,
       onChange: this.handleChange,
       onKeyPress: this.handleKeyPress,
+      onKeyDown: this.handleKeyDown,
+      onKeyUp: this.handleKeyUp,
       disabled: isDisabled,
       maxLength: maxLength,
       value: value
     }
 
     if (this.props.mask) {
-      return <InputMask {...props} className={inputClasses} mask={mask} maskChar={maskChar} alwaysShowMask={alwaysShowMask} />
-    } if (this.props.suffix) {
+      return (
+        <InputMask
+          {...props}
+          className={inputClasses}
+          mask={mask}
+          maskChar={maskChar}
+          alwaysShowMask={alwaysShowMask}
+        />
+      )
+    }
+    if (this.props.suffix) {
       return (
         <div className={`dib ${className}`}>
           <div className="flex">
@@ -85,7 +104,6 @@ class Input extends PureComponent {
     } else {
       return <input {...props} className={inputClasses} />
     }
-
   }
 }
 
@@ -110,6 +128,10 @@ Input.propTypes = {
   onBlur: PropTypes.func,
   /** Callback on key press */
   onKeyPress: PropTypes.func,
+  /** Callback on key down */
+  onKeyDown: PropTypes.func,
+  /** Callback on key up */
+  onKeyUp: PropTypes.func,
   /** Append css classes to the Input. */
   className: PropTypes.string,
   /** Max number of characters */
