@@ -1,3 +1,3 @@
 ```js
-<CardBack />
+<IconCardBack />
 ```

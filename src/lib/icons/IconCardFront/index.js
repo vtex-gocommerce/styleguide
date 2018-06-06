@@ -11,7 +11,7 @@ const families = {
   light: iconLight
 }
 
-class CardFront extends PureComponent {
+class IconCardFront extends PureComponent {
   render() {
     const { className, ignoreSize, family, width, height } = this.props
     const style = !ignoreSize ? { width: width, height: height } : {}
@@ -21,7 +21,7 @@ class CardFront extends PureComponent {
   }
 }
 
-CardFront.propTypes = {
+IconCardFront.propTypes = {
   /** Defines which font type will be used */
   /** Defines which font family will be used */
   family: PropTypes.oneOf(['solid', 'regular', 'light']),
@@ -34,7 +34,7 @@ CardFront.propTypes = {
   className: PropTypes.string
 }
 
-CardFront.defaultProps = {
+IconCardFront.defaultProps = {
   family: 'solid',
   ignoreSize: false,
   height: '16px',
@@ -42,4 +42,4 @@ CardFront.defaultProps = {
   className: ''
 }
 
-export default CardFront
+export default IconCardFront
