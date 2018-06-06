@@ -9,8 +9,6 @@ class Badge extends PureComponent {
 
   render() {
     const { count, outline, icon, size, color } = this.props
-    console.log('=--------')
-    console.log(color)
     const badgeColor = color ? color : 'danger'
     const Icon = props => icon
     const areaSize = `${size}px`
