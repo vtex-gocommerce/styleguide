@@ -64,9 +64,7 @@ class Textarea extends PureComponent {
       rows: rows
     }
 
-    console.log(props);
-
-    return <textarea {...props} className={inputClasses} resize={false}>{value}</textarea>
+    return <textarea {...props} className={inputClasses}>{value}</textarea>
 
   }
 }

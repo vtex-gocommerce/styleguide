@@ -5,24 +5,28 @@ import IconWarning from '../../../icons/IconWarning'
 import IconDanger from '../../../icons/IconClose'
 import IconInfo from '../../../icons/IconInfo'
 import IconClose from '../../../icons/IconCloseAlt'
-import styles from './style.css'
+
 
 const types = {
   success: {
     icon: IconSuccess,
-    classes: 'b--green bg-green-light green'
+    classes: 'b--success c-success',
+    fill: 'bg-light-success'
   },
   warning: {
     icon: IconWarning,
-    classes: 'b--yellow bg-yellow-light yellow'
+    classes: 'b--warning  c-warning',
+    fill: 'bg-light-warning'
   },
   error: {
     icon: IconDanger,
-    classes: 'b--red bg-red-light red'
+    classes: 'b--danger c-danger',
+    fill: 'bg-light-danger'
   },
   info: {
     icon: IconInfo,
-    classes: 'b--blue bg-blue-20 blue'
+    classes: 'b--info  c-info',
+    fill: 'bg-light-info'
   }
 }
 
@@ -38,22 +42,24 @@ class ContextualAlert extends PureComponent {
   }
 
   render() {
-    const { type, onClose } = this.props
+    const { type, onClose, fill } = this.props
 
-    const classes = `relative g-pa3 ba bw2 bt-0 br-0 bb-0 br1 ${types[type].classes}`
+    const classes = `g-pa4 ba br2 b--dashed flex ${types[type].classes} ${(fill ? types[type].fill: '')}` 
     const Icon = types[type].icon
 
-    return (
+    return (     
       <div className={classes}>
-        <div className="flex justify-center items-center g-mr3">
-          <div className="ph3">{this.props.children}</div>
+        <div className="flex justify-center g-mr3 w-100">
+          <div className="dib ph3 fw5">
+            {this.props.children}
+          </div>
         </div>
         {onClose && (
-          <div className={`${styles.close} absolute pointer`} onClick={onClose}>
+          <div className="pointer" onClick={onClose}>
             <IconClose />
           </div>
         )}
-      </div>
+      </div>  
     )
   }
 }
@@ -65,13 +71,16 @@ ContextualAlert.propTypes = {
   onClose: PropTypes.func,
   /** Set a timeout for alert execute **onClose** function. */
   autoClose: PropTypes.number,
+  /** Sets whether to have background. */
+  fill: PropTypes.bool,
   children: PropTypes.node.isRequired
 }
 
 ContextualAlert.defaultProps = {
   type: 'info',
   onClose: null,
-  autoClose: null
+  autoClose: null,
+  fill: false
 }
 
 export default ContextualAlert

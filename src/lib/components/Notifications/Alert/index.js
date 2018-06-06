@@ -10,19 +10,19 @@ import styles from './style.css'
 const types = {
   success: {
     icon: IconSuccess,
-    classes: 'b--green bg-green-light green'
+    classes: 'b--success c-success'
   },
   warning: {
     icon: IconWarning,
-    classes: 'b--yellow bg-yellow-light yellow'
+    classes: 'b--warning  c-warning'
   },
   error: {
     icon: IconDanger,
-    classes: 'b--red bg-red-light red'
+    classes: 'b--danger c-danger'
   },
   info: {
     icon: IconInfo,
-    classes: 'b--blue bg-blue-20 blue'
+    classes: 'b--info  c-info'
   }
 }
 
@@ -39,7 +39,7 @@ class Alert extends PureComponent {
 
   render() {
     const { type, onClose } = this.props
-    const classes = `relative g-pa3 ba br2 ${types[type].classes}`
+    const classes = `relative g-pa3 ba br2 b--dashed flex ${types[type].classes}`
     const Icon = types[type].icon
 
     return (
@@ -49,7 +49,7 @@ class Alert extends PureComponent {
           <div className="ph3">{this.props.children}</div>
         </div>
         {onClose && (
-          <div className={`${styles.close} absolute pointer`} onClick={onClose}>
+          <div className={`pointer`} onClick={onClose}>
             <IconClose />
           </div>
         )}

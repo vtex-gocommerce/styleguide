@@ -1,8 +1,6 @@
 ```js
 <div>
-  <div className="g-mb2">
-    <Alert>Congrats! Your recovery code was printed and the app authenticator was sucessfully validated.</Alert>
-  </div>
+  
   <div className="g-mb2">
     <Alert type="warning" onClose={() => console.log('Closed!')}>
       This action is irreversible!
@@ -18,10 +16,13 @@
       Your action was complete!
     </Alert>
   </div>
-  <div>
+  <div className="g-mb2">
     <Alert autoClose={3000} onClose={() => console.log('Auto closed after 3000ms!')}>
       This alert will timeout after 3s. Check console log.
     </Alert>
+  </div>
+  <div className="g-mb2">
+    <Alert>Congrats! Your recovery code was printed and the app authenticator was sucessfully validated.</Alert>
   </div>
 </div>
 ```
