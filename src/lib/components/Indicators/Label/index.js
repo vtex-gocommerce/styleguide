@@ -5,15 +5,15 @@ import IconClose from '../../../icons/IconCloseAlt'
 class Label extends PureComponent {
   render() {
     const { count, onRemove, bgColor } = this.props
-    const tagBgColor = bgColor ? `bg-${bgColor}` : 'bg-blue'
+    const tagBgColor = bgColor ? `bg-${bgColor}` : 'bg-primary'
     let classes = `dib g-ph2 fw5 g-pv1 br2 ${tagBgColor} white g-f2 `
-    if (onRemove) classes += 'hover-bg-red pointer'
+    if (onRemove) classes += 'hover-bg-danger pointer'
 
     return (
       <span className={classes} onClick={onRemove}>
         <span className="flex items-center">
           {this.props.children}
-          {count && <span className="g-ml2 g-ph2 bg-white br-pill g-f1 blue">{count}</span>}
+          {count && <span className="g-ml2 g-ph2 bg-base-1 br-pill g-f1 c-primary">{count}</span>}
           {onRemove && <IconClose className="g-ml2" ignoreSize />}
         </span>
       </span>

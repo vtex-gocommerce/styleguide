@@ -1,7 +1,7 @@
 ```js
 <div>
   <div className="dib g-mr2">
-    <Label bgColor="navy">Tag</Label>
+    <Label bgColor="primary">Tag</Label>
   </div>
   <div className="dib g-mr2">
     <Label count={99}>Tag with Counter</Label>
