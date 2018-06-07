@@ -29,13 +29,14 @@ class Select extends Component {
   }
 
   render() {
-    const { name, placeholder, list, isDisabled, hasError, required } = this.props
+    const { name, placeholder, list, isDisabled, hasError, required, withoutStyle } = this.props
     const { value } = this.state
 
     let classes = 'g-pa3 ba br1 '
     if (isDisabled) classes += 'b--base-4 bg-base-3 c-on-base-2  '
     if (hasError) classes += 'b--danger bg-light-danger c-danger '
-    if (!isDisabled && !hasError) classes += 'b--base-4 bg-base-1 c-on-base-1 '
+    if (!isDisabled && !hasError && !withoutStyle) classes += 'b--base-4 bg-base-1 c-on-base-1 '
+    if (withoutStyle) classes += 'c-on-base-1 bg-transparent bn'
     classes += this.props.elementClassName
     return (
       <div className={`${styles.selectWrapper} ${this.props.className}`}>
@@ -90,7 +91,9 @@ Select.propTypes = {
   /** Append css classes to the select */
   elementClassName: PropTypes.string,
   /** Set the value of the Select. */
-  value: PropTypes.any
+  value: PropTypes.any,
+  /** remove borders and bgColor. */
+  withoutStyle: PropTypes.boll
 }
 
 Select.defaultProps = {

@@ -31,9 +31,13 @@ const Disabled = [
     <Select placeholder="Select a fruit..." list={Simple} hasError />
     <span className="g-ml4 no-underline c-on-base-2">Select with error</span>
   </div>
-  <div>
+  <div className="g-mb2">
     <Select placeholder="You can't pick any..." list={Simple} isDisabled />
     <span className="g-ml4 no-underline c-on-base-2">Disabled Select</span>
+  </div>
+  <div>
+    <Select placeholder="Select a fruit..." list={Simple} withoutStyle />
+    <span className="g-ml4 no-underline c-on-base-2">Without styles</span>
   </div>
 </div>
 ```
