@@ -4,6 +4,7 @@ import DropdownButton from './lib/components/Buttons/DropdownButton'
 import Card from './lib/components/Cards/Card'
 import NumberCard from './lib/components/Cards/NumberCard'
 import Table from './lib/components/Data/Table'
+import TableList from './lib/components/Data/TableList'
 import Timeline from './lib/components/Data/Timeline'
 import TimelineHistory from './lib/components/Data/TimelineHistory'
 import CheckBox from './lib/components/Form/CheckBox'
@@ -79,6 +80,7 @@ exports.DropdownButton = DropdownButton
 exports.Card = Card
 exports.NumberCard = NumberCard
 exports.Table = Table
+exports.TableList = TableList
 exports.Timeline = Timeline
 exports.TimelineHistory = TimelineHistory
 exports.CheckBox = CheckBox
