@@ -8,12 +8,12 @@ class SelectCountry extends PureComponent {
     super(props)
 
     this.state = {
-      value: this.props.defaultValue,
+      value: this.props.defaultValue
     }
   }
 
-  componentWillReceiveProps = (nextProps) => {
-    if (nextProps.value !== this.props.value)this.setState({ value: nextProps.value })
+  componentWillReceiveProps = nextProps => {
+    if (nextProps.value !== this.props.value) this.setState({ value: nextProps.value })
   }
 
   handleChange = event => {
@@ -34,19 +34,36 @@ class SelectCountry extends PureComponent {
     const { name, placeholder, isDisabled, hasError, required } = this.props
     const { value } = this.state
 
-    const list = Object.keys(countries).reduce((prev, element) => ([...prev, { label: countries[element], value: element } ]), [])
+    const list = Object.keys(countries).reduce(
+      (prev, element) => [...prev, { label: countries[element], value: element }],
+      []
+    )
     let classes = 'g-pa3 ba br1 '
-    if (isDisabled) classes += 'b--navy-40 bg-navy-20 navy-80 '
-    if (hasError) classes += 'b--red bg-red-light red '
-    if (!isDisabled && !hasError) classes += 'b--navy-40 hover-b--navy-60 bg-white navy '
+    if (isDisabled) classes += 'b--base-4 bg-base-3 c-on-base-2  '
+    if (hasError) classes += 'b--danger bg-light-danger c-danger '
+    if (!isDisabled && !hasError) classes += 'b--base-4 bg-base-1 c-on-base-1 '
     classes += this.props.elementClassName
 
     return (
       <div className={`${styles.selectWrapper} ${this.props.className}`}>
-        <select name={name} className={classes} disabled={isDisabled} onChange={this.handleChange} onFocus={this.handleFocus} onBlur={this.handleBlur} value={value}>
-          <option value="" disabled={required}>{placeholder}</option>
+        <select
+          name={name}
+          className={classes}
+          disabled={isDisabled}
+          onChange={this.handleChange}
+          onFocus={this.handleFocus}
+          onBlur={this.handleBlur}
+          value={value}
+        >
+          <option value="" disabled={required}>
+            {placeholder}
+          </option>
           {list.map((item, index) => {
-            return <option key={item.value} value={`${item.value}`} disabled={item.disabled}>{item.label}</option>
+            return (
+              <option key={item.value} value={`${item.value}`} disabled={item.disabled}>
+                {item.label}
+              </option>
+            )
           })}
         </select>
       </div>
@@ -76,7 +93,7 @@ SelectCountry.propTypes = {
   /** Append css classes to the select wrapper. */
   className: PropTypes.string,
   /** Append css classes to the select */
-  elementClassName: PropTypes.string,
+  elementClassName: PropTypes.string
 }
 
 SelectCountry.defaultProps = {
@@ -87,7 +104,7 @@ SelectCountry.defaultProps = {
   defaultValue: '',
   required: false,
   className: '',
-  elementClassName: '',
+  elementClassName: ''
 }
 
 export default SelectCountry

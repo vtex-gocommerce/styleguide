@@ -87,7 +87,7 @@ class ShowModal extends React.Component {
         <Button onClick={this.tooglePlaceHolderStatus}> Change status </Button> Is Placeholder Active:{' '}
         {this.state.placeholderIsActive ? 'active' : 'inactive'}
         <div>
-          <div className="g-mb4">
+          <div className="g-mb4 g-mt4">
             <Table columns={columns} rows={rows} isLoading={this.state.placeholderIsActive} />
           </div>
           <div>
