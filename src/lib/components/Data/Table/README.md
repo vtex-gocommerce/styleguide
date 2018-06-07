@@ -91,8 +91,12 @@ class ShowModal extends React.Component {
           <div className="g-mb4 g-mt4">
             <Table columns={columns} rows={rows} isLoading={this.state.placeholderIsActive} />
           </div>
-          <div>
+          <div className="g-mb4 g-mt4">
             <Table columns={columns} rows={rows} selectable onChange={e => console.log(e)} />
+          </div>
+          <div>
+            <p>Without Style</p>
+            <Table columns={columns} rows={rows} onChange={e => console.log(e)} withoutStyle />
           </div>
         </div>
       </div>
