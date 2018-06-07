@@ -1,9 +1,9 @@
 ```js
-class WithForcePage extends React.Component {
+class WithState extends React.Component {
   constructor(props) {
     super(props)
 
-    this.state = { value: 0 }
+    this.state = { value: 1 }
     this.handleChange = this.handleChange.bind(this)
   }
 
@@ -12,20 +12,10 @@ class WithForcePage extends React.Component {
   }
 
   render() {
-    const number = (Math.random(1, 15) * 100).toFixed(0)
     return (
       <div>
         <div className="flex justify-center g-mb5">
-          <Pagination
-            initialPage={parseInt(this.state.value)}
-            forcePage={parseInt(this.state.value)}
-            pageCount={100}
-            onPageChange={data => console.log('Page changed!', data)}
-            isCompact
-          />
-        </div>
-        <div className="flex justify-center g-mb5">
-          <Button onClick={() => this.handleChange(number)}>Next value: {parseFloat(number) + 1}</Button>
+          <Pagination currentPage={this.state.value} pageCount={30} onPageChange={this.handleChange} />
         </div>
       </div>
     )
@@ -34,14 +24,20 @@ class WithForcePage extends React.Component {
 
 ;<div>
   <div className="flex justify-center g-mb5">
-    <Pagination initialPage={1} pageCount={600} onPageChange={data => console.log('Page changed!')} />
+    <Pagination
+      currentPage={1}
+      pageCount={600}
+      onPageChange={page => console.log('Page changed! current page:' + page)}
+    />
+  </div>
+  <div className="flex justify-center g-mb5">
+    <Pagination currentPage={30} pageCount={30} />
   </div>
   <div className="flex justify-center">
-    <Pagination initialPage={15} pageCount={30} isCompact />
-  </div>
-  <div className="bt b--navy-40 g-pt4 g-mt4">
-    <span className="w-100 g-mb3 no-underline navy-60 db tc">With force page</span>
-    <WithForcePage />
+    <div>
+      <p>With page change</p>
+      <WithState />
+    </div>
   </div>
 </div>
 ```

@@ -1,54 +1,51 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import Paginate from 'react-paginate'
-import IconCaret from '../../../icons/IconCaret'
+import IconArrow from '../../../icons/IconArrow'
 import styles from './style.css'
 
 class Pagination extends PureComponent {
-  handleChange = data => {
-    this.props.onPageChange(data)
+  handleChange = page => {
+    const { pageCount } = this.props
+    page = page < 1 ? 1 : page > pageCount ? pageCount : page
+    this.props.onPageChange(page)
   }
 
   render() {
-    const { initialPage, pageCount, isCompact, forcePage } = this.props
+    const { currentPage, pageCount } = this.props
 
     return (
-      <Paginate
-        previousLabel={<IconCaret side="left" />}
-        nextLabel={<IconCaret side="right" />}
-        initialPage={initialPage}
-        pageCount={pageCount}
-        onPageChange={this.handleChange}
-        marginPagesDisplayed={isCompact ? 1 : 2}
-        pageRangeDisplayed={isCompact ? 2 : 5}
-        containerClassName={styles.pagination}
-        activeClassName={styles.active}
-        breakClassName={styles.break}
-        previousLinkClassName={styles.previous}
-        nextLinkClassName={styles.next}
-        disabledClassName={styles.disabled}
-        forcePage={forcePage}
-      />
+      <div className="flex c-on-base-2 items-center">
+        <div className="dib g-mr4">
+          <span className="c-primary">{currentPage}</span> / <span>{pageCount}</span>
+        </div>
+        {currentPage > 1 && (
+          <span className="db g-w5 g-mr5" onClick={() => this.handleChange(currentPage - 1)}>
+            <IconArrow side="left" className="c-on-base-2 hover-c-primary pointer" />
+          </span>
+        )}
+        {currentPage < pageCount && (
+          <span className="db" onClick={() => this.handleChange(currentPage + 1)}>
+            <IconArrow side="right" className="c-on-base-2 hover-c-primary pointer" />
+          </span>
+        )}
+      </div>
     )
   }
 }
 
 Pagination.propTypes = {
   /** Define selected page. */
-  initialPage: PropTypes.number.isRequired,
+  currentPage: PropTypes.number.isRequired,
   /** Define total count of pages. */
   pageCount: PropTypes.number.isRequired,
   /** Function to run when page is changed. */
-  onPageChange: PropTypes.func,
-  /** Set pagination to compact mode. */
-  isCompact: PropTypes.bool,
-  /**  To override selected page with parent prop. */
-  forcePage: PropTypes.number,
+  onPageChange: PropTypes.func
 }
 
 Pagination.defaultProps = {
   onPageChange: () => {},
-  isCompact: false,
+  isCompact: false
 }
 
 export default Pagination
