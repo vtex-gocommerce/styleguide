@@ -80,20 +80,18 @@ TableList.propTypes = {
       label: PropTypes.oneOfType([PropTypes.string, PropTypes.element]).isRequired,
       /** Size of the column in percentage. */
       size: PropTypes.number,
-      /** Make the column text align. */
+      /** Make the column text align. One of: left, right, center */
       textAlign: PropTypes.oneOf(['left', 'right', 'center'])
     })
   ).isRequired,
   /** Rows that will be show on table. */
   rows: PropTypes.array.isRequired,
   /** Is table in Loading State */
-  isLoading: PropTypes.bool,
-  onChange: PropTypes.func
+  isLoading: PropTypes.bool
 }
 
 TableList.defaultProps = {
-  isLoading: false,
-  onChange: () => {}
+  isLoading: false
 }
 
 export default TableList
