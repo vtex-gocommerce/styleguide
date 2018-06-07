@@ -9,8 +9,8 @@ class Search extends PureComponent {
     super(props)
 
     this.state = {
-      searchValue: '',
-      optionValue: ''
+      searchValue: this.props.searchValue,
+      optionValue: this.props.optionValue
     }
   }
 
@@ -45,6 +45,7 @@ class Search extends PureComponent {
             elementClassName="bn h-100"
             className="h-100 br b--base-4"
             onChange={this.handleChangeOption}
+            value={this.state.optionValue}
           />
         )}
         <div className="flex flex-auto items-center w-100">
@@ -53,6 +54,7 @@ class Search extends PureComponent {
             className="bn w-100 w-100"
             onBlue={this.handleSearch}
             onChange={this.handleSearch}
+            value={this.state.searchValue}
           />
           <div className="g-pa3 pointer c-primary hover-c-dark-primary" onClick={this.handleClick}>
             <IconSearch />
@@ -68,6 +70,10 @@ Search.propTypes = {
   name: PropTypes.string,
   /** Set placeholder for search input. */
   placeholder: PropTypes.string,
+  /** Set value of search. */
+  searchValue: PropTypes.string,
+  /** Set option selected*/
+  optionValue: PropTypes.string,
   /** Set if Search will have filter options. */
   withOptions: PropTypes.bool,
   /** Option list. */
@@ -86,7 +92,9 @@ Search.propTypes = {
 Search.defaultProps = {
   placeholder: 'Search...',
   withOptions: false,
-  options: []
+  options: [],
+  searchValue: '',
+  optionValue: ''
 }
 
 export default Search
