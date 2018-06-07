@@ -47,15 +47,6 @@ const rows = [
     Actions: <IconMore className="blue" width="20" height="20" />
   },
   {
-    Active: <Toggle value="isActive" isDisabled />,
-    Name: 'Too big example test name, just to see what will happen',
-    Address: 'Street of Test',
-    id: 2,
-    Count: 2454,
-    Hidden: 'Property',
-    Actions: <IconMore className="blue" width="20" height="20" />
-  },
-  {
     id: 3,
     Name: 'Last Test',
     Address: 'Just a big street, also to see what will happen',
@@ -93,10 +84,6 @@ class ShowModal extends React.Component {
           </div>
           <div className="g-mb4 g-mt4">
             <Table columns={columns} rows={rows} selectable onChange={e => console.log(e)} />
-          </div>
-          <div>
-            <p>Without Style</p>
-            <Table columns={columns} rows={rows} onChange={e => console.log(e)} withoutStyle />
           </div>
         </div>
       </div>
