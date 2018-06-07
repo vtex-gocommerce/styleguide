@@ -103,7 +103,7 @@ class Table extends PureComponent {
                 })
 
                 return (
-                  <tr key={index}>
+                  <tr key={index} className={`${fields.bgColor && 'bg-' + fields.bgColor}`}>
                     {selectable && (
                       <th className="bb b--base-3 g-ph4 tc" style={{ width: '40px' }}>
                         <CheckBox

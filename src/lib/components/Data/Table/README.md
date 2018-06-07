@@ -65,7 +65,8 @@ const rows = [
       </p>
     ),
     Active: <Toggle value="isActive" />,
-    Actions: <IconMore className="blue" width="20" height="20" />
+    Actions: <IconMore className="blue" width="20" height="20" />,
+    bgColor: 'light-danger'
   }
 ]
 
