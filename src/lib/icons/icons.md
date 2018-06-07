@@ -362,7 +362,6 @@
       IconDanger
     </a>
     <div>
-      <IconDanger className="g-mr2" family="regular" />
       <IconDanger />
     </div>
   </div>
