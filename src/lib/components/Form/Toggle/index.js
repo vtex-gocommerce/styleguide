@@ -23,16 +23,16 @@ class Toggle extends PureComponent {
     const { isDisabled, value, name, className } = this.props
     const { isChecked } = this.state
 
-    let classes = `flex items-center relative g-h6 g-w10 g-ph2 br-pill ${styles.toggle} `
+    let classes = `flex items-center relative g-h8 g-ph4 br-pill ${styles.toggle} `
     let circle = `absolute br-100 ${styles.toggleCircle} `
 
     if (isDisabled) {
-      classes += isChecked ? 'bg-primary' : 'bg-secondary'
-      circle += 'bg-white '
+      classes += 'bg-base-1 ba b--base-4'
+      circle += isChecked ? 'bg-success ' : 'bg-on-base-2 '
       circle += isChecked ? `${styles.toggledCircle}` : 'left-0 '
     } else {
-      classes += isChecked ? 'bg-primary' : 'bg-secondary'
-      circle += 'bg-white '
+      classes += 'bg-base-1 ba b--base-4'
+      circle += isChecked ? 'bg-success ' : 'bg-on-base-2 '
       circle += isChecked ? `${styles.toggledCircle}` : 'left-0 '
     }
 

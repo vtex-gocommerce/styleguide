@@ -1,14 +1,15 @@
 .toggle {
-    transition: background .25s ease-in-out;
+  transition: background 0.25s ease-in-out;
+  width: 53px;
 }
 
 .toggleCircle {
-    padding: 10px;
-    margin: 0 2px;
-    left: 0;
-    transition: all .25s ease-in-out;
+  padding: 10px;
+  margin: 0 4px;
+  left: 0;
+  transition: all 0.25s ease-in-out;
 }
 
 .toggledCircle {
-    left: 1rem;
+  left: 1.4rem;
 }
