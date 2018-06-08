@@ -6,7 +6,7 @@ import NumberCard from './lib/components/Cards/NumberCard'
 import Table from './lib/components/Data/Table'
 import TableList from './lib/components/Data/TableList'
 import Timeline from './lib/components/Data/Timeline'
-import TimelineHistory from './lib/components/Data/TimelineHistory'
+import TimelineStep from './lib/components/Data/TimelineStep'
 import CheckBox from './lib/components/Form/CheckBox'
 import Input from './lib/components/Form/Input'
 import RadioButton from './lib/components/Form/RadioButton'
@@ -82,7 +82,7 @@ exports.NumberCard = NumberCard
 exports.Table = Table
 exports.TableList = TableList
 exports.Timeline = Timeline
-exports.TimelineHistory = TimelineHistory
+exports.TimelineStep = TimelineStep
 exports.CheckBox = CheckBox
 exports.Input = Input
 exports.RadioButton = RadioButton
