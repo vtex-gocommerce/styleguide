@@ -1,15 +1,15 @@
-```js { "props": { "style": {"backgroundColor": "#EFF1F9"} } }
+```js { "props": { "style": {"backgroundColor": "#FFFFFF"} } }
 <Timeline>
-  <TimelineHistory datetime="13/03/2018 - 16:55:24" status="warning" icon={<IconWarning spin ignoreSize />}>
+  <TimelineStep datetime="13/03/2018 - 16:55:24" bgColor="warning" icon={<IconWarning spin ignoreSize />}>
     <Card title="Antifraud Brand Name">
       <p className="yellow fw6">Antifraud risk scored 8!</p>
     </Card>
-  </TimelineHistory>
-  <TimelineHistory datetime="13/03/2018 - 16:59:24" status="info" icon={<IconSync spin ignoreSize />}>
+  </TimelineStep>
+  <TimelineStep datetime="13/03/2018 - 16:59:24" bgColor="info" icon={<IconSync spin ignoreSize />}>
     <div className="dib ba br2 b--navy-40 g-pa4 bg-white navy">Processing...</div>
-  </TimelineHistory>
-  <TimelineHistory datetime="13/03/2018 - 17:05:34" status="success" icon={<IconCheck ignoreSize />}>
-    <div className="dib ba br2 b--green g-pa4 bgreen white">Order accepted!</div>
-  </TimelineHistory>
+  </TimelineStep>
+  <TimelineStep datetime="13/03/2018 - 17:05:34" bgColor="success" icon={<IconCheck ignoreSize />}>
+    <div className="dib ba br2 b--success g-pa4 bg-success white">Order accepted!</div>
+  </TimelineStep>
 </Timeline>
 ```

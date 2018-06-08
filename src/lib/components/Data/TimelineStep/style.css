@@ -1,0 +1,23 @@
+.date {
+  color: #7b83a1;
+  display: block;
+  margin-top: 16px;
+  position: absolute;
+  text-align: right;
+  width: 25%;
+}
+
+.icon {
+  border: 5px solid #f9fafc;
+  border-radius: 100%;
+  color: #fff;
+  height: 38px;
+  left: 30%;
+  margin: 0 0 0 -28px;
+  position: absolute;
+  width: 38px;
+}
+
+.content {
+  margin: 0 0 20px 34%;
+}
