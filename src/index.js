@@ -53,6 +53,7 @@ import IconDesktop from './lib/icons/IconDesktop'
 import IconDownload from './lib/icons/IconDownload'
 import IconEdit from './lib/icons/IconEdit'
 import IconExchange from './lib/icons/IconExchange'
+import IconFacebook from './lib/icons/IconFacebook'
 import IconFilter from './lib/icons/IconFilter'
 import IconGoogle from './lib/icons/IconGoogle'
 import IconHelp from './lib/icons/IconHelp'
@@ -129,6 +130,7 @@ exports.IconDesktop = IconDesktop
 exports.IconDownload = IconDownload
 exports.IconEdit = IconEdit
 exports.IconExchange = IconExchange
+exports.IconFacebook = IconFacebook
 exports.IconFilter = IconFilter
 exports.IconGoogle = IconGoogle
 exports.IconHelp = IconHelp
