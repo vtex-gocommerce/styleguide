@@ -1,8 +1,37 @@
-.activeBgActivePrimary:active {
-    background-color: #2B4191;
-    border-color: #2B4191;
+.buttonFacebook {
+  background-color: #4266b2;
+  border-color: #4266b2;
 }
 
-.activeBgActivePrimary:focus {
-    outline: none;
+.buttonFacebook:hover {
+  background-color: #375dae;
+  border-color: #375dae;
+}
+
+.buttonFacebook:active {
+  background-color: #3059af;
+  border-color: #3059af;
+}
+
+.buttonFacebook:focus {
+  outline: none;
+}
+
+.buttonGoogle {
+  background-color: #ea4336;
+  border-color: #ea4336;
+}
+
+.buttonGoogle:hover {
+  background-color: #e8382a;
+  border-color: #e8382a;
+}
+
+.buttonGoogle:active {
+  background-color: #e62c1e;
+  border-color: #e62c1e;
+}
+
+.buttonGoogle:focus {
+  outline: none;
 }
