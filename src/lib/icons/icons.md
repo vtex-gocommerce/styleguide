@@ -185,6 +185,14 @@
     </div>
   </div>
   <div className="flex flex-column items-center w-20 g-mb6">
+    <a href="#!/IconFacebook" className="g-mb2 blue no-underline">
+      IconFacebook
+    </a>
+    <div>
+      <IconFacebook />
+    </div>
+  </div>
+  <div className="flex flex-column items-center w-20 g-mb6">
     <a href="#!/IconHelp" className="g-mb2 blue no-underline">
       IconHelp
     </a>
