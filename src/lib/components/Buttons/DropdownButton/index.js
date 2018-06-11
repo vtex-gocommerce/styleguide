@@ -42,9 +42,13 @@ class DropdownButton extends PureComponent {
         {isOpen && (
           <div className="absolute ba b--base-3 w-100 z-4">
             <ul className="list g-ma0 g-pa0">
-              {options.map(option => {
+              {options.map((option, index) => {
                 return (
-                  <li className="bb b--base-3 bg-base-1 hover-bg-base-3 g-pa3 c-on-base-1 pointer" onClick={option.callback}>
+                  <li
+                    key={index}
+                    className="bb b--base-3 bg-base-1 hover-bg-base-3 g-pa3 c-on-base-1 pointer"
+                    onClick={option.callback}
+                  >
                     {option.label}
                   </li>
                 )
@@ -60,7 +64,7 @@ class DropdownButton extends PureComponent {
 DropdownButton.propTypes = {
   /** Define the size of the button. */
   options: PropTypes.array.isRequired,
-  isOpened: PropTypes.boolean,
+  isOpened: PropTypes.bool,
   children: PropTypes.node.isRequired
 }
 

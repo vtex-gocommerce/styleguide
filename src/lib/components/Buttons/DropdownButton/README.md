@@ -12,11 +12,10 @@ const Dropdown = [
     callback: () => cancelOrder()
   }
 ]
-
 ;<div>
   <div className="g-mb2">
     <DropdownButton options={Dropdown}>
-      <Button type="primary" fullWidth>
+      <Button style="primary" fullWidth>
         Change order status
         <IconAngle side="down" className="g-ml2" />
       </Button>
@@ -24,7 +23,7 @@ const Dropdown = [
   </div>
   <div>
     <DropdownButton options={Dropdown} isOpened>
-      <Button type="primary" fullWidth>
+      <Button style="primary" fullWidth>
         Dropdown menu that is already open!
         <IconAngle side="down" className="g-ml2" />
       </Button>

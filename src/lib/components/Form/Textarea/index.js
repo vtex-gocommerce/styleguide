@@ -32,17 +32,7 @@ class Textarea extends PureComponent {
   }
 
   render() {
-    const {
-      hasError,
-      isDisabled,
-      type,
-      placeholder,
-      className,
-      name,
-      style,
-      rows,
-      resize
-    } = this.props
+    const { hasError, isDisabled, type, placeholder, className, name, style, rows, resize } = this.props
     const { value } = this.state
 
     let inputClasses = `${styles.input} g-pa3 ba br1 `
@@ -60,12 +50,11 @@ class Textarea extends PureComponent {
       onFocus: this.handleFocus,
       onChange: this.handleChange,
       disabled: isDisabled,
-      style: {...style, resize: !resize ? 'none' : 'vertical' },
+      style: { ...style, resize: !resize ? 'none' : 'vertical' },
       rows: rows
     }
 
-    return <textarea {...props} className={inputClasses}>{value}</textarea>
-
+    return <textarea {...props} className={inputClasses} value={value} />
   }
 }
 

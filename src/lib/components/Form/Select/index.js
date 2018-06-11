@@ -93,7 +93,7 @@ Select.propTypes = {
   /** Set the value of the Select. */
   value: PropTypes.any,
   /** remove borders and bgColor. */
-  withoutStyle: PropTypes.boll
+  withoutStyle: PropTypes.bool
 }
 
 Select.defaultProps = {
