@@ -20,6 +20,7 @@ import LoadingBar from './lib/components/General/LoadingBar'
 import Modal from './lib/components/General/Modal'
 import Placeholder from './lib/components/General/Placeholder'
 import PlaceholderContainer from './lib/components/General/PlaceholderContainer'
+import Seo from './lib/components/General/Seo'
 import Badge from './lib/components/Indicators/Badge'
 import Label from './lib/components/Indicators/Label'
 import Status from './lib/components/Indicators/Status'
@@ -98,6 +99,7 @@ exports.LoadingBar = LoadingBar
 exports.Modal = Modal
 exports.Placeholder = Placeholder
 exports.PlaceholderContainer = PlaceholderContainer
+exports.Seo = Seo
 exports.Badge = Badge
 exports.Label = Label
 exports.Status = Status
