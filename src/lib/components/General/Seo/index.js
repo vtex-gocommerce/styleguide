@@ -12,7 +12,7 @@ class Seo extends Component {
           <span className={styles.gc_seo_button__maximize} />
           <span className={styles.gc_seo_button__minimize} />
         </div>
-        <div className="g-pa6 ">
+        <div className="g-pa4 ">
           <span className={`db g-f4 g-pb1 ${styles.gc_seo__title}`}>{this.props.title}</span>
           <span className={`db g-f2 g-pb1 ${styles.gc_seo__url}`}>{this.props.url}</span>
           <span className={`db g-f2 ${styles.gc_seo__description}`}>{this.props.description}</span>
