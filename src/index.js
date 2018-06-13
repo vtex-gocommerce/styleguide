@@ -7,6 +7,7 @@ import Table from './lib/components/Data/Table'
 import TableList from './lib/components/Data/TableList'
 import Timeline from './lib/components/Data/Timeline'
 import TimelineStep from './lib/components/Data/TimelineStep'
+import AutoCompleteList from './lib/components/Form/AutoCompleteList'
 import CheckBox from './lib/components/Form/CheckBox'
 import Input from './lib/components/Form/Input'
 import RadioButton from './lib/components/Form/RadioButton'
@@ -86,6 +87,7 @@ exports.Table = Table
 exports.TableList = TableList
 exports.Timeline = Timeline
 exports.TimelineStep = TimelineStep
+exports.AutoCompleteList = AutoCompleteList
 exports.CheckBox = CheckBox
 exports.Input = Input
 exports.RadioButton = RadioButton
