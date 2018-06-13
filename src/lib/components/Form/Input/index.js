@@ -109,7 +109,7 @@ class Input extends PureComponent {
       return (
         <div className={`dib ${style} ${colors} ${className}`}>
           <div className="flex flex-auto items-center">
-            <div className="g-pl3 nr2">{this.props.iconBefore}</div>
+            <div className="g-pl3">{this.props.iconBefore}</div>
             <input {...props} className={`${colors} ${padding} ${style} bn db`} />
           </div>
         </div>
