@@ -5,28 +5,32 @@
     <span className="g-ml4 no-underline c-on-base-1">Plain Input</span>
   </div>
   <div className="g-mb2">
-    <Input placeholder='Look this placeholder...' />
+    <Input placeholder="Look this placeholder..." />
     <span className="g-ml4 no-underline c-on-base-1">Input with placeholder</span>
   </div>
   <div className="g-mb2">
-    <Input value='This is so wrong' hasError />
+    <Input value="This is so wrong" hasError />
     <span className="g-ml4 no-underline c-on-base-1">Input with error</span>
   </div>
   <div className="g-mb2">
-    <Input type='password' value='topsecret' />
+    <Input type="password" value="topsecret" />
     <span className="g-ml4 no-underline c-on-base-1">Password</span>
   </div>
   <div className="g-mb2">
-    <Input type='tel' value='1234124' />
+    <Input type="tel" value="1234124" />
     <span className="g-ml4 no-underline c-on-base-1">Telephone</span>
   </div>
   <div className="g-mb2">
-    <Input type='text' value='' suffix="kg" />
+    <Input type="text" value="" suffix="kg" />
     <span className="g-ml4 no-underline c-on-base-1">Suffix</span>
   </div>
   <div className="g-mb2">
-    <Input value='Disabled' isDisabled />
+    <Input value="Disabled" isDisabled />
     <span className="g-ml4 no-underline c-on-base-1">Disabled</span>
+  </div>
+  <div className="g-mb2">
+    <Input iconBefore={<IconSearch className="c-base-4" />} />
+    <span className="g-ml4 no-underline c-on-base-1">Icon Prefix</span>
   </div>
   <div className="g-mb2">
     <Input mask="+4\\9 99 999 99" alwaysShowMask={true} maskChar="_" />
@@ -39,7 +43,8 @@
         a: A-Z, a-z<br />
         *: A-Z, a-z, 0-9
       </pre>
-      Any character can be escaped with a backslash. It will appear as a double backslash in JS strings. For example, a German phone mask with unremoveable prefix +49 will look like <strong>mask="+4\\9 99 999 99"</strong>.
+      Any character can be escaped with a backslash. It will appear as a double backslash in JS strings. For example, a German
+      phone mask with unremoveable prefix +49 will look like <strong>mask="+4\\9 99 999 99"</strong>.
     </div>
   </div>
 </div>
@@ -61,13 +66,15 @@ class ExternalValueProp extends React.Component {
   }
 
   render() {
-    const number = (Math.random(1,100) * 100).toFixed(1);
+    const number = (Math.random(1, 100) * 100).toFixed(1)
 
-    return <div>
+    return (
+      <div>
         <Input {...this.props} value={this.state.value} className="g-mr2" />
-        <Button onClick={()=>this.handleChange(number)}>Next value: {number}</Button>
-    </div>
+        <Button onClick={() => this.handleChange(number)}>Next value: {number}</Button>
+      </div>
+    )
   }
-};
-<ExternalValueProp />
+}
+;<ExternalValueProp />
 ```
