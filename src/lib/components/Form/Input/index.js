@@ -59,8 +59,8 @@ class Input extends PureComponent {
     } = this.props
     const { value } = this.state
 
-    let padding = 'g-pa3 '
-    let style = `${styles.input} ba br1 `
+    let padding = 'g-ph4 '
+    let style = `${styles.input} ba br2 g-h11 `
 
     let colors = ``
     if (isDisabled) colors += 'b--base-4 bg-base-3 c-on-base-2 '
@@ -100,17 +100,19 @@ class Input extends PureComponent {
         <div className={`dib ${className}`}>
           <div className="flex">
             <input {...props} className={`${inputClasses} w-90 dib ba br-0 br1 br--left`} />
-            <span className={`${inputClasses} w-10 tc g-pa3 ba br--right c-on-base-2`}>{this.props.suffix}</span>
+            <span className={`ba br2 br--right b--base-4 inline-flex items-center g-ph3 c-on-base-2`}>
+              {this.props.suffix}
+            </span>
           </div>
         </div>
       )
     }
     if (this.props.iconBefore) {
       return (
-        <div className={`dib ${style} ${colors} ${className}`}>
-          <div className="flex flex-auto items-center">
+        <div className={`dib ${style} ${colors} ${className} overflow-hidden`}>
+          <div className="flex flex-auto items-center ">
             <div className="g-pl3">{this.props.iconBefore}</div>
-            <input {...props} className={`${colors} ${padding} ${style} bn db`} />
+            <input {...props} className={`${colors} ${padding} ${style} bn  dib`} />
           </div>
         </div>
       )
