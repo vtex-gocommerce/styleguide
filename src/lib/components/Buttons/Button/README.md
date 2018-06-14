@@ -16,20 +16,6 @@
 </div>
 ```
 
-Button Sizes
-
-```js
-<div>
-  <Button className="g-mr2" size="small">
-    Small
-  </Button>
-  <Button className="g-mr2" size="normal">
-    Normal
-  </Button>
-  <Button size="large">Large</Button>
-</div>
-```
-
 Button Full Width
 
 ```js
