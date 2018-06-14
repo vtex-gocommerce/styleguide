@@ -10,6 +10,7 @@ import TimelineStep from './lib/components/Data/TimelineStep'
 import AutoCompleteList from './lib/components/Form/AutoCompleteList'
 import CheckBox from './lib/components/Form/CheckBox'
 import Input from './lib/components/Form/Input'
+import InputTag from './lib/components/Form/InputTag'
 import RadioButton from './lib/components/Form/RadioButton'
 import Search from './lib/components/Form/Search'
 import SearchSelect from './lib/components/Form/SearchSelect'
@@ -90,6 +91,7 @@ exports.TimelineStep = TimelineStep
 exports.AutoCompleteList = AutoCompleteList
 exports.CheckBox = CheckBox
 exports.Input = Input
+exports.InputTag = InputTag
 exports.RadioButton = RadioButton
 exports.Search = Search
 exports.SearchSelect = SearchSelect
