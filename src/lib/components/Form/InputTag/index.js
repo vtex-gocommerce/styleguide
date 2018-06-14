@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import styles from './style.css'
+import Input from './../Input'
 
 class InputTag extends Component {
   constructor(props) {
@@ -86,8 +87,8 @@ InputTag.propTypes = {
   values: PropTypes.any,
   className: PropTypes.string,
   placeholder: PropTypes.string,
-  onChangeValues: PropTypes.event,
-  onChangeInput: PropTypes.event
+  onChangeValues: PropTypes.func,
+  onChangeInput: PropTypes.func
 }
 
 InputTag.defaultProps = {
