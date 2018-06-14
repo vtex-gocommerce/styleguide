@@ -59,12 +59,15 @@ class Input extends PureComponent {
     } = this.props
     const { value } = this.state
 
-    let inputClasses = `${styles.input} g-pa3 ba br1 `
-    if (isDisabled) inputClasses += 'b--base-4 bg-base-3 c-on-base-2 '
-    if (hasError) inputClasses += 'b--danger bg-light-danger c-danger '
-    if (!isDisabled && !hasError) inputClasses += 'b--base-4 bg-base-1 c-on-base-1 '
+    let padding = 'g-pa3 '
+    let style = `${styles.input} ba br1 `
 
-    inputClasses += className
+    let colors = ``
+    if (isDisabled) colors += 'b--base-4 bg-base-3 c-on-base-2 '
+    if (hasError) colors += 'b--danger bg-light-danger c-danger '
+    if (!isDisabled && !hasError) colors += 'b--base-4 bg-base-1 c-on-base-1 '
+
+    let inputClasses = style + padding + colors + className
 
     const props = {
       type: type,
@@ -98,6 +101,16 @@ class Input extends PureComponent {
           <div className="flex">
             <input {...props} className={`${inputClasses} w-90 dib ba br-0 br1 br--left`} />
             <span className={`${inputClasses} w-10 tc g-pa3 ba br--right c-on-base-2`}>{this.props.suffix}</span>
+          </div>
+        </div>
+      )
+    }
+    if (this.props.iconBefore) {
+      return (
+        <div className={`dib ${style} ${colors} ${className}`}>
+          <div className="flex flex-auto items-center">
+            <div className="g-pl3">{this.props.iconBefore}</div>
+            <input {...props} className={`${colors} ${padding} ${style} bn db`} />
           </div>
         </div>
       )
@@ -147,7 +160,9 @@ Input.propTypes = {
   /** Show mask when input is empty and has no focus. */
   alwaysShowMask: PropTypes.bool,
   /** Show a field after input. */
-  suffix: PropTypes.string
+  suffix: PropTypes.string,
+  /** Show a icon before input. */
+  iconBefore: PropTypes.element
 }
 
 Input.defaultProps = {
@@ -162,7 +177,8 @@ Input.defaultProps = {
   mask: null,
   maskChar: ' ',
   alwaysShowMask: false,
-  suffix: null
+  suffix: null,
+  iconBefore: null
 }
 
 export default Input
