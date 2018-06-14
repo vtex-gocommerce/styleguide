@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import styles from './style.css'
 import Input from './../Input'
-import Tag from './../Tag'
+import Tag from './../../Indicators/Tag'
 
 class InputTag extends Component {
   constructor(props) {
