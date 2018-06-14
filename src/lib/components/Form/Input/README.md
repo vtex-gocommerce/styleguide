@@ -1,6 +1,10 @@
 ```js
 <div>
   <div className="g-mb2">
+    <Input label="Label of input" />
+    <span className="g-ml4 no-underline c-on-base-1">With Label</span>
+  </div>
+  <div className="g-mb2">
     <Input />
     <span className="g-ml4 no-underline c-on-base-1">Plain Input</span>
   </div>

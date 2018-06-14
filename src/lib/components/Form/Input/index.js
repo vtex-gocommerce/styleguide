@@ -55,7 +55,8 @@ class Input extends PureComponent {
       maskChar,
       alwaysShowMask,
       className,
-      name
+      name,
+      label
     } = this.props
     const { value } = this.state
 
@@ -117,12 +118,21 @@ class Input extends PureComponent {
         </div>
       )
     } else {
-      return <input {...props} className={inputClasses} />
+      return label ? (
+        <React.Fragment>
+          <label className="db c-on-base-2 g-mb1 g-f2 lh-copy">{label}</label>
+          <input {...props} className={inputClasses} />
+        </React.Fragment>
+      ) : (
+        <input {...props} className={inputClasses} />
+      )
     }
   }
 }
 
 Input.propTypes = {
+  /** Set input's label. */
+  label: PropTypes.string,
   /** Set input's name. */
   name: PropTypes.string,
   /** Set input's type. */
