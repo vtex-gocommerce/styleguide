@@ -3,16 +3,16 @@ import PropTypes from 'prop-types'
 import styles from './style.css'
 
 const listOfStyles = {
-  primary: `all-animate ba b--primary bg-primary c-on-primary hover-bg-dark-primary ${
+  primary: `all-animate ba b--primary bg-primary c-on-primary hover-bg-primary-dark hover-b--primary-dark ${
     styles.activeBgActivePrimary
-  } pointer `,
-  secondary: `all-animate ba b--secondary bg-secondary c-white hover-bg-dark-secondary ${
+    } pointer `,
+  secondary: `all-animate ba b--base-3 bg-base-4 hover-bg-base-3 hover-b--base-3 c-on-base ${
     styles.activeBgActiveSecondary
-  } pointer `,
-  outline: `all-animate ba b--base-3 bg-outiline hover-bg-dark-outline c-on-outline ${
+    } pointer `,
+  outline: `all-animate ba b--base-3 bg-outiline hover-bg-outline-dark c-on-outline ${
     styles.activeBgActiveOutline
-  } pointer `,
-  danger: `ba b--danger bg-danger c-on-danger hover-bg-dark-danger ${styles.activeBgActiveDanger} pointer `
+    } pointer `,
+  danger: `ba b--danger bg-danger c-on-danger hover-bg-danger-dark hover-b--danger-dark  ${styles.activeBgActiveDanger} pointer `
 }
 
 class Button extends PureComponent {

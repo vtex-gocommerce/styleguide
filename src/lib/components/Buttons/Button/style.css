@@ -1,6 +1,6 @@
 .activeBgActivePrimary:active {
-    background-color: #2B4191;
-    border-color: #2B4191;
+    background-color: #14282E;
+    border-color: #14282E;
 }
 
 .activeBgActivePrimary:focus{
@@ -8,8 +8,8 @@
 }
 
 .activeBgActiveSecondary:active {
-    background-color: #15161C;
-    border-color: #15161C;
+    background-color: #A9ACB7;
+    border-color: #A9ACB7;
 }
 
 .activeBgActiveSecondary:focus{
@@ -17,8 +17,8 @@
 }
 
 .activeBgActiveDanger:active {
-    background-color: #942227;
-    border-color: #942227;
+    background-color: #7C0D20;
+    border-color: #7C0D20;
     
 }
 

@@ -16,7 +16,7 @@
 .selectWrapper::before {
   border-left: 5px solid transparent;
   border-right: 5px solid transparent;
-  border-top: 5px solid #d7dbe7;
+  border-top: 5px solid #7f8494;
   content: '';
   display: block;
   position: absolute;

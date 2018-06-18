@@ -9,9 +9,6 @@
   <Button className="g-mr2" style="danger">
     Danger
   </Button>
-  <Button className="g-mr2" style="outline">
-    Outline
-  </Button>
   <Button isDisabled>Disabled</Button>
 </div>
 ```

@@ -38,13 +38,13 @@ Badge with Icon
 ```js
 <div>
   <div className="dib g-mr10">
-    <Badge count={8} size={16} icon={<IconBell ignoreSize />} />
+    <Badge count={8} size="small" icon={<IconBell />} />
   </div>
   <div className="dib g-mr10">
-    <Badge count={56} size={32} outline icon={<IconFilter width="64px" height="64px" />} />
+    <Badge count={56} outline icon={<IconFilter />} />
   </div>
   <div className="dib">
-    <Badge count={565} size={64} icon={<IconFilter />} />
+    <Badge count={565} icon={<IconFilter />} />
   </div>
 </div>
 ```

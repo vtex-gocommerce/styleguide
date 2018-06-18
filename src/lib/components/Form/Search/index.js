@@ -33,10 +33,10 @@ class Search extends PureComponent {
   }
 
   render() {
-    const { placeholder, withOptions, options, name } = this.props
+    const { placeholder, withOptions, options, name, size } = this.props
 
     return (
-      <div className="ba b--base-4 flex flex-auto items-center g-h11">
+      <div className={`br2 ba b--base-4 flex flex-auto items-center overflow-hidden ${size === 'small' ? ' g-h8' : ' g-h11'} `}>
         {withOptions && (
           <Select
             placeholder="Select an option"
@@ -46,9 +46,15 @@ class Search extends PureComponent {
             className="h-100 br b--base-4"
             onChange={this.handleChangeOption}
             value={this.state.optionValue}
+            size={size}
           />
+
         )}
         <div className="flex flex-auto items-center w-100">
+          <div className="g-pl3 pointer c-on-base-2 hover-c-primary" onClick={this.handleClick}>
+            <IconSearch />
+          </div>
+
           <Input
             placeholder={placeholder}
             className="bn w-100 w-100"
@@ -56,9 +62,7 @@ class Search extends PureComponent {
             onChange={this.handleSearch}
             value={this.state.searchValue}
           />
-          <div className="g-pa3 pointer c-primary hover-c-dark-primary" onClick={this.handleClick}>
-            <IconSearch />
-          </div>
+
         </div>
       </div>
     )
@@ -86,7 +90,9 @@ Search.propTypes = {
     })
   ),
   /** Set function when clicking search button. Receive `values`. */
-  onClick: PropTypes.func
+  onClick: PropTypes.func,
+  /** Size */
+  size: PropTypes.oneOf(['small', 'default'])
 }
 
 Search.defaultProps = {
@@ -94,7 +100,8 @@ Search.defaultProps = {
   withOptions: false,
   options: [],
   searchValue: '',
-  optionValue: ''
+  optionValue: '',
+  size: "default"
 }
 
 export default Search
