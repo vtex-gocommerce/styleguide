@@ -35,7 +35,7 @@ class Search extends PureComponent {
   render() {
     const { placeholder, withOptions, options, name, size, nav } = this.props
 
-    const classes = !nav ? "b--base-4" : "bg-base-inverted-2-25 bn"
+    const classes = !nav ? "b--base-4" : "bg-base-inverted-5 bn"
     const classesIcon = !nav ? "c-on-base-2" : "c-base-inverted-3"
 
     return (
