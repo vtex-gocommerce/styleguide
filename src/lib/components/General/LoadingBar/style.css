@@ -13,7 +13,7 @@
     background-size: 200% 200%;
     animation: barberpole 50s linear infinite reverse;
 
-    height: 12px;
+    height: 4px;
     display:block;
     width: 100%;
 }
