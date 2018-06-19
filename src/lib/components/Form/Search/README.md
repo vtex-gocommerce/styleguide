@@ -5,6 +5,11 @@ const options = [{ label: 'Order Number', value: 'order_number' }, { label: 'Cus
     <div className="g-mb2 no-underline c-on-base-1">Search</div>
     <Search onClick={values => console.log(values)} />
   </div>
+   <div className="g-mb4">
+    <div className="g-mb2 no-underline c-on-base-1">Search Nav</div>
+    <Search onClick={values => console.log(values)} nav />
+  </div>
+
   <div className="g-mb4">
     <div className="g-mb2 no-underline c-on-base-1">Search with Options</div>
     <Search

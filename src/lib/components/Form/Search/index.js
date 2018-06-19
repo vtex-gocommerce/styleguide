@@ -33,10 +33,13 @@ class Search extends PureComponent {
   }
 
   render() {
-    const { placeholder, withOptions, options, name, size } = this.props
+    const { placeholder, withOptions, options, name, size, nav } = this.props
+
+    const classes = !nav ? "b--base-4" : "bg-base-inverted-2-25 bn"
+    const classesIcon = !nav ? "c-on-base-2" : "c-base-inverted-3"
 
     return (
-      <div className={`br2 ba b--base-4 flex flex-auto items-center overflow-hidden ${size === 'small' ? ' g-h8' : ' g-h11'} `}>
+      <div className={`br2 ba flex flex-auto items-center overflow-hidden ${classes} ${size === 'small' ? ' g-h8' : ' g-h11'} `}>
         {withOptions && (
           <Select
             placeholder="Select an option"
@@ -47,11 +50,12 @@ class Search extends PureComponent {
             onChange={this.handleChangeOption}
             value={this.state.optionValue}
             size={size}
+            withoutStyle={nav}
           />
 
         )}
         <div className="flex flex-auto items-center w-100">
-          <div className="g-pl3 pointer c-on-base-2 hover-c-primary" onClick={this.handleClick}>
+          <div className={`g-pl3 pointer hover-c-primary ${classesIcon}`} onClick={this.handleClick}>
             <IconSearch />
           </div>
 
@@ -61,6 +65,7 @@ class Search extends PureComponent {
             onBlue={this.handleSearch}
             onChange={this.handleSearch}
             value={this.state.searchValue}
+            withoutStyle={nav}
           />
 
         </div>
@@ -91,6 +96,7 @@ Search.propTypes = {
   ),
   /** Set function when clicking search button. Receive `values`. */
   onClick: PropTypes.func,
+  nav: PropTypes.bool,
   /** Size */
   size: PropTypes.oneOf(['small', 'default'])
 }
@@ -101,7 +107,8 @@ Search.defaultProps = {
   options: [],
   searchValue: '',
   optionValue: '',
-  size: "default"
+  size: "default",
+  nav: false
 }
 
 export default Search

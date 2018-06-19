@@ -56,7 +56,8 @@ class Input extends PureComponent {
       alwaysShowMask,
       className,
       name,
-      label
+      label,
+      withoutStyle
     } = this.props
     const { value } = this.state
 
@@ -66,7 +67,8 @@ class Input extends PureComponent {
     let colors = ``
     if (isDisabled) colors += 'b--base-4 bg-base-3 c-on-base-2 '
     if (hasError) colors += 'b--danger bg-light-danger c-danger '
-    if (!isDisabled && !hasError) colors += 'b--base-4 bg-base-1 c-on-base-1 '
+    if (!isDisabled && !hasError && !withoutStyle) colors += 'b--base-4 bg-base-1 c-on-base-1 '
+    if (withoutStyle) colors += 'c-on-base-1 bg-transparent bn '
 
     let inputClasses = style + padding + colors + className
 
@@ -124,8 +126,8 @@ class Input extends PureComponent {
           <input {...props} className={inputClasses} />
         </React.Fragment>
       ) : (
-        <input {...props} className={inputClasses} />
-      )
+          <input {...props} className={inputClasses} />
+        )
     }
   }
 }
@@ -174,7 +176,9 @@ Input.propTypes = {
   /** Show a field after input. */
   suffix: PropTypes.string,
   /** Show a icon before input. */
-  iconBefore: PropTypes.element
+  iconBefore: PropTypes.element,
+  /** remove borders and bgColor. */
+  withoutStyle: PropTypes.bool
 }
 
 Input.defaultProps = {
