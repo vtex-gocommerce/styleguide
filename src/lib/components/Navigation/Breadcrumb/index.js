@@ -55,7 +55,7 @@ Breadcrumb.propTypes = {
   ).isRequired,
   /** Separator character */
   separator: PropTypes.string,
-  /** Link Conponent */
+  /** Link Component */
   link: PropTypes.element
 }
 

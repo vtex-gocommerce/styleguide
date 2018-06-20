@@ -28,6 +28,7 @@ import Label from './lib/components/Indicators/Label'
 import Status from './lib/components/Indicators/Status'
 import Tag from './lib/components/Indicators/Tag'
 import TextLimitCounter from './lib/components/Indicators/TextLimitCounter'
+import Breadcrumb from './lib/components/Navigation/Breadcrumb'
 import Pagination from './lib/components/Navigation/Pagination'
 import Tab from './lib/components/Navigation/Tab'
 import Alert from './lib/components/Notifications/Alert'
@@ -109,6 +110,7 @@ exports.Label = Label
 exports.Status = Status
 exports.Tag = Tag
 exports.TextLimitCounter = TextLimitCounter
+exports.Breadcrumb = Breadcrumb
 exports.Pagination = Pagination
 exports.Tab = Tab
 exports.Alert = Alert
