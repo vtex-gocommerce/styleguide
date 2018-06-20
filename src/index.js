@@ -19,6 +19,7 @@ import SelectCountry from './lib/components/Form/SelectCountry'
 import Textarea from './lib/components/Form/Textarea'
 import Toggle from './lib/components/Form/Toggle'
 import LoadingBar from './lib/components/General/LoadingBar'
+import LoadingCircle from './lib/components/General/LoadingCircle'
 import Modal from './lib/components/General/Modal'
 import Placeholder from './lib/components/General/Placeholder'
 import PlaceholderContainer from './lib/components/General/PlaceholderContainer'
@@ -101,6 +102,7 @@ exports.SelectCountry = SelectCountry
 exports.Textarea = Textarea
 exports.Toggle = Toggle
 exports.LoadingBar = LoadingBar
+exports.LoadingCircle = LoadingCircle
 exports.Modal = Modal
 exports.Placeholder = Placeholder
 exports.PlaceholderContainer = PlaceholderContainer

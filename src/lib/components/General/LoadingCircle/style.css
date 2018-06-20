@@ -1,0 +1,44 @@
+.gc_loading_circle {
+}
+
+.gc_loading_circle__progress {
+  transform: rotate(-90deg);
+  /* width: 120px; */
+  /* height: 120px; */
+  animation: show 0.6s;
+}
+
+.gc_loading_circle__progress__value {
+  stroke-dasharray: 339.292;
+  transition: 0.4s;
+}
+
+.gc_loading_circle__check {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: showCheck 0.4s;
+}
+
+@keyframes show {
+  0% {
+    -webkit-transform: scale(0);
+    -ms-transform: scale(0);
+    transform: rotate(-90deg) scale(0);
+  }
+  100% {
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: rotate(-90deg) scale(1);
+  }
+}
+
+@keyframes showCheck {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
