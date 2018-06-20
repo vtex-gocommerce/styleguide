@@ -24,7 +24,7 @@ class Button extends PureComponent {
     const { size, style, type, fullWidth, isDisabled, icon, name } = this.props
     const Icon = props => icon
 
-    let classes = `inline-flex items-center justify-center g-f2 fw5 g-ph5 br2 g-h10 tc `
+    let classes = `inline-flex items-center justify-center g-f2 fw5 g-ph5 br2 g-h11 tc `
     classes += isDisabled ? 'ba b--base-3 bg-base-3 c-on-base-2 ' : `${listOfStyles[style]} `
     if (fullWidth) classes += 'w-100 '
     if (this.props.className) classes += this.props.className
