@@ -35,22 +35,22 @@ class Search extends PureComponent {
   render() {
     const { placeholder, withOptions, options, name, size, nav } = this.props
 
-    const classes = !nav ? "b--base-4" : "bg-base-inverted-5 bn"
+    const classes = !nav ? "b--base-4" : "bg-base-inverted-5 bn c-on-base-inverted"
     const classesIcon = !nav ? "c-on-base-2" : "c-base-inverted-3"
 
     return (
-      <div className={`br2 ba flex flex-auto items-center overflow-hidden ${classes} ${size === 'small' ? ' g-h8' : ' g-h11'} `}>
+      <div className={`br2 ba flex flex-auto items-center overflow-hidden ${classes} ${size === 'small' ? ' g-h8' : ' g-h10'} `}>
         {withOptions && (
           <Select
             placeholder="Select an option"
             name={name}
             list={options}
-            elementClassName="bn h-100"
+            elementClassName={`bn h-100 ${size === 'small' ? ' g-h8' : ' g-h10'} `}
             className="h-100 br b--base-4"
             onChange={this.handleChangeOption}
             value={this.state.optionValue}
-            size={size}
             withoutStyle={nav}
+            size="small"
           />
 
         )}
