@@ -4,9 +4,10 @@ import IconClose from '../../../icons/IconCloseAlt'
 
 class Label extends PureComponent {
   render() {
-    const { count, onRemove, bgColor } = this.props
+    const { count, onRemove, bgColor, fullWidth } = this.props
     const tagBgColor = bgColor ? `bg-${bgColor}` : 'bg-primary'
     let classes = `dib g-ph2 fw5 g-pv1 br2 ${tagBgColor} white g-f2 `
+    if (fullWidth) classes += ' w-100 '
     if (onRemove) classes += 'hover-bg-danger pointer'
 
     return (
@@ -28,12 +29,15 @@ Label.propTypes = {
   onRemove: PropTypes.func,
   /** Define Tag Color. */
   bgColor: PropTypes.string,
+  /** Make Label full width. */
+  fullWidth: PropTypes.bool,
   children: PropTypes.node.isRequired
 }
 
 Label.defaultProps = {
   count: null,
-  onRemove: null
+  onRemove: null,
+  fullWidth: false,
 }
 
 export default Label

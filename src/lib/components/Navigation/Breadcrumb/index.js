@@ -25,7 +25,7 @@ class Breadcrumb extends PureComponent {
   renderItem = (item, index) => {
     return (<React.Fragment>
       {item.hasOwnProperty('to') ? this.renderItemLink(item, index === 0) : this.renderItemText(item)}
-      <span className="c-on-base-2"> {this.props.separator}</span>
+      <span className="c-on-base-2"> {this.props.separator} </span>
     </React.Fragment>)
   }
 
