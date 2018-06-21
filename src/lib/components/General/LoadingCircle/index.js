@@ -48,16 +48,16 @@ class LoadingCircle extends PureComponent {
           viewBox="0 0 120 120"
           style={{ width: width, height: width }}
         >
-          <circle cx="60" cy="60" r="54" fill="none" stroke="#e6e6e6" stroke-width="4" />
+          <circle cx="60" cy="60" r="54" fill="none" stroke="#e6e6e6" strokeWidth="4" />
           <circle
-            class={styles.gc_loading_circle__progress__value}
+            className={styles.gc_loading_circle__progress__value}
             cx="60"
             cy="60"
             r="54"
             fill="none"
             stroke="#3DA3C3"
-            stroke-width="4"
-            stroke-dashoffset={percent}
+            strokeWidth="4"
+            strokeDashoffset={percent}
           />
         </svg>
         <div
