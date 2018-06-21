@@ -11,7 +11,7 @@ class LoadingCircle extends PureComponent {
     const checkWidth = (parseInt(width) * 60) / 100 + 'px'
 
     return (
-      <div class={`dib ${styles.gc_loading_circle} ${className} w-auto h-100 relative`}>
+      <div class={`dib ${styles.gc_loading_circle} ${className} w-auto relative`}>
         <svg class={styles.gc_loading_circle__progress} viewBox="0 0 120 120" style={{ width: width, height: width }}>
           <circle cx="60" cy="60" r="54" fill="none" stroke="#e6e6e6" stroke-width="4" />
           <circle
