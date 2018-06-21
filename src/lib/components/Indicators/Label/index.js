@@ -7,12 +7,12 @@ class Label extends PureComponent {
     const { count, onRemove, bgColor, fullWidth } = this.props
     const tagBgColor = bgColor ? `bg-${bgColor}` : 'bg-primary'
     let classes = `dib g-ph2 fw5 g-pv1 br2 ${tagBgColor} white g-f2 `
-    if (fullWidth) classes += ' w-100 tc'
+    if (fullWidth) classes += ' w-100 '
     if (onRemove) classes += 'hover-bg-danger pointer'
 
     return (
       <span className={classes} onClick={onRemove}>
-        <span className="flex items-center">
+        <span className="flex items-center justify-center">
           {this.props.children}
           {count && <span className="g-ml2 g-ph2 bg-base-1 br-pill g-f1 c-primary">{count}</span>}
           {onRemove && <IconClose className="g-ml2" ignoreSize />}
