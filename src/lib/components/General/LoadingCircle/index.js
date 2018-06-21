@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import styles from './style.css'
+import IconCheck from '../../../icons/IconCheck'
 
 class LoadingCircle extends PureComponent {
   render() {
