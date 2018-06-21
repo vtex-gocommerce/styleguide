@@ -7,6 +7,10 @@ class Badge extends PureComponent {
     return Math.max(12, Math.min(22, value / 2.25))
   }
 
+  handleClick = event => {
+    this.props.onClick && this.props.onClick(event)
+  }
+
   render() {
     const { count, outline, icon, size, color } = this.props
     const badgeColor = color ? color : 'danger'
@@ -26,7 +30,7 @@ class Badge extends PureComponent {
     )
 
     return icon ? (
-      <div className={`${styles.badgeBox} c-primary`} style={{ height: areaSizeHeight, width: areaSizeWidth }}>
+      <div className={`${styles.badgeBox} c-primary`} style={{ height: areaSizeHeight, width: areaSizeWidth }} onClick={this.handleClick}>
         {badge}
         <Icon />
       </div>
@@ -46,13 +50,16 @@ Badge.propTypes = {
   /** Size of the badge when using icons. */
   size: PropTypes.oneOf(['small', 'default']),
   /** Define Badge Color. */
-  color: PropTypes.string
+  color: PropTypes.string,
+  /** Function that will be called when user click on badge. */
+  onClick: PropTypes.func,
 }
 
 Badge.defaultProps = {
   outline: false,
   icon: null,
-  size: 'default'
+  size: 'default',
+  onClick: null
 }
 
 export default Badge
