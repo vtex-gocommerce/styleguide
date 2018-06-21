@@ -49,7 +49,7 @@ const rows = [
   {
     id: 3,
     Name: 'Last Test',
-    Address: 'Just a big street, also to see what will happen',
+    Address: 'Just a big street',
     Count: (
       <p className="yellow">
         24 <IconWarning className="g-ml1" family="regular" />
@@ -57,7 +57,34 @@ const rows = [
     ),
     Active: <Toggle value="isActive" />,
     Actions: <IconMore className="blue" width="20" height="20" />,
-    bgColor: 'light-danger'
+    bgColor: 'danger-light'
+  },
+  {
+    id: 1,
+    Name: 'Example Test',
+    Address: 'Street of Test',
+    Count: 245,
+    Price: (
+      <div>
+        <span className="navy-60 strike">$ 2399.00</span>
+        <br />$ 2199.90
+      </div>
+    ),
+    Active: <Toggle value="isActive" isChecked />,
+    Actions: <IconMore className="blue" width="20" height="20" />
+  },
+  {
+    id: 3,
+    Name: 'Last Test',
+    Address: 'Just a big street',
+    Count: (
+      <p className="yellow">
+        24 <IconWarning className="g-ml1" family="regular" />
+      </p>
+    ),
+    Active: <Toggle value="isActive" />,
+    Actions: <IconMore className="blue" width="20" height="20" />,
+    bgColor: 'success-light'
   }
 ]
 

@@ -56,11 +56,11 @@ class Table extends PureComponent {
     const { columns, rows, selectable } = this.props
 
     return (
-      <table className={`w-100 ba b--base-3`} cellSpacing="0">
+      <table className={`w-100 ba b--base-4`} cellSpacing="0">
         <thead className={`tl bg-base-2`}>
           <tr>
             {selectable && (
-              <th className={`g-pv4 g-ph4 tc bb b--base-3`} style={{ width: '40px' }}>
+              <th className={`g-pv3 g-ph4 tc bb b--base-4`} style={{ width: '40px' }}>
                 <CheckBox onClick={this.selectAll} />
               </th>
             )}
@@ -68,7 +68,7 @@ class Table extends PureComponent {
               return (
                 <th
                   key={column.id}
-                  className={`g-pv4 g-ph4 c-on-base-2 fw4 bb b--base-3 ${column && column.isCentered && 'tc'}`}
+                  className={`g-pv3 g-ph4 c-on-base-2 fw4 g-f1 bb b--base-4 ${column && column.isCentered && 'tc'}`}
                   style={{ width: column.size + '%' }}
                 >
                   {column.label}
@@ -80,42 +80,42 @@ class Table extends PureComponent {
         <tbody className="bg-base-1">
           {this.props.isLoading
             ? [...Array(3).keys()].map(e => (
-                <tr key={e}>
-                  {[...Array(this.props.columns.length).keys()].map(e => (
-                    <td key={e} className={`g-pv5 g-ph4 c-on-base-1 tc bb b--base-3`}>
-                      <Placeholder className="g-h2 w-100 g-mt2 br4" isPlaceholderActive={this.props.isLoading} />
-                    </td>
-                  ))}
-                </tr>
-              ))
+              <tr key={e}>
+                {[...Array(this.props.columns.length).keys()].map(e => (
+                  <td key={e} className={`g-pv3 g-ph4 c-on-base-1 tc bb b--base-4`}>
+                    <Placeholder className="g-h2 w-100 g-mt2 br4" isPlaceholderActive={this.props.isLoading} />
+                  </td>
+                ))}
+              </tr>
+            ))
             : rows.map((fields, index) => {
-                const formatted_row = columns.map(column => {
-                  return (
-                    <td
-                      key={index + column.id}
-                      className={`g-pv5 g-ph4 c-on-base-1 bb b--base-3 ${column.isCentered && 'tc'}`}
-                    >
-                      <Placeholder className="g-h2 w-100 g-mt2 br4" isPlaceholderActive={false}>
-                        {() => fields[column.id]}
-                      </Placeholder>
-                    </td>
-                  )
-                })
-
+              const formatted_row = columns.map(column => {
                 return (
-                  <tr key={index} className={`${fields.bgColor && 'bg-' + fields.bgColor}`}>
-                    {selectable && (
-                      <th className="g-pv4 tc bb b--base-3" style={{ width: '40px' }}>
-                        <CheckBox
-                          onClick={checked => this.select(index, checked)}
-                          isChecked={this.state.selectedList.includes(index)}
-                        />
-                      </th>
-                    )}
-                    {formatted_row}
-                  </tr>
+                  <td
+                    key={index + column.id}
+                    className={`g-pv3 g-ph4 c-on-base-1 bb b--base-4 ${column.isCentered && 'tc'}`}
+                  >
+                    <Placeholder className="g-h2 w-100 g-mt2 br4" isPlaceholderActive={false}>
+                      {() => fields[column.id]}
+                    </Placeholder>
+                  </td>
                 )
-              })}
+              })
+
+              return (
+                <tr key={index} className={`${fields.bgColor && 'bg-' + fields.bgColor}`}>
+                  {selectable && (
+                    <th className="g-pv3 g-f1 tc bb b--base-4" style={{ width: '40px' }}>
+                      <CheckBox
+                        onClick={checked => this.select(index, checked)}
+                        isChecked={this.state.selectedList.includes(index)}
+                      />
+                    </th>
+                  )}
+                  {formatted_row}
+                </tr>
+              )
+            })}
         </tbody>
       </table>
     )
@@ -148,7 +148,7 @@ Table.propTypes = {
 Table.defaultProps = {
   selectable: false,
   isLoading: false,
-  onChange: () => {}
+  onChange: () => { }
 }
 
 export default Table
