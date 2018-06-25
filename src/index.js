@@ -42,6 +42,7 @@ import IconArrow from './lib/icons/IconArrow'
 import IconArrows from './lib/icons/IconArrows'
 import IconBarcode from './lib/icons/IconBarcode'
 import IconBell from './lib/icons/IconBell'
+import IconBox from './lib/icons/IconBox'
 import IconBullhorn from './lib/icons/IconBullhorn'
 import IconCalendar from './lib/icons/IconCalendar'
 import IconCardBack from './lib/icons/IconCardBack'
@@ -64,14 +65,18 @@ import IconFilter from './lib/icons/IconFilter'
 import IconGoogle from './lib/icons/IconGoogle'
 import IconHelp from './lib/icons/IconHelp'
 import IconHome from './lib/icons/IconHome'
+import IconImage from './lib/icons/IconImage'
 import IconInbox from './lib/icons/IconInbox'
 import IconInfo from './lib/icons/IconInfo'
+import IconInstagram from './lib/icons/IconInstagram'
 import IconMoney from './lib/icons/IconMoney'
 import IconMore from './lib/icons/IconMore'
 import IconPrint from './lib/icons/IconPrint'
 import IconSearch from './lib/icons/IconSearch'
 import IconSettings from './lib/icons/IconSettings'
 import IconSettingsAlt from './lib/icons/IconSettingsAlt'
+import IconShoppingBag from './lib/icons/IconShoppingBag'
+import IconShoppingBasket from './lib/icons/IconShoppingBasket'
 import IconSpinner from './lib/icons/IconSpinner'
 import IconSuccess from './lib/icons/IconSuccess'
 import IconSync from './lib/icons/IconSync'
@@ -125,6 +130,7 @@ exports.IconArrow = IconArrow
 exports.IconArrows = IconArrows
 exports.IconBarcode = IconBarcode
 exports.IconBell = IconBell
+exports.IconBox = IconBox
 exports.IconBullhorn = IconBullhorn
 exports.IconCalendar = IconCalendar
 exports.IconCardBack = IconCardBack
@@ -147,14 +153,18 @@ exports.IconFilter = IconFilter
 exports.IconGoogle = IconGoogle
 exports.IconHelp = IconHelp
 exports.IconHome = IconHome
+exports.IconImage = IconImage
 exports.IconInbox = IconInbox
 exports.IconInfo = IconInfo
+exports.IconInstagram = IconInstagram
 exports.IconMoney = IconMoney
 exports.IconMore = IconMore
 exports.IconPrint = IconPrint
 exports.IconSearch = IconSearch
 exports.IconSettings = IconSettings
 exports.IconSettingsAlt = IconSettingsAlt
+exports.IconShoppingBag = IconShoppingBag
+exports.IconShoppingBasket = IconShoppingBasket
 exports.IconSpinner = IconSpinner
 exports.IconSuccess = IconSuccess
 exports.IconSync = IconSync
