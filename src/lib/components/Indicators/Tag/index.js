@@ -7,14 +7,14 @@ class Tag extends PureComponent {
   render() {
     const { onRemove } = this.props
 
-    let classes = `${styles.gc_tag} dib g-pa2 br2 b--base-4 b--dashed fw4 g-f2 c-on-base-2 `
-    if (onRemove) classes += 'hover-bg-base-2 pointer'
+    let classes = `${styles.gc_tag} g-f2 g-t5 dib g-ph4 g-mr1 g-h10 ba br2 c-on-base-2 b--on-base-2 b--dashed flex justify-center items-center `
+    if (onRemove) classes += 'hover-bg-base-2 pointer hover-bg-base-3 hover-b--base-3'
 
     return (
       <span className={classes} onClick={onRemove}>
         <span className="flex items-center">
           {this.props.children}
-          {onRemove && <IconClose className="g-ml2" family="regular" ignoreSize />}
+          {onRemove && <IconClose className="g-ml2" family="regular" height={18} width={18} />}
         </span>
       </span>
     )
