@@ -50,10 +50,12 @@ import IconCardFront from './lib/icons/IconCardFront'
 import IconCaret from './lib/icons/IconCaret'
 import IconCart from './lib/icons/IconCart'
 import IconChartBar from './lib/icons/IconChartBar'
+import IconChatBar from './lib/icons/IconChatBar'
 import IconCheck from './lib/icons/IconCheck'
 import IconClock from './lib/icons/IconClock'
 import IconClose from './lib/icons/IconClose'
 import IconCloseAlt from './lib/icons/IconCloseAlt'
+import IconCube from './lib/icons/IconCube'
 import IconDanger from './lib/icons/IconDanger'
 import IconDelete from './lib/icons/IconDelete'
 import IconDesktop from './lib/icons/IconDesktop'
@@ -80,15 +82,13 @@ import IconShoppingBasket from './lib/icons/IconShoppingBasket'
 import IconSpinner from './lib/icons/IconSpinner'
 import IconSuccess from './lib/icons/IconSuccess'
 import IconSync from './lib/icons/IconSync'
+import IconTag from './lib/icons/IconTag'
 import IconTags from './lib/icons/IconTags'
 import IconTrash from './lib/icons/IconTrash'
 import IconUpload from './lib/icons/IconUpload'
+import IconUser from './lib/icons/IconUser'
 import IconVisibility from './lib/icons/IconVisibility'
 import IconWarning from './lib/icons/IconWarning'
-import IconChartBar from './lib/icons/IconChartBar'
-import IconTag from './lib/icons/IconTag'
-import IconUser from './lib/icons/IconUser'
-import IconCube from './lib/icons/IconCube'
 
 exports.AuthButton = AuthButton
 exports.Button = Button
@@ -142,10 +142,12 @@ exports.IconCardFront = IconCardFront
 exports.IconCaret = IconCaret
 exports.IconCart = IconCart
 exports.IconChartBar = IconChartBar
+exports.IconChatBar = IconChatBar
 exports.IconCheck = IconCheck
 exports.IconClock = IconClock
 exports.IconClose = IconClose
 exports.IconCloseAlt = IconCloseAlt
+exports.IconCube = IconCube
 exports.IconDanger = IconDanger
 exports.IconDelete = IconDelete
 exports.IconDesktop = IconDesktop
@@ -172,12 +174,10 @@ exports.IconShoppingBasket = IconShoppingBasket
 exports.IconSpinner = IconSpinner
 exports.IconSuccess = IconSuccess
 exports.IconSync = IconSync
+exports.IconTag = IconTag
 exports.IconTags = IconTags
 exports.IconTrash = IconTrash
 exports.IconUpload = IconUpload
+exports.IconUser = IconUser
 exports.IconVisibility = IconVisibility
 exports.IconWarning = IconWarning
-exports.IconChartBar = IconChartBar
-exports.IconTag = IconTag
-exports.IconUser = IconUser
-exports.IconCube = IconCube
