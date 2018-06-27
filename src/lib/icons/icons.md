@@ -310,6 +310,14 @@
     </div>
   </div>
   <div className="flex flex-column items-center w-20 g-mb6">
+    <a href="#!/IconUser" className="g-mb2 blue no-underline">
+      IconUser
+    </a>
+    <div>
+      <IconUser/>
+    </div>
+  </div>
+  <div className="flex flex-column items-center w-20 g-mb6">
     <a href="#!/IconTrash" className="g-mb2 blue no-underline">
       IconTrash
     </a>
@@ -371,6 +379,14 @@
     </a>
     <div>
       <IconDanger />
+    </div>
+  </div>
+  <div className="flex flex-column items-center w-20 g-mb6">
+    <a href="#!/IconDanger" className="g-mb2 blue no-underline">
+      IconCube
+    </a>
+    <div>
+      <IconCube />
     </div>
   </div>
 </div>

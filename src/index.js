@@ -85,6 +85,10 @@ import IconTrash from './lib/icons/IconTrash'
 import IconUpload from './lib/icons/IconUpload'
 import IconVisibility from './lib/icons/IconVisibility'
 import IconWarning from './lib/icons/IconWarning'
+import IconChartBar from './lib/icons/IconChartBar'
+import IconTag from './lib/icons/IconTag'
+import IconUser from './lib/icons/IconUser'
+import IconCube from './lib/icons/IconCube'
 
 exports.AuthButton = AuthButton
 exports.Button = Button
@@ -173,3 +177,7 @@ exports.IconTrash = IconTrash
 exports.IconUpload = IconUpload
 exports.IconVisibility = IconVisibility
 exports.IconWarning = IconWarning
+exports.IconChartBar = IconChartBar
+exports.IconTag = IconTag
+exports.IconUser = IconUser
+exports.IconCube = IconCube
