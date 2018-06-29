@@ -53,7 +53,7 @@ class Table extends PureComponent {
   }
 
   render() {
-    const { columns, rows, selectable, placeholderLenght } = this.props
+    const { columns, rows, selectable, placeholderLength } = this.props
 
     return (
       <table className={`w-100 ba b--base-4`} cellSpacing="0">
@@ -79,7 +79,7 @@ class Table extends PureComponent {
         </thead>
         <tbody className="bg-base-1">
           {this.props.isLoading
-            ? [...Array(placeholderLenght).keys()].map(e => (
+            ? [...Array(placeholderLength).keys()].map(e => (
                 <tr key={e}>
                   {[...Array(this.props.columns.length).keys()].map(e => (
                     <td key={e} className={`g-pv3 g-ph4 c-on-base-1 tc bb b--base-4`}>
@@ -143,14 +143,14 @@ Table.propTypes = {
   /** Is table in Loading State */
   isLoading: PropTypes.bool,
 
-  placeholderLenght: PropTypes.number,
+  placeholderLength: PropTypes.number,
   onChange: PropTypes.func
 }
 
 Table.defaultProps = {
   selectable: false,
   isLoading: false,
-  placeholderLenght: 3,
+  placeholderLength: 3,
   onChange: () => {}
 }
 
