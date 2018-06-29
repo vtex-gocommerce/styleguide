@@ -53,7 +53,7 @@ class Table extends PureComponent {
   }
 
   render() {
-    const { columns, rows, selectable } = this.props
+    const { columns, rows, selectable, placeholderLenght } = this.props
 
     return (
       <table className={`w-100 ba b--base-4`} cellSpacing="0">
@@ -79,43 +79,43 @@ class Table extends PureComponent {
         </thead>
         <tbody className="bg-base-1">
           {this.props.isLoading
-            ? [...Array(3).keys()].map(e => (
-              <tr key={e}>
-                {[...Array(this.props.columns.length).keys()].map(e => (
-                  <td key={e} className={`g-pv3 g-ph4 c-on-base-1 tc bb b--base-4`}>
-                    <Placeholder className="g-h2 w-100 g-mt2 br4" isPlaceholderActive={this.props.isLoading} />
-                  </td>
-                ))}
-              </tr>
-            ))
-            : rows.map((fields, index) => {
-              const formatted_row = columns.map(column => {
-                return (
-                  <td
-                    key={index + column.id}
-                    className={`g-pv3 g-ph4 c-on-base-1 bb b--base-4 ${column.isCentered && 'tc'}`}
-                  >
-                    <Placeholder className="g-h2 w-100 g-mt2 br4" isPlaceholderActive={false}>
-                      {() => fields[column.id]}
-                    </Placeholder>
-                  </td>
-                )
-              })
-
-              return (
-                <tr key={index} className={`${fields.bgColor && 'bg-' + fields.bgColor}`}>
-                  {selectable && (
-                    <th className="g-pv3 g-f1 tc bb b--base-4" style={{ width: '40px' }}>
-                      <CheckBox
-                        onClick={checked => this.select(index, checked)}
-                        isChecked={this.state.selectedList.includes(index)}
-                      />
-                    </th>
-                  )}
-                  {formatted_row}
+            ? [...Array(placeholderLenght).keys()].map(e => (
+                <tr key={e}>
+                  {[...Array(this.props.columns.length).keys()].map(e => (
+                    <td key={e} className={`g-pv3 g-ph4 c-on-base-1 tc bb b--base-4`}>
+                      <Placeholder className="g-h2 w-100 g-mt2 br4" isPlaceholderActive={this.props.isLoading} />
+                    </td>
+                  ))}
                 </tr>
-              )
-            })}
+              ))
+            : rows.map((fields, index) => {
+                const formatted_row = columns.map(column => {
+                  return (
+                    <td
+                      key={index + column.id}
+                      className={`g-pv3 g-ph4 c-on-base-1 bb b--base-4 ${column.isCentered && 'tc'}`}
+                    >
+                      <Placeholder className="g-h2 w-100 g-mt2 br4" isPlaceholderActive={false}>
+                        {() => fields[column.id]}
+                      </Placeholder>
+                    </td>
+                  )
+                })
+
+                return (
+                  <tr key={index} className={`${fields.bgColor && 'bg-' + fields.bgColor}`}>
+                    {selectable && (
+                      <th className="g-pv3 g-f1 tc bb b--base-4" style={{ width: '40px' }}>
+                        <CheckBox
+                          onClick={checked => this.select(index, checked)}
+                          isChecked={this.state.selectedList.includes(index)}
+                        />
+                      </th>
+                    )}
+                    {formatted_row}
+                  </tr>
+                )
+              })}
         </tbody>
       </table>
     )
@@ -142,13 +142,16 @@ Table.propTypes = {
   selectable: PropTypes.bool,
   /** Is table in Loading State */
   isLoading: PropTypes.bool,
+
+  placeholderLenght: PropTypes.number,
   onChange: PropTypes.func
 }
 
 Table.defaultProps = {
   selectable: false,
   isLoading: false,
-  onChange: () => { }
+  placeholderLenght: 3,
+  onChange: () => {}
 }
 
 export default Table
