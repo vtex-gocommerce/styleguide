@@ -24,8 +24,9 @@ class Search extends PureComponent {
   }
 
   handleClearSearch = () => {
-    this.setState({ searchValue: '' })
-    this.handleClick()
+    this.setState({ searchValue: '' }, () => {
+      this.handleClick()
+    })
   }
 
   handlePressEnter = event => {
