@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import Input from '../Input'
 import Select from '../Select'
 import IconSearch from '../../../icons/IconSearch'
+import IconClose from '../../../icons/IconClose'
 
 class Search extends PureComponent {
   constructor(props) {
@@ -22,6 +23,15 @@ class Search extends PureComponent {
     this.setState({ searchValue: event.target.value })
   }
 
+  handleClearSearch = () => {
+    this.setState({ searchValue: '' })
+    this.handleClick()
+  }
+
+  handlePressEnter = event => {
+    if (event.key === 'Enter') this.handleClick()
+  }
+
   handleClick = () => {
     const { searchValue, optionValue } = this.state
     const values = {
@@ -35,11 +45,15 @@ class Search extends PureComponent {
   render() {
     const { placeholder, withOptions, options, name, size, nav } = this.props
 
-    const classes = !nav ? "b--base-4 bg-white" : "bg-base-inverted-5 bn c-on-base-inverted"
-    const classesIcon = !nav ? "c-on-base-2" : "c-base-inverted-3"
+    const classes = !nav ? 'b--base-4 bg-white' : 'bg-base-inverted-5 bn c-on-base-inverted'
+    const classesIcon = !nav ? 'c-on-base-2' : 'c-base-inverted-3'
 
     return (
-      <div className={`br2 ba flex flex-auto items-center overflow-hidden ${classes} ${size === 'small' ? ' g-h8' : ' g-h10'} `}>
+      <div
+        className={`br2 ba flex flex-auto items-center overflow-hidden ${classes} ${
+          size === 'small' ? ' g-h8' : ' g-h10'
+        } `}
+      >
         {withOptions && (
           <Select
             placeholder="Select an option"
@@ -52,7 +66,6 @@ class Search extends PureComponent {
             withoutStyle={nav}
             size="small"
           />
-
         )}
         <div className="flex flex-auto items-center w-100">
           <div className={`g-pl3 pointer hover-c-primary ${classesIcon}`} onClick={this.handleClick}>
@@ -66,8 +79,17 @@ class Search extends PureComponent {
             onChange={this.handleSearch}
             value={this.state.searchValue}
             withoutStyle={nav}
+            onKeyPress={this.handlePressEnter}
           />
 
+          {this.state.searchValue && (
+            <div
+              className={`g-pr3 pointer hover-c-primary animated fadeIn ${classesIcon}`}
+              onClick={this.handleClearSearch}
+            >
+              <IconClose />
+            </div>
+          )}
         </div>
       </div>
     )
@@ -107,7 +129,7 @@ Search.defaultProps = {
   options: [],
   searchValue: '',
   optionValue: '',
-  size: "default",
+  size: 'default',
   nav: false
 }
 
