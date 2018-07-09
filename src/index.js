@@ -16,6 +16,7 @@ import Search from './lib/components/Form/Search'
 import SearchSelect from './lib/components/Form/SearchSelect'
 import Select from './lib/components/Form/Select'
 import SelectCountry from './lib/components/Form/SelectCountry'
+import SelectCountryState from './lib/components/Form/SelectCountryState'
 import Textarea from './lib/components/Form/Textarea'
 import Toggle from './lib/components/Form/Toggle'
 import LoadingBar from './lib/components/General/LoadingBar'
@@ -108,6 +109,7 @@ exports.Search = Search
 exports.SearchSelect = SearchSelect
 exports.Select = Select
 exports.SelectCountry = SelectCountry
+exports.SelectCountryState = SelectCountryState
 exports.Textarea = Textarea
 exports.Toggle = Toggle
 exports.LoadingBar = LoadingBar
