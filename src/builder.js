@@ -25,8 +25,11 @@ const walk = function(dir, done) {
         } else {
           const fileParams = child.split('.')
           let componentName = dir.split('/')
-          componentName = componentName[componentName.length - 1]
-          if (!componentName.startsWith('_'))
+          const isComponent = fileParams[0].includes('index')
+
+          if (isComponent) {
+            componentName = componentName[componentName.length - 1]
+
             if (fileParams.length > 0 && fileParams[fileParams.length - 1] == 'js') {
               let finalPath = dir.split('/')
               finalPath.splice(1, 1)
@@ -37,12 +40,36 @@ const walk = function(dir, done) {
               impComponents.push(`import ${componentName} from '${finalPath}'`)
               expComponents.push(`exports.${componentName} = ${componentName}`)
             }
+          }
           next()
         }
       })
     })()
   })
 }
+
+// fs.stat(full_path, function(error, stat) {
+//   if (stat && stat.isDirectory()) {
+//     walk(full_path, error => next())
+//   } else {
+//     const fileParams = child.split('.')
+//     let componentName = dir.split('/')
+//     const isNotComponent = fileParams[0].startsWith('_')
+//     componentName = isNotComponent ? fileParams[0] : componentName[componentName.length - 1]
+
+//     if (fileParams.length > 0 && fileParams[fileParams.length - 1] == 'js') {
+//       let finalPath = dir.split('/')
+//       finalPath.splice(1, 1)
+//       finalPath = finalPath.join('/') + `/${isNotComponent ? fileParams[0] : ''} `
+
+//       // const finalPath = dir.splice(1, 1, dir.split('/'));
+//       // console.log(`Importing & Exporting: ${dir}`)
+//       impComponents.push(`import ${componentName} from '${finalPath}'`)
+//       expComponents.push(`exports.${componentName} = ${componentName}`)
+//     }
+//     next()
+//   }
+// })
 
 // process.argv.forEach((val, index, array) => {
 //   if (val.indexOf('source') !== -1) {

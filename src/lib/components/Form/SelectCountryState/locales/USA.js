@@ -1,4 +1,4 @@
-export default [
+const USA = [
   'Alabama',
 
   'Alaska',
@@ -101,3 +101,5 @@ export default [
 
   'Wyoming'
 ]
+
+export default USA
