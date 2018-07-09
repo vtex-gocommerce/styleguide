@@ -28,9 +28,13 @@ class SelectCountryStates extends PureComponent {
   }
 
   setLocale = countryCode => {
-    Promise.resolve(import(`./locales/${countryCode}.js`)).then(loadedCountryStates => {
-      this.setState({ loadedCountryStates: loadedCountryStates.default })
-    })
+    Promise.resolve(import(`./locales/${countryCode}.js`))
+      .then(loadedCountryStates => {
+        this.setState(prevState => ({ ...prevState, loadedCountryStates: loadedCountryStates.default }))
+      })
+      .catch(() => {
+        this.setState(prevState => ({ ...prevState, loadedCountryStates: null }))
+      })
   }
 
   handleChange = event => {
