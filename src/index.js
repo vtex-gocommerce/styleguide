@@ -32,6 +32,9 @@ import Tag from './lib/components/Indicators/Tag'
 import TextLimitCounter from './lib/components/Indicators/TextLimitCounter'
 import Breadcrumb from './lib/components/Navigation/Breadcrumb'
 import Pagination from './lib/components/Navigation/Pagination'
+import SidebarFilter from './lib/components/Navigation/SidebarFilter'
+import SidebarFilterCheckbox from './lib/components/Navigation/SidebarFilterCheckbox'
+import SidebarFilterDate from './lib/components/Navigation/SidebarFilterDate'
 import Tab from './lib/components/Navigation/Tab'
 import Alert from './lib/components/Notifications/Alert'
 import ContextualAlert from './lib/components/Notifications/ContextualAlert'
@@ -125,6 +128,9 @@ exports.Tag = Tag
 exports.TextLimitCounter = TextLimitCounter
 exports.Breadcrumb = Breadcrumb
 exports.Pagination = Pagination
+exports.SidebarFilter = SidebarFilter
+exports.SidebarFilterCheckbox = SidebarFilterCheckbox
+exports.SidebarFilterDate = SidebarFilterDate
 exports.Tab = Tab
 exports.Alert = Alert
 exports.ContextualAlert = ContextualAlert
