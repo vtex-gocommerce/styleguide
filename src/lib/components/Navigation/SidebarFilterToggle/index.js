@@ -1,0 +1,51 @@
+import React, { PureComponent } from 'react'
+import PropTypes from 'prop-types'
+
+import Toggle from '../../Form/Toggle'
+
+class SidebarFilterToggle extends PureComponent {
+  handleChange = option => {
+    this.props.handleChange({ [this.props.filter.code]: [option] })
+  }
+
+  isActive = code => {
+    return undefined !== this.props.activeOptions.find(item => item.code === code)
+  }
+
+  render() {
+    const { filter } = this.props
+    return (
+      <div>
+        <ul className="list g-pa0 g-f2">
+          {filter.options.map((item, index) => {
+            const code = `${filter.code}-${item.title}`
+            return (
+              <li key={`${filter.code}${index}`}>
+                <label className="inline-flex items-center g-mb2 pointer">
+                  <Toggle
+                    value={item.value}
+                    name={filter.code}
+                    className="g-mr3"
+                    isChecked={this.isActive(code)}
+                    onClick={() => {
+                      this.handleChange({ ...item, code: code })
+                    }}
+                  />
+                  {item.title}
+                </label>
+              </li>
+            )
+          })}
+        </ul>
+      </div>
+    )
+  }
+}
+
+SidebarFilterToggle.propTypes = {
+  filter: PropTypes.object.isRequired,
+  handleChange: PropTypes.func.isRequired,
+  activeOptions: PropTypes.array
+}
+
+export default SidebarFilterToggle

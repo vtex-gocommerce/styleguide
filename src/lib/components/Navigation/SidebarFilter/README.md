@@ -15,7 +15,7 @@ class ContainerSidebar extends React.Component {
       ],
       configSidebar: [
         {
-          code: 'date',
+          code: 'by-date-created',
           title: 'By date created',
           expanded: true,
           optionsType: 'date',
@@ -35,7 +35,14 @@ class ContainerSidebar extends React.Component {
           ]
         },
         {
-          code: 'tag',
+          code: 'by-marketing-preferences',
+          title: 'By marketing preferences',
+          expanded: true,
+          optionsType: 'toggle',
+          options: [{ title: 'Email subscribers', value: true }]
+        },
+        {
+          code: 'by-tag',
           title: 'By tag',
           expanded: false,
           optionsType: 'checkbox',

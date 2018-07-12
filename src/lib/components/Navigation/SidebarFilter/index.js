@@ -6,6 +6,7 @@ import Tag from '../../Indicators/Tag'
 import Button from '../../Buttons/Button'
 import SidebarFilterDate from '../SidebarFilterDate'
 import SidebarFilterCheckbox from '../SidebarFilterCheckbox'
+import SidebarFilterToggle from '../SidebarFilterToggle'
 
 const defaultLocale = {
   filters: 'Filters',
@@ -16,7 +17,8 @@ const defaultLocale = {
 
 const optionsTypeComponents = {
   date: SidebarFilterDate,
-  checkbox: SidebarFilterCheckbox
+  checkbox: SidebarFilterCheckbox,
+  toggle: SidebarFilterToggle
 }
 
 class SidebarFilter extends PureComponent {
@@ -137,7 +139,7 @@ class SidebarFilter extends PureComponent {
                     }}
                   >
                     <div className="flex-auto">
-                      <div className="flex fw6 g-f3">{filter.title}</div>
+                      <div className="flex fw5 g-f3">{filter.title}</div>
                     </div>
                     <div className="fr flex navy-80">
                       <IconCaret side={filter.expanded ? 'down' : 'up'} className="g-pt1 g-ph3 c-primary" />
@@ -177,7 +179,7 @@ SidebarFilter.propTypes = {
         PropTypes.shape({
           code: PropTypes.string.isRequired,
           title: PropTypes.string.isRequired,
-          value: PropTypes.string.isRequired
+          value: PropTypes.any.isRequired
         })
       ),
       optionsType: PropTypes.oneOf(['date', 'checkbox'])
