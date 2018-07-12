@@ -32,11 +32,11 @@ class Select extends Component {
     const { name, placeholder, list, isDisabled, hasError, required, withoutStyle, size } = this.props
     const { value } = this.state
 
-    let classes = `g-ph4 ba br1 c-on-base ${size === 'small' ? ' g-h8' : ' g-h11'} `
+    let classes = `g-ph4 ba br1 c-on-base ${size === 'small' ? ' g-h8' : ' g-h11 '} `
     if (isDisabled) classes += 'b--base-4 bg-base-3 c-on-base-2  '
     if (hasError) classes += 'b--danger bg-light-danger  '
     if (!isDisabled && !hasError && !withoutStyle) classes += 'b--base-4 bg-base-1 c-on-base-1 '
-    if (withoutStyle) classes += 'c-on-base-1 bg-transparent bn'
+    if (withoutStyle) classes += 'c-on-base-1 bg-transparent bn '
     classes += this.props.elementClassName
     return (
       <div className={`${styles.selectWrapper} ${this.props.className}`}>
@@ -107,7 +107,7 @@ Select.defaultProps = {
   required: false,
   className: '',
   elementClassName: '',
-  size: "default"
+  size: 'default'
 }
 
 export default Select
