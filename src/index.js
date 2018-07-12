@@ -35,6 +35,7 @@ import Pagination from './lib/components/Navigation/Pagination'
 import SidebarFilter from './lib/components/Navigation/SidebarFilter'
 import SidebarFilterCheckbox from './lib/components/Navigation/SidebarFilterCheckbox'
 import SidebarFilterDate from './lib/components/Navigation/SidebarFilterDate'
+import SidebarFilterToggle from './lib/components/Navigation/SidebarFilterToggle'
 import Tab from './lib/components/Navigation/Tab'
 import Alert from './lib/components/Notifications/Alert'
 import ContextualAlert from './lib/components/Notifications/ContextualAlert'
@@ -131,6 +132,7 @@ exports.Pagination = Pagination
 exports.SidebarFilter = SidebarFilter
 exports.SidebarFilterCheckbox = SidebarFilterCheckbox
 exports.SidebarFilterDate = SidebarFilterDate
+exports.SidebarFilterToggle = SidebarFilterToggle
 exports.Tab = Tab
 exports.Alert = Alert
 exports.ContextualAlert = ContextualAlert
