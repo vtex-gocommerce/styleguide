@@ -60,6 +60,7 @@ import IconCheck from './lib/icons/IconCheck'
 import IconClock from './lib/icons/IconClock'
 import IconClose from './lib/icons/IconClose'
 import IconCloseAlt from './lib/icons/IconCloseAlt'
+import IconCode from './lib/icons/IconCode'
 import IconCube from './lib/icons/IconCube'
 import IconDanger from './lib/icons/IconDanger'
 import IconDelete from './lib/icons/IconDelete'
@@ -157,6 +158,7 @@ exports.IconCheck = IconCheck
 exports.IconClock = IconClock
 exports.IconClose = IconClose
 exports.IconCloseAlt = IconCloseAlt
+exports.IconCode = IconCode
 exports.IconCube = IconCube
 exports.IconDanger = IconDanger
 exports.IconDelete = IconDelete
