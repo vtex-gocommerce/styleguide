@@ -13,7 +13,8 @@ class SelectCountryStates extends PureComponent {
       inputValue: '',
       countryCode: props.defaultCountryCode || props.countryCode,
       value: props.value,
-      loadedCountryStates: null
+      loadedCountryStates: null,
+      preLoadedCountryStates: {}
     }
   }
 
@@ -30,7 +31,14 @@ class SelectCountryStates extends PureComponent {
   setLocale = countryCode => {
     Promise.resolve(import(`./locales/${countryCode}.js`))
       .then(loadedCountryStates => {
-        this.setState(prevState => ({ ...prevState, loadedCountryStates: loadedCountryStates.default }))
+        const preLoadedCountryStates = this.state.preLoadedCountryStates
+        const loadedCountryStatesFile = preLoadedCountryStates[countryCode] || loadedCountryStates.default
+
+        this.setState(prevState => ({
+          ...prevState,
+          preLoadedCountryStates: { ...preLoadedCountryStates, [countryCode]: loadedCountryStatesFile },
+          loadedCountryStates: loadedCountryStatesFile
+        }))
       })
       .catch(() => {
         this.setState(prevState => ({ ...prevState, loadedCountryStates: null }))
