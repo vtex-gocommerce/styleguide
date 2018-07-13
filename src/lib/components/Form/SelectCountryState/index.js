@@ -11,8 +11,8 @@ class SelectCountryStates extends PureComponent {
 
     this.state = {
       inputValue: '',
-      countryCode: this.props.defaultCountryCode || this.props.countryCode,
-      value: '',
+      countryCode: props.defaultCountryCode || props.countryCode,
+      value: props.value,
       loadedCountryStates: null
     }
   }
