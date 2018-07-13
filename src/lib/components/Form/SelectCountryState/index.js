@@ -23,7 +23,7 @@ class SelectCountryStates extends PureComponent {
   }
 
   componentWillReceiveProps = nextProps => {
-    if (this.props.countryCode != nextProps.countryCode) this.setLocale(nextPropscountryCode)
+    if (this.props.countryCode != nextProps.countryCode) this.setLocale(nextProps.countryCode)
     if (this.state.value != nextProps.value) this.setState(prevState => ({ ...prevState, value: nextProps.value }))
   }
 
