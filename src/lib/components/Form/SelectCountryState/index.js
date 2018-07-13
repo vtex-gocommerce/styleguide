@@ -13,8 +13,7 @@ class SelectCountryStates extends PureComponent {
       inputValue: '',
       countryCode: props.defaultCountryCode || props.countryCode,
       value: props.value,
-      loadedCountryStates: null,
-      preLoadedCountryStates: {}
+      loadedCountryStates: null
     }
   }
 
@@ -24,26 +23,18 @@ class SelectCountryStates extends PureComponent {
   }
 
   componentWillReceiveProps = nextProps => {
-    if (this.state.countryCode != nextProps.countryCode) this.setLocale(nextProps.countryCode)
+    if (this.props.countryCode != nextProps.countryCode) this.setLocale(nextPropscountryCode)
     if (this.state.value != nextProps.value) this.setState(prevState => ({ ...prevState, value: nextProps.value }))
   }
 
   setLocale = countryCode => {
-    const preLoadedCountryStates = this.state.preLoadedCountryStates
-    if (preLoadedCountryStates[countryCode]) {
-      this.setState({ loadedCountryStates: preLoadedCountryStates[countryCode] })
-    } else {
-      Promise.resolve(import(`./locales/${countryCode}.js`))
-        .then(loadedCountryStates => {
-          this.setState({
-            preLoadedCountryStates: { ...preLoadedCountryStates, [countryCode]: loadedCountryStates.default },
-            loadedCountryStates: loadedCountryStates.default
-          })
-        })
-        .catch(() => {
-          this.setState({ ...prevState, loadedCountryStates: null })
-        })
-    }
+    Promise.resolve(import(`./locales/${countryCode}.js`))
+      .then(loadedCountryStates => {
+        this.setState(prevState => ({ ...prevState, loadedCountryStates: loadedCountryStates.default }))
+      })
+      .catch(() => {
+        this.setState(prevState => ({ ...prevState, loadedCountryStates: null }))
+      })
   }
 
   handleChange = event => {
