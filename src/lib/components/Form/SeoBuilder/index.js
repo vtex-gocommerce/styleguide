@@ -47,9 +47,12 @@ class SeoBuilder extends Component {
   }
 
   onChangeUrl = event => {
-    this.setState({
-      url: getSlug(event.target.value)
-    })
+    this.setState(
+      {
+        url: getSlug(event.target.value)
+      },
+      () => this.props.onChange && this.props.onChange(this.state)
+    )
   }
 
   render() {
