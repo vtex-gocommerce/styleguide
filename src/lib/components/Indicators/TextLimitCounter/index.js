@@ -8,7 +8,7 @@ class TextLimitCounter extends PureComponent {
 
     return (
       <span className={`c-on-base-2 o-50 ${className}`}>
-        {text.length} of {limit}
+        {text.length}/{limit}
       </span>
     )
   }
