@@ -107,16 +107,16 @@ class SidebarFilterDate extends PureComponent {
               <Input
                 value={dateInit}
                 className="w-100"
-                mask="99/99/9999"
-                placeholder="Ex. 30/11/1989"
+                mask="9999-99-99"
+                placeholder="Ex. 1989-11-30"
                 onChange={this.handleChangeDateInit}
               />
               <p className="g-ma0 c-on-base-2 g-f2 g-mb1 g-mt3">To</p>
               <Input
                 value={dateEnd}
                 className="w-100"
-                mask="99/99/9999"
-                placeholder="Ex. 30/11/1989"
+                mask="9999-99-99"
+                placeholder="Ex. 1989-11-30"
                 onChange={this.handleChangeDateEnd}
               />
             </div>
