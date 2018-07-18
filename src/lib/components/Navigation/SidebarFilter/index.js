@@ -7,6 +7,7 @@ import Button from '../../Buttons/Button'
 import SidebarFilterDate from '../SidebarFilterDate'
 import SidebarFilterCheckbox from '../SidebarFilterCheckbox'
 import SidebarFilterToggle from '../SidebarFilterToggle'
+import SidebarFilterRadio from '../SidebarFilterRadio'
 
 const defaultLocale = {
   filters: 'Filters',
@@ -18,7 +19,8 @@ const defaultLocale = {
 const optionsTypeComponents = {
   date: SidebarFilterDate,
   checkbox: SidebarFilterCheckbox,
-  toggle: SidebarFilterToggle
+  toggle: SidebarFilterToggle,
+  radio: SidebarFilterRadio
 }
 
 class SidebarFilter extends PureComponent {

@@ -54,6 +54,13 @@ class ContainerSidebar extends React.Component {
             { title: 'Tag 5', value: 'tag5' },
             { title: 'Tag 6', value: 'tag6' }
           ]
+        },
+        {
+          code: 'by-marketing-preferences',
+          title: 'By new users',
+          expanded: true,
+          optionsType: 'radio',
+          options: [{ title: 'Yes', value: true }, { title: 'No', value: false }]
         }
       ]
     }
