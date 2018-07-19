@@ -27,12 +27,12 @@ class SidebarFilter extends PureComponent {
   constructor(props) {
     super(props)
 
-    this.state = { swapFilter: this.activeOptionsToSwapFilter(), keyRenderOptions: 0 }
+    this.state = { swapFilter: this.enabledOptionsToSwapFilter(), keyRenderOptions: 0 }
   }
 
-  activeOptionsToSwapFilter = () => {
+  enabledOptionsToSwapFilter = () => {
     let swapFilter = {}
-    this.props.activeOptions.forEach(element => {
+    this.props.enabledOptions.forEach(element => {
       if (!swapFilter.hasOwnProperty(this.getCodeFilter(element.code)))
         swapFilter[this.getCodeFilter(element.code)] = []
 
@@ -52,7 +52,7 @@ class SidebarFilter extends PureComponent {
 
   handleRemove = option => {
     const code = this.getCodeFilter(option.code)
-    const newActiveFilters = this.props.activeOptions.filter(element => element.code !== option.code)
+    const newActiveFilters = this.props.enabledOptions.filter(element => element.code !== option.code)
 
     this.setState({ swapFilter: { ...this.state.handleChangeSwapFilter, [code]: newActiveFilters } }, () => {
       this.props.handleChange(newActiveFilters)
@@ -86,7 +86,7 @@ class SidebarFilter extends PureComponent {
   }
 
   render() {
-    const activeOptions = this.props.activeOptions
+    const enabledOptions = this.props.enabledOptions
     const { keyRenderOptions } = this.state
     return (
       <div className="fixed z-9999 w-25 vh-100 top-0 right-0 shadow-2 bg-white">
@@ -105,12 +105,12 @@ class SidebarFilter extends PureComponent {
             </div>
           </div>
           <div className="flex-auto overflow-y-scroll">
-            {activeOptions &&
-              activeOptions.length > 0 && (
+            {enabledOptions &&
+              enabledOptions.length > 0 && (
                 <div className="w-100">
                   <p className="c-on-base-2 f7">{this.getTextByLocale('appliedFilters')}</p>
                   <div className="flex flex-wrap">
-                    {activeOptions.map((item, index) => {
+                    {enabledOptions.map((item, index) => {
                       return (
                         <span key={item.code} className="dib g-mb2">
                           <Tag className="g-h10 " onRemove={() => this.handleRemove(item)}>
@@ -150,7 +150,7 @@ class SidebarFilter extends PureComponent {
                   <div className={filter.expanded ? 'db g-pt4' : 'dn'}>
                     <ComponentListOptions
                       filter={filter}
-                      activeOptions={activeOptions}
+                      enabledOptions={enabledOptions}
                       handleChange={this.handleChangeSwapFilter}
                     />
                   </div>
@@ -187,7 +187,7 @@ SidebarFilter.propTypes = {
       optionsType: PropTypes.oneOf(['date', 'checkbox'])
     })
   ).isRequired,
-  activeOptions: PropTypes.arrayOf(
+  enabledOptions: PropTypes.arrayOf(
     PropTypes.shape({
       code: PropTypes.string.isRequired,
       title: PropTypes.string.isRequired,
@@ -201,7 +201,7 @@ SidebarFilter.propTypes = {
 
 SidebarFilter.defaultProps = {
   locale: {},
-  activeOptions: []
+  enabledOptions: []
 }
 
 export default SidebarFilter

@@ -8,7 +8,7 @@ class SidebarFilterRadio extends PureComponent {
   }
 
   isActive = code => {
-    return undefined !== this.props.activeOptions.find(item => item.code === code)
+    return undefined !== this.props.enabledOptions.find(item => item.code === code)
   }
 
   render() {
@@ -44,7 +44,7 @@ class SidebarFilterRadio extends PureComponent {
 SidebarFilterRadio.propTypes = {
   filter: PropTypes.object.isRequired,
   handleChange: PropTypes.func.isRequired,
-  activeOptions: PropTypes.array
+  enabledOptions: PropTypes.array
 }
 
 export default SidebarFilterRadio

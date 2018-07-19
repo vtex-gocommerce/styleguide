@@ -9,7 +9,7 @@ class SidebarFilterCheckbox extends PureComponent {
     super(props)
 
     this.state = {
-      list: this.props.activeOptions.filter(element => element.code.indexOf(props.filter.code + '-') !== -1)
+      list: this.props.enabledOptions.filter(element => element.code.indexOf(props.filter.code + '-') !== -1)
     }
   }
 
@@ -72,7 +72,7 @@ class SidebarFilterCheckbox extends PureComponent {
 SidebarFilterCheckbox.propTypes = {
   filter: PropTypes.object.isRequired,
   handleChange: PropTypes.func.isRequired,
-  activeOptions: PropTypes.array
+  enabledOptions: PropTypes.array
 }
 
 export default SidebarFilterCheckbox

@@ -5,7 +5,7 @@ class ContainerSidebar extends React.Component {
 
     this.state = {
       showSidebar: false,
-      activeOptionsSidebar: [
+      enabledOptionsSidebar: [
         { title: 'This week', value: '08/06/2018|08/06/2014', code: 'date-This week' },
         {
           code: 'tag-Tag 1',
@@ -78,8 +78,8 @@ class ContainerSidebar extends React.Component {
     this.setState({ showSidebar: false })
   }
 
-  handleChangeActiveOptionsSidebar(filters) {
-    this.setState({ activeOptionsSidebar: filters })
+  handleChangeEnabledOptionsSidebar(filters) {
+    this.setState({ enabledOptionsSidebar: filters })
   }
 
   render() {
@@ -92,9 +92,9 @@ class ContainerSidebar extends React.Component {
           <SidebarFilter
             handleClose={this.handleCloseSidebar.bind(this)}
             handleToggleFilterOption={this.handleToggleSidebarFilterOptions.bind(this)}
-            handleChange={this.handleChangeActiveOptionsSidebar.bind(this)}
+            handleChange={this.handleChangeEnabledOptionsSidebar.bind(this)}
             config={this.state.configSidebar}
-            activeOptions={this.state.activeOptionsSidebar}
+            enabledOptions={this.state.enabledOptionsSidebar}
           />
         </div>
       </div>

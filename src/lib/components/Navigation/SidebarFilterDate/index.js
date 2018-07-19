@@ -12,7 +12,7 @@ class SidebarFilterDate extends PureComponent {
       showDateRange = false
 
     if (this.isActive(`${props.filter.code}-date-range`)) {
-      const dateRange = props.activeOptions
+      const dateRange = props.enabledOptions
         .find(item => item.code === `${props.filter.code}-date-range`)
         .value.split('|')
 
@@ -56,7 +56,7 @@ class SidebarFilterDate extends PureComponent {
   }
 
   isActive = code => {
-    return undefined !== this.props.activeOptions.find(item => item.code === code)
+    return undefined !== this.props.enabledOptions.find(item => item.code === code)
   }
 
   render() {
@@ -130,7 +130,7 @@ class SidebarFilterDate extends PureComponent {
 SidebarFilterDate.propTypes = {
   filter: PropTypes.object.isRequired,
   handleChange: PropTypes.func.isRequired,
-  activeOptions: PropTypes.array
+  enabledOptions: PropTypes.array
 }
 
 export default SidebarFilterDate
