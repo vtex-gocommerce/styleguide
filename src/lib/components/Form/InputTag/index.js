@@ -15,6 +15,26 @@ class InputTag extends Component {
     }
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.isDisabled !== this.props.isDisabled) {
+      this.setState({
+        isDisabled: props.isDisabled
+      })
+    }
+
+    if (props.values !== this.props.values) {
+      this.setState({
+        values: props.values
+      })
+    }
+
+    if (props.input !== this.props.input) {
+      this.setState({
+        input: props.input
+      })
+    }
+  }
+
   handleChangeValues = () => {
     this.props.onChangeValues(this.state.values)
   }
