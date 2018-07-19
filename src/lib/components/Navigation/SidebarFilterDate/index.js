@@ -66,7 +66,7 @@ class SidebarFilterDate extends PureComponent {
       <div>
         <ul className="list g-pa0 g-f2">
           {filter.options.map((item, index) => {
-            const code = `${filter.code}-${item.title}`
+            const code = `${filter.code}-${item.code}`
             return (
               <li key={`${filter.code}${index}`}>
                 <label className="inline-flex items-center g-mb2 pointer">

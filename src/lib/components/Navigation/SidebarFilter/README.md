@@ -4,11 +4,11 @@ class ContainerSidebar extends React.Component {
     super(props)
 
     this.state = {
-      showSidebar: false,
+      showSidebar: true,
       enabledOptionsSidebar: [
-        { title: 'This week', value: '08/06/2018|08/06/2014', code: 'date-This week' },
+        { title: 'This week', value: '08/06/2018|08/06/2014', code: 'by-date-created-today' },
         {
-          code: 'tag-Tag 1',
+          code: 'by-tag-tag-1',
           title: 'Tag 1',
           value: 'tag1'
         }
@@ -21,14 +21,17 @@ class ContainerSidebar extends React.Component {
           optionsType: 'date',
           options: [
             {
+              code: 'today',
               title: 'Today',
               value: '09/06/2018'
             },
             {
+              code: 'yesterday',
               title: 'Yesterday',
               value: '08/06/2018'
             },
             {
+              code: 'this-week',
               title: 'This week',
               value: '08/06/2018|08/06/2014'
             }
@@ -39,7 +42,7 @@ class ContainerSidebar extends React.Component {
           title: 'By marketing preferences',
           expanded: true,
           optionsType: 'toggle',
-          options: [{ title: 'Email subscribers', value: true }]
+          options: [{ code: 'email-subscribers', title: 'Email subscribers', value: true }]
         },
         {
           code: 'by-tag',
@@ -47,20 +50,20 @@ class ContainerSidebar extends React.Component {
           expanded: false,
           optionsType: 'checkbox',
           options: [
-            { title: 'Tag 1', value: 'tag1' },
-            { title: 'Tag 2', value: 'tag2' },
-            { title: 'Tag 3', value: 'tag3' },
-            { title: 'Tag 4', value: 'tag4' },
-            { title: 'Tag 5', value: 'tag5' },
-            { title: 'Tag 6', value: 'tag6' }
+            { code: 'tag-1', title: 'Tag 1', value: 'tag1' },
+            { code: 'tag-2', title: 'Tag 2', value: 'tag2' },
+            { code: 'tag-3', title: 'Tag 3', value: 'tag3' },
+            { code: 'tag-4', title: 'Tag 4', value: 'tag4' },
+            { code: 'tag-5', title: 'Tag 5', value: 'tag5' },
+            { code: 'tag-6', title: 'Tag 6', value: 'tag6' }
           ]
         },
         {
-          code: 'by-marketing-preferences',
+          code: 'by-new-users',
           title: 'By new users',
           expanded: true,
           optionsType: 'radio',
-          options: [{ title: 'Yes', value: true }, { title: 'No', value: false }]
+          options: [{ code: 'yes', title: 'Yes', value: true }, { code: 'no', title: 'No', value: false }]
         }
       ]
     }
