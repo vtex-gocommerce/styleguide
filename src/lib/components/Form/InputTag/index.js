@@ -46,7 +46,7 @@ class InputTag extends Component {
   onKeyPressAtOptionValue = event => {
     const value = event.target.value
 
-    if (event.key == 'Enter') {
+    if (event.key == 'Enter' && value !== '' && value !== ',') {
       this.setState(
         {
           values: [...this.state.values, value.replace(',', '')],
@@ -60,11 +60,10 @@ class InputTag extends Component {
   onChangeValue = event => {
     let value = event.target.value
 
-    if (value.includes(',')) {
+    if (value.includes(',') && value.length > 1) {
       this.setState(
         {
-          values: [...this.state.values, value.replace(',', '')],
-          addValue: false
+          values: [...this.state.values, value.replace(',', '')]
         },
         () => this.handleChangeValues()
       )
