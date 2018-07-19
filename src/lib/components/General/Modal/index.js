@@ -7,18 +7,17 @@ class Modal extends PureComponent {
     this.props.onClose(event)
   }
   render() {
-    const { open, showCloseIcon, centered } = this.props
+    const { open, showCloseIcon, centered, className } = this.props
+    console.log('----')
     return (
       <ModalComponent
         open={open}
         onClose={this.handleClose}
-        classNames={{ modal: 'br2', closeIcon: 'navy' }}
+        classNames={{ modal: `br2 ${className}`, closeIcon: 'navy' }}
         showCloseIcon={showCloseIcon}
         little={centered}
       >
-        <div className="g-pa5">
-          {this.props.children}
-        </div>
+        <div className="g-pa5">{this.props.children}</div>
       </ModalComponent>
     )
   }
@@ -31,16 +30,18 @@ Modal.propTypes = {
   showCloseIcon: PropTypes.bool.isRequired,
   /** Use false for modal with a lot of content */
   centered: PropTypes.bool,
+  /** Append css classes to the Modal. */
+  className: PropTypes.bool,
   /** Function that will be called for close the modal */
   onClose: PropTypes.func,
-  children: PropTypes.node,
+  children: PropTypes.node
 }
 
 Modal.defaultProps = {
   open: false,
   showCloseIcon: true,
   centered: true,
-  onClose: null,
+  onClose: null
 }
 
 export default Modal
