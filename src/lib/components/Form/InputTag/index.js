@@ -23,13 +23,28 @@ class InputTag extends Component {
     this.props.onChangeInput(this.state.input)
   }
 
+  onKeyPressAtOptionValue = event => {
+    const value = event.target.value
+
+    if (event.key == 'Enter') {
+      this.setState(
+        {
+          values: [...this.state.values, value.replace(',', '')],
+          input: ''
+        },
+        () => this.handleChangeValues()
+      )
+    }
+  }
+
   onChangeValue = event => {
     let value = event.target.value
 
     if (value.includes(',')) {
       this.setState(
         {
-          values: [...this.state.values, value.replace(',', '')]
+          values: [...this.state.values, value.replace(',', '')],
+          addValue: false
         },
         () => this.handleChangeValues()
       )
@@ -65,8 +80,10 @@ class InputTag extends Component {
       <div className={`flex flex-wrap items-center ba br2 b--base-3 ${this.props.className}`}>
         <div className="">
           {this.state.values.map((data, key) => (
-            <span key={key} className="g-ml1">
-              <Tag onRemove={() => this.onRemoveValue(data)}>{data}</Tag>
+            <span key={key} className="dib g-ml1">
+              <Tag style={this.props.tagStyle} onRemove={() => this.onRemoveValue(data)}>
+                {data}
+              </Tag>
             </span>
           ))}
         </div>
@@ -77,6 +94,7 @@ class InputTag extends Component {
           isDisabled={this.state.isDisabled}
           placeholder={this.props.placeholder}
           onChange={this.onChangeValue}
+          onKeyDown={this.onKeyPressAtOptionValue}
         />
       </div>
     )
@@ -88,6 +106,7 @@ InputTag.propTypes = {
   values: PropTypes.any,
   className: PropTypes.string,
   placeholder: PropTypes.string,
+  tagStyle: PropTypes.string,
   onChangeValues: PropTypes.func,
   onChangeInput: PropTypes.func
 }
@@ -97,6 +116,7 @@ InputTag.defaultProps = {
   values: [],
   className: '',
   placeholder: 'Enter values separated by commas',
+  tagStyle: 'default',
   onChangeValues: values => {},
   onChangeInput: input => {}
 }
