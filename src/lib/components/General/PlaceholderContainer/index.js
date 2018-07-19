@@ -9,7 +9,7 @@ function placeholderFunc(classNameArray) {
       return <Placeholder key={index + className} className={className} isPlaceholderActive />
     }
 
-    return <div className="flex">{placeholderFunc(className)}</div>
+    return <div className="flex justify-between">{placeholderFunc(className)}</div>
   })
 }
 
