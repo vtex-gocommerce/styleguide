@@ -19,7 +19,11 @@ class ShowModal extends React.Component {
         <div className="pv4">
           <div className="g-pt4">
             <PlaceholderContainer
-              classNameArray={['g-h10 g-w10 br-100', 'h10 w13 g-mt3', 'h10 w14 g-mt3']}
+              classNameArray={[
+                'g-h12 g-w12 br-100 g-mb5',
+                ['g-h10 w-80 g-mb5', 'g-h10 w-20 g-ml5'],
+                ['g-h10 w-third', 'g-h10 g-ml5 w-two-thirds']
+              ]}
               isPlaceholderActive={this.state.placeholderIsActive}
             >
               {() => (

@@ -3,10 +3,14 @@ import PropTypes from 'prop-types'
 import Placeholder from './../Placeholder'
 import './styles.css'
 
-const placeholderFunc = classNameArray => {
-  return classNameArray.map((className, index) => (
-    <Placeholder key={index + className} className={className} isPlaceholderActive />
-  ))
+function placeholderFunc(classNameArray) {
+  return classNameArray.map((className, index) => {
+    if (!Array.isArray(className)) {
+      return <Placeholder key={index + className} className={className} isPlaceholderActive />
+    }
+
+    return <div className="flex">{placeholderFunc(className)}</div>
+  })
 }
 
 const placeholderFadeOut = classNameArray => {
