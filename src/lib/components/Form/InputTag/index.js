@@ -22,13 +22,13 @@ class InputTag extends Component {
       })
     }
 
-    if (props.values !== this.props.values) {
+    if (nextProps.values !== this.props.values) {
       this.setState({
         values: nextProps.values
       })
     }
 
-    if (props.input !== this.props.input) {
+    if (nextProps.input !== this.props.input) {
       this.setState({
         input: nextProps.input
       })
