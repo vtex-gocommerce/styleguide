@@ -18,19 +18,19 @@ class InputTag extends Component {
   componentWillReceiveProps(nextProps) {
     if (nextProps.isDisabled !== this.props.isDisabled) {
       this.setState({
-        isDisabled: props.isDisabled
+        isDisabled: nextProps.isDisabled
       })
     }
 
     if (props.values !== this.props.values) {
       this.setState({
-        values: props.values
+        values: nextProps.values
       })
     }
 
     if (props.input !== this.props.input) {
       this.setState({
-        input: props.input
+        input: nextProps.input
       })
     }
   }
