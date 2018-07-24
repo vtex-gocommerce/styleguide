@@ -31,7 +31,9 @@ class Tab extends PureComponent {
           return (
             <div
               key={element.id}
-              className={`dib g-pt3 g-pb4 g-mr3 pointer ${element.id === active ? 'bw1 bb c-primary b--primary fw5' : 'c-on-base-2'}`}
+              className={`dib g-pt3 g-pb4 g-mr3 pointer ${
+                element.id === active ? 'bw1 bb c-primary b--primary fw5' : 'c-on-base-2'
+              }`}
               onClick={() => this.handleClick(element.id)}
             >
               {element.label}
@@ -48,7 +50,7 @@ Tab.propTypes = {
   list: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string.isRequired,
-      label: PropTypes.string.isRequired
+      label: PropTypes.oneOfType([PropTypes.string, PropTypes.element]).isRequired
     })
   ).isRequired,
   /** Set initial tab value. */
