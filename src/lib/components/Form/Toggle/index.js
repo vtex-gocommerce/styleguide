@@ -63,7 +63,7 @@ Toggle.propTypes = {
   /** Make toggle disabled! */
   isDisabled: PropTypes.bool,
   /** Set value of toggle. */
-  value: PropTypes.string.isRequired,
+  value: PropTypes.string,
   /** Append css classes to the parent. */
   className: PropTypes.string,
   /** On click callback function. */
@@ -73,6 +73,7 @@ Toggle.propTypes = {
 Toggle.defaultProps = {
   isChecked: false,
   isDisabled: false,
+  value: '',
   className: '',
   onClick: checked => {}
 }
