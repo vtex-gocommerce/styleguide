@@ -38,7 +38,7 @@ fs.readdir(iconsFolder, (err, files) => {
   }
 
   files.filter(isComponentFolder).forEach(file => {
-    const entrypointPath = path.join(entrypointsFolder, `Icon${file}.js`)
+    const entrypointPath = path.join(entrypointsFolder, `${file}.js`)
     console.log(`Writing ${entrypointPath}`)
     fs.writeFileSync(entrypointPath, entrypointTemplate(file, file, true))
   })
