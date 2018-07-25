@@ -5,7 +5,7 @@ const componentsFolder = path.join(__dirname, '../react/components')
 const iconsFolder = path.join(__dirname, '../react/icons')
 const entrypointsFolder = path.join(__dirname, '../react')
 
-const isComponentFolder = s => s.charAt(0).toUpperCase() === s.charAt(0) && path.extname(s) === ''
+const isComponentFolder = s => s.charAt(0).toUpperCase() === s.charAt(0) && path.extname(s) === '' && s !== '.DS_Store'
 
 const entrypointTemplate = (name, filePath, isIcon) => `import ${name} from './${
   isIcon ? `icons/${filePath}` : `components/${filePath}`
