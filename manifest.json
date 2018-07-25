@@ -1,0 +1,17 @@
+{
+  "vendor": "vtex",
+  "name": "styleguide",
+  "version": "5.4.1",
+  "title": "VTEX Styleguide",
+  "description": "The VTEX Styleguide components for the Render framework",
+  "builders": {
+    "react": "2.x"
+  },
+  "scripts": {
+    "postreleasy": "vtex publish --verbose"
+  },
+  "mustUpdateAt": "2018-09-05",
+  "categories": [],
+  "registries": ["smartcheckout"],
+  "settingsSchema": {}
+}

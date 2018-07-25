@@ -5,12 +5,13 @@
 
 # testing
 /coverage
+styleguide-visual/*.new.png
+styleguide-visual/*.diff.png
 
 # production
 /build
 /lib
 /styleguide
-/index.js
 
 # misc
 .DS_Store
@@ -19,9 +20,6 @@
 .env.test.local
 .env.production.local
 .vscode
-.npmrc
-package-lock.json
-yarn.lock
 
 npm-debug.log*
 yarn-debug.log*
