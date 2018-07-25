@@ -11,53 +11,55 @@ module.exports = {
     '@fortawesome/fontawesome-pro-solid',
     '@fortawesome/react-fontawesome'
   ],
+  showUsage: false,
   title: 'GoCommerce Styleguide',
+  skipComponentsWithoutExample: true,
   sections: [
     {
       name: 'Components',
       sections: [
         {
           name: 'Buttons',
-          components: 'src/lib/components/Buttons/**/*.js'
+          components: 'react/components/Buttons/**/*.js'
         },
         {
           name: 'Cards',
-          components: 'src/lib/components/Cards/**/*.js'
+          components: 'react/components/Cards/**/*.js'
         },
         {
           name: 'Data',
-          components: 'src/lib/components/Data/**/*.js'
+          components: 'react/components/Data/**/*.js'
         },
         {
           name: 'Form',
-          components: 'src/lib/components/Form/**/*.js'
+          components: 'react/components/Form/**/*.js'
         },
         {
           name: 'General',
-          components: 'src/lib/components/General/**/*.js'
+          components: 'react/components/General/**/*.js'
         },
         {
           name: 'Indicators',
-          components: 'src/lib/components/Indicators/**/*.js'
+          components: 'react/components/Indicators/**/*.js'
         },
         {
           name: 'Navigation',
-          components: 'src/lib/components/Navigation/**/*.js'
+          components: 'react/components/Navigation/**/*.js'
         },
         {
           name: 'Notifications',
-          components: 'src/lib/components/Notifications/**/*.js'
+          components: 'react/components/Notifications/**/*.js'
         },
         {
           name: 'Profile',
-          components: 'src/lib/components/Profile/**/*.js'
+          components: 'react/components/Profile/**/*.js'
         }
       ]
     },
     {
       name: 'Icons',
-      content: 'src/lib/icons/icons.md',
-      components: 'src/lib/icons/**/*.js'
+      content: 'react/icons/icons.md',
+      components: 'react/icons/**/*.js'
     }
   ],
   webpackConfig: {
@@ -80,12 +82,5 @@ module.exports = {
         }
       ]
     }
-  },
-  skipComponentsWithoutExample: true,
-  getComponentPathLine(componentPath) {
-    const pathArray = path.dirname(componentPath).split(path.sep)
-    const componentName = pathArray[pathArray.length - 1]
-    const dir = path.relative(path.join('src'), path.dirname(componentPath))
-    return `import { ${componentName} } from '@gocommerce/styleguide';`
   }
 }

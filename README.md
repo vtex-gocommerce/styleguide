@@ -18,7 +18,28 @@ Start the server with:
 npm run styleguide
 ```
 
-### Publish new version with Releasy
+### Publish new version at Render APP
+
+Run the command below if you created a new component
+
+```sh
+npm run entrypoints
+```
+
+Link to see results
+
+```sh
+vtex link
+```
+
+Publish when finished
+
+```sh
+vtex switch gocommerce
+vtex publish
+```
+
+### Publish new version at NPM with Releasy
 
 ```sh
 npm run compile
