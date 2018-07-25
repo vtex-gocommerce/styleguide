@@ -1,8 +1,22 @@
 {
-  "name": "vtex.styleguide",
+  "name": "@gocommerce/styleguide",
+  "version": "0.0.1",
+  "devDependencies": {},
   "dependencies": {
+    "@fortawesome/fontawesome": "^1.1.5",
+    "@fortawesome/fontawesome-free-brands": "^5.0.9",
+    "@fortawesome/fontawesome-pro-light": "^5.0.9",
+    "@fortawesome/fontawesome-pro-regular": "^5.0.9",
+    "@fortawesome/fontawesome-pro-solid": "^5.0.9",
+    "@fortawesome/react-fontawesome": "0.0.17",
+    "@gocommerce/tachyons": "^3.0.12",
+    "i18n-country-code": "^1.0.0",
+    "react-input-mask": "^1.2.2",
+    "react-onclickoutside": "^6.7.1",
+    "react-paginate": "^5.2.2",
     "react-responsive-modal": "^2.0.1",
-    "vtex-tachyons": "^2.3.0",
-    "react-virtualized": "^9.19.1"
+    "react-select": "^2.0.0-beta.2",
+    "vtex-tachyons": "2.5.1",
+    "speakingurl": "^14.0.1"
   }
 }

@@ -2,11 +2,7 @@
 
 # dependencies
 /node_modules
-
-# testing
-/coverage
-styleguide-visual/*.new.png
-styleguide-visual/*.diff.png
+/react/node_modules
 
 # production
 /build

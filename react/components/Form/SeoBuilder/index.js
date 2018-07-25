@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import styles from './style.css'
 import Input from '../Input'
 import Textarea from '../Textarea'
 import Seo from '../../General/Seo'

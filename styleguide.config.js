@@ -12,7 +12,7 @@ module.exports = {
     '@fortawesome/react-fontawesome'
   ],
   showUsage: false,
-  title: 'VTEX Styleguide',
+  title: 'GoCommerce Styleguide',
   skipComponentsWithoutExample: true,
   sections: [
     {

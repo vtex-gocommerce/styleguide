@@ -1,9 +1,9 @@
 {
-  "vendor": "vtex",
+  "vendor": "gocommerce",
   "name": "styleguide",
-  "version": "5.4.1",
-  "title": "VTEX Styleguide",
-  "description": "The VTEX Styleguide components for the Render framework",
+  "version": "0.0.1",
+  "title": "GoCommerce Styleguide",
+  "description": "The GoCommerce Styleguide components for the Render framework",
   "builders": {
     "react": "2.x"
   },
@@ -12,6 +12,6 @@
   },
   "mustUpdateAt": "2018-09-05",
   "categories": [],
-  "registries": ["smartcheckout"],
+  "registries": ["smartcheckout", "gocommerce"],
   "settingsSchema": {}
 }
