@@ -59,7 +59,7 @@ class SeoBuilder extends Component {
 
     return (
       <React.Fragment>
-        <div className={`fadeIn flex justify-between g-pl6 g-pt5 bb b--base-3 ${className}`}>
+        <div className={`fadeIn flex justify-between g-pl6 g-pt5 ${className}`}>
           <div className="w-50 g-pr4">
             <div className="g-pb4 g-f2">
               <div className="flex justify-between">
@@ -92,7 +92,7 @@ class SeoBuilder extends Component {
                 title={this.state.pageTitle}
                 url={this.state.urlBase + this.state.url}
                 description={this.state.metaDescription}
-                className="br-0 bb-0 h-100"
+                className="br-0 h-100"
               />
             )}
           </div>

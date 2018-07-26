@@ -7,20 +7,24 @@ class Textarea extends PureComponent {
     super(props)
 
     this.state = {
-      value: props.value
+      value: props.value,
+      maxLength: props.maxLength || null,
+      currentLength: props.value.length || 0
     }
   }
 
   componentWillReceiveProps = nextProps => {
     if (nextProps.value !== this.props.value) {
-      this.setState({ value: nextProps.value })
+      this.setState({ value: nextProps.value, currentLength: nextProps.value.length })
     }
   }
 
   handleChange = event => {
     const value = event.target.value
-    this.setState({ value })
-    this.props.onChange && this.props.onChange(event)
+    const currentLength = value.length
+    const isLengthBelowMax = !this.state.maxLength || currentLength <= this.state.maxLength
+    isLengthBelowMax && this.setState({ value, currentLength })
+    isLengthBelowMax && this.props.onChange && this.props.onChange(event)
   }
 
   handleFocus = event => {
@@ -33,7 +37,8 @@ class Textarea extends PureComponent {
 
   render() {
     const { hasError, isDisabled, type, placeholder, className, name, style, rows, resize } = this.props
-    const { value } = this.state
+    const { value, currentLength, maxLength } = this.state
+    const currentCharacterIndex = maxLength - currentLength
 
     let inputClasses = `${styles.input} g-pa3 ba br1 `
     if (isDisabled) inputClasses += 'b--base-4 bg-base-3 c-on-base-2 '
@@ -54,7 +59,20 @@ class Textarea extends PureComponent {
       rows: rows
     }
 
-    return <textarea {...props} className={inputClasses} value={value} />
+    return (
+      <React.Fragment>
+        <textarea {...props} className={inputClasses} value={value} />
+        {maxLength !== 0 && (
+          <label
+            className={`flex flex-row-reverse db g-pb2 g-pa1 g-f2 ${
+              currentCharacterIndex === 0 ? 'red' : 'c-on-base-2'
+            }`}
+          >
+            {currentCharacterIndex}
+          </label>
+        )}
+      </React.Fragment>
+    )
   }
 }
 
@@ -81,6 +99,8 @@ Textarea.propTypes = {
   style: PropTypes.object,
   /** textarea rows. */
   rows: PropTypes.number,
+  /** textarea rows. */
+  maxLength: PropTypes.number,
   /** textarea rows. */
   resize: PropTypes.bool
 }
