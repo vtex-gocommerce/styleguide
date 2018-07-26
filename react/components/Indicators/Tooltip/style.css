@@ -1,0 +1,18 @@
+.gc_tooltip {
+  bottom: 130%;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+.gc_tooltip:after {
+  content: '';
+  position: absolute;
+  bottom: -13px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 9px 8.5px 0 8.5px;
+  border-color: #142032 transparent transparent transparent;
+}
