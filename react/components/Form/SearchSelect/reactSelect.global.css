@@ -203,7 +203,7 @@
   width: 17px;
 }
 .Select-clear-zone:hover {
-  color: #D0021B;
+  color: #d0021b;
 }
 .Select-clear {
   display: inline-block;
@@ -276,7 +276,7 @@
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06);
   box-sizing: border-box;
   margin-top: -1px;
-  max-height: 200px;
+  max-height: 300px;
   position: absolute;
   left: 0;
   top: 100%;

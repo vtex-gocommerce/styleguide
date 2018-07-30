@@ -8,7 +8,6 @@ class Modal extends PureComponent {
   }
   render() {
     const { open, showCloseIcon, centered, className } = this.props
-    console.log('----')
     return (
       <ModalComponent
         open={open}

@@ -16,6 +16,10 @@ module.exports = {
   skipComponentsWithoutExample: true,
   sections: [
     {
+      name: 'Introduction',
+      content: './react/docs/introduction.md'
+    },
+    {
       name: 'Components',
       sections: [
         {
@@ -55,6 +59,11 @@ module.exports = {
           components: 'react/components/Profile/**/*.js'
         }
       ]
+    },
+    {
+      name: 'Advanced Components',
+      content: 'react/advancedComponents/components.md',
+      components: 'react/advancedComponents/**/*.js'
     },
     {
       name: 'Icons',

@@ -102,11 +102,22 @@ class ShowModal extends React.Component {
 
   render() {
     return (
-      <div>
-        <Button onClick={this.tooglePlaceHolderStatus}> Change status </Button> Is Placeholder Active:{' '}
-        {this.state.placeholderIsActive ? 'active' : 'inactive'}
+      <div className="flex flex-column">
+        <div>
+          <Button onClick={this.tooglePlaceHolderStatus}> Change status </Button> Is Placeholder Active:{' '}
+          {this.state.placeholderIsActive ? 'active' : 'inactive'}
+        </div>
         <div>
           <div className="g-mb4 g-mt4">
+            Table Pagination is a diffente Component <a href="#pagepaginate">click here</a> to check it out
+            <TablePagination
+              recordsLabel="records found"
+              total={25}
+              page={1}
+              perPage={15}
+              handleChangePerPage={() => {}}
+              handleChangePage={() => {}}
+            />
             <Table columns={columns} rows={rows} isLoading={this.state.placeholderIsActive} />
           </div>
           <div className="g-mb4 g-mt4">
@@ -118,8 +129,4 @@ class ShowModal extends React.Component {
   }
 }
 ;<ShowModal />
-```
-
-```
-
 ```
