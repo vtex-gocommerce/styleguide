@@ -1,14 +1,13 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import styles from './style.css'
-import IconSpinner from '../../../icons/IconSpinner'
-import PlaceholderContainer from './../../General/PlaceholderContainer'
+import PlaceholderContainer from './../../DataLoading/PlaceholderContainer'
 
 class Card extends Component {
   render() {
     const { title, isLoading } = this.props
 
-    const classes = 'flex flex-column w-100 h-100 ba b--base-3 bg-white br1'
+    const classes = 'flex flex-column w-100 h-100 ba b--base-4 bg-white br1'
 
     return (
       <div className={classes}>
@@ -22,7 +21,9 @@ class Card extends Component {
           ]}
           isPlaceholderActive={this.props.isLoading}
         >
-          {() => <div className={`g-pv4 g-ph4 flex flex-column flex-auto ${styles.cardContent}`}>{this.props.children}</div>}
+          {() => (
+            <div className={`g-pv4 g-ph4 flex flex-column flex-auto ${styles.cardContent}`}>{this.props.children}</div>
+          )}
         </PlaceholderContainer>
       </div>
     )
