@@ -20,7 +20,8 @@ npm run styleguide
 
 ### Publish new version at Render APP
 
-Run the command below if you created a new component
+First of all, increase the version at Manifest.json.
+Run the command below if you created a new component.
 
 ```sh
 npm run entrypoints
