@@ -115,7 +115,7 @@ class Input extends PureComponent {
         <div className={`dib ${style} ${colors} ${className} overflow-hidden`}>
           <div className="flex flex-auto items-center ">
             <div className="g-pl3">{this.props.iconBefore}</div>
-            <input {...props} className={`${colors} ${padding} ${style} bn  dib`} />
+            <input {...props} className={`${colors} ${padding} ${style} bn w-100 dib`} />
           </div>
         </div>
       )
@@ -126,8 +126,8 @@ class Input extends PureComponent {
           <input {...props} className={inputClasses} />
         </React.Fragment>
       ) : (
-          <input {...props} className={inputClasses} />
-        )
+        <input {...props} className={inputClasses} />
+      )
     }
   }
 }
