@@ -48,7 +48,7 @@ class SidebarFilterCheckbox extends PureComponent {
                   <CheckBox
                     value={item.value}
                     name={filter.code}
-                    isChecked={this.isActive(code)}
+                    checked={this.isActive(code)}
                     onClick={value => {
                       if (value) {
                         this.handleAdd({ ...item, code: code })

@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import style from './style.css'
-import Placeholder from './../../DataLoading/Placeholder'
+import Placeholder from '../../DataLoading/Placeholder'
 
 const textAligns = {
   right: 'tr',

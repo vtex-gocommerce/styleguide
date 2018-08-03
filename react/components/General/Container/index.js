@@ -1,12 +1,12 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
-import PlaceholderContainer from './../../DataLoading/PlaceholderContainer/index'
+import PlaceholderContainer from '../../DataLoading/PlaceholderContainer'
 
 class Container extends PureComponent {
   render() {
     const { isPlaceholderActive, classNameArray, children } = this.props
     return (
-      <div className="w-100 flex flex-column g-pv6 g-mv8 ba b--base-3 bg-base-1 c-on-base-2 g-f3">
+      <div className="w-100 flex flex-column g-pv6 g-mv8 br2 ba b--base-4 bg-base-1 c-on-base-2 g-f3">
         <div className="g-ph8">
           <PlaceholderContainer isPlaceholderActive={isPlaceholderActive} classNameArray={classNameArray}>
             {() => children}

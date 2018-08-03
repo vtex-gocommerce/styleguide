@@ -8,46 +8,49 @@ class CheckBox extends PureComponent {
     super(props)
 
     this.state = {
-      isChecked: this.props.isChecked
+      checked: this.props.checked
     }
   }
 
   componentWillReceiveProps(nextProps, nextState) {
-    if (nextProps.isChecked != this.state.isChecked) {
-      this.setState({ isChecked: nextProps.isChecked })
+    if (nextProps.checked != this.state.checked) {
+      this.setState({ checked: nextProps.checked })
     }
   }
 
   handleClick = event => {
     this.setState(prev => ({
-      isChecked: !prev.isChecked
+      checked: !prev.checked
     }))
 
-    this.props.onClick(!this.state.isChecked)
+    this.props.onClick(event, !this.state.checked)
   }
 
   render() {
-    const { isDisabled, value, name } = this.props
-    const { isChecked } = this.state
+    const { disabled, value, name, hasError, id } = this.props
+    const { checked } = this.state
 
     let classes = `flex justify-center items-center ba br2 ${styles.checkbox} `
 
-    if (isDisabled) {
+    if (disabled) {
       classes += 'bg-base-1 b--base-3'
     } else {
-      classes += isChecked ? 'bg-blue b--blue' : 'bg-white b--base-3'
+      classes += checked ? 'bg-blue b--blue' : 'bg-white b--base-3'
     }
 
+    classes = hasError ? `${classes} b--danger` : classes
+
     return (
-      <label className={`dib g-w5 ${!isDisabled && 'pointer'}`}>
+      <label className={`dib g-w5 ${!disabled && 'pointer'}`}>
         <div className={classes}>
-          <IconCheck className={`white ${!isChecked && 'o-0'}`} ignoreSize />
+          <IconCheck className={`white ${!checked && 'o-0'}`} ignoreSize />
         </div>
         <input
+          id={id}
           type="checkbox"
           className="dn"
-          disabled={isDisabled}
-          defaultChecked={isChecked}
+          disabled={disabled}
+          defaultChecked={checked}
           name={name}
           value={value}
           onClick={this.handleClick}
@@ -58,21 +61,25 @@ class CheckBox extends PureComponent {
 }
 
 CheckBox.propTypes = {
-  /** Make toggle checked! */
-  isChecked: PropTypes.bool,
-  /** Make toggle disabled! */
-  isDisabled: PropTypes.bool,
-  /** Set name of toggle. */
+  /** Set id of CheckBox. */
+  id: PropTypes.string,
+  /** Make CheckBox checked! */
+  checked: PropTypes.bool,
+  /** Make CheckBox disabled! */
+  disabled: PropTypes.bool,
+  /** Make CheckBox withError! */
+  hasError: PropTypes.bool,
+  /** Set name of CheckBox. */
   name: PropTypes.string,
-  /** Set value of toggle. */
+  /** Set value of CheckBox. */
   value: PropTypes.string,
   /** On click callback function. */
   onClick: PropTypes.func
 }
 
 CheckBox.defaultProps = {
-  isChecked: false,
-  isDisabled: false,
+  checked: false,
+  disabled: false,
   onClick: checked => {}
 }
 

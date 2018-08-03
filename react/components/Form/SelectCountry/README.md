@@ -17,7 +17,7 @@
     <span className="g-ml4 no-underline navy-60">Select with error</span>
   </div>
   <div>
-    <SelectCountry placeholder="You can't pick any..." isDisabled />
+    <SelectCountry placeholder="You can't pick any..." disbled />
     <span className="g-ml4 no-underline navy-60">Disabled Select</span>
   </div>
 </div>
