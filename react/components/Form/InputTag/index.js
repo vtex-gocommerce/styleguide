@@ -1,23 +1,23 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import Input from './../Input'
-import Tag from './../../Indicators/Tag'
+import Input from '../Input'
+import Tag from '../../Indicators/Tag'
 
 class InputTag extends Component {
   constructor(props) {
     super(props)
 
     this.state = {
-      isDisabled: props.isDisabled,
+      disbled: props.disbled,
       input: '',
-      values: props.values || []
+      values: props.defaultValues || props.values || []
     }
   }
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.isDisabled !== this.props.isDisabled) {
+    if (nextProps.disbled !== this.props.disbled) {
       this.setState({
-        isDisabled: nextProps.isDisabled
+        disbled: nextProps.disbled
       })
     }
 
@@ -36,6 +36,7 @@ class InputTag extends Component {
 
   handleChangeValues = () => {
     this.props.onChangeValues(this.state.values)
+    this.props.onChange && this.props.onChange({ target: { value: this.state.values } })
   }
 
   handleChangeInput = () => {
@@ -78,6 +79,10 @@ class InputTag extends Component {
     )
   }
 
+  onBlur = e => {
+    this.props.onBlur && this.props.onBlur(e)
+  }
+
   onRemoveValue = value => {
     const values = this.state.values
     const index = values.indexOf(value)
@@ -107,11 +112,13 @@ class InputTag extends Component {
         </div>
         <Input
           name="option_values"
-          className="dib w-auto flex-auto b--none g-pl1"
+          className={`dib w-auto flex-auto ${this.props.hasError ? '' : 'b--none g-pl1'}`}
+          hasError={this.props.hasError}
           value={this.state.input}
-          isDisabled={this.state.isDisabled}
+          disbled={this.state.disbled}
           placeholder={this.props.placeholder}
           onChange={this.onChangeValue}
+          onBlur={this.onBlur}
           onKeyDown={this.onKeyPressAtOptionValue}
         />
       </div>
@@ -120,8 +127,10 @@ class InputTag extends Component {
 }
 
 InputTag.propTypes = {
-  isDisabled: PropTypes.bool,
+  hasError: PropTypes.bool,
+  disbled: PropTypes.bool,
   values: PropTypes.any,
+  defaultValues: PropTypes.any,
   className: PropTypes.string,
   placeholder: PropTypes.string,
   tagStyle: PropTypes.string,
@@ -130,7 +139,8 @@ InputTag.propTypes = {
 }
 
 InputTag.defaultProps = {
-  isDisabled: false,
+  disbled: false,
+  hasError: false,
   values: [],
   className: '',
   placeholder: 'Enter values separated by commas',

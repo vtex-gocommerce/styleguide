@@ -1,3 +1,3 @@
-import LoadingBar from './components/General/LoadingBar/index'
+import LoadingBar from './components/DataLoading/LoadingBar/index'
 
 export default LoadingBar

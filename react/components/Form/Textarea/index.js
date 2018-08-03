@@ -36,14 +36,14 @@ class Textarea extends PureComponent {
   }
 
   render() {
-    const { hasError, isDisabled, type, placeholder, className, name, style, rows, resize } = this.props
+    const { hasError, disbled, type, placeholder, className, name, style, rows, resize } = this.props
     const { value, currentLength, maxLength } = this.state
     const currentCharacterIndex = maxLength - currentLength
 
     let inputClasses = `${styles.input} g-pa3 ba br1 `
-    if (isDisabled) inputClasses += 'b--base-4 bg-base-3 c-on-base-2 '
+    if (disbled) inputClasses += 'b--base-4 bg-base-3 c-on-base-2 '
     if (hasError) inputClasses += 'b--danger bg-light-danger c-danger '
-    if (!isDisabled && !hasError) inputClasses += 'b--base-4 bg-base-1 c-on-base-1 '
+    if (!disbled && !hasError) inputClasses += 'b--base-4 bg-base-1 c-on-base-1 '
 
     inputClasses += className
 
@@ -54,7 +54,7 @@ class Textarea extends PureComponent {
       onBlur: this.handleBlur,
       onFocus: this.handleFocus,
       onChange: this.handleChange,
-      disabled: isDisabled,
+      disabled: disbled,
       style: { ...style, resize: !resize ? 'none' : 'vertical' },
       rows: rows
     }
@@ -68,7 +68,7 @@ class Textarea extends PureComponent {
               currentCharacterIndex === 0 ? 'red' : 'c-on-base-2'
             }`}
           >
-            {currentCharacterIndex}
+            {maxLength && currentCharacterIndex}
           </label>
         )}
       </React.Fragment>
@@ -86,7 +86,7 @@ Textarea.propTypes = {
   /** Visually change input to present error. */
   hasError: PropTypes.bool,
   /** Make input disabled. */
-  isDisabled: PropTypes.bool,
+  disbled: PropTypes.bool,
   /** Callback on change */
   onChange: PropTypes.func,
   /** Callback on focus */
@@ -110,7 +110,7 @@ Textarea.defaultProps = {
   value: '',
   placeholder: '',
   hasError: false,
-  isDisabled: false,
+  disbled: false,
   onChange: null,
   className: '',
   style: null,

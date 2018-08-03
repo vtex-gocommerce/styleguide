@@ -10,7 +10,6 @@ const Disabled = [
   { label: 'Banana', value: 'banana' },
   { label: 'Orange', value: 'orange', disabled: true }
 ]
-
 ;<div>
   <div className="g-mb2">
     <SearchSelect placeholder="Select a fruit..." list={Simple} />
@@ -33,7 +32,7 @@ const Disabled = [
     <span className="g-ml4 no-underline navy-60">Select with error</span>
   </div>
   <div>
-    <SearchSelect placeholder="You can't pick any..." list={Simple} isDisabled />
+    <SearchSelect placeholder="You can't pick any..." list={Simple} disbled />
     <span className="g-ml4 no-underline navy-60">Disabled Select</span>
   </div>
 </div>

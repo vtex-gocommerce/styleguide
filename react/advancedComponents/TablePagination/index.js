@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
-import Select from './../../components/Form/Select'
-import Pagination from './../../components/Navigation/Pagination'
+import Select from '../../components/Form/Select'
+import Pagination from '../../components/Navigation/Pagination'
 import { FormattedMessage } from 'react-intl'
 
 class TablePagination extends PureComponent {

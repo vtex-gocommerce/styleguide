@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import style from './style.css'
-import Placeholder from './../../General/Placeholder'
+import Placeholder from '../../DataLoading/Placeholder'
 import CheckBox from '../../Form/CheckBox'
 
 class Table extends PureComponent {
@@ -108,7 +108,7 @@ class Table extends PureComponent {
                       <th className="g-pv3 g-f1 tc bb b--base-4" style={{ width: '40px' }}>
                         <CheckBox
                           onClick={checked => this.select(index, checked)}
-                          isChecked={this.state.selectedList.includes(index)}
+                          checked={this.state.selectedList.includes(index)}
                         />
                       </th>
                     )}

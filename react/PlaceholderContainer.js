@@ -1,3 +1,3 @@
-import PlaceholderContainer from './components/General/PlaceholderContainer/index'
+import PlaceholderContainer from './components/DataLoading/PlaceholderContainer/index'
 
 export default PlaceholderContainer

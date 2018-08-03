@@ -8,49 +8,52 @@ class RadioButton extends PureComponent {
     super(props)
 
     this.state = {
-      isChecked: this.props.isChecked
+      checked: this.props.checked
     }
   }
 
-  componentWillReceiveProps(nextProps, nextState) {
-    
+  componentDidMount(nextProps, nextState) {
+    this.props.containerBuild && this.props.containerBuild(nextProps)
   }
 
   handleClick = event => {
     this.setState(prev => ({
-      isChecked: true
+      checked: true
     }))
 
     this.props.onClick && this.props.onClick(event)
   }
 
   render() {
-    const { isDisabled, value, name, width, height, className } = this.props
-    const { isChecked } = this.state
+    const { disabled, value, name, width, height, className, id, hasError } = this.props
+    const { checked } = this.state
 
     let classesCircleOutside = `b--base-4 `
     let classesCircleInside = ''
 
-    if (isDisabled) {
+    if (disabled) {
       classesCircleOutside += 'bg-base-3 b--base-4'
     } else {
       classesCircleOutside += 'bg-base-1'
-      classesCircleInside += isChecked ? 'bg-primary' : 'bg-base-1'
+      classesCircleInside += checked ? 'bg-primary' : 'bg-base-1'
     }
 
+    classesCircleOutside = hasError ? 'b--danger' : classesCircleOutside
+
     return (
-      <label className={`gc-radiobutton dib w-auto ${className} ${!isDisabled && 'pointer'} ${styles.gc_radiobutton}`}>
+      <label className={`gc-radiobutton dib w-auto ${className} ${!disabled && 'pointer'} ${styles.gc_radiobutton}`}>
         <input
+          id={id}
           type="radio"
           className="dn"
-          disabled={isDisabled}
-          defaultChecked={isChecked}
+          disabled={disabled}
+          defaultChecked={checked}
           name={name}
           value={value}
           onClick={this.handleClick}
         />
-        <div className={classesCircleOutside} style={{width: width || "20px", height: height || "20px"}}>
-          <span className={`icon ${classesCircleInside}`}></span>
+        <div className={classesCircleOutside} style={{ width: width || '20px', height: height || '20px' }}>
+          <span className={`icon ${classesCircleInside}`} />
         </div>
       </label>
     )
@@ -58,10 +61,14 @@ class RadioButton extends PureComponent {
 }
 
 RadioButton.propTypes = {
+  /** Set Radio Button Id */
+  id: PropTypes.string,
   /** Make toggle checked! */
-  isChecked: PropTypes.bool,
+  checked: PropTypes.bool,
   /** Make toggle disabled! */
-  isDisabled: PropTypes.bool,
+  disabled: PropTypes.bool,
+  /** Make toggle withError! */
+  hasError: PropTypes.bool,
   /** Set name of toggle. */
   name: PropTypes.string.isRequired,
   /** Set value of toggle. */
@@ -77,8 +84,8 @@ RadioButton.propTypes = {
 }
 
 RadioButton.defaultProps = {
-  isChecked: false,
-  isDisabled: false,
+  checked: false,
+  disabled: false,
   className: '',
   onClick: checked => {}
 }

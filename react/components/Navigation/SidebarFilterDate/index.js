@@ -74,7 +74,7 @@ class SidebarFilterDate extends PureComponent {
                     value={item.value}
                     name={filter.code}
                     className="g-mr3"
-                    isChecked={this.isActive(code)}
+                    checked={this.isActive(code)}
                     onClick={() => {
                       this.handleChange({ ...item, code: code })
                     }}
@@ -89,7 +89,7 @@ class SidebarFilterDate extends PureComponent {
             <label className="inline-flex items-center g-mb2 pointer">
               <RadioButton
                 name={filter.code}
-                isChecked={this.isActive(`${filter.code}-date-range`)}
+                checked={this.isActive(`${filter.code}-date-range`)}
                 value="date-range"
                 className="g-mr3"
                 onClick={() => {
