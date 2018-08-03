@@ -184,7 +184,7 @@ SidebarFilter.propTypes = {
           value: PropTypes.any.isRequired
         })
       ),
-      optionsType: PropTypes.oneOf(['date', 'checkbox'])
+      optionsType: PropTypes.oneOf(['date', 'checkbox', 'toggle', 'radio'])
     })
   ).isRequired,
   enabledOptions: PropTypes.arrayOf(

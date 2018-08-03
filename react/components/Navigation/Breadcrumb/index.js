@@ -65,7 +65,7 @@ Breadcrumb.propTypes = {
   /** Separator character */
   separator: PropTypes.string,
   /** Link Component */
-  link: PropTypes.element
+  link: PropTypes.oneOfType([PropTypes.func, PropTypes.element])
 }
 
 Breadcrumb.defaultProps = {
