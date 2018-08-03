@@ -3,6 +3,8 @@ import PropTypes from 'prop-types'
 import PlaceholderContainer from '../../DataLoading/PlaceholderContainer'
 
 class Container extends PureComponent {
+  static HR = () => <hr className="w-auto g-nh8 g-mv6 bw0 bg-base-4 c-on-base-4" style={{ height: 1 }} />
+
   render() {
     const { isPlaceholderActive, classNameArray, children } = this.props
     return (
