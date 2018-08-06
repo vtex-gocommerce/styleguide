@@ -29,13 +29,13 @@ class Select extends Component {
   }
 
   render() {
-    const { name, placeholder, list, isDisabled, hasError, required, withoutStyle, size } = this.props
+    const { name, placeholder, list, disbled, hasError, required, withoutStyle, size } = this.props
     const { value } = this.state
 
     let classes = `g-ph4 ba br1 ${size === 'small' ? ' g-h8' : ' g-h11 '} `
-    if (isDisabled) classes += 'b--base-4 bg-base-3 c-on-base-2 '
+    if (disbled) classes += 'b--base-4 bg-base-3 c-on-base-2 '
     if (hasError) classes += 'b--danger bg-light-danger '
-    if (!isDisabled && !hasError && !withoutStyle) classes += 'b--base-4 bg-base-1 c-on-base '
+    if (!disbled && !hasError && !withoutStyle) classes += 'b--base-4 bg-base-1 c-on-base '
     if (withoutStyle) classes += 'c-on-base-2 bg-transparent bn '
     classes += this.props.elementClassName
     return (
@@ -43,7 +43,7 @@ class Select extends Component {
         <select
           name={name}
           className={classes}
-          disabled={isDisabled}
+          disabled={disbled}
           onChange={this.handleChange}
           onFocus={this.handleFocus}
           onBlur={this.handleBlur}
@@ -77,7 +77,7 @@ Select.propTypes = {
   /** Allow select value blank */
   required: PropTypes.bool,
   /** Make input disabled. */
-  isDisabled: PropTypes.bool,
+  disbled: PropTypes.bool,
   /** Receive a key from the list to be the default value. */
   defaultValue: PropTypes.any,
   /** Callback on change */
@@ -102,7 +102,7 @@ Select.defaultProps = {
   name: null,
   placeholder: 'Select...',
   hasError: false,
-  isDisabled: false,
+  disbled: false,
   defaultValue: '',
   required: false,
   className: '',

@@ -5,39 +5,41 @@ import styles from './style.css'
 class Toggle extends PureComponent {
   constructor(props) {
     super(props)
-
+    console.log(`asdasda2222`, props)
     this.state = {
-      isChecked: this.props.isChecked
+      checked: props.checked
     }
   }
 
   handleClick = event => {
     this.setState(prev => ({
-      isChecked: !prev.isChecked
+      checked: !prev.checked
     }))
 
-    this.props.onClick(event, !this.state.isChecked)
+    this.props.onClick(event, !this.state.checked)
   }
 
   render() {
-    const { isDisabled, value, name, className } = this.props
-    const { isChecked } = this.state
+    const { disabled, value, name, className, hasError } = this.props
+    const { checked } = this.state
 
     let classes = `flex items-center relative g-h8 g-ph4 br-pill ${styles.toggle} `
     let circle = `absolute br-100 ${styles.toggleCircle} `
 
-    if (isDisabled) {
+    if (disabled) {
       classes += 'bg-base-1 ba b--base-4'
-      circle += isChecked ? 'bg-success ' : 'bg-on-base-2 '
-      circle += isChecked ? `${styles.toggledCircle}` : 'left-0 '
+      circle += checked ? 'bg-success ' : 'bg-on-base-2 '
+      circle += checked ? `${styles.toggledCircle}` : 'left-0 '
     } else {
       classes += 'bg-base-1 ba b--base-4'
-      circle += isChecked ? 'bg-success ' : 'bg-on-base-2 '
-      circle += isChecked ? `${styles.toggledCircle}` : 'left-0 '
+      circle += checked ? 'bg-success ' : 'bg-on-base-2 '
+      circle += checked ? `${styles.toggledCircle}` : 'left-0 '
     }
 
+    classes += hasError ? ' ba b--danger' : ''
+
     return (
-      <label className={`${className} ${!isDisabled && 'pointer'}`}>
+      <label className={`${className} ${!disabled && 'pointer'}`}>
         <div className={classes}>
           <div className={circle} />
         </div>
@@ -45,8 +47,8 @@ class Toggle extends PureComponent {
           name={name}
           type="checkbox"
           className="dn"
-          disabled={isDisabled}
-          defaultChecked={isChecked}
+          disabled={disabled}
+          defaultChecked={checked}
           value={value}
           onClick={this.handleClick}
         />
@@ -59,9 +61,11 @@ Toggle.propTypes = {
   /** (Input spec attribute) */
   name: PropTypes.string,
   /** Make toggle checked! */
-  isChecked: PropTypes.bool,
+  checked: PropTypes.bool,
+  /** Set Toogle withError */
+  hasError: PropTypes.bool,
   /** Make toggle disabled! */
-  isDisabled: PropTypes.bool,
+  disabled: PropTypes.bool,
   /** Set value of toggle. */
   value: PropTypes.string,
   /** Append css classes to the parent. */
@@ -71,8 +75,8 @@ Toggle.propTypes = {
 }
 
 Toggle.defaultProps = {
-  isChecked: false,
-  isDisabled: false,
+  checked: false,
+  disabled: false,
   value: '',
   className: '',
   onClick: checked => {}

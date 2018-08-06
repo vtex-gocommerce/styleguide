@@ -18,26 +18,26 @@ In Addition we offer a set of Icons and advanced react compomponents that can be
 <div class="flex flex-column">
 	<div class="flex">
 			<span class="pv4 blue">
-			< [Components](/#components)  >
+			< [Components](styleguide/#components)  >
 		</span>
 		<span class="pv4 pl5 blue">
-			 [Zoom](/#!/Components)  
+			 [Zoom](styleguide/#!/Components)  
 		</span>
 	</div>
 	<div class="flex">
 			<span class="pv4 blue">
-			< [Advanced Components](/#advanced-components) >
+			< [Advanced Components](styleguide/#advanced-components) >
 		</span>
 		<span class="pv4 pl5 blue">
-			 [Zoom](/#!/Advanced%20Components)
+			 [Zoom](styleguide/#!/Advanced%20Components)
 		</span>
 	</div>
 	<div class="flex">
 			<span class="pv4 blue">  
-			< [Icons](/#icons) >
+			< [Icons](styleguide/#icons) >
 		</span>
 		<span class="pv4 pl5 blue">  
-			 [Zoom](/#!/Icons)
+			 [Zoom](styleguide/#!/Icons)
 		</span>
 	</div>
 </div>

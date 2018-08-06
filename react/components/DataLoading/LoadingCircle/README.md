@@ -33,12 +33,12 @@ class LoadingCircleExample extends React.Component {
     const { percent } = this.state
 
     return (
-      <div>
+      <div class="flex justify-between">
         <div>
-          <LoadingCircle current={percent} width="120px" />
+          <LoadingCircle current={percent} width="80px" />
         </div>
-        <div>
-          <LoadingCircle current={percent} width="120px" hideOnFinish={true} />
+        <div class=" ">
+          <LoadingCircle current={percent} width="80px" hideOnFinish={true} />
         </div>
         <div className="g-mt4">
           <Button onClick={this.restart}>Restart</Button>

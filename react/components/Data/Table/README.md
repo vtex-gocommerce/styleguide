@@ -43,7 +43,7 @@ const rows = [
         <br />$ 2199.90
       </div>
     ),
-    Active: <Toggle value="isActive" isChecked />,
+    Active: <Toggle value="isActive" checked />,
     Actions: <IconMore className="blue" width="20" height="20" />
   },
   {
@@ -70,7 +70,7 @@ const rows = [
         <br />$ 2199.90
       </div>
     ),
-    Active: <Toggle value="isActive" isChecked />,
+    Active: <Toggle value="isActive" checked />,
     Actions: <IconMore className="blue" width="20" height="20" />
   },
   {

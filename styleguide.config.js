@@ -35,6 +35,10 @@ module.exports = {
           components: 'react/components/Data/**/*.js'
         },
         {
+          name: 'Data Loading',
+          components: 'react/components/DataLoading/**/*.js'
+        },
+        {
           name: 'Form',
           components: 'react/components/Form/**/*.js'
         },

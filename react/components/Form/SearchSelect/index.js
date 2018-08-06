@@ -13,14 +13,10 @@ class SearchSelect extends PureComponent {
     }
   }
 
-  componentWillReceiveProps = nextProps => {
-    if (nextProps.value !== this.props.value) this.setState({ value: nextProps.value })
-  }
-
   handleChange = event => {
     const value = event
     this.setState({ value })
-    this.props.onChange && this.props.onChange(value)
+    this.props.onChange && this.props.onChange({ target: { value: value.value } })
   }
 
   handleFocus = event => {
@@ -32,22 +28,20 @@ class SearchSelect extends PureComponent {
   }
 
   render() {
-    const { name, placeholder, list, isDisabled, hasError, required } = this.props
+    const { name, placeholder, list, disbled, hasError, required, defaultValue } = this.props
     const { value } = this.state
 
-    let classes = 'g-pa3 ba br1 '
-    if (isDisabled) classes += 'b--navy-40 bg-navy-20 navy-80 '
-    if (hasError) classes += 'b--red bg-red-light red '
-    if (!isDisabled && !hasError) classes += 'b--navy-40 hover-b--navy-60 bg-white navy '
-    classes += this.props.elementClassName
+    let classes = !!hasError ? 'ba br1 b--red bg-red-light red' : ''
 
     return (
       <div className={`${this.props.className}`}>
         <Select
+          defaultValue={defaultValue}
           name={name}
           options={list}
-          className="searchSelect"
-          disabled={isDisabled}
+          className={`searchSelect ${classes}`}
+          hasError={hasError}
+          disabled={disbled}
           onChange={this.handleChange}
           onFocus={this.handleFocus}
           onBlur={this.handleBlur}
@@ -72,7 +66,7 @@ SearchSelect.propTypes = {
   /** Allow select value blank */
   required: PropTypes.bool,
   /** Make input disabled. */
-  isDisabled: PropTypes.bool,
+  disbled: PropTypes.bool,
   /** Receive a key from the list to be the default value. */
   defaultValue: PropTypes.any,
   /** Callback on change */
@@ -93,7 +87,7 @@ SearchSelect.defaultProps = {
   name: null,
   placeholder: 'Select...',
   hasError: false,
-  isDisabled: false,
+  disbled: false,
   defaultValue: '',
   required: false,
   className: '',

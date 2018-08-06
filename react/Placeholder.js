@@ -1,3 +1,3 @@
-import Placeholder from './components/General/Placeholder/index'
+import Placeholder from './components/DataLoading/Placeholder/index'
 
 export default Placeholder

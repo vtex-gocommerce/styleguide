@@ -8,6 +8,5 @@
     handleChangePerPage={() => {}}
     handleChangePage={() => {}}
   />
-  <
 </div>
 ```

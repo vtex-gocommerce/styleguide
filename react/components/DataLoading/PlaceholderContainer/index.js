@@ -1,12 +1,16 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
-import Placeholder from './../Placeholder'
+import Placeholder from '../Placeholder'
 import './styles.css'
 
 function placeholderFunc(classNameArray) {
   return classNameArray.map((className, index) => {
     if (!Array.isArray(className)) {
-      return <Placeholder key={index + className} className={className} isPlaceholderActive />
+      return (
+        <React.Fragment key={index + className}>
+          <Placeholder className={className} isPlaceholderActive />
+        </React.Fragment>
+      )
     }
 
     return <div className="flex justify-between">{placeholderFunc(className)}</div>

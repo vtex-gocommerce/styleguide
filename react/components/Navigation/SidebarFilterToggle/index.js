@@ -26,7 +26,7 @@ class SidebarFilterToggle extends PureComponent {
                     value={item.value}
                     name={filter.code}
                     className="g-mr3"
-                    isChecked={this.isActive(code)}
+                    checked={this.isActive(code)}
                     onClick={() => {
                       this.handleChange({ ...item, code: code })
                     }}
