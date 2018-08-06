@@ -8,20 +8,16 @@ class Breadcrumb extends PureComponent {
 
     if (!this.props.link)
       return (
-        <React.Fragment>
-          <a href={item.to} className={classesLink}>
-            {icon && <IconArrow side="left" className="g-mr2" />} {item.title}
-          </a>
-        </React.Fragment>
+        <a href={item.to} className={classesLink}>
+          {icon && <IconArrow side="left" className="g-mr2" />} {item.title}
+        </a>
       )
 
     const Link = this.props.link
     return (
-      <React.Fragment>
-        <Link to={item.to} className={classesLink}>
-          {icon && <IconArrow side="left" className="g-mr2" />} {item.title}
-        </Link>
-      </React.Fragment>
+      <Link to={item.to} className={classesLink}>
+        {icon && <IconArrow side="left" className="g-mr2" />} {item.title}
+      </Link>
     )
   }
 
@@ -45,9 +41,9 @@ class Breadcrumb extends PureComponent {
       <div className="c-on-base g-f5 fw5">
         {items.map((item, index, items) => {
           if (index + 1 === items.length) {
-            return this.renderItemText(item, index)
+            return <React.Fragment key={index}>{this.renderItemText(item, index)}</React.Fragment>
           }
-          return this.renderItem(item, index)
+          return <React.Fragment key={index}>{this.renderItem(item, index)}</React.Fragment>
         })}
       </div>
     )
