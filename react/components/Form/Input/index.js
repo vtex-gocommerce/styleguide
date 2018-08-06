@@ -8,7 +8,7 @@ class Input extends PureComponent {
     super(props)
 
     this.state = {
-      value: props.value
+      value: props.defaultValue || props.value
     }
   }
 
@@ -143,6 +143,8 @@ Input.propTypes = {
   type: PropTypes.oneOf(['text', 'password', 'tel', 'hidden', 'email']),
   /** Set the value of the input. */
   value: PropTypes.any,
+  /** Set the DefaultValue of the input. */
+  defaultValue: PropTypes.any,
   /** Add placeholder text. */
   placeholder: PropTypes.string,
   /** Visually change input to present error. */
