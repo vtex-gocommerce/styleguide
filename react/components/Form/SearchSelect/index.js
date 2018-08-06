@@ -9,7 +9,7 @@ class SearchSelect extends PureComponent {
     super(props)
 
     this.state = {
-      value: this.props.defaultValue
+      value: this.getValue(props.defaultValue)
     }
   }
 
@@ -27,25 +27,31 @@ class SearchSelect extends PureComponent {
     this.props.onBlur && this.props.onBlur(event)
   }
 
+  getValue = value => {
+    const { list } = this.props
+    for (let key in list) {
+      if (list[key].value === value) return list[key]
+    }
+  }
+
   render() {
-    const { name, placeholder, list, disbled, hasError, required, defaultValue } = this.props
+    const { name, placeholder, list, disbled, hasError, required } = this.props
     const { value } = this.state
 
     let classes = !!hasError ? 'ba br1 b--red bg-red-light red' : ''
-
     return (
       <div className={`${this.props.className}`}>
         <Select
-          defaultValue={defaultValue}
+          defaultValue={value}
           name={name}
           options={list}
           className={`searchSelect ${classes}`}
           hasError={hasError}
           disabled={disbled}
           onChange={this.handleChange}
+          value={value}
           onFocus={this.handleFocus}
           onBlur={this.handleBlur}
-          value={value}
           placeholder={placeholder}
           required={required}
         />
