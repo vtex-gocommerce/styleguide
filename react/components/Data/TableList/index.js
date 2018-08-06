@@ -24,7 +24,7 @@ class TableList extends PureComponent {
                 <th
                   key={column.id}
                   className={`${index === 0 ? 'g-pl0' : 'g-pl4'} ${index === lastColumn ? 'g-pr0' : 'g-pr4'} 
-                  ${textAligns[textAlign]} c-on-base-2 fw4 `}
+                  ${textAligns[textAlign]} c-on-base-2 fw4 g-f1 `}
                   style={{ width: column.size + '%' }}
                 >
                   {column.label}
