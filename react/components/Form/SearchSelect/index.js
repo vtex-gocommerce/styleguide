@@ -35,7 +35,7 @@ class SearchSelect extends PureComponent {
   }
 
   render() {
-    const { name, placeholder, list, disbled, hasError, required } = this.props
+    const { name, placeholder, list, disabled, hasError, required } = this.props
     const { value } = this.state
 
     let classes = !!hasError ? 'ba br1 b--red bg-red-light red' : ''
@@ -47,7 +47,7 @@ class SearchSelect extends PureComponent {
           options={list}
           className={`searchSelect ${classes}`}
           hasError={hasError}
-          disabled={disbled}
+          disabled={disabled}
           onChange={this.handleChange}
           value={value}
           onFocus={this.handleFocus}
@@ -72,7 +72,7 @@ SearchSelect.propTypes = {
   /** Allow select value blank */
   required: PropTypes.bool,
   /** Make input disabled. */
-  disbled: PropTypes.bool,
+  disabled: PropTypes.bool,
   /** Receive a key from the list to be the default value. */
   defaultValue: PropTypes.any,
   /** Callback on change */
@@ -93,7 +93,7 @@ SearchSelect.defaultProps = {
   name: null,
   placeholder: 'Select...',
   hasError: false,
-  disbled: false,
+  disabled: false,
   defaultValue: '',
   required: false,
   className: '',

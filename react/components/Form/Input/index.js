@@ -47,7 +47,7 @@ class Input extends PureComponent {
   render() {
     const {
       hasError,
-      disbled,
+      disabled,
       type,
       placeholder,
       maxLength,
@@ -66,9 +66,9 @@ class Input extends PureComponent {
     let style = `${styles.input} ba br2 g-h11 `
 
     let colors = ``
-    if (disbled) colors += 'b--base-4 bg-base-3 c-on-base-2 '
+    if (disabled) colors += 'b--base-4 bg-base-3 c-on-base-2 '
     if (hasError) colors += 'b--danger bg-light-danger c-danger '
-    if (!disbled && !hasError && !withoutStyle) colors += 'b--base-4 bg-base-1 c-on-base-1 '
+    if (!disabled && !hasError && !withoutStyle) colors += 'b--base-4 bg-base-1 c-on-base-1 '
     if (withoutStyle) colors += 'c-on-base-1 bg-transparent bn '
 
     let inputClasses = style + padding + colors + className
@@ -83,7 +83,7 @@ class Input extends PureComponent {
       onKeyPress: this.handleKeyPress,
       onKeyDown: this.handleKeyDown,
       onKeyUp: this.handleKeyUp,
-      disabled: disbled,
+      disabled: disabled,
       maxLength: maxLength,
       value: value,
       defaultValue: defaultValue
@@ -150,7 +150,7 @@ Input.propTypes = {
   /** Visually change input to present error. */
   hasError: PropTypes.bool,
   /** Make input disabled. */
-  disbled: PropTypes.bool,
+  disabled: PropTypes.bool,
   /** Callback on change */
   onChange: PropTypes.func,
   /** Callback on focus */
@@ -190,7 +190,7 @@ Input.defaultProps = {
   value: '',
   placeholder: '',
   hasError: false,
-  disbled: false,
+  disabled: false,
   onChange: null,
   className: '',
   maxLength: null,

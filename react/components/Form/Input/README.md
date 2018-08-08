@@ -29,7 +29,7 @@
     <span className="g-ml4 no-underline c-on-base-1">Suffix</span>
   </div>
   <div className="g-mb2">
-    <Input value="Disabled" disbled />
+    <Input value="Disabled" disabled />
     <span className="g-ml4 no-underline c-on-base-1">Disabled</span>
   </div>
   <div className="g-mb2">

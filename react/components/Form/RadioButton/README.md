@@ -9,7 +9,7 @@
     />
   </div>
   <div className="dib g-mr2">
-    <RadioButton name="settings" value="visible" className="addclasses" disbled={true} />
+    <RadioButton name="settings" value="visible" className="addclasses" disabled={true} />
   </div>
   <div className="dib g-mr2">
     <RadioButton

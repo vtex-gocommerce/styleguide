@@ -31,7 +31,7 @@ class SelectCountry extends PureComponent {
   }
 
   render() {
-    const { name, placeholder, disbled, hasError, required } = this.props
+    const { name, placeholder, disabled, hasError, required } = this.props
     const { value } = this.state
 
     const list = Object.keys(countries).reduce(
@@ -39,9 +39,9 @@ class SelectCountry extends PureComponent {
       []
     )
     let classes = 'g-pa3 ba br1 '
-    if (disbled) classes += 'b--base-4 bg-base-3 c-on-base-2  '
+    if (disabled) classes += 'b--base-4 bg-base-3 c-on-base-2  '
     if (hasError) classes += 'b--danger bg-light-danger c-danger '
-    if (!disbled && !hasError) classes += 'b--base-4 bg-base-1 c-on-base-1 '
+    if (!disabled && !hasError) classes += 'b--base-4 bg-base-1 c-on-base-1 '
     classes += this.props.elementClassName
 
     return (
@@ -49,7 +49,7 @@ class SelectCountry extends PureComponent {
         <select
           name={name}
           className={classes}
-          disabled={disbled}
+          disabled={disabled}
           onChange={this.handleChange}
           onFocus={this.handleFocus}
           onBlur={this.handleBlur}
@@ -81,7 +81,7 @@ SelectCountry.propTypes = {
   /** Allow select value blank */
   required: PropTypes.bool,
   /** Make input disabled. */
-  disbled: PropTypes.bool,
+  disabled: PropTypes.bool,
   /** Receive a key from the list to be the default value. */
   defaultValue: PropTypes.any,
   /** Callback on change */
@@ -100,7 +100,7 @@ SelectCountry.defaultProps = {
   name: null,
   placeholder: 'Select...',
   hasError: false,
-  disbled: false,
+  disabled: false,
   defaultValue: '',
   required: false,
   className: '',

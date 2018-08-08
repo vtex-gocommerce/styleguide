@@ -36,14 +36,14 @@ class Textarea extends PureComponent {
   }
 
   render() {
-    const { hasError, disbled, type, placeholder, className, name, style, rows, resize } = this.props
+    const { hasError, disabled, type, placeholder, className, name, style, rows, resize } = this.props
     const { value, currentLength, maxLength } = this.state
     const currentCharacterIndex = maxLength - currentLength
 
     let inputClasses = `${styles.input} g-pa3 ba br1 `
-    if (disbled) inputClasses += 'b--base-4 bg-base-3 c-on-base-2 '
+    if (disabled) inputClasses += 'b--base-4 bg-base-3 c-on-base-2 '
     if (hasError) inputClasses += 'b--danger bg-light-danger c-danger '
-    if (!disbled && !hasError) inputClasses += 'b--base-4 bg-base-1 c-on-base-1 '
+    if (!disabled && !hasError) inputClasses += 'b--base-4 bg-base-1 c-on-base-1 '
 
     inputClasses += className
 
@@ -54,7 +54,7 @@ class Textarea extends PureComponent {
       onBlur: this.handleBlur,
       onFocus: this.handleFocus,
       onChange: this.handleChange,
-      disabled: disbled,
+      disabled: disabled,
       style: { ...style, resize: !resize ? 'none' : 'vertical' },
       rows: rows
     }
@@ -86,7 +86,7 @@ Textarea.propTypes = {
   /** Visually change input to present error. */
   hasError: PropTypes.bool,
   /** Make input disabled. */
-  disbled: PropTypes.bool,
+  disabled: PropTypes.bool,
   /** Callback on change */
   onChange: PropTypes.func,
   /** Callback on focus */
@@ -110,7 +110,7 @@ Textarea.defaultProps = {
   value: '',
   placeholder: '',
   hasError: false,
-  disbled: false,
+  disabled: false,
   onChange: null,
   className: '',
   style: null,

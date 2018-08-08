@@ -32,7 +32,7 @@ const Disabled = [
     <span className="g-ml4 no-underline navy-60">Select with error</span>
   </div>
   <div>
-    <SearchSelect placeholder="You can't pick any..." list={Simple} disbled />
+    <SearchSelect placeholder="You can't pick any..." list={Simple} disabled />
     <span className="g-ml4 no-underline navy-60">Disabled Select</span>
   </div>
 </div>

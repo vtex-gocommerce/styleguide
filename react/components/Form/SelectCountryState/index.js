@@ -58,16 +58,16 @@ class SelectCountryStates extends PureComponent {
   }
 
   render() {
-    const { name, placeholder, disbled, hasError, required } = this.props
+    const { name, placeholder, disabled, hasError, required } = this.props
     const { loadedCountryStates, inputValue, value } = this.state
 
     const list =
       loadedCountryStates &&
       loadedCountryStates.reduce((prev, element) => [...prev, { label: element, value: element }], [])
     let classes = 'g-pa3 ba br1 '
-    if (disbled) classes += 'b--base-4 bg-base-3 c-on-base-2  '
+    if (disabled) classes += 'b--base-4 bg-base-3 c-on-base-2  '
     if (hasError) classes += 'b--danger bg-light-danger c-danger '
-    if (!disbled && !hasError) classes += 'b--base-4 bg-base-1 c-on-base-1 '
+    if (!disabled && !hasError) classes += 'b--base-4 bg-base-1 c-on-base-1 '
     classes += this.props.elementClassName
 
     return list ? (
@@ -75,7 +75,7 @@ class SelectCountryStates extends PureComponent {
         <select
           name={name}
           className={classes}
-          disabled={disbled}
+          disabled={disabled}
           onChange={this.handleChange}
           onFocus={this.handleFocus}
           onBlur={this.handleBlur}
@@ -97,7 +97,7 @@ class SelectCountryStates extends PureComponent {
       <Input
         name={name}
         className={classes}
-        disabled={disbled}
+        disabled={disabled}
         onChange={this.handleInputChamge}
         onFocus={this.handleFocus}
         onBlur={this.handleBlur}
@@ -117,7 +117,7 @@ SelectCountryStates.propTypes = {
   /** Allow select value blank */
   required: PropTypes.bool,
   /** Make input disabled. */
-  disbled: PropTypes.bool,
+  disabled: PropTypes.bool,
   /** Receive a a 3 letter Country Code to be the default value. */
   defaultCountryCode: PropTypes.any,
   /** Receive a a 3 letter Country Code. */
@@ -138,7 +138,7 @@ SelectCountryStates.defaultProps = {
   name: null,
   placeholder: 'Select...',
   hasError: false,
-  disbled: false,
+  disabled: false,
   defaultCountryCode: '',
   countryCode: '',
   required: false,

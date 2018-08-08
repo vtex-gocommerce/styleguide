@@ -9,7 +9,7 @@
   <Button className="g-mr2" style="danger">
     Danger
   </Button>
-  <Button disbled>Disabled</Button>
+  <Button disabled>Disabled</Button>
 </div>
 ```
 
@@ -28,7 +28,7 @@ Icon Buttons
 ```js
 <div>
   <Button style="danger" icon={<IconClose />} className="g-mr2" />
-  <Button className="g-mr2" icon={<IconSpinner pulse />} disbled />
+  <Button className="g-mr2" icon={<IconSpinner pulse />} disabled />
   <Button className="g-mr2" icon={<IconAdd className="g-mr2" />}>
     Add Product
   </Button>
