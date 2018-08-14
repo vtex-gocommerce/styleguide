@@ -136,7 +136,7 @@ SelectCountryStates.propTypes = {
 
 SelectCountryStates.defaultProps = {
   name: null,
-  placeholder: 'Select...',
+  placeholder: '',
   hasError: false,
   disabled: false,
   defaultCountryCode: '',

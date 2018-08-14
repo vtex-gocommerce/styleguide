@@ -98,7 +98,7 @@ SelectCountry.propTypes = {
 
 SelectCountry.defaultProps = {
   name: null,
-  placeholder: 'Select...',
+  placeholder: '',
   hasError: false,
   disabled: false,
   defaultValue: '',
