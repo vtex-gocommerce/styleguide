@@ -18,15 +18,27 @@ class SidebarFilterCheckbox extends PureComponent {
   }
 
   handleAdd = option => {
-    this.setState({ list: [...this.state.list, option] }, () => {
-      this.handleChange()
-    })
+    console.log('------REMOVE-------')
+
+    this.setState(
+      prev => ({
+        list: [...prev.list, option]
+      }),
+      () => {
+        this.handleChange()
+      }
+    )
   }
 
   handleRemove = option => {
-    this.setState({ list: this.state.list.filter(item => item.code !== option.code) }, () => {
-      this.handleChange()
-    })
+    console.log('------REMOVE-------')
+
+    this.setState(
+      prev => ({ list: prev.list.filter(item => item.code !== option.code) }),
+      () => {
+        this.handleChange()
+      }
+    )
   }
 
   isActive = code => {
@@ -49,8 +61,8 @@ class SidebarFilterCheckbox extends PureComponent {
                     value={item.value}
                     name={filter.code}
                     checked={this.isActive(code)}
-                    onClick={value => {
-                      if (value) {
+                    onClick={_ => {
+                      if (this.isActive(code) === false) {
                         this.handleAdd({ ...item, code: code })
                         return
                       }
