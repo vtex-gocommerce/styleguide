@@ -125,7 +125,7 @@ Search.propTypes = {
 }
 
 Search.defaultProps = {
-  placeholder: 'Search...',
+  placeholder: '',
   withOptions: false,
   options: [],
   searchValue: '',
