@@ -8,16 +8,16 @@ class InputTag extends Component {
     super(props)
 
     this.state = {
-      disbled: props.disbled,
+      disabled: props.disabled,
       input: '',
       values: props.defaultValues || props.values || []
     }
   }
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.disbled !== this.props.disbled) {
+    if (nextProps.disabled !== this.props.disabled) {
       this.setState({
-        disbled: nextProps.disbled
+        disabled: nextProps.disabled
       })
     }
 
@@ -115,7 +115,7 @@ class InputTag extends Component {
           className={`dib w-auto flex-auto ${this.props.hasError ? '' : 'b--none g-pl1'}`}
           hasError={this.props.hasError}
           value={this.state.input}
-          disbled={this.state.disbled}
+          disabled={this.state.disabled}
           placeholder={this.props.placeholder}
           onChange={this.onChangeValue}
           onBlur={this.onBlur}
@@ -128,7 +128,7 @@ class InputTag extends Component {
 
 InputTag.propTypes = {
   hasError: PropTypes.bool,
-  disbled: PropTypes.bool,
+  disabled: PropTypes.bool,
   values: PropTypes.any,
   defaultValues: PropTypes.any,
   className: PropTypes.string,
@@ -139,7 +139,7 @@ InputTag.propTypes = {
 }
 
 InputTag.defaultProps = {
-  disbled: false,
+  disabled: false,
   hasError: false,
   values: [],
   className: '',

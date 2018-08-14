@@ -7,7 +7,7 @@
     <CheckBox name="settings" value="visible" onClick={checked => console.log(`Toggle to ${checked}`)} checked />
   </div>
   <div className="dib">
-    <CheckBox value="isActive" disbled />
+    <CheckBox value="isActive" disabled />
   </div>
 </div>
 ```

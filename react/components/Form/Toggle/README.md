@@ -16,10 +16,10 @@
     />
   </div>
   <div className="dib g-mr2">
-    <Toggle value="isActive" disbled />
+    <Toggle value="isActive" disabled />
   </div>
   <div className="dib g-mr2">
-    <Toggle value="isActive" checked disbled />
+    <Toggle value="isActive" checked disabled />
   </div>
   <div className="dib">
     <div className="flex items-center">

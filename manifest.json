@@ -1,7 +1,11 @@
 {
   "vendor": "gocommerce",
   "name": "styleguide",
+<<<<<<< HEAD
   "version": "0.1.4",
+=======
+  "version": "0.1.6",
+>>>>>>> 414bf8376af170b628d2c48790d738a50817adb0
   "title": "GoCommerce Styleguide",
   "description": "The GoCommerce Styleguide components for the Render framework",
   "builders": {

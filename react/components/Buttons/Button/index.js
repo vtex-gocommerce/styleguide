@@ -19,20 +19,20 @@ const listOfStyles = {
 
 class Button extends PureComponent {
   handleClick = event => {
-    !this.props.disbled && this.props.onClick && this.props.onClick(event)
+    !this.props.disabled && this.props.onClick && this.props.onClick(event)
   }
 
   render() {
-    const { size, style, type, fullWidth, disbled, icon, name } = this.props
+    const { size, style, type, fullWidth, disabled, icon, name } = this.props
     const Icon = props => icon
 
     let classes = `inline-flex items-center justify-center g-f2 fw5 g-ph5 br2 g-h11 tc `
-    classes += disbled ? 'ba b--base-3 bg-base-3 c-on-base-2 ' : `${listOfStyles[style]} `
+    classes += disabled ? 'ba b--base-3 bg-base-3 c-on-base-2 ' : `${listOfStyles[style]} `
     if (fullWidth) classes += 'w-100 '
     if (this.props.className) classes += this.props.className
 
     return (
-      <button name={name} type={type} className={classes} disabled={disbled} onClick={this.handleClick}>
+      <button name={name} type={type} className={classes} disabled={disabled} onClick={this.handleClick}>
         <span>
           {icon && <Icon />}
           {this.props.children}
@@ -52,7 +52,7 @@ Button.propTypes = {
   /** Make button full width. */
   fullWidth: PropTypes.bool,
   /** Make button disabled. */
-  disbled: PropTypes.bool,
+  disabled: PropTypes.bool,
   /** Add icon to a button. */
   icon: PropTypes.element,
   /** Function that will be called when user click on button. */
@@ -67,7 +67,7 @@ Button.defaultProps = {
   style: 'primary',
   type: 'button',
   fullWidth: false,
-  disbled: false,
+  disabled: false,
   onClick: null
 }
 

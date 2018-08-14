@@ -29,13 +29,13 @@ class Select extends Component {
   }
 
   render() {
-    const { name, placeholder, list, disbled, hasError, required, withoutStyle, size } = this.props
+    const { name, placeholder, list, disabled, hasError, required, withoutStyle, size } = this.props
     const { value } = this.state
 
     let classes = `g-ph4 ba br1 ${size === 'small' ? ' g-h8' : ' g-h11 '} `
-    if (disbled) classes += 'b--base-4 bg-base-3 c-on-base-2 '
+    if (disabled) classes += 'b--base-4 bg-base-3 c-on-base-2 '
     if (hasError) classes += 'b--danger bg-light-danger '
-    if (!disbled && !hasError && !withoutStyle) classes += 'b--base-4 bg-base-1 c-on-base '
+    if (!disabled && !hasError && !withoutStyle) classes += 'b--base-4 bg-base-1 c-on-base '
     if (withoutStyle) classes += 'c-on-base-2 bg-transparent bn '
     classes += this.props.elementClassName
     return (
@@ -43,7 +43,7 @@ class Select extends Component {
         <select
           name={name}
           className={classes}
-          disabled={disbled}
+          disabled={disabled}
           onChange={this.handleChange}
           onFocus={this.handleFocus}
           onBlur={this.handleBlur}
@@ -77,7 +77,7 @@ Select.propTypes = {
   /** Allow select value blank */
   required: PropTypes.bool,
   /** Make input disabled. */
-  disbled: PropTypes.bool,
+  disabled: PropTypes.bool,
   /** Receive a key from the list to be the default value. */
   defaultValue: PropTypes.any,
   /** Callback on change */
@@ -102,7 +102,7 @@ Select.defaultProps = {
   name: null,
   placeholder: 'Select...',
   hasError: false,
-  disbled: false,
+  disabled: false,
   defaultValue: '',
   required: false,
   className: '',
