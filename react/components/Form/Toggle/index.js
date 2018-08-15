@@ -5,9 +5,16 @@ import styles from './style.css'
 class Toggle extends PureComponent {
   constructor(props) {
     super(props)
-    console.log(`asdasda2222`, props)
+
     this.state = {
+      controlledChecked: props.checked,
       checked: props.checked
+    }
+  }
+
+  static getDerivedStateFromProps = (nextProps, prevState) => {
+    if (nextProps.controlledChecked != prevState.controlledChecked) {
+      return { checked: nextProps.checked, controlledChecked: nextProps.checked }
     }
   }
 
