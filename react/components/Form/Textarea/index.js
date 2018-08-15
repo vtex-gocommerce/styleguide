@@ -7,7 +7,7 @@ class Textarea extends PureComponent {
     super(props)
 
     this.state = {
-      value: props.value,
+      value: props.defaultValue || props.value,
       maxLength: props.maxLength || null,
       currentLength: props.value.length || 0
     }
@@ -65,7 +65,7 @@ class Textarea extends PureComponent {
         {maxLength !== 0 && (
           <label
             className={`flex flex-row-reverse db g-pb2 g-pa1 g-f2 ${
-              currentCharacterIndex === 0 ? 'red' : 'c-on-base-2'
+              currentCharacterIndex <= 0 ? 'red' : 'c-on-base-2'
             }`}
           >
             {maxLength && currentCharacterIndex}
@@ -79,7 +79,9 @@ class Textarea extends PureComponent {
 Textarea.propTypes = {
   /** Set input's name. */
   name: PropTypes.string,
-  /** Set the value of the input. */
+  /** Set the defaultValue of the TextArea. */
+  defaultValue: PropTypes.any,
+  /** Set the value of the TextArea. */
   value: PropTypes.any,
   /** Add placeholder text. */
   placeholder: PropTypes.string,
