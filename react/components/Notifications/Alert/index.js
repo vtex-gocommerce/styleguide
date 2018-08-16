@@ -10,22 +10,22 @@ const types = {
   success: {
     icon: IconSuccess,
     classes: 'b--success c-success',
-    fill: 'bg-light-success'
+    fill: ' bg-success-light'
   },
   warning: {
     icon: IconWarning,
     classes: 'b--warning c-warning',
-    fill: 'bg-light-warning'
+    fill: 'bg-warning-light'
   },
   error: {
     icon: IconDanger,
     classes: 'b--danger c-danger',
-    fill: 'bg-light-danger'
+    fill: 'bg-danger-light'
   },
   info: {
     icon: IconInfo,
     classes: 'b--info  c-info',
-    fill: 'bg-light-info'
+    fill: ' bg-info-light'
   }
 }
 
@@ -41,8 +41,8 @@ class Alert extends PureComponent {
   }
 
   render() {
-    const { type, onClose, fill, title, action } = this.props
-    const classes = `flex g-ph5 g-pv5 ba br2 b--dashed flex ${types[type].classes} ${fill ? types[type].fill : ''}`
+    const { type, onClose, title, action } = this.props
+    const classes = `flex g-ph5 g-pv5 ba br2 b--dashed flex ${types[type].classes} ${types[type].fill}`
     const Icon = types[type].icon
     const Action = props => action
 
@@ -86,8 +86,7 @@ Alert.defaultProps = {
   type: 'info',
   onClose: null,
   autoClose: null,
-  title: null,
-  fill: false
+  title: null
 }
 
 export default Alert
