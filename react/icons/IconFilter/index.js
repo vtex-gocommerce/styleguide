@@ -19,14 +19,14 @@ IconFilter.propTypes = {
   width: PropTypes.string,
   /** Define height of the icon. */
   height: PropTypes.string,
-  className: PropTypes.string,
+  className: PropTypes.string
 }
 
 IconFilter.defaultProps = {
   ignoreSize: false,
   height: '16px',
   width: '16px',
-  className: '',
+  className: ''
 }
 
 export default IconFilter
