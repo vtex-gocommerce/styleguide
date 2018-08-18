@@ -48,7 +48,7 @@ class AutoCompleteList extends PureComponent {
     const { inputName, className, hasError, placeholder } = this.props
     const { filterInput } = this.state
     const filteredList = this.filteredList(this.state.filterInput)
-    console.log(`filteredList`, filteredList)
+    
     return (
       <div className="db  w-100">
         <div className="relative w-100">
