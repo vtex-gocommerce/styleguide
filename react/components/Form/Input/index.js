@@ -51,6 +51,7 @@ class Input extends PureComponent {
       type,
       placeholder,
       maxLength,
+      showMaxLength,
       mask,
       maskChar,
       alwaysShowMask,
@@ -126,15 +127,16 @@ class Input extends PureComponent {
         <React.Fragment>
           {label && <label className="db c-on-base-2 g-mb1 g-f2 lh-copy">{label}</label>}
           <input {...props} className={inputClasses} />
-          {maxLength !== 0 && (
-            <label
-              className={`flex flex-row-reverse db g-pb2 g-pa1 g-f2 ${
-                maxLength - this.state.value.length <= 0 ? 'red' : 'c-on-base-2'
-              }`}
-            >
-              {maxLength && maxLength - this.state.value.length}
-            </label>
-          )}
+          {showMaxLength &&
+            maxLength !== 0 && (
+              <label
+                className={`flex flex-row-reverse db g-pb2 g-pa1 g-f2 ${
+                  maxLength - this.state.value.length <= 0 ? 'red' : 'c-on-base-2'
+                }`}
+              >
+                {maxLength && maxLength - this.state.value.length}
+              </label>
+            )}
         </React.Fragment>
       )
     }
@@ -174,6 +176,8 @@ Input.propTypes = {
   className: PropTypes.string,
   /** Max number of characters */
   maxLength: PropTypes.number,
+  /** Show Maxlength counter*/
+  showMaxLength: PropTypes.bool,
   /** Mask string. Default format characters are:
   9: 0-9
   a: A-Z, a-z
@@ -201,6 +205,7 @@ Input.defaultProps = {
   onChange: null,
   className: '',
   maxLength: null,
+  showMaxLength: false,
   mask: null,
   maskChar: ' ',
   alwaysShowMask: false,

@@ -10,7 +10,10 @@
           { id: '3', label: 'Item3' },
           { id: '4', label: 'Item4' },
           { id: '5', label: 'Item5' },
-          { id: '6', label: 'Item6' }
+          { id: '6', label: 'Item6' },
+          { id: '7', label: 'Morango' },
+          { id: '8', label: 'Mamão' },
+          { id: '9', label: 'Limão' }
         ]}
         onClick={selected => console.log(selected)}
       />
