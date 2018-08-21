@@ -105,7 +105,8 @@ class Table extends PureComponent {
                 return (
                   <tr
                     key={index}
-                    className={`${fields.bgColor && 'bg-' + fields.bgColor} ${fields.lineLink && 'pointer'}`}
+                    className={`${fields.bgColor && 'bg-' + fields.bgColor} ${fields.lineLink &&
+                      'pointer'} hover-bg-base-2 bg-animate `}
                     onClick={fields.lineLink && fields.lineLink}
                   >
                     {selectable && (
