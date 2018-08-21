@@ -7,16 +7,16 @@ class Toggle extends PureComponent {
     super(props)
 
     this.state = {
-      controlledChecked: props.checked,
+      // controlledChecked: props.checked,
       checked: props.checked
     }
   }
 
-  static getDerivedStateFromProps = (nextProps, prevState) => {
-    if (nextProps.controlledChecked != prevState.controlledChecked) {
-      return { checked: nextProps.checked, controlledChecked: nextProps.checked }
-    }
-  }
+  // static getDerivedStateFromProps = (nextProps, prevState) => {
+  //   if (nextProps.controlledChecked != prevState.controlledChecked) {
+  //     return { checked: nextProps.checked, controlledChecked: nextProps.checked }
+  //   }
+  // }
 
   handleClick = event => {
     this.setState(prev => ({
