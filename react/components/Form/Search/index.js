@@ -61,7 +61,7 @@ class Search extends PureComponent {
             name={name}
             list={options}
             elementClassName={`bn h-100 ${size === 'small' ? ' g-h8' : ' g-h10'} `}
-            className="h-100 br b--base-4"
+            className="h-100 br b--base-4 f6"
             onChange={this.handleChangeOption}
             value={this.state.optionValue}
             withoutStyle={nav}
@@ -75,7 +75,7 @@ class Search extends PureComponent {
 
           <Input
             placeholder={placeholder}
-            className="bn w-100 w-100"
+            className="bn w-100 w-100 f6"
             onBlue={this.handleSearch}
             onChange={this.handleSearch}
             value={this.state.searchValue}

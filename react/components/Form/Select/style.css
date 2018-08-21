@@ -20,7 +20,7 @@
   display: block;
   position: absolute;
   top: 50%;
-  right: 8px;
+  right: 15px;
 }
 
 .selectWrapper select:focus {

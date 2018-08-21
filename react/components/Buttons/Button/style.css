@@ -1,36 +1,35 @@
 .activeBgActivePrimary:active {
-    background-color: #14282E;
-    border-color: #14282E;
+  background-color: #377a63;
+  border-color: #377a63;
 }
 
-.activeBgActivePrimary:focus{
-    outline: none;
+.activeBgActivePrimary:focus {
+  outline: none;
 }
 
 .activeBgActiveSecondary:active {
-    background-color: #A9ACB7;
-    border-color: #A9ACB7;
+  background-color: #a9acb7;
+  border-color: #a9acb7;
 }
 
-.activeBgActiveSecondary:focus{
-    outline: none;
+.activeBgActiveSecondary:focus {
+  outline: none;
 }
 
 .activeBgActiveDanger:active {
-    background-color: #7C0D20;
-    border-color: #7C0D20;
-    
+  background-color: #7c0d20;
+  border-color: #7c0d20;
 }
 
-.activeBgActiveDanger:focus{
-    outline: none;
+.activeBgActiveDanger:focus {
+  outline: none;
 }
 
 .activeBgActiveOutline:active {
-    background-color: #E7E9F0;
-    border-color: #E7E9F0;
+  background-color: #e7e9f0;
+  border-color: #e7e9f0;
 }
 
-.activeBgActiveOutline:focus{
-    outline: none;
+.activeBgActiveOutline:focus {
+  outline: none;
 }

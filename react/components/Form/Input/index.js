@@ -63,7 +63,7 @@ class Input extends PureComponent {
     } = this.props
     const { value } = this.state
 
-    let padding = 'g-ph4 '
+    let padding = 'g-ph4 f6 '
     let style = `${styles.input} ba br2 g-h11 `
 
     let colors = ``
