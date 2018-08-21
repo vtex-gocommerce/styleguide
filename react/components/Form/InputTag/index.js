@@ -128,7 +128,7 @@ class InputTag extends Component {
           hasError={this.props.hasError}
           value={this.state.input}
           disabled={this.state.disabled}
-          placeholder={this.props.placeholder}
+          placeholder={!this.state.values.length ? this.props.placeholder : ''}
           onChange={this.onChangeValue}
           onBlur={this.onBlur}
           onKeyDown={this.onKeyPressAtOptionValue}
