@@ -20,7 +20,7 @@ class Tag extends PureComponent {
     let classes = `${
       styles.gc_tag
     } ${tagStyleClasses} g-f2 g-t5 dib g-ph4 g-mr1 g-h10 ba br2 c-on-base-2 b--dashed flex justify-center items-center `
-    if (onRemove) classes += 'hover-bg-base-2 pointer hover-bg-base-3 hover-b--base-3'
+    if (onRemove) classes += 'pointer'
 
     return (
       <span className={classes}>
