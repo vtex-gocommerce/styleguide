@@ -80,13 +80,16 @@ class InputTag extends Component {
   }
 
   onBlur = e => {
-    this.setState(
-      {
-        values: [...this.state.values, e.target.value.replace(',', '')],
-        input: ''
-      },
-      () => this.handleChangeValues()
-    )
+    const value = event.target.value
+    if (value !== '' && value !== ',') {
+      this.setState(
+        {
+          values: [...this.state.values, value.replace(',', '')],
+          input: ''
+        },
+        () => this.handleChangeValues()
+      )
+    }
 
     this.props.onBlur && this.props.onBlur(e)
   }

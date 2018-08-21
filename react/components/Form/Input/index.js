@@ -149,7 +149,7 @@ Input.propTypes = {
   /** Set input's name. */
   name: PropTypes.string,
   /** Set input's type. */
-  type: PropTypes.oneOf(['text', 'password', 'tel', 'hidden', 'email']),
+  type: PropTypes.oneOf(['text', 'password', 'tel', 'hidden', 'email', 'number']),
   /** Set the value of the input. */
   value: PropTypes.any,
   /** Set the DefaultValue of the input. */
