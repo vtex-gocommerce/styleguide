@@ -84,7 +84,8 @@ const rows = [
     ),
     Active: <Toggle value="isActive" />,
     Actions: <IconMore className="blue" width="20" height="20" />,
-    bgColor: 'success-light'
+    bgColor: 'success-light',
+    lineLink: () => alert('link')
   }
 ]
 
