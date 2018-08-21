@@ -103,7 +103,11 @@ class Table extends PureComponent {
                 })
 
                 return (
-                  <tr key={index} className={`${fields.bgColor && 'bg-' + fields.bgColor}`}>
+                  <tr
+                    key={index}
+                    className={`${fields.bgColor && 'bg-' + fields.bgColor} ${fields.lineLink && 'pointer'}`}
+                    onClick={fields.lineLink && fields.lineLink}
+                  >
                     {selectable && (
                       <th className="g-pv3 g-f1 tc bb b--base-4" style={{ width: '40px' }}>
                         <CheckBox
