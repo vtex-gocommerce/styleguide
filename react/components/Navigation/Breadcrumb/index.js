@@ -38,7 +38,7 @@ class Breadcrumb extends PureComponent {
     const { items } = this.props
 
     return (
-      <div className="c-on-base g-f5 fw5">
+      <div className="c-on-base g-f5 fw6 lh-copy tracked-tight">
         {items.map((item, index, items) => {
           if (index + 1 === items.length) {
             return <React.Fragment key={index}>{this.renderItemText(item, index)}</React.Fragment>
