@@ -32,14 +32,20 @@ class Select extends Component {
     const { name, placeholder, list, disabled, hasError, required, withoutStyle, size } = this.props
     const { value } = this.state
 
-    let classes = `g-ph4 ba br1 ${size === 'small' ? ' g-h8' : ' g-h11 '} `
-    if (disabled) classes += 'b--base-4 bg-base-3 c-on-base-2 '
-    if (hasError) classes += 'b--danger bg-light-danger '
-    if (!disabled && !hasError && !withoutStyle) classes += 'b--base-4 bg-base-1 c-on-base '
-    if (withoutStyle) classes += 'c-on-base-2 bg-transparent bn '
+    let classesSelectWrapper = `ba br1 `
+    if (disabled) classesSelectWrapper += 'b--base-4 bg-base-3 c-on-base-2 '
+    if (hasError) classesSelectWrapper += 'b--danger bg-light-danger '
+    if (!disabled && !hasError && !withoutStyle) classesSelectWrapper += 'b--base-4 bg-base-1 c-on-base '
+    if (withoutStyle) classesSelectWrapper += 'c-on-base-2 bg-transparent bn '
+
+    let classes = `g-ph4  ${size === 'small' ? ' g-h8' : ' g-h11 '} `
+    if (disabled) classes += 'c-on-base-2 '
+    if (!disabled && !hasError && !withoutStyle) classes += 'c-on-base '
+
+    classes += 'bg-transparent bn '
     classes += this.props.elementClassName
     return (
-      <div className={`${styles.selectWrapper} ${this.props.className}`}>
+      <div className={`${styles.selectWrapper1} ${this.props.className} ${classesSelectWrapper}`}>
         <select
           name={name}
           className={classes}

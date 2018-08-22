@@ -1,21 +1,21 @@
-.selectWrapper {
+.selectWrapper1 {
   display: inline-block;
   position: relative;
 }
 
-.selectWrapper select {
+.selectWrapper1 select {
   -webkit-appearance: none;
   -moz-appearance: none;
   -ms-progress-appearance: none;
   appearance: none;
   padding-right: 20px;
-  width: 100%;
+  width: auto;
 }
 
-.selectWrapper::before {
+.selectWrapper1::before {
   border-left: 5px solid transparent;
   border-right: 5px solid transparent;
-  border-top: 5px solid #7f8494;
+  border-top: 5px solid #a1a6ad;
   content: '';
   display: block;
   position: absolute;
@@ -23,6 +23,6 @@
   right: 15px;
 }
 
-.selectWrapper select:focus {
+.selectWrapper1 select:focus {
   outline: 0;
 }
