@@ -18,8 +18,6 @@ class SidebarFilterCheckbox extends PureComponent {
   }
 
   handleAdd = option => {
-    console.log('------REMOVE-------')
-
     this.setState(
       prev => ({
         list: [...prev.list, option]
@@ -31,8 +29,6 @@ class SidebarFilterCheckbox extends PureComponent {
   }
 
   handleRemove = option => {
-    console.log('------REMOVE-------')
-
     this.setState(
       prev => ({ list: prev.list.filter(item => item.code !== option.code) }),
       () => {

@@ -90,9 +90,9 @@ class SidebarFilter extends PureComponent {
     const { keyRenderOptions } = this.state
     return (
       <div className="fixed z-9999 w-25 vh-100 top-0 right-0 shadow-2 bg-white">
-        <div className="flex flex-column vh-100 g-ph8 g-pt8 g-pb0 ">
+        <div className="flex flex-column vh-100 g-ph8 g-pt6 g-pb0 ">
           <div className="flex justify-between  g-pb5">
-            <div className="g-f5 c-on-base">{this.getTextByLocale('filters')}</div>
+            <div className="g-f5 fw6 tracked-tight c-on-base">{this.getTextByLocale('filters')}</div>
             <div className="g-f2">
               <div
                 className="fr g-ph3 c-on-base pointer hover-c-danger"
@@ -108,8 +108,8 @@ class SidebarFilter extends PureComponent {
             {enabledOptions &&
               enabledOptions.length > 0 && (
                 <div className="w-100">
-                  <p className="c-on-base-2 f7">{this.getTextByLocale('appliedFilters')}</p>
-                  <div className="flex flex-wrap">
+                  <p className="c-on-base-2 g-f1 fw6">{this.getTextByLocale('appliedFilters')}</p>
+                  <div className="flex flex-wrap g-pt2">
                     {enabledOptions.map((item, index) => {
                       return (
                         <span key={item.code} className="dib g-mb2">
@@ -124,8 +124,8 @@ class SidebarFilter extends PureComponent {
               )}
 
             <div className="w-100">
-              <div className="g-pt4">
-                <p className="c-on-base-2 f7 nb2">{this.getTextByLocale('editFilters')} </p>
+              <div className="g-pt2">
+                <p className="c-on-base-2 g-f1 fw6 nb2">{this.getTextByLocale('editFilters')} </p>
               </div>
             </div>
 
@@ -141,13 +141,13 @@ class SidebarFilter extends PureComponent {
                     }}
                   >
                     <div className="flex-auto">
-                      <div className="flex fw5 g-f3">{filter.title}</div>
+                      <div className="flex fw6 g-f3 c-primary ">{filter.title}</div>
                     </div>
-                    <div className="fr flex navy-80">
-                      <IconCaret side={filter.expanded ? 'down' : 'up'} className="g-pt1 g-ph3 c-primary" />
+                    <div className="fr flex">
+                      <IconCaret side={filter.expanded ? 'up' : 'down'} className="g-pt1 g-ph3 c-primary" />
                     </div>
                   </div>
-                  <div className={filter.expanded ? 'db g-pt4' : 'dn'}>
+                  <div className={filter.expanded ? 'db g-pt0' : 'dn'}>
                     <ComponentListOptions
                       filter={filter}
                       enabledOptions={enabledOptions}

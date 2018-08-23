@@ -46,7 +46,7 @@ class Select extends Component {
     classes += 'bg-transparent bn '
     classes += this.props.elementClassName
     return (
-      <div className={`${styles.selectWrapper1} ${this.props.className} ${classesSelectWrapper}`}>
+      <div className={`${styles.selectWrapper1} ${this.props.className} ${classesSelectWrapper} `}>
         <select
           name={name}
           className={classes}
