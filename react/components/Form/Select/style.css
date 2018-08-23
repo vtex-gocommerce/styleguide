@@ -8,7 +8,7 @@
   -moz-appearance: none;
   -ms-progress-appearance: none;
   appearance: none;
-  padding-right: 20px;
+  padding-right: 14px;
   width: auto;
 }
 
@@ -19,8 +19,8 @@
   content: '';
   display: block;
   position: absolute;
-  top: 50%;
-  right: 15px;
+  top: 47%;
+  right: 2px;
 }
 
 .selectWrapper1 select:focus {

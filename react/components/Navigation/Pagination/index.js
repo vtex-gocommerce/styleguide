@@ -16,11 +16,11 @@ class Pagination extends PureComponent {
 
     return (
       <div className="flex c-on-base-2 items-center">
-        <div className="dib g-mr4">
-          <span className="c-primary">{currentPage}</span> / <span>{pageCount}</span>
+        <div className="dib g-mr5 tracked-tight">
+          <span className="c-primary">{currentPage}</span> / <span>1{pageCount}</span>
         </div>
         {currentPage > 1 && (
-          <span className="db g-w5 g-mr5" onClick={() => this.handleChange(currentPage - 1)}>
+          <span className="db g-w5 g-mr2" onClick={() => this.handleChange(currentPage - 1)}>
             <IconArrow side="left" className="c-on-base-2 hover-c-primary pointer" />
           </span>
         )}
