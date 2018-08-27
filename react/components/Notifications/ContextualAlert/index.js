@@ -48,7 +48,7 @@ class ContextualAlert extends PureComponent {
     return (
       <div className={classes}>
         <div className="flex justify-center g-mr3 w-100">
-          <div className="dib ph3 fw5">{this.props.children}</div>
+          <div className="dib ph3 fw6">{this.props.children}</div>
         </div>
         {onClose && (
           <div className="pointer" onClick={onClose}>

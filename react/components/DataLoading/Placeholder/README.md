@@ -20,7 +20,7 @@ class ShowModal extends React.Component {
           <div className="g-pt4">
             Simple text
             <Placeholder className="g-h7 g-w12 g-mt2" isPlaceholderActive={this.state.placeholderIsActive}>
-              {() => <span className="f5 fw5"> Title </span>}
+              {() => <span className="f5 fw6"> Title </span>}
             </Placeholder>
             <Placeholder className="g-h5 w15 g-mt2" isPlaceholderActive={this.state.placeholderIsActive}>
               {() => 'this is a simple text example'}

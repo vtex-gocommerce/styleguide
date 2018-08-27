@@ -28,7 +28,7 @@ class ShowModal extends React.Component {
             >
               {() => (
                 <>
-                  <span className="g-f5 fw5"> I can put anything in here </span>
+                  <span className="g-f5 fw6"> I can put anything in here </span>
                   <br />
                   <span className="g-f2 "> My wishs can become true, </span>
                   <br />

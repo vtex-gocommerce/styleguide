@@ -6,7 +6,7 @@ class Label extends PureComponent {
   render() {
     const { count, onRemove, bgColor, fullWidth } = this.props
     const tagBgColor = bgColor ? `bg-${bgColor}` : 'bg-primary'
-    let classes = `dib g-ph2 fw5 g-pv1 br2 ${tagBgColor} white g-f2 `
+    let classes = `dib g-ph2 fw6 g-pv1 br2 ${tagBgColor} white g-f2 `
     if (fullWidth) classes += ' w-100 '
     if (onRemove) classes += 'hover-bg-danger pointer'
 

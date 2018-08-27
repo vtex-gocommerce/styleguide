@@ -19,7 +19,7 @@ class AuthButton extends PureComponent {
     const { provider, url } = this.props
     const Icon = providers[provider].icon
 
-    let classes = `inline-flex items-center justify-center g-f2 fw5 g-ph5 br2 g-h11 ${providers[provider].classes} `
+    let classes = `inline-flex items-center justify-center g-f2 fw6 g-ph5 br2 g-h11 ${providers[provider].classes} `
     if (this.props.className) classes += this.props.className
 
     return (

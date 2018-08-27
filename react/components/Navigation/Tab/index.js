@@ -32,7 +32,7 @@ class Tab extends PureComponent {
             <div
               key={element.id}
               className={`dib g-pt2 g-pb4 g-mr3 pointer  ${
-                element.id === active ? 'bw1 bb c-primary b--primary fw5' : 'c-on-base-2'
+                element.id === active ? 'bw1 bb c-primary b--primary fw6' : 'c-on-base-2'
               }`}
               onClick={() => this.handleClick(element.id)}
             >
