@@ -4,6 +4,12 @@ import style from './style.css'
 import Placeholder from '../../DataLoading/Placeholder'
 import CheckBox from '../../Form/CheckBox'
 
+const textAligns = {
+  right: 'tr',
+  left: 'tl',
+  center: 'tc'
+}
+
 class Table extends PureComponent {
   constructor(props) {
     super(props)
@@ -65,10 +71,13 @@ class Table extends PureComponent {
               </th>
             )}
             {columns.map((column, index) => {
+              const textAlign =
+                (column.textAlign && column.textAlign) || (column && column.isCentered ? 'center' : 'left')
+
               return (
                 <th
                   key={column.id}
-                  className={`g-pv3 g-ph4 c-on-base-2 fw4 g-f1 bb b--base-4 ${column && column.isCentered && 'tc'}`}
+                  className={`g-pv3 g-ph4 c-on-base-2 fw4 g-f1 bb b--base-4 ${textAligns[textAlign]} `}
                   style={{ width: column.size + '%' }}
                 >
                   {column.label}
@@ -90,10 +99,12 @@ class Table extends PureComponent {
               ))
             : rows.map((fields, index) => {
                 const formatted_row = columns.map(column => {
+                  const textAlign =
+                    (column.textAlign && column.textAlign) || (column && column.isCentered ? 'center' : 'left')
                   return (
                     <td
                       key={index + column.id}
-                      className={`g-pv3 g-ph4 c-on-base-1 bb b--base-4 ${column.isCentered && 'tc'}`}
+                      className={`g-pv3 g-ph4 c-on-base-1 bb b--base-4 ${textAligns[textAlign]} `}
                     >
                       <Placeholder className="g-h2 w-100 g-mt2 br4" isPlaceholderActive={false}>
                         {() => fields[column.id]}
@@ -137,8 +148,10 @@ Table.propTypes = {
       label: PropTypes.oneOfType([PropTypes.string, PropTypes.element]).isRequired,
       /** Size of the column in percentage. */
       size: PropTypes.number,
-      /** Make the column centered. */
-      isCentered: PropTypes.bool
+      /** @deprecated Make the column centered. */
+      isCentered: PropTypes.bool,
+      /** Make the column text align. One of: left, right, center */
+      textAlign: PropTypes.oneOf(['left', 'right', 'center'])
     })
   ).isRequired,
   /** Rows that will be show on table. */
