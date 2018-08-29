@@ -314,7 +314,7 @@
       IconUser
     </a>
     <div>
-      <IconUser/>
+      <IconUser />
     </div>
   </div>
   <div className="flex flex-column items-center w-20 g-mb6">
@@ -387,6 +387,14 @@
     </a>
     <div>
       <IconCube />
+    </div>
+  </div>
+  <div className="flex flex-column items-center w-20 g-mb6">
+    <a href="#!/IconLogOut" className="g-mb2 blue no-underline">
+      IconLogOut
+    </a>
+    <div>
+      <IconLogOut />
     </div>
   </div>
 </div>
