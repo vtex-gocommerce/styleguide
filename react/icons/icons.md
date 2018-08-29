@@ -314,11 +314,7 @@
       IconUser
     </a>
     <div>
-<<<<<<< HEAD
-      <IconUser/>
-=======
       <IconUser />
->>>>>>> 27a18a7... fix toogle
     </div>
   </div>
   <div className="flex flex-column items-center w-20 g-mb6">
@@ -393,8 +389,6 @@
       <IconCube />
     </div>
   </div>
-<<<<<<< HEAD
-=======
   <div className="flex flex-column items-center w-20 g-mb6">
     <a href="#!/IconLogOut" className="g-mb2 blue no-underline">
       IconLogOut
@@ -403,6 +397,5 @@
       <IconLogOut />
     </div>
   </div>
->>>>>>> 27a18a7... fix toogle
 </div>
 ```
