@@ -10,6 +10,8 @@
   appearance: none;
   padding-right: 14px;
   width: auto;
+  z-index: 3;
+  position: relative;
 }
 
 .selectWrapper1::before {
@@ -21,6 +23,7 @@
   position: absolute;
   top: 47%;
   right: 2px;
+  z-index: 2;
 }
 
 .selectWrapper1 select:focus {
