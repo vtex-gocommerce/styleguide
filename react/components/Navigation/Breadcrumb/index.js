@@ -14,8 +14,17 @@ class Breadcrumb extends PureComponent {
       )
 
     const Link = this.props.link
+
+    let query = ''
+    if (window.localStorage !== undefined) {
+      const filterBack = JSON.parse(localStorage.getItem('filterBack'))
+      if (filterBack && `/${filterBack.page}` == item.to) {
+        query = filterBack.query
+      }
+    }
+
     return (
-      <Link to={item.to} className={classesLink}>
+      <Link to={item.to} query={query} className={classesLink}>
         {icon && <IconArrow side="left" className="g-mr2" />} {item.title}
       </Link>
     )
