@@ -36,7 +36,7 @@ class Textarea extends PureComponent {
   }
 
   render() {
-    const { hasError, disabled, type, placeholder, className, name, style, rows, resize } = this.props
+    const { hasError, disabled, type, placeholder, className, name, style, rows, resize, showCounter } = this.props
     const { value, currentLength, maxLength } = this.state
     const currentCharacterIndex = maxLength - currentLength
 
@@ -62,15 +62,16 @@ class Textarea extends PureComponent {
     return (
       <React.Fragment>
         <textarea {...props} className={inputClasses} value={value} />
-        {maxLength !== 0 && (
-          <label
-            className={`flex flex-row-reverse db g-pb2 g-pa1 g-f2 ${
-              currentCharacterIndex <= 0 ? 'red' : 'c-on-base-2'
-            }`}
-          >
-            {maxLength && currentCharacterIndex}
-          </label>
-        )}
+        {showCounter &&
+          maxLength !== 0 && (
+            <label
+              className={`flex flex-row-reverse db g-pb2 g-pa1 g-f2 ${
+                currentCharacterIndex <= 0 ? 'red' : 'c-on-base-2'
+              }`}
+            >
+              {maxLength && currentCharacterIndex}
+            </label>
+          )}
       </React.Fragment>
     )
   }
@@ -103,6 +104,8 @@ Textarea.propTypes = {
   rows: PropTypes.number,
   /** textarea rows. */
   maxLength: PropTypes.number,
+  /** show maxLength counter */
+  showCounter: PropTypes.bool,
   /** textarea rows. */
   resize: PropTypes.bool
 }

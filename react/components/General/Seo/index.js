@@ -4,18 +4,19 @@ import styles from './style.css'
 
 class Seo extends Component {
   render() {
-    const { className, title, url, description } = this.props
+    const { className, title, url, description, noBorder } = this.props
+    const border = noBorder ? '' : 'ba br2 b--base-3'
     return (
-      <div className={`ba br2 b--base-3 g-pa4 ${styles.gc_seo} ${className}`}>
+      <div className={`g-pl5 g-pt4 ${border} ${styles.gc_seo} ${className}`}>
         <div>
           <span className={styles.gc_seo_button__close} />
           <span className={styles.gc_seo_button__maximize} />
           <span className={styles.gc_seo_button__minimize} />
         </div>
-        <div className="g-pa4 ">
+        <div className="g-pt5 ">
           {title && <span className={`db g-f4 g-pb1 ${styles.gc_seo__title}`}>{title}</span>}
           {url && <span className={`db g-f2 g-pb1 ${styles.gc_seo__url}`}>{url}</span>}
-          {description && <span className={`db g-f2 ${styles.gc_seo__description}`}>{description}</span>}
+          {description && <span className={`db g-pt1 g-f2 fw3 ${styles.gc_seo__description}`}>{description}</span>}
         </div>
       </div>
     )
@@ -25,6 +26,8 @@ class Seo extends Component {
 Seo.propTypes = {
   /** Append css classes to the Input. */
   className: PropTypes.string,
+  /** Remove border style from the container. */
+  noBorder: PropTypes.bool,
   title: PropTypes.string,
   url: PropTypes.string,
   description: PropTypes
