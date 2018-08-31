@@ -44,7 +44,7 @@ class Search extends PureComponent {
   }
 
   render() {
-    const { placeholder, withOptions, options, name, size, nav } = this.props
+    const { placeholder, withOptions, options, name, size, nav, disabled } = this.props
 
     const classes = !nav ? 'b--base-4 bg-white' : 'bg-base-inverted-5 bn c-on-base-inverted'
     const classesIcon = !nav ? 'c-on-base-2' : 'c-base-inverted-3'
@@ -69,11 +69,15 @@ class Search extends PureComponent {
           />
         )}
         <div className="flex flex-auto items-center w-100">
-          <div className={`g-pl3 pointer hover-c-primary ${classesIcon}`} onClick={this.handleClick}>
+          <div
+            className={`g-pl3 ${disabled ? '' : 'pointer hover-c-primary'} ${classesIcon}`}
+            onClick={this.handleClick}
+          >
             <IconSearch />
           </div>
 
           <Input
+            disabled={disabled}
             placeholder={placeholder}
             className="bn w-100 w-100 f6"
             onBlue={this.handleSearch}
@@ -104,6 +108,8 @@ Search.propTypes = {
   placeholder: PropTypes.string,
   /** Set value of search. */
   searchValue: PropTypes.string,
+  /** Set if search is disabled. */
+  disabled: PropTypes.bool,
   /** Set option selected*/
   optionValue: PropTypes.string,
   /** Set if Search will have filter options. */
@@ -127,6 +133,7 @@ Search.propTypes = {
 Search.defaultProps = {
   placeholder: '',
   withOptions: false,
+  disabled: false,
   options: [],
   searchValue: '',
   optionValue: '',
