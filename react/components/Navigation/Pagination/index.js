@@ -19,16 +19,29 @@ class Pagination extends PureComponent {
         <div className="dib g-mr5 tracked-tight">
           <span className="c-primary">{currentPage}</span> / <span>{pageCount}</span>
         </div>
-        {currentPage > 1 && (
-          <span className="db g-w5 g-mr2" onClick={() => this.handleChange(currentPage - 1)}>
-            <IconArrow side="left" className="c-on-base-2 hover-c-primary pointer" />
-          </span>
-        )}
-        {currentPage < pageCount && (
-          <span className="db" onClick={() => this.handleChange(currentPage + 1)}>
-            <IconArrow side="right" className="c-on-base-2 hover-c-primary pointer" />
-          </span>
-        )}
+
+        <span
+          className="db g-w5 g-mr2"
+          onClick={() => {
+            if (currentPage > 1) this.handleChange(currentPage - 1)
+          }}
+        >
+          <IconArrow
+            side="left"
+            className={`${currentPage > 1 ? 'c-on-base-2 hover-c-primary pointer' : 'c-base-4'}`}
+          />
+        </span>
+        <span
+          className="db"
+          onClick={() => {
+            if (currentPage < pageCount) this.handleChange(currentPage + 1)
+          }}
+        >
+          <IconArrow
+            side="right"
+            className={`${currentPage < pageCount ? 'c-on-base-2 hover-c-primary pointer ' : 'c-base-4'}`}
+          />
+        </span>
       </div>
     )
   }
