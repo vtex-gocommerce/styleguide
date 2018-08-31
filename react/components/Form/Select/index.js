@@ -43,10 +43,10 @@ class Select extends Component {
     if (withoutStyle) classes += 'c-on-base-2 '
     if (!disabled && !hasError && !withoutStyle) classes += 'c-on-base '
 
-    classes += 'bg-transparent bn '
+    classes += 'bg-transparent bn w-100 pointer'
     classes += this.props.elementClassName
     return (
-      <div className={`${styles.selectWrapper1} ${this.props.className} ${classesSelectWrapper} `}>
+      <div className={`${styles.selectWrapper1} ${this.props.className} ${classesSelectWrapper} pointer`}>
         <select
           name={name}
           className={classes}

@@ -9,7 +9,7 @@
   -ms-progress-appearance: none;
   appearance: none;
   padding-right: 14px;
-  width: auto;
+  /* width: auto; */
   z-index: 3;
   position: relative;
 }
