@@ -6,14 +6,16 @@ class Toggle extends PureComponent {
   constructor(props) {
     super(props)
 
+    const checked = props.defaultChecked || props.checked || false
     this.state = {
-      checked: props.checked
+      prevPropsValue: checked,
+      checked: checked
     }
   }
 
   static getDerivedStateFromProps = (nextProps, prevState) => {
-    if (nextProps.checked !== undefined) {
-      return { checked: nextProps.checked }
+    if (nextProps.checked !== prevState.prevPropsValue) {
+      return { checked: nextProps.checked, prevPropsValue: nextProps.checked }
     }
   }
 
@@ -68,6 +70,8 @@ Toggle.propTypes = {
   name: PropTypes.string,
   /** Make toggle checked! */
   checked: PropTypes.bool,
+  /** Make toggle checked! */
+  defaultChecked: PropTypes.bool,
   /** Set Toogle withError */
   hasError: PropTypes.bool,
   /** Make toggle disabled! */
@@ -81,7 +85,6 @@ Toggle.propTypes = {
 }
 
 Toggle.defaultProps = {
-  checked: false,
   disabled: false,
   value: '',
   className: '',
