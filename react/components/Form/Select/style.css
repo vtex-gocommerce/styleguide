@@ -9,7 +9,7 @@
   -ms-progress-appearance: none;
   appearance: none;
   padding-right: 14px;
-  /* width: auto; */
+  width: 100%;
   z-index: 3;
   position: relative;
 }
@@ -22,7 +22,7 @@
   display: block;
   position: absolute;
   top: 47%;
-  right: 2px;
+  right: 8px;
   z-index: 2;
 }
 

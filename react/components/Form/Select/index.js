@@ -29,9 +29,20 @@ class Select extends Component {
   }
 
   render() {
-    const { name, placeholder, list, disabled, hasError, required, withoutStyle, size } = this.props
+    const {
+      name,
+      placeholder,
+      list,
+      disabled: _disabled,
+      readOnly,
+      hasError,
+      required,
+      withoutStyle,
+      size
+    } = this.props
     const { value } = this.state
 
+    const disabled = _disabled || readOnly
     let classesSelectWrapper = `ba br1 `
     if (disabled) classesSelectWrapper += 'b--base-4 bg-base-3 c-on-base-2 '
     if (hasError) classesSelectWrapper += 'b--danger bg-light-danger '
@@ -85,6 +96,8 @@ Select.propTypes = {
   required: PropTypes.bool,
   /** Make input disabled. */
   disabled: PropTypes.bool,
+  /** Make input readOnly. */
+  readOnly: PropTypes.bool,
   /** Receive a key from the list to be the default value. */
   defaultValue: PropTypes.any,
   /** Callback on change */
@@ -110,6 +123,7 @@ Select.defaultProps = {
   placeholder: '',
   hasError: false,
   disabled: false,
+  readOnly: false,
   defaultValue: '',
   required: false,
   className: '',
