@@ -22,7 +22,7 @@
     "gh-pages": "^1.2.0",
     "react": "16.4.2",
     "react-dom": "16.4.2",
-    "react-scripts": "^1.1.4",
+    "react-scripts": "^1.1.5",
     "react-styleguidist": "^6.5.3",
     "watch": "^1.0.2"
   },
@@ -35,16 +35,17 @@
     "@fortawesome/react-fontawesome": "0.0.17",
     "@gocommerce/tachyons": "^3.0.12",
     "i18n-country-code": "^1.0.0",
-    "npm": "^6.1.0",
+    "npm": "^6.4.1",
+    "npm-run-all": "^4.1.3",
+    "react-currency-input": "^1.3.6",
     "react-input-mask": "^1.2.2",
     "react-intl": "2.4.0",
     "react-onclickoutside": "^6.7.1",
     "react-paginate": "^5.2.2",
     "react-responsive-modal": "^2.0.1",
     "react-select": "^2.0.0-beta.2",
-    "vtex": "^2.22.0",
-    "vtex-tachyons": "2.5.1",
     "speakingurl": "^14.0.1",
-    "npm-run-all": "^4.1.3"
+    "vtex": "^2.30.0",
+    "vtex-tachyons": "2.5.1"
   }
 }
