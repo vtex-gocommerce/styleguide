@@ -80,7 +80,12 @@ class SidebarFilterCheckbox extends PureComponent {
 SidebarFilterCheckbox.propTypes = {
   filter: PropTypes.object.isRequired,
   handleChange: PropTypes.func.isRequired,
-  enabledOptions: PropTypes.array
+  enabledOptions: PropTypes.array,
+  locale: PropTypes.object
+}
+
+SidebarFilterCheckbox.defaultProps = {
+  locale: {}
 }
 
 export default SidebarFilterCheckbox

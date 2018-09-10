@@ -163,8 +163,8 @@ class SidebarFilter extends PureComponent {
                       enabledOptions={enabledOptions}
                       handleChange={this.handleChangeSwapFilter}
                       locale={
-                        this.props.locale.filtersConfig && this.props.locale.filtersConfig[filter.code]
-                          ? this.props.locale.filtersConfig[filter.code]
+                        this.props.locale.filtersConfig && this.props.locale.filtersConfig[filter.optionsType]
+                          ? this.props.locale.filtersConfig[filter.optionsType]
                           : defaultLocale.filtersConfig[filter.optionsType]
                       }
                     />

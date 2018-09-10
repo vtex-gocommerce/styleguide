@@ -44,7 +44,12 @@ class SidebarFilterRadio extends PureComponent {
 SidebarFilterRadio.propTypes = {
   filter: PropTypes.object.isRequired,
   handleChange: PropTypes.func.isRequired,
-  enabledOptions: PropTypes.array
+  enabledOptions: PropTypes.array,
+  locale: PropTypes.object
+}
+
+SidebarFilterRadio.defaultProps = {
+  locale: {}
 }
 
 export default SidebarFilterRadio

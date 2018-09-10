@@ -45,7 +45,12 @@ class SidebarFilterToggle extends PureComponent {
 SidebarFilterToggle.propTypes = {
   filter: PropTypes.object.isRequired,
   handleChange: PropTypes.func.isRequired,
-  enabledOptions: PropTypes.array
+  enabledOptions: PropTypes.array,
+  locale: PropTypes.object
+}
+
+SidebarFilterToggle.defaultProps = {
+  locale: {}
 }
 
 export default SidebarFilterToggle
