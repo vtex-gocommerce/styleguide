@@ -13,7 +13,17 @@ const defaultLocale = {
   filters: 'Filters',
   applyFilter: 'Apply Filter',
   editFilters: 'Edit Filters',
-  appliedFilters: 'Applied Filters'
+  appliedFilters: 'Applied Filters',
+  filtersConfig: {
+    date: {
+      dateRange: 'Date range',
+      from: 'From',
+      to: 'To'
+    },
+    checkbox: {},
+    toggle: {},
+    radio: {}
+  }
 }
 
 const optionsTypeComponents = {
@@ -152,6 +162,11 @@ class SidebarFilter extends PureComponent {
                       filter={filter}
                       enabledOptions={enabledOptions}
                       handleChange={this.handleChangeSwapFilter}
+                      locale={
+                        this.props.locale.filtersConfig && this.props.locale.filtersConfig[filter.code]
+                          ? this.props.locale.filtersConfig[filter.code]
+                          : defaultLocale.filtersConfig[filter.optionsType]
+                      }
                     />
                   </div>
                 </div>

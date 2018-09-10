@@ -36,6 +36,10 @@ class SidebarFilterDate extends PureComponent {
     })
   }
 
+  getTextByLocale = key => {
+    return this.props.locale[key]
+  }
+
   handleChangeDateEnd = e => {
     const value = e.target.value
     this.setState({ dateEnd: value }, () => {
@@ -60,6 +64,7 @@ class SidebarFilterDate extends PureComponent {
   }
 
   render() {
+    const currentDate = new Date()
     const { filter } = this.props
     const { showDateRange, dateEnd, dateInit } = this.state
     return (
@@ -95,28 +100,28 @@ class SidebarFilterDate extends PureComponent {
                 onClick={() => {
                   this.handleChange({
                     value: `${this.state.dateInit}|${this.state.dateEnd}`,
-                    title: 'Date Range',
+                    title: this.getTextByLocale('dateRange'),
                     code: `${filter.code}-date-range`
                   })
                 }}
               />{' '}
-              Date range
+              {this.getTextByLocale('dateRange')}
             </label>
             <div className={`g-mt3 ${showDateRange ? 'db' : 'dn'}`}>
-              <p className="g-ma0 c-on-base-2 g-f2 g-mb1">From</p>
+              <p className="g-ma0 c-on-base-2 g-f2 g-mb1">{this.getTextByLocale('from')}</p>
               <Input
                 value={dateInit}
                 className="w-100"
                 mask="9999-99-99"
-                placeholder="Ex. 1989-11-30"
+                placeholder={`Ex. ${currentDate.getFullYear()}-${currentDate.getMonth() + 1}-${currentDate.getDate()}`}
                 onChange={this.handleChangeDateInit}
               />
-              <p className="g-ma0 c-on-base-2 g-f2 g-mb1 g-mt3">To</p>
+              <p className="g-ma0 c-on-base-2 g-f2 g-mb1 g-mt3">{this.getTextByLocale('to')}</p>
               <Input
                 value={dateEnd}
                 className="w-100"
                 mask="9999-99-99"
-                placeholder="Ex. 1989-11-30"
+                placeholder={`Ex. ${currentDate.getFullYear()}-${currentDate.getMonth() + 1}-${currentDate.getDate()}`}
                 onChange={this.handleChangeDateEnd}
               />
             </div>
@@ -128,9 +133,14 @@ class SidebarFilterDate extends PureComponent {
 }
 
 SidebarFilterDate.propTypes = {
+  locale: PropTypes.object,
   filter: PropTypes.object.isRequired,
   handleChange: PropTypes.func.isRequired,
   enabledOptions: PropTypes.array
+}
+
+SidebarFilterDate.defaultProps = {
+  locale: {}
 }
 
 export default SidebarFilterDate
