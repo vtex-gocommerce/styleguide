@@ -67,7 +67,6 @@ class SidebarFilterDate extends PureComponent {
     const currentDate = new Date()
     const { filter } = this.props
     const { showDateRange, dateEnd, dateInit } = this.state
-    console.log('------PROPS-------', this.props)
 
     return (
       <div>
