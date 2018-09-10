@@ -2,19 +2,20 @@ import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import Select from '../../components/Form/Select'
 import Pagination from '../../components/Navigation/Pagination'
-import { FormattedMessage } from 'react-intl'
+import { injectIntl } from 'react-intl'
 
 class TablePagination extends PureComponent {
   handleChangePerPage = e => this.props.handleChangePerPage(e.target.value)
+  formatMessage = id => this.props.intl.formatMessage({ id }, {})
 
   render() {
     const { total, page, perPage, handleChangePage, recordsLabel } = this.props
 
     const viewPageOptions = [
-      { label: 1, value: 1 },
-      { label: 15, value: 15 },
-      { label: 50, value: 50 },
-      { label: 100, value: 100 }
+      { label: this.formatMessage('advancedComponents.tablePagination.view-1'), value: 1 },
+      { label: this.formatMessage('advancedComponents.tablePagination.view-15'), value: 15 },
+      { label: this.formatMessage('advancedComponents.tablePagination.view-50'), value: 50 },
+      { label: this.formatMessage('advancedComponents.tablePagination.view-100'), value: 100 }
     ]
     return (
       <div className="flex justify-between items-center c-on-base-2">
@@ -59,4 +60,4 @@ TablePagination.propTypes = {
   recordsLabel: PropTypes.string
 }
 
-export default TablePagination
+export default injectIntl(TablePagination)
