@@ -58,7 +58,7 @@ class SelectCountryStates extends PureComponent {
   }
 
   render() {
-    const { name, placeholder, disabled, hasError, required } = this.props
+    const { name, id, placeholder, disabled, hasError, required } = this.props
     const { loadedCountryStates, inputValue, value } = this.state
 
     const list =
@@ -74,6 +74,7 @@ class SelectCountryStates extends PureComponent {
       <div className={`${styles.selectWrapper} ${this.props.className}`}>
         <select
           name={name}
+          id={id || name}
           className={classes}
           disabled={disabled}
           onChange={this.handleChange}
@@ -96,6 +97,7 @@ class SelectCountryStates extends PureComponent {
     ) : (
       <Input
         name={name}
+        id={id || name}
         className={classes}
         disabled={disabled}
         onChange={this.handleInputChamge}
@@ -110,6 +112,8 @@ class SelectCountryStates extends PureComponent {
 SelectCountryStates.propTypes = {
   /** (Input spec attribute) */
   name: PropTypes.string,
+  /** (Input id attribute) */
+  id: PropTypes.string,
   /** Option to be shown as placeholder. */
   placeholder: PropTypes.string,
   /** Visually change input to show error. */
@@ -136,6 +140,7 @@ SelectCountryStates.propTypes = {
 
 SelectCountryStates.defaultProps = {
   name: null,
+  id: null,
   placeholder: '',
   hasError: false,
   disabled: false,

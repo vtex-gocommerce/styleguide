@@ -47,7 +47,7 @@ class AutoCompleteList extends PureComponent {
   }
 
   render() {
-    const { inputName, className, hasError, placeholder } = this.props
+    const { inputName, inputId, className, hasError, placeholder } = this.props
     const { filterInput } = this.state
     const filteredList = this.filteredList(this.state.filterInput)
 
@@ -56,6 +56,7 @@ class AutoCompleteList extends PureComponent {
         <div className="relative w-100">
           <Input
             name={inputName}
+            id={inputId || inputName}
             value={filterInput}
             onChange={this.onInputChange}
             onBlur={this.onBlur}
@@ -87,6 +88,7 @@ class AutoCompleteList extends PureComponent {
 
 AutoCompleteList.propTypes = {
   inputName: PropTypes.string,
+  inputId: PropTypes.string,
   className: PropTypes.string,
   hasError: PropTypes.bool,
   defaultValue: PropTypes.string,
@@ -102,6 +104,7 @@ AutoCompleteList.propTypes = {
 
 AutoCompleteList.defaultProps = {
   inputName: '',
+  inputId: '',
   className: '',
   defaultValue: '',
   list: [],

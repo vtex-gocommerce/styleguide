@@ -31,7 +31,7 @@ class SelectCountry extends PureComponent {
   }
 
   render() {
-    const { name, placeholder, disabled, hasError, required } = this.props
+    const { name, id, placeholder, disabled, hasError, required } = this.props
     const { value } = this.state
 
     const list = Object.keys(countries).reduce(
@@ -48,6 +48,7 @@ class SelectCountry extends PureComponent {
       <div className={`${styles.selectWrapper} ${this.props.className}`}>
         <select
           name={name}
+          id={id || name}
           className={classes}
           disabled={disabled}
           onChange={this.handleChange}
@@ -74,6 +75,8 @@ class SelectCountry extends PureComponent {
 SelectCountry.propTypes = {
   /** (Input spec attribute) */
   name: PropTypes.string,
+  /** (Input id attribute) */
+  id: PropTypes.string,
   /** Option to be shown as placeholder. */
   placeholder: PropTypes.string,
   /** Visually change input to show error. */
@@ -98,6 +101,7 @@ SelectCountry.propTypes = {
 
 SelectCountry.defaultProps = {
   name: null,
+  id: null,
   placeholder: '',
   hasError: false,
   disabled: false,

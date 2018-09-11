@@ -44,7 +44,7 @@ class Search extends PureComponent {
   }
 
   render() {
-    const { placeholder, withOptions, options, name, size, nav, disabled } = this.props
+    const { placeholder, withOptions, options, name, id, size, nav, disabled } = this.props
 
     const classes = !nav ? 'b--base-4 bg-white' : 'bg-base-inverted-5 bn c-on-base-inverted'
     const classesIcon = !nav ? 'c-on-base-2' : 'c-base-inverted-3'
@@ -59,6 +59,7 @@ class Search extends PureComponent {
           <Select
             placeholder="Select an option"
             name={name}
+            id={id || name}
             list={options}
             elementClassName={`bn h-100 ${size === 'small' ? ' g-h8' : ' g-h10'} `}
             className="h-100 br b--base-4 f6"
@@ -104,6 +105,8 @@ class Search extends PureComponent {
 Search.propTypes = {
   /** Set input's name. */
   name: PropTypes.string,
+  /** Set input's id. */
+  id: PropTypes.string,
   /** Set placeholder for search input. */
   placeholder: PropTypes.string,
   /** Set value of search. */

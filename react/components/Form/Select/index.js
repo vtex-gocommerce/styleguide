@@ -31,6 +31,7 @@ class Select extends Component {
   render() {
     const {
       name,
+      id,
       placeholder,
       list,
       disabled: _disabled,
@@ -60,6 +61,7 @@ class Select extends Component {
       <div className={`${styles.selectWrapper1} ${this.props.className} ${classesSelectWrapper} pointer`}>
         <select
           name={name}
+          id={id || name}
           className={classes}
           disabled={disabled}
           onChange={this.handleChange}
@@ -86,6 +88,8 @@ class Select extends Component {
 Select.propTypes = {
   /** (Input spec attribute) */
   name: PropTypes.string,
+  /** (Input id attribute) */
+  id: PropTypes.string,
   /** Option to be shown as placeholder. */
   placeholder: PropTypes.string,
   /** List of options to populate select. */
@@ -120,6 +124,7 @@ Select.propTypes = {
 
 Select.defaultProps = {
   name: null,
+  id: null,
   placeholder: '',
   hasError: false,
   disabled: false,

@@ -46,7 +46,7 @@ class CheckBox extends PureComponent {
           <IconCheck className={`white ${!checked && 'o-0'}`} ignoreSize />
         </div>
         <input
-          id={id}
+          id={id || name}
           type="checkbox"
           className="dn"
           disabled={disabled}

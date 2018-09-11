@@ -77,6 +77,7 @@ class CurrencyInput extends PureComponent {
       alwaysShowMask,
       className,
       name,
+      id,
       label,
       withoutStyle,
       defaultValue
@@ -97,6 +98,7 @@ class CurrencyInput extends PureComponent {
     const props = {
       type: type,
       name: name,
+      id: id || name,
       placeholder: placeholder,
       onBlur: this.handleBlur,
       onFocus: this.handleFocus,
@@ -168,6 +170,8 @@ CurrencyInput.propTypes = {
   label: PropTypes.string,
   /** Set input's name. */
   name: PropTypes.string,
+  /** Set input's id. */
+  id: PropTypes.string,
   /** Set input's type. */
   type: PropTypes.oneOf(['text', 'password', 'tel', 'hidden', 'email', 'number']),
   /** Set the value of the input. */

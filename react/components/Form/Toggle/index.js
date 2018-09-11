@@ -28,7 +28,7 @@ class Toggle extends PureComponent {
   }
 
   render() {
-    const { disabled, value, name, className, hasError } = this.props
+    const { disabled, value, name, id, className, hasError } = this.props
     const { checked } = this.state
 
     let classes = `flex items-center relative g-h8 g-ph4 br-pill ${styles.toggle} `
@@ -53,6 +53,7 @@ class Toggle extends PureComponent {
         </div>
         <input
           name={name}
+          id={id || name}
           type="checkbox"
           className="dn"
           disabled={disabled}
@@ -68,6 +69,8 @@ class Toggle extends PureComponent {
 Toggle.propTypes = {
   /** (Input spec attribute) */
   name: PropTypes.string,
+  /** (Input id attribute) */
+  id: PropTypes.string,
   /** Make toggle checked! */
   checked: PropTypes.bool,
   /** Make toggle checked! */

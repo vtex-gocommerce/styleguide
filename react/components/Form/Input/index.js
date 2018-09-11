@@ -6,7 +6,6 @@ import styles from './style.css'
 class Input extends PureComponent {
   constructor(props) {
     super(props)
-
     this.state = {
       value: props.defaultValue || props.value
     }
@@ -57,6 +56,7 @@ class Input extends PureComponent {
       alwaysShowMask,
       className,
       name,
+      id,
       label,
       withoutStyle,
       defaultValue
@@ -77,6 +77,7 @@ class Input extends PureComponent {
     const props = {
       type: type,
       name: name,
+      id: id || name,
       placeholder: placeholder,
       onBlur: this.handleBlur,
       onFocus: this.handleFocus,
@@ -148,6 +149,8 @@ Input.propTypes = {
   label: PropTypes.string,
   /** Set input's name. */
   name: PropTypes.string,
+  /** Set input's id. */
+  id: PropTypes.string,
   /** Set input's type. */
   type: PropTypes.oneOf(['text', 'password', 'tel', 'hidden', 'email', 'number']),
   /** Set the value of the input. */

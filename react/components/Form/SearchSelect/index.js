@@ -35,7 +35,7 @@ class SearchSelect extends PureComponent {
   }
 
   render() {
-    const { name, placeholder, list, disabled, hasError, required } = this.props
+    const { name, id, placeholder, list, disabled, hasError, required } = this.props
     const { value } = this.state
 
     let classes = !!hasError ? 'ba br1 b--red bg-red-light red' : ''
@@ -44,6 +44,7 @@ class SearchSelect extends PureComponent {
         <Select
           defaultValue={value}
           name={name}
+          id={id || name}
           options={list}
           className={`searchSelect ${classes}`}
           hasError={hasError}
@@ -63,6 +64,8 @@ class SearchSelect extends PureComponent {
 SearchSelect.propTypes = {
   /** (Input spec attribute) */
   name: PropTypes.string,
+  /** (Input id attribute) */
+  id: PropTypes.string,
   /** Option to be shown as placeholder. */
   placeholder: PropTypes.string,
   /** List of options to populate select. */

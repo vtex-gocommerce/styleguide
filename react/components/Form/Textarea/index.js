@@ -36,7 +36,7 @@ class Textarea extends PureComponent {
   }
 
   render() {
-    const { hasError, disabled, type, placeholder, className, name, style, rows, resize, showCounter } = this.props
+    const { hasError, disabled, type, placeholder, className, name, id, style, rows, resize, showCounter } = this.props
     const { value, currentLength, maxLength } = this.state
     const currentCharacterIndex = maxLength - currentLength
 
@@ -50,6 +50,7 @@ class Textarea extends PureComponent {
     const props = {
       type: type,
       name: name,
+      id: id || name,
       placeholder: placeholder,
       onBlur: this.handleBlur,
       onFocus: this.handleFocus,
@@ -80,6 +81,8 @@ class Textarea extends PureComponent {
 Textarea.propTypes = {
   /** Set input's name. */
   name: PropTypes.string,
+  /** Set input's id. */
+  id: PropTypes.string,
   /** Set the defaultValue of the TextArea. */
   defaultValue: PropTypes.any,
   /** Set the value of the TextArea. */
@@ -112,6 +115,7 @@ Textarea.propTypes = {
 
 Textarea.defaultProps = {
   name: '',
+  id: '',
   value: '',
   placeholder: '',
   hasError: false,

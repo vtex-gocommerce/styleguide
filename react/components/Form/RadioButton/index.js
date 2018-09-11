@@ -43,7 +43,7 @@ class RadioButton extends PureComponent {
     return (
       <label className={`gc-radiobutton dib w-auto ${className} ${!disabled && 'pointer'} ${styles.gc_radiobutton}`}>
         <input
-          id={id}
+          id={id || name}
           type="radio"
           className="dn"
           disabled={disabled}
