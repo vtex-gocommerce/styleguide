@@ -10,7 +10,7 @@ class CurrencyInput extends PureComponent {
     const value = props.defaultValue || props.value
 
     this.state = {
-      value: value
+      value: value > 0 ? this.toCurrency(parseFloat(value).toFixed(2)) : value
     }
   }
 
@@ -21,7 +21,8 @@ class CurrencyInput extends PureComponent {
   }
 
   toFloatNumber = value => {
-    const onlyNumber = `00${value}`.replace(/[^0-9]/gi, '')
+    const onlyNumber = `${value}`.replace(/[^0-9]/gi, '')
+
     const floatNumber = parseFloat(`${onlyNumber.substr(0, onlyNumber.length - 2)}.${onlyNumber.substr(-2)}`) || 0
 
     return floatNumber
