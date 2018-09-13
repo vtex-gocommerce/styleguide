@@ -11,6 +11,7 @@
     "@fortawesome/react-fontawesome": "0.0.17",
     "@gocommerce/tachyons": "^3.0.12",
     "i18n-country-code": "^1.0.0",
+    "react-flatpickr": "^3.6.4",
     "react-input-mask": "^1.2.2",
     "react-onclickoutside": "^6.7.1",
     "react-paginate": "^5.2.2",
