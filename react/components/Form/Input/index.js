@@ -59,7 +59,8 @@ class Input extends PureComponent {
       id,
       label,
       withoutStyle,
-      defaultValue
+      defaultValue,
+      readOnly
     } = this.props
     const { value } = this.state
 
@@ -67,9 +68,10 @@ class Input extends PureComponent {
     let style = `${styles.input} ba br2 g-h11 `
 
     let colors = ``
-    if (disabled) colors += 'b--base-4 bg-base-3 c-on-base-2 '
+    const isDisableAspect = disabled || readOnly
+    if (isDisableAspect) colors += 'b--base-4 bg-base-3 c-on-base-2 '
     if (hasError) colors += 'b--danger bg-light-danger c-danger '
-    if (!disabled && !hasError && !withoutStyle) colors += 'b--base-4 bg-base-1 c-on-base-1 '
+    if (!isDisableAspect && !hasError && !withoutStyle) colors += 'b--base-4 bg-base-1 c-on-base-1 '
     if (withoutStyle) colors += 'c-on-base-1 bg-transparent bn '
 
     let inputClasses = style + padding + colors + className
@@ -86,6 +88,7 @@ class Input extends PureComponent {
       onKeyDown: this.handleKeyDown,
       onKeyUp: this.handleKeyUp,
       disabled: disabled,
+      readOnly: readOnly,
       maxLength: maxLength,
       value: value,
       defaultValue: defaultValue
@@ -163,6 +166,10 @@ Input.propTypes = {
   hasError: PropTypes.bool,
   /** Make input disabled. */
   disabled: PropTypes.bool,
+  /** Autocomplet props */
+  autoComplete: PropTypes.string,
+  /** Callback on change */
+  readOnly: PropTypes.bool,
   /** Callback on change */
   onChange: PropTypes.func,
   /** Callback on focus */
@@ -206,6 +213,8 @@ Input.defaultProps = {
   hasError: false,
   disabled: false,
   onChange: null,
+  autoComplete: 'on',
+  readOnly: false,
   className: '',
   maxLength: null,
   showMaxLength: false,
