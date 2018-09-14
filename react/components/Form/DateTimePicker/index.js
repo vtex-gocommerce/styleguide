@@ -1,14 +1,16 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
-import Flatpickr from 'react-flatpickr'
-import 'flatpickr/dist/flatpickr.min.css'
+import DatePicker from 'react-datepicker'
+import moment from 'moment'
+import 'react-datepicker/dist/react-datepicker-cssmodules.css'
+
 import styles from './style.css'
 
 class DateTimePicker extends PureComponent {
   constructor(props) {
     super(props)
     this.state = {
-      value: props.defaultValue || props.value
+      value: moment(props.defaultValue) || moment(props.value)
     }
   }
 
@@ -88,7 +90,7 @@ class DateTimePicker extends PureComponent {
       return (
         <div className={`dib ${className}`}>
           <div className="flex">
-            <Flatpickr {...props} className={`${DateTimePickerClasses} w-100 dib ba br-0 br1 br--left`} />
+            <DatePicker {...props} className={`${DateTimePickerClasses} w-100 dib ba br-0 br1 br--left`} />
             <span className={`ba br2 br--right b--base-4 inline-flex items-center g-ph3 c-on-base-2`}>
               {this.props.suffix}
             </span>
@@ -101,7 +103,7 @@ class DateTimePicker extends PureComponent {
         <div className={`dib ${style} ${colors} ${className} overflow-hidden`}>
           <div className="flex flex-auto items-center ">
             <div className="g-pl3">{this.props.iconBefore}</div>
-            <Flatpickr {...props} className={`${colors} ${padding} ${style} bn w-100 dib`} />
+            <DatePicker {...props} className={`${colors} ${padding} ${style} bn w-100 dib`} />
           </div>
         </div>
       )
@@ -109,7 +111,7 @@ class DateTimePicker extends PureComponent {
       return (
         <React.Fragment>
           {label && <label className="db c-on-base-2 g-mb1 g-f2 lh-copy">{label}</label>}
-          <Flatpickr {...props} className={DateTimePickerClasses} />
+          <DatePicker {...props} className={DateTimePickerClasses} />
           {showMaxLength &&
             maxLength !== 0 && (
               <label

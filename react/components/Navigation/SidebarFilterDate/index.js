@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import RadioButton from '../../Form/RadioButton'
 import Input from '../../Form/Input'
+import DateTimePicker from '../../Form/DateTimePicker'
 
 class SidebarFilterDate extends PureComponent {
   constructor(props) {
@@ -15,7 +16,6 @@ class SidebarFilterDate extends PureComponent {
       const dateRange = props.enabledOptions
         .find(item => item.code === `${props.filter.code}-date-range`)
         .value.split('|')
-
       showDateRange = true
       dateInit = dateRange[0]
       dateEnd = dateRange[1]
@@ -110,21 +110,6 @@ class SidebarFilterDate extends PureComponent {
             </label>
             <div className={`g-mt3 ${showDateRange ? 'db' : 'dn'}`}>
               <p className="g-ma0 c-on-base-2 g-f2 g-mb1">{this.getTextByLocale('from')}</p>
-              <Input
-                value={dateInit}
-                className="w-100"
-                mask="9999-99-99"
-                placeholder={`Ex. ${currentDate.getFullYear()}-${currentDate.getMonth() + 1}-${currentDate.getDate()}`}
-                onChange={this.handleChangeDateInit}
-              />
-              <p className="g-ma0 c-on-base-2 g-f2 g-mb1 g-mt3">{this.getTextByLocale('to')}</p>
-              <Input
-                value={dateEnd}
-                className="w-100"
-                mask="9999-99-99"
-                placeholder={`Ex. ${currentDate.getFullYear()}-${currentDate.getMonth() + 1}-${currentDate.getDate()}`}
-                onChange={this.handleChangeDateEnd}
-              />
             </div>
           </li>
         </ul>
