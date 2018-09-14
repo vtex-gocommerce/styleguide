@@ -21,7 +21,7 @@ class CurrencyInput extends PureComponent {
   }
 
   toFloatNumber = value => {
-    const onlyNumber = `${value}`.replace(/[^0-9]/gi, '')
+    const onlyNumber = `00${value}`.replace(/[^0-9]/gi, '')
 
     const floatNumber = parseFloat(`${onlyNumber.substr(0, onlyNumber.length - 2)}.${onlyNumber.substr(-2)}`) || 0
 
