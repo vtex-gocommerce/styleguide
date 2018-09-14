@@ -12,7 +12,6 @@ class TablePagination extends PureComponent {
     const { total, page, perPage, handleChangePage, recordsLabel } = this.props
 
     const viewPageOptions = [
-      { label: this.formatMessage('advancedComponents.tablePagination.view-1'), value: 1 },
       { label: this.formatMessage('advancedComponents.tablePagination.view-15'), value: 15 },
       { label: this.formatMessage('advancedComponents.tablePagination.view-50'), value: 50 },
       { label: this.formatMessage('advancedComponents.tablePagination.view-100'), value: 100 }

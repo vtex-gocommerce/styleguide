@@ -1,7 +1,9 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import styles from './style.css'
-import countries from 'i18n-country-code/locales/en.json'
+import countries_en from 'i18n-country-code/locales/en.json'
+import countries_pt from 'i18n-country-code/locales/pt.json'
+import countries_es from 'i18n-country-code/locales/es.json'
 
 class SelectCountry extends PureComponent {
   constructor(props) {
@@ -30,14 +32,31 @@ class SelectCountry extends PureComponent {
     this.props.onBlur && this.props.onBlur(event)
   }
 
+  getElementList = () => {
+    const { includedCountries, language } = this.props
+    const languageBase = language.split('-')[0]
+    const countries =
+      (languageBase === 'en' && countries_en) ||
+      (languageBase === 'pt' && countries_pt) ||
+      (languageBase === 'es' && countries_es)
+
+    return Object.keys(countries).reduce((prev, element) => {
+      if (includedCountries) {
+        if (includedCountries.includes(element)) {
+          return [...prev, { label: countries[element], value: element }]
+        }
+        return prev
+      }
+      return [...prev, { label: countries[element], value: element }]
+    }, [])
+  }
+
   render() {
     const { name, id, placeholder, disabled, hasError, required } = this.props
     const { value } = this.state
 
-    const list = Object.keys(countries).reduce(
-      (prev, element) => [...prev, { label: countries[element], value: element }],
-      []
-    )
+    const list = this.getElementList()
+
     let classes = 'g-pa3 ba br1 '
     if (disabled) classes += 'b--base-4 bg-base-3 c-on-base-2  '
     if (hasError) classes += 'b--danger bg-light-danger c-danger '
@@ -85,6 +104,10 @@ SelectCountry.propTypes = {
   required: PropTypes.bool,
   /** Make input disabled. */
   disabled: PropTypes.bool,
+  /** Included countries. */
+  includedCountries: PropTypes.array,
+  /** language of the country names. */
+  language: PropTypes.string,
   /** Receive a key from the list to be the default value. */
   defaultValue: PropTypes.any,
   /** Callback on change */
@@ -108,7 +131,8 @@ SelectCountry.defaultProps = {
   defaultValue: '',
   required: false,
   className: '',
-  elementClassName: ''
+  elementClassName: '',
+  language: 'en-us'
 }
 
 export default SelectCountry
