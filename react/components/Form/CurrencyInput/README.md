@@ -76,7 +76,7 @@ class ExternalValueProp extends React.Component {
 
     return (
       <div>
-        <CurrencyInput {...this.props} value={this.state.value} className="g-mr2" />
+        <CurrencyInput showCurrency={true} {...this.props} value={this.state.value} className="g-mr2" />
         <Button onClick={() => this.handleChange(number)}>Next value: {number}</Button>
       </div>
     )

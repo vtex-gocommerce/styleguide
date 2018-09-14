@@ -29,10 +29,14 @@ class CurrencyInput extends PureComponent {
   }
 
   toCurrency = value => {
-    const formatedNumber = this.toFloatNumber(value).toLocaleString(this.props.locale, {
+    let formatedNumber = this.toFloatNumber(value).toLocaleString(this.props.locale, {
       style: 'currency',
       currency: this.props.currency
     })
+
+    if (!this.props.showCurrency) {
+      formatedNumber = formatedNumber.replace(/[^0-9,.]/gi, '')
+    }
 
     return formatedNumber
   }
@@ -222,13 +226,15 @@ CurrencyInput.propTypes = {
   /** Locale Ex: pt-BR */
   locale: PropTypes.string,
   /** Currency Ex: BRL */
-  locale: PropTypes.currency
+  currency: PropTypes.string,
+  showCurrency: PropTypes.bool
 }
 
 CurrencyInput.defaultProps = {
   type: 'text',
   locale: 'pt-BR',
   currency: 'BRL',
+  showCurrency: false,
   value: '',
   placeholder: '',
   hasError: false,
