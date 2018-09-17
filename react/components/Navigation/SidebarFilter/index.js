@@ -53,7 +53,7 @@ class SidebarFilter extends PureComponent {
   }
 
   getTextByLocale = key => {
-    return this.props.locale.hasOwnProperty(key) ? this.props.locale[key] : defaultLocale[key]
+    return this.props.localeConfig.hasOwnProperty(key) ? this.props.localeConfig[key] : defaultLocale[key]
   }
 
   getCodeFilter = code => {
@@ -162,9 +162,11 @@ class SidebarFilter extends PureComponent {
                       filter={filter}
                       enabledOptions={enabledOptions}
                       handleChange={this.handleChangeSwapFilter}
-                      locale={
-                        this.props.locale.filtersConfig && this.props.locale.filtersConfig[filter.optionsType]
-                          ? this.props.locale.filtersConfig[filter.optionsType]
+                      locale={this.props.locale}
+                      localeConfig={
+                        this.props.localeConfig.filtersConfig &&
+                        this.props.localeConfig.filtersConfig[filter.optionsType]
+                          ? this.props.localeConfig.filtersConfig[filter.optionsType]
                           : defaultLocale.filtersConfig[filter.optionsType]
                       }
                     />
@@ -186,7 +188,8 @@ class SidebarFilter extends PureComponent {
 }
 
 SidebarFilter.propTypes = {
-  locale: PropTypes.object,
+  localeConfig: PropTypes.object,
+  locale: PropTypes.string,
   config: PropTypes.arrayOf(
     PropTypes.shape({
       code: PropTypes.string.isRequired,
@@ -215,7 +218,8 @@ SidebarFilter.propTypes = {
 }
 
 SidebarFilter.defaultProps = {
-  locale: {},
+  localeConfig: {},
+  locale: 'en-US',
   enabledOptions: []
 }
 

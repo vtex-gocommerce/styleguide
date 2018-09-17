@@ -9,7 +9,7 @@
     "@fortawesome/fontawesome-pro-regular": "^5.0.9",
     "@fortawesome/fontawesome-pro-solid": "^5.0.9",
     "@fortawesome/react-fontawesome": "0.0.17",
-    "@gocommerce/tachyons": "^3.0.12",
+    "@gocommerce/tachyons": "^3.0.17",
     "i18n-country-code": "^1.0.0",
     "moment": "^2.22.2",
     "react-datepicker": "^1.6.0",

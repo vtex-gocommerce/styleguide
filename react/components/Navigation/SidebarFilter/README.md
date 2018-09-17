@@ -4,7 +4,7 @@ class ContainerSidebar extends React.Component {
     super(props)
 
     this.state = {
-      showSidebar: false,
+      showSidebar: true,
       enabledOptionsSidebar: [
         { title: 'This week', value: '08/06/2018|08/06/2014', code: 'by-date-created-today' },
         {

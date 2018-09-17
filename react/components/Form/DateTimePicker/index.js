@@ -2,9 +2,9 @@ import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import DatePicker from 'react-datepicker'
 import moment from 'moment'
-import 'react-datepicker/dist/react-datepicker-cssmodules.css'
 
 import styles from './style.css'
+import './react-datepicker.global.css'
 
 class DateTimePicker extends PureComponent {
   constructor(props) {
@@ -20,10 +20,9 @@ class DateTimePicker extends PureComponent {
     }
   }
 
-  handleChange = event => {
-    const value = event.target.value
+  handleChange = value => {
     this.setState({ value })
-    this.props.onChange && this.props.onChange(event)
+    this.props.onChange && this.props.onChange(value)
   }
 
   handleFocus = event => {
@@ -83,7 +82,9 @@ class DateTimePicker extends PureComponent {
       maxLength: maxLength,
       value: value,
       defaultValue: defaultValue,
-      options: options
+      calendarClassName: 'zeitungMicroPro',
+      useShortMonthInDropdown: true,
+      ...options
     }
 
     if (this.props.suffix) {
@@ -112,16 +113,6 @@ class DateTimePicker extends PureComponent {
         <React.Fragment>
           {label && <label className="db c-on-base-2 g-mb1 g-f2 lh-copy">{label}</label>}
           <DatePicker {...props} className={DateTimePickerClasses} />
-          {showMaxLength &&
-            maxLength !== 0 && (
-              <label
-                className={`flex flex-row-reverse db g-pb2 g-pa1 g-f2 ${
-                  maxLength - this.state.value.length <= 0 ? 'red' : 'c-on-base-2'
-                }`}
-              >
-                {maxLength && maxLength - this.state.value.length}
-              </label>
-            )}
         </React.Fragment>
       )
     }
@@ -145,27 +136,19 @@ DateTimePicker.propTypes = {
   hasError: PropTypes.bool,
   /** Make DateTimePicker disabled. */
   disabled: PropTypes.bool,
-  /** Callback on change */
+  /** Callback on change, return Moment Object */
   onChange: PropTypes.func,
-
   /** Append css classes to the DateTimePicker. */
   className: PropTypes.string,
-  /** Max number of characters */
-  maxLength: PropTypes.number,
-  /** Show Maxlength counter*/
-  showMaxLength: PropTypes.bool,
   /** Show a field after DateTimePicker. */
   suffix: PropTypes.string,
   /** Show a icon before DateTimePicker. */
   iconBefore: PropTypes.element,
-  /** remove borders and bgColor. */
-  withoutStyle: PropTypes.bool,
-  /** Flatpicker options */
+  /** ReactJS Datepicker options. https://reactdatepicker.com */
   options: PropTypes.object
 }
 
 DateTimePicker.defaultProps = {
-  options: {},
   value: '',
   placeholder: '',
   hasError: false,
