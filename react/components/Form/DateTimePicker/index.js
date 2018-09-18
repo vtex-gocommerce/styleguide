@@ -3,8 +3,8 @@ import PropTypes from 'prop-types'
 import DatePicker from 'react-datepicker'
 import moment from 'moment'
 
+import './react-datepicker-cssmodules.css'
 import styles from './style.css'
-import './react-datepicker.global.css'
 
 class DateTimePicker extends PureComponent {
   constructor(props) {
@@ -111,6 +111,7 @@ class DateTimePicker extends PureComponent {
     } else {
       return (
         <div className="dib">
+          xxxxxxxx
           {label && <label className="db c-on-base-2 g-mb1 g-f2 lh-copy">{label}</label>}
           <DatePicker {...props} className={DateTimePickerClasses} />
         </div>
