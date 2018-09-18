@@ -63,7 +63,7 @@ class DateTimePicker extends PureComponent {
     const { value } = this.state
 
     let padding = 'g-ph4 f6 '
-    let style = `${styles.DateTimePicker} ba br2 g-h11 `
+    let style = `${styles.input} ba br2 g-h11 `
 
     let colors = ``
     if (disabled) colors += 'b--base-4 bg-base-3 c-on-base-2 '
@@ -110,10 +110,10 @@ class DateTimePicker extends PureComponent {
       )
     } else {
       return (
-        <React.Fragment>
+        <div className="dib">
           {label && <label className="db c-on-base-2 g-mb1 g-f2 lh-copy">{label}</label>}
           <DatePicker {...props} className={DateTimePickerClasses} />
-        </React.Fragment>
+        </div>
       )
     }
   }
