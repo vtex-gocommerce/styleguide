@@ -111,7 +111,6 @@ class DateTimePicker extends PureComponent {
     } else {
       return (
         <div className="dib">
-          xxxxxxxx
           {label && <label className="db c-on-base-2 g-mb1 g-f2 lh-copy">{label}</label>}
           <DatePicker {...props} className={DateTimePickerClasses} />
         </div>
