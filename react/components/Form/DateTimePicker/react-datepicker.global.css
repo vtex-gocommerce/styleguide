@@ -82,10 +82,13 @@
 
 .datepicker_gocommerce .react-datepicker-wrapper {
   display: inline-block;
+  font-family: 'ZeitungMicroPro', -apple-system, BlinkMacSystemFont, avenir next, avenir, helvetica neue, helvetica,
+    ubuntu, roboto, noto, segoe ui, arial, sans-serif;
 }
 
 .datepicker_gocommerce .react-datepicker {
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: 'ZeitungMicroPro', -apple-system, BlinkMacSystemFont, avenir next, avenir, helvetica neue, helvetica,
+    ubuntu, roboto, noto, segoe ui, arial, sans-serif;
   font-size: 0.8rem;
   background-color: #fff;
   color: #000;
