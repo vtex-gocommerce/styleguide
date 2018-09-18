@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import DatePicker from 'react-datepicker'
 import moment from 'moment'
 
-import './react-datepicker-cssmodules.css'
+import './react-datepicker.global.css'
 import styles from './style.css'
 
 class DateTimePicker extends PureComponent {
@@ -89,7 +89,7 @@ class DateTimePicker extends PureComponent {
 
     if (this.props.suffix) {
       return (
-        <div className={`dib ${className}`}>
+        <div className={`dib datepicker_gocommerce ${className}`}>
           <div className="flex">
             <DatePicker {...props} className={`${DateTimePickerClasses} w-100 dib ba br-0 br1 br--left`} />
             <span className={`ba br2 br--right b--base-4 inline-flex items-center g-ph3 c-on-base-2`}>
@@ -101,7 +101,7 @@ class DateTimePicker extends PureComponent {
     }
     if (this.props.iconBefore) {
       return (
-        <div className={`dib ${style} ${colors} ${className} overflow-hidden`}>
+        <div className={`dib datepicker_gocommerce ${style} ${colors} ${className} overflow-hidden`}>
           <div className="flex flex-auto items-center ">
             <div className="g-pl3">{this.props.iconBefore}</div>
             <DatePicker {...props} className={`${colors} ${padding} ${style} bn w-100 dib`} />
@@ -110,7 +110,7 @@ class DateTimePicker extends PureComponent {
       )
     } else {
       return (
-        <div className="dib">
+        <div className="dib datepicker_gocommerce">
           {label && <label className="db c-on-base-2 g-mb1 g-f2 lh-copy">{label}</label>}
           <DatePicker {...props} className={DateTimePickerClasses} />
         </div>
