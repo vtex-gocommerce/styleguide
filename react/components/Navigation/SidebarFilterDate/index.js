@@ -2,26 +2,27 @@ import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import RadioButton from '../../Form/RadioButton'
 import Input from '../../Form/Input'
+import DateTimePicker from '../../Form/DateTimePicker'
+import moment from 'moment'
 
 class SidebarFilterDate extends PureComponent {
   constructor(props) {
     super(props)
 
-    let dateInit,
-      dateEnd,
+    let initDate,
+      endDate,
       showDateRange = false
 
     if (this.isActive(`${props.filter.code}-date-range`)) {
       const dateRange = props.enabledOptions
         .find(item => item.code === `${props.filter.code}-date-range`)
         .value.split('|')
-
       showDateRange = true
-      dateInit = dateRange[0]
-      dateEnd = dateRange[1]
+      initDate = dateRange[0]
+      endDate = dateRange[1]
     }
 
-    this.state = { showDateRange, dateInit, dateEnd }
+    this.state = { showDateRange, initDate, endDate, initDateMoment: moment(initDate), endDateMoment: moment(endDate) }
   }
 
   handleChange = option => {
@@ -29,20 +30,18 @@ class SidebarFilterDate extends PureComponent {
     this.props.handleChange({ [this.props.filter.code]: [option] })
   }
 
-  handleChangeDateInit = e => {
-    const value = e.target.value
-    this.setState({ dateInit: value }, () => {
+  handleChangeDateInit = momentValue => {
+    this.setState({ initDate: momentValue.format('YYYY-MM-DD'), initDateMoment: momentValue }, () => {
       this.changeDateRangeFilter()
     })
   }
 
   getTextByLocale = key => {
-    return this.props.locale[key]
+    return this.props.localeConfig[key]
   }
 
-  handleChangeDateEnd = e => {
-    const value = e.target.value
-    this.setState({ dateEnd: value }, () => {
+  handleChangeDateEnd = momentValue => {
+    this.setState({ endDate: momentValue.format('YYYY-MM-DD'), endDateMoment: momentValue }, () => {
       this.changeDateRangeFilter()
     })
   }
@@ -51,8 +50,8 @@ class SidebarFilterDate extends PureComponent {
     if (this.state.showDateRange) {
       const option = {
         code: this.props.filter.code + '-date-range',
-        value: `${this.state.dateInit}|${this.state.dateEnd}`,
-        title: `${this.state.dateInit} - ${this.state.dateEnd}`
+        value: `${this.state.initDate}|${this.state.endDate}`,
+        title: `${this.state.initDate} - ${this.state.endDate}`
       }
 
       this.handleChange(option)
@@ -65,8 +64,8 @@ class SidebarFilterDate extends PureComponent {
 
   render() {
     const currentDate = new Date()
-    const { filter } = this.props
-    const { showDateRange, dateEnd, dateInit } = this.state
+    const { filter, locale } = this.props
+    const { showDateRange, endDate, initDate, initDateMoment, endDateMoment } = this.state
 
     return (
       <div>
@@ -100,7 +99,7 @@ class SidebarFilterDate extends PureComponent {
                 className="g-mr3"
                 onClick={() => {
                   this.handleChange({
-                    value: `${this.state.dateInit}|${this.state.dateEnd}`,
+                    value: `${this.state.initDate}|${this.state.endDate}`,
                     title: this.getTextByLocale('dateRange'),
                     code: `${filter.code}-date-range`
                   })
@@ -110,20 +109,32 @@ class SidebarFilterDate extends PureComponent {
             </label>
             <div className={`g-mt3 ${showDateRange ? 'db' : 'dn'}`}>
               <p className="g-ma0 c-on-base-2 g-f2 g-mb1">{this.getTextByLocale('from')}</p>
-              <Input
-                value={dateInit}
+              <DateTimePicker // value={initDate}
                 className="w-100"
-                mask="9999-99-99"
                 placeholder={`Ex. ${currentDate.getFullYear()}-${currentDate.getMonth() + 1}-${currentDate.getDate()}`}
                 onChange={this.handleChangeDateInit}
+                options={{
+                  dateFormat: 'YYYY-MM-DD',
+                  selected: initDate ? moment(initDate) : null,
+                  selectsStart: true,
+                  startDate: initDateMoment,
+                  endDate: endDateMoment,
+                  locale
+                }}
               />
               <p className="g-ma0 c-on-base-2 g-f2 g-mb1 g-mt3">{this.getTextByLocale('to')}</p>
-              <Input
-                value={dateEnd}
+              <DateTimePicker // value={endDate}
                 className="w-100"
-                mask="9999-99-99"
                 placeholder={`Ex. ${currentDate.getFullYear()}-${currentDate.getMonth() + 1}-${currentDate.getDate()}`}
                 onChange={this.handleChangeDateEnd}
+                options={{
+                  dateFormat: 'YYYY-MM-DD',
+                  selected: endDate ? moment(endDate) : null,
+                  selectsEnd: true,
+                  startDate: initDateMoment,
+                  endDate: endDateMoment,
+                  locale
+                }}
               />
             </div>
           </li>
@@ -134,14 +145,16 @@ class SidebarFilterDate extends PureComponent {
 }
 
 SidebarFilterDate.propTypes = {
-  locale: PropTypes.object,
+  localeConfig: PropTypes.object,
+  locale: PropTypes.string,
   filter: PropTypes.object.isRequired,
   handleChange: PropTypes.func.isRequired,
   enabledOptions: PropTypes.array
 }
 
 SidebarFilterDate.defaultProps = {
-  locale: {}
+  localeConfig: {},
+  locale: 'en-US'
 }
 
 export default SidebarFilterDate
