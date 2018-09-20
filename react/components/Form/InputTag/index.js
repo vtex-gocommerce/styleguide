@@ -96,8 +96,9 @@ class InputTag extends Component {
   }
 
   onRemoveValue = value => {
-    const values = this.state.values
+    const values = [...this.state.values]
     const index = values.indexOf(value)
+
     if (index > -1) {
       values.splice(index, 1)
     }
