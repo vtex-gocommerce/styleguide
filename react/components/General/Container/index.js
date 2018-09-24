@@ -10,7 +10,7 @@ class Container extends PureComponent {
     const verticalPadding = isPlaceholderActive || !noVerticalPadding ? 'g-pv6' : ''
     const horizontalPadding = isPlaceholderActive || !noHorizontalPadding ? `g-ph8` : ''
     return (
-      <div className={`w-100 flex flex-column g-mv8 br2 ba b--base-4 bg-base-1 c-on-base-2 g-f3 ${verticalPadding}`}>
+      <div className={`w-100 flex flex-column g-mb8 br2 ba b--base-4 bg-base-1 c-on-base-2 g-f3 ${verticalPadding}`}>
         <div className={horizontalPadding}>
           <PlaceholderContainer isPlaceholderActive={isPlaceholderActive} classNameArray={classNameArray}>
             {() => children}
