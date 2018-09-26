@@ -10,7 +10,6 @@ class SelectCountryStates extends PureComponent {
     super(props)
 
     this.state = {
-      inputValue: '',
       countryCode: props.defaultCountryCode || props.countryCode,
       value: props.value,
       loadedCountryStates: null
@@ -43,12 +42,6 @@ class SelectCountryStates extends PureComponent {
     this.props.onChange && this.props.onChange(event)
   }
 
-  handleInputChamge = event => {
-    const inputValue = event.target.countryCode
-    this.setState({ inputValue })
-    this.props.onChange && this.props.onChange(event)
-  }
-
   handleFocus = event => {
     this.props.onFocus && this.props.onFocus(event)
   }
@@ -59,7 +52,7 @@ class SelectCountryStates extends PureComponent {
 
   render() {
     const { name, id, placeholder, disabled, hasError, required } = this.props
-    const { loadedCountryStates, inputValue, value } = this.state
+    const { loadedCountryStates, value } = this.state
 
     const list =
       loadedCountryStates &&
@@ -69,7 +62,6 @@ class SelectCountryStates extends PureComponent {
     if (hasError) classes += 'b--danger bg-light-danger c-danger '
     if (!disabled && !hasError) classes += 'b--base-4 bg-base-1 c-on-base-1 '
     classes += this.props.elementClassName
-
     return list ? (
       <div className={`${styles.selectWrapper} ${this.props.className}`}>
         <select
@@ -100,10 +92,10 @@ class SelectCountryStates extends PureComponent {
         id={id || name}
         className={classes}
         disabled={disabled}
-        onChange={this.handleInputChamge}
+        onChange={this.handleChange}
         onFocus={this.handleFocus}
         onBlur={this.handleBlur}
-        value={inputValue}
+        value={value}
       />
     )
   }
