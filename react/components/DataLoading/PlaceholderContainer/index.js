@@ -13,7 +13,11 @@ function placeholderFunc(classNameArray) {
       )
     }
 
-    return <div className="flex justify-between">{placeholderFunc(className)}</div>
+    return (
+      <div key={index + className} className="flex justify-between">
+        {placeholderFunc(className)}
+      </div>
+    )
   })
 }
 
