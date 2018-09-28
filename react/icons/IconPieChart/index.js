@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import colors from '../colors';
 
-class IconUser extends PureComponent {
+class IconPieChart extends PureComponent {
   render() {
     const { className, ignoreSize, width, height, color } = this.props
     const style = !ignoreSize ? { width: width, height: height } : {}
@@ -11,14 +11,14 @@ class IconUser extends PureComponent {
     return (
       <svg className={className} {...style} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18">
         <path
-          d="M6.65,7.5a.85.85,0,0,0,.85.85h3a2.15,2.15,0,0,1,0,4.3H9.75V14.5H8.25V12.65H7A1.65,1.65,0,0,1,5.35,11v-.5h1.3V11a.35.35,0,0,0,.35.35h3.5a.85.85,0,0,0,0-1.7h-3a2.15,2.15,0,0,1,0-4.3h.75V3.5h1.5V5.35h.75A2.15,2.15,0,0,1,12.65,7.5h-1.3a.85.85,0,0,0-.85-.85h-3A.85.85,0,0,0,6.65,7.5ZM18,9A9,9,0,1,1,9,0,9,9,0,0,1,18,9ZM16.5,9A7.5,7.5,0,1,0,9,16.5,7.5,7.5,0,0,0,16.5,9Z"
+          d="M7.35,1.08A8.53,8.53,0,0,0,0,9.5H0a8.48,8.48,0,0,0,7,8.37,8.54,8.54,0,0,0,9.92-7.22.71.71,0,0,0,0-.14,1,1,0,0,0-1-1H9A.5.5,0,0,1,8.5,9V2.07A1,1,0,0,0,7.35,1.08ZM7.1,9A1.9,1.9,0,0,0,9,10.9h6.46a7.22,7.22,0,0,1-2.8,4.34A7.09,7.09,0,0,1,1.51,10.75,7.45,7.45,0,0,1,1.4,9.5h0a7.14,7.14,0,0,1,5.7-7Zm3-8V6.93a1,1,0,0,0,1,1H17a1,1,0,0,0,1-1,.76.76,0,0,0,0-.15A8,8,0,0,0,11.24,0,1,1,0,0,0,10.07,1Zm4.67,2.26a6.67,6.67,0,0,1,1.78,3.27h-5V1.48A6.67,6.67,0,0,1,14.74,3.26Z"
           fill={svgColor} />
       </svg>
     )
   }
 }
 
-IconUser.propTypes = {
+IconPieChart.propTypes = {
   /** Ignore fixed width and height. */
   ignoreSize: PropTypes.bool,
   /** Define width of the icon. */
@@ -30,7 +30,7 @@ IconUser.propTypes = {
   className: PropTypes.string,
 }
 
-IconUser.defaultProps = {
+IconPieChart.defaultProps = {
   ignoreSize: false,
   color: "currentColor",
   height: '16px',
@@ -38,4 +38,4 @@ IconUser.defaultProps = {
   className: '',
 }
 
-export default IconUser
+export default IconPieChart

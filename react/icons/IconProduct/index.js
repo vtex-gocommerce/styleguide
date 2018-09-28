@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import colors from '../colors';
 
-class IconUser extends PureComponent {
+class IconProduct extends PureComponent {
   render() {
     const { className, ignoreSize, width, height, color } = this.props
     const style = !ignoreSize ? { width: width, height: height } : {}
@@ -11,14 +11,14 @@ class IconUser extends PureComponent {
     return (
       <svg className={className} {...style} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18">
         <path
-          d="M6.65,7.5a.85.85,0,0,0,.85.85h3a2.15,2.15,0,0,1,0,4.3H9.75V14.5H8.25V12.65H7A1.65,1.65,0,0,1,5.35,11v-.5h1.3V11a.35.35,0,0,0,.35.35h3.5a.85.85,0,0,0,0-1.7h-3a2.15,2.15,0,0,1,0-4.3h.75V3.5h1.5V5.35h.75A2.15,2.15,0,0,1,12.65,7.5h-1.3a.85.85,0,0,0-.85-.85h-3A.85.85,0,0,0,6.65,7.5ZM18,9A9,9,0,1,1,9,0,9,9,0,0,1,18,9ZM16.5,9A7.5,7.5,0,1,0,9,16.5,7.5,7.5,0,0,0,16.5,9Z"
+          d="M11,14.19v-2l3.5-1.5v2Zm7-9.08v7.78a2,2,0,0,1-1.19,1.83l-7,3.11a2,2,0,0,1-1.62,0l-7-3.11A2,2,0,0,1,0,12.89V5.11A2,2,0,0,1,1.19,3.28l7-3.11a2,2,0,0,1,1.62,0l7,3.11A2,2,0,0,1,18,5.11ZM6.18,2.7l7.43,3.06,2.63-1.08,0,0-7-3.11a.52.52,0,0,0-.4,0Zm-4.42,2L9,7.66l3.17-1.3-7.38-3-3,1.33ZM8.25,16.21V8.65L1.5,5.87v7a.51.51,0,0,0,.3.46ZM16.5,5.87,9.75,8.65v7.56l6.45-2.86a.51.51,0,0,0,.3-.46Z"
           fill={svgColor} />
       </svg>
     )
   }
 }
 
-IconUser.propTypes = {
+IconProduct.propTypes = {
   /** Ignore fixed width and height. */
   ignoreSize: PropTypes.bool,
   /** Define width of the icon. */
@@ -30,7 +30,7 @@ IconUser.propTypes = {
   className: PropTypes.string,
 }
 
-IconUser.defaultProps = {
+IconProduct.defaultProps = {
   ignoreSize: false,
   color: "currentColor",
   height: '16px',
@@ -38,4 +38,4 @@ IconUser.defaultProps = {
   className: '',
 }
 
-export default IconUser
+export default IconProduct

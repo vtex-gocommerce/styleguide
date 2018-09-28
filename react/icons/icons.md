@@ -397,5 +397,37 @@
       <IconLogOut />
     </div>
   </div>
+    <div className="flex flex-column items-center w-20 g-mb6">
+    <a href="#!/IconOrder" className="g-mb2 blue no-underline">
+      IconOrder
+    </a>
+    <div>
+      <IconOrder />
+    </div>
+  </div>
+  <div className="flex flex-column items-center w-20 g-mb6">
+    <a href="#!/IconProduct" className="g-mb2 blue no-underline">
+      IconProduct
+    </a>
+    <div>
+      <IconProduct />
+    </div>
+  </div>
+  <div className="flex flex-column items-center w-20 g-mb6">
+    <a href="#!/IconPieChart" className="g-mb2 blue no-underline">
+      IconPieChart
+    </a>
+    <div>
+      <IconPieChart />
+    </div>
+  </div>
+  <div className="flex flex-column items-center w-20 g-mb6">
+    <a href="#!/IconApp" className="g-mb2 blue no-underline">
+      IconApp
+    </a>
+    <div>
+      <IconApp />
+    </div>
+  </div>
 </div>
 ```
