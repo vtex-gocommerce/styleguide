@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import colors from '../colors';
 
-class IconUser extends PureComponent {
+class IconUsdCircle extends PureComponent {
   render() {
     const { className, ignoreSize, width, height, color } = this.props
     const style = !ignoreSize ? { width: width, height: height } : {}
@@ -18,7 +18,7 @@ class IconUser extends PureComponent {
   }
 }
 
-IconUser.propTypes = {
+IconUsdCircle.propTypes = {
   /** Ignore fixed width and height. */
   ignoreSize: PropTypes.bool,
   /** Define width of the icon. */
@@ -30,7 +30,7 @@ IconUser.propTypes = {
   className: PropTypes.string,
 }
 
-IconUser.defaultProps = {
+IconUsdCircle.defaultProps = {
   ignoreSize: false,
   color: "currentColor",
   height: '16px',
@@ -38,4 +38,4 @@ IconUser.defaultProps = {
   className: '',
 }
 
-export default IconUser
+export default IconUsdCircle
