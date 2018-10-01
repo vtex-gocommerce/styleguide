@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import colors from '../colors';
 
-class IconCart extends PureComponent {
+class IconDesktop extends PureComponent {
   render() {
     const { className, ignoreSize, width, height, color } = this.props
     const style = !ignoreSize ? { width: width, height: height } : {}
@@ -18,7 +18,7 @@ class IconCart extends PureComponent {
   }
 }
 
-IconCart.propTypes = {
+IconDesktop.propTypes = {
   /** Ignore fixed width and height. */
   ignoreSize: PropTypes.bool,
   /** Define width of the icon. */
@@ -30,7 +30,7 @@ IconCart.propTypes = {
   className: PropTypes.string,
 }
 
-IconCart.defaultProps = {
+IconDesktop.defaultProps = {
   ignoreSize: false,
   color: "currentColor",
   height: '16px',
@@ -38,7 +38,7 @@ IconCart.defaultProps = {
   className: '',
 }
 
-export default IconCart
+export default IconDesktop
 
 
 

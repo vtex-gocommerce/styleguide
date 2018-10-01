@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import colors from '../colors';
 
-class BullHorm extends PureComponent {
+class IconBullhorn extends PureComponent {
   render() {
     const { className, ignoreSize, width, height, color } = this.props
     const style = !ignoreSize ? { width: width, height: height } : {}
@@ -18,7 +18,7 @@ class BullHorm extends PureComponent {
   }
 }
 
-BullHorm.propTypes = {
+IconBullhorn.propTypes = {
   /** Ignore fixed width and height. */
   ignoreSize: PropTypes.bool,
   /** Define width of the icon. */
@@ -30,7 +30,7 @@ BullHorm.propTypes = {
   className: PropTypes.string,
 }
 
-BullHorm.defaultProps = {
+IconBullhorn.defaultProps = {
   ignoreSize: false,
   color: "currentColor",
   height: '16px',
@@ -38,4 +38,4 @@ BullHorm.defaultProps = {
   className: '',
 }
 
-export default BullHorm
+export default IconBullhorn

@@ -1,23 +1,20 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
-import FontAwesome from '@fortawesome/react-fontawesome'
-import Light from '@fortawesome/fontawesome-pro-light/faShoppingBag'
-import Regular from '@fortawesome/fontawesome-pro-regular/faShoppingBag'
-import Solid from '@fortawesome/fontawesome-pro-solid/faShoppingBag'
-
-const families = {
-  light: Light,
-  solid: Solid,
-  regular: Regular
-}
+import colors from '../colors';
 
 class IconShoppingBag extends PureComponent {
   render() {
-    const { className, ignoreSize, width, height, family } = this.props
+    const { className, ignoreSize, width, height, color } = this.props
     const style = !ignoreSize ? { width: width, height: height } : {}
-    const icon = families[family]
+    const svgColor = color === "currentColor" || !colors[color] ? "currentColor" : colors[color]
 
-    return <FontAwesome className={className} icon={icon} style={style} />
+    return (
+      <svg className={className} {...style} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18">
+        <path
+          d="M13.5,5.5v-1a4.5,4.5,0,0,0-9,0v1H0v9A3.5,3.5,0,0,0,3.5,18h11A3.5,3.5,0,0,0,18,14.5v-9ZM6,4.5a3,3,0,0,1,6,0v1H6Zm10.5,10a2,2,0,0,1-2,2H3.5a2,2,0,0,1-2-2V7h3v3H6V7h6v3h1.5V7h3Z"
+          fill={svgColor} />
+      </svg>
+    )
   }
 }
 
@@ -28,15 +25,20 @@ IconShoppingBag.propTypes = {
   width: PropTypes.string,
   /** Define height of the icon. */
   height: PropTypes.string,
-  className: PropTypes.string
+  /** Define color of the icon. */
+  color: PropTypes.string,
+  className: PropTypes.string,
 }
 
 IconShoppingBag.defaultProps = {
-  family: 'regular',
   ignoreSize: false,
+  color: "currentColor",
   height: '16px',
   width: '16px',
-  className: ''
+  className: '',
 }
 
 export default IconShoppingBag
+
+
+

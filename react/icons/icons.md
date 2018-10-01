@@ -266,14 +266,6 @@
     </div>
   </div>
   <div className="flex flex-column items-center w-20 g-mb6">
-    <a href="#!/IconSettingsAlt" className="g-mb2 blue no-underline">
-      IconSettingsAlt
-    </a>
-    <div>
-      <IconSettingsAlt />
-    </div>
-  </div>
-  <div className="flex flex-column items-center w-20 g-mb6">
     <a href="#!/IconSpinner" className="g-mb2 blue no-underline">
       IconSpinner
     </a>
@@ -299,14 +291,6 @@
       <IconSync className="g-mr2" />
       <IconSync className="g-mr2" spin />
       <IconSync pulse />
-    </div>
-  </div>
-  <div className="flex flex-column items-center w-20 g-mb6">
-    <a href="#!/IconTags" className="g-mb2 blue no-underline">
-      IconTags
-    </a>
-    <div>
-      <IconTags />
     </div>
   </div>
   <div className="flex flex-column items-center w-20 g-mb6">
