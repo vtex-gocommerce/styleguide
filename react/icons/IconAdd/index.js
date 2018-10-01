@@ -9,6 +9,8 @@ class IconAdd extends PureComponent {
     const svgColor = color === 'currentColor' || !colors[color] ? 'currentColor' : colors[color]
 
     return (
+
+
       <svg className={className} {...style} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18">
         <path
           d="M9.75,8.25H14v1.5H9.75V14H8.25V9.75H4V8.25H8.25V4h1.5ZM18,9A9,9,0,1,1,9,0,9,9,0,0,1,18,9ZM16.5,9A7.5,7.5,0,1,0,9,16.5,7.5,7.5,0,0,0,16.5,9Z"

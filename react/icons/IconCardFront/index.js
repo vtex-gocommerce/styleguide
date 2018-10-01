@@ -11,7 +11,7 @@ class IconCardFront extends PureComponent {
     return (
       <svg className={className} {...style} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18">
         <path
-          d="M3.5,11H6.88v1.5H3.5ZM18,4.5v9A2.5,2.5,0,0,1,15.5,16H2.5A2.5,2.5,0,0,1,0,13.5v-9A2.5,2.5,0,0,1,2.5,2h13A2.5,2.5,0,0,1,18,4.5ZM1.5,4.5V6h15V4.5a1,1,0,0,0-1-1H2.5A1,1,0,0,0,1.5,4.5Zm15,9v-6H1.5v6a1,1,0,0,0,1,1h13A1,1,0,0,0,16.5,13.5Z"
+          d="M16,2H2A2,2,0,0,0,0,4V14a2,2,0,0,0,2,2H16a2,2,0,0,0,2-2V4A2,2,0,0,0,16,2ZM2,3.5H16a.5.5,0,0,1,.5.5v.13L9.88,9.5a1.39,1.39,0,0,1-1.76,0L1.5,4.13V4A.5.5,0,0,1,2,3.5Zm14,11H2a.5.5,0,0,1-.5-.5V5.67l5.86,4.77a2.61,2.61,0,0,0,3.28,0L16.5,5.67V14A.5.5,0,0,1,16,14.5Z"
           fill={svgColor}
         />
       </svg>
@@ -40,3 +40,6 @@ IconCardFront.defaultProps = {
 }
 
 export default IconCardFront
+
+
+

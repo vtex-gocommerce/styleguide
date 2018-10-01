@@ -3,13 +3,7 @@ const path = require('path')
 module.exports = {
   require: [
     'vtex-tachyons',
-    '@gocommerce/tachyons',
-    '@fortawesome/fontawesome',
-    '@fortawesome/fontawesome-free-brands',
-    '@fortawesome/fontawesome-pro-light',
-    '@fortawesome/fontawesome-pro-regular',
-    '@fortawesome/fontawesome-pro-solid',
-    '@fortawesome/react-fontawesome'
+    '@gocommerce/tachyons'
   ],
   showUsage: false,
   title: 'GoCommerce Styleguide',
