@@ -1,3 +1,3 @@
-import IconProduct from './icons/IconProduct/index';
+import IconProduct from './icons/IconProduct/index'
 
 export default IconProduct
