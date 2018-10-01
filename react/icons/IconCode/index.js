@@ -40,13 +40,3 @@ IconCode.defaultProps = {
 }
 
 export default IconCode
-<<<<<<< HEAD
-
-
-
-
-
-
-
-=======
->>>>>>> Update Icons
