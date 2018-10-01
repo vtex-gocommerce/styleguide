@@ -2,11 +2,9 @@ import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import colors from '../colors'
 
-const sides = {
-  up: 'M13,10.47,9.53,7A.75.75,0,0,0,8.47,7L5,10.47a.75.75,0,0,0,.53,1.28h7A.75.75,0,0,0,13,10.47Z',
-  right: '',
-  down: 'M12.5,6.75h-7a.74.74,0,0,0-.69.46A.75.75,0,0,0,5,8l3.5,3.5a.75.75,0,0,0,1.06,0L13,8a.75.75,0,0,0-.53-1.28Z',
-  left: ''
+
+const rotate = {
+  'up': 0, 'right': 90, 'down': 180, 'left': 270
 }
 
 class IconCaret extends PureComponent {
@@ -16,8 +14,8 @@ class IconCaret extends PureComponent {
     const svgColor = color === 'currentColor' || !colors[color] ? 'currentColor' : colors[color]
 
     return (
-      <svg className={className} {...style} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18">
-        <path d={sides[side]} fill={svgColor} />
+      <svg style={{ transform: `rotate(${rotate[side]}deg)` }} className={className} {...style} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18">
+        <path d={'M13,10.47,9.53,7A.75.75,0,0,0,8.47,7L5,10.47a.75.75,0,0,0,.53,1.28h7A.75.75,0,0,0,13,10.47Z'} fill={svgColor} />
       </svg>
     )
   }

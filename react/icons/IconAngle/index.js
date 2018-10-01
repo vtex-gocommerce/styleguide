@@ -1,24 +1,26 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
-import FontAwesome from '@fortawesome/react-fontawesome'
-import AngleUp from '@fortawesome/fontawesome-pro-regular/faAngleUp'
-import AngleRight from '@fortawesome/fontawesome-pro-regular/faAngleRight'
-import AngleDown from '@fortawesome/fontawesome-pro-regular/faAngleDown'
-import AngleLeft from '@fortawesome/fontawesome-pro-regular/faAngleLeft'
+import colors from '../colors'
 
-const sides = {
-  up: AngleUp,
-  right: AngleRight,
-  down: AngleDown,
-  left: AngleLeft
+const rotate = {
+  'up': 90, 'right': 180, 'down': 270, 'left': 0
 }
+
 class IconAngle extends PureComponent {
   render() {
-    const { className, ignoreSize, side, width, height } = this.props
+    const { className, ignoreSize, width, height, color, side } = this.props
     const style = !ignoreSize ? { width: width, height: height } : {}
-    const icon = sides[side]
+    const svgColor = color === 'currentColor' || !colors[color] ? 'currentColor' : colors[color]
 
-    return <FontAwesome className={className} icon={icon} style={style} />
+
+    return (
+      <svg style={{ transform: `rotate(${rotate[side]}deg)` }} className={className} {...style} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18">
+        <path
+          d="M17.13,8.24H4l7.17-6.75a.87.87,0,0,0,0-1.22.86.86,0,0,0-1.22,0L1.29,8.37a.87.87,0,0,0,0,1.26l8.64,8.13a.86.86,0,1,0,1.19-1.25L4,9.76H17.13Z"
+          fill={svgColor}
+        />
+      </svg>
+    )
   }
 }
 
@@ -31,11 +33,14 @@ IconAngle.propTypes = {
   width: PropTypes.string,
   /** Define height of the icon. */
   height: PropTypes.string,
+  /** Define color of the icon. */
+  color: PropTypes.string,
   className: PropTypes.string
 }
 
 IconAngle.defaultProps = {
   ignoreSize: false,
+  color: 'currentColor',
   height: '16px',
   width: '16px',
   className: ''
