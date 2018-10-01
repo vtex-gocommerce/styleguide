@@ -1,14 +1,21 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
-import FontAwesome from '@fortawesome/react-fontawesome'
-import icon from '@fortawesome/fontawesome-free-brands/faFacebookF'
+import colors from '../colors'
 
 class IconFacebook extends PureComponent {
   render() {
-    const { className, ignoreSize, width, height } = this.props
+    const { className, ignoreSize, width, height, color } = this.props
     const style = !ignoreSize ? { width: width, height: height } : {}
+    const svgColor = color === 'currentColor' || !colors[color] ? 'currentColor' : colors[color]
 
-    return <FontAwesome className={className} icon={icon} style={style} />
+    return (
+      <svg className={className} {...style} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18">
+        <path
+          d="M15.23,2H2.77A.78.78,0,0,0,2,2.77V15.23a.78.78,0,0,0,.77.77H9.48V10.59H7.66V8.47H9.48V6.91a2.55,2.55,0,0,1,2.72-2.8,14.84,14.84,0,0,1,1.63.09V6.09H12.72c-.88,0-1.05.41-1.05,1V8.46h2.1l-.28,2.12H11.66V16h3.57a.78.78,0,0,0,.77-.77h0V2.77A.78.78,0,0,0,15.23,2Z"
+          fill={svgColor}
+        />
+      </svg>
+    )
   }
 }
 
@@ -19,11 +26,14 @@ IconFacebook.propTypes = {
   width: PropTypes.string,
   /** Define height of the icon. */
   height: PropTypes.string,
+  /** Define color of the icon. */
+  color: PropTypes.string,
   className: PropTypes.string
 }
 
 IconFacebook.defaultProps = {
   ignoreSize: false,
+  color: 'currentColor',
   height: '16px',
   width: '16px',
   className: ''

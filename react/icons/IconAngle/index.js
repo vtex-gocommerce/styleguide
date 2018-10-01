@@ -10,7 +10,7 @@ const sides = {
   up: AngleUp,
   right: AngleRight,
   down: AngleDown,
-  left: AngleLeft,
+  left: AngleLeft
 }
 class IconAngle extends PureComponent {
   render() {
@@ -31,14 +31,14 @@ IconAngle.propTypes = {
   width: PropTypes.string,
   /** Define height of the icon. */
   height: PropTypes.string,
-  className: PropTypes.string,
+  className: PropTypes.string
 }
 
 IconAngle.defaultProps = {
   ignoreSize: false,
   height: '16px',
   width: '16px',
-  className: '',
+  className: ''
 }
 
 export default IconAngle
