@@ -1,7 +1,7 @@
 {
   "vendor": "gocommerce",
   "name": "styleguide",
-  "version": "0.1.67",
+  "version": "0.1.68",
   "title": "GoCommerce Styleguide",
   "description": "The GoCommerce Styleguide components for the Render framework",
   "builders": {
@@ -12,9 +12,6 @@
   },
   "mustUpdateAt": "2018-09-05",
   "categories": [],
-  "registries": [
-    "smartcheckout",
-    "gocommerce"
-  ],
+  "registries": ["smartcheckout", "gocommerce"],
   "settingsSchema": {}
 }
