@@ -260,6 +260,8 @@ var _IconCode = require('./lib/icons/IconCode')
 
 var _IconCode2 = _interopRequireDefault(_IconCode)
 
+var _IconCopy = require('./lib/icons/IconCopy')
+
 var _IconCube = require('./lib/icons/IconCube')
 
 var _IconCube2 = _interopRequireDefault(_IconCube)
@@ -287,6 +289,8 @@ var _IconEdit2 = _interopRequireDefault(_IconEdit)
 var _IconExchange = require('./lib/icons/IconExchange')
 
 var _IconExchange2 = _interopRequireDefault(_IconExchange)
+
+var _IconEye = require('./lib/icons/IconEye')
 
 var _IconFacebook = require('./lib/icons/IconFacebook')
 
@@ -467,6 +471,7 @@ exports.IconClock = _IconClock2.default
 exports.IconClose = _IconClose2.default
 exports.IconCloseAlt = _IconCloseAlt2.default
 exports.IconCode = _IconCode2.default
+exports.IconCopy = IconCopy.default
 exports.IconCube = _IconCube2.default
 exports.IconDanger = _IconDanger2.default
 exports.IconDelete = _IconDelete2.default
@@ -474,6 +479,7 @@ exports.IconDesktop = _IconDesktop2.default
 exports.IconDownload = _IconDownload2.default
 exports.IconEdit = _IconEdit2.default
 exports.IconExchange = _IconExchange2.default
+exports.IconEye = _IconEye.default
 exports.IconFacebook = _IconFacebook2.default
 exports.IconFilter = _IconFilter2.default
 exports.IconGoogle = _IconGoogle2.default
