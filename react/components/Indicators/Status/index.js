@@ -5,6 +5,7 @@ const types = {
   success: 'bg-green',
   warning: 'bg-yellow',
   danger: 'bg-red',
+  inactive: 'bg-base-4 ',
 }
 
 class Status extends PureComponent {
@@ -15,7 +16,7 @@ class Status extends PureComponent {
 
 Status.propTypes = {
   /** Give a color meaning to our status. */
-  type: PropTypes.oneOf(['success', 'warning', 'danger']),
+  type: PropTypes.oneOf(['success', 'warning', 'danger', 'inactive']),
 }
 
 Status.defaultProps = {

@@ -312,6 +312,14 @@
     </div>
   </div>
   <div className="flex flex-column items-center w-20 g-mb6">
+    <a href="#!/IconExternalLink" className="g-mb2 blue no-underline">
+      IconExternalLink
+    </a>
+    <div>
+      <IconExternalLink className="g-mr2" family="light" />
+    </div>
+  </div>
+  <div className="flex flex-column items-center w-20 g-mb6">
     <a href="#!/IconCardBack" className="g-mb2 blue no-underline">
       IconCardBack
     </a>

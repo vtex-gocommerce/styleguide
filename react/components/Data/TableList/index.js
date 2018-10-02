@@ -1,6 +1,5 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
-import style from './style.css'
 import Placeholder from '../../DataLoading/Placeholder'
 
 const textAligns = {
@@ -11,7 +10,7 @@ const textAligns = {
 
 class TableList extends PureComponent {
   render() {
-    const { columns, rows } = this.props
+    const { columns, rows, hasLineDivision } = this.props
     const lastColumn = columns.length - 1
 
     return (
@@ -36,34 +35,34 @@ class TableList extends PureComponent {
         <tbody className="bg-base-1">
           {this.props.isLoading
             ? [...Array(3).keys()].map(e => (
-                <tr key={e}>
-                  {[...Array(this.props.columns.length).keys()].map(e => (
-                    <td key={e} className={`g-pv5 g-ph4 c-on-base-1 tc `}>
-                      <Placeholder className="g-h2 w-100 g-mt2 br4" isPlaceholderActive={this.props.isLoading} />
-                    </td>
-                  ))}
-                </tr>
-              ))
+              <tr key={e}>
+                {[...Array(this.props.columns.length).keys()].map(e => (
+                  <td key={e} className={`g-pv5 g-ph4 c-on-base-1 tc `}>
+                    <Placeholder className="g-h2 w-100 g-mt2 br4" isPlaceholderActive={this.props.isLoading} />
+                  </td>
+                ))}
+              </tr>
+            ))
             : rows.map((fields, index) => {
-                const formatted_row = columns.map((column, indexColumn) => {
-                  const textAlign = column.textAlign || 'left'
-                  return (
-                    <td
-                      key={index + column.id}
-                      className={`${indexColumn === 0 ? 'g-pl0' : 'g-pl4'} ${
-                        indexColumn === lastColumn ? 'g-pr0' : 'g-pr4'
+              const formatted_row = columns.map((column, indexColumn) => {
+                const textAlign = column.textAlign || 'left'
+                return (
+                  <td
+                    key={index + column.id}
+                    className={` g-pv2 ${hasLineDivision ? "bb b--base-3" : ""} ${indexColumn === 0 ? 'g-pl0' : 'g-pl4'} ${
+                      indexColumn === lastColumn ? 'g-pr0' : 'g-pr4'
                       }
                       g-pv2 c-on-base-1 ${textAligns[textAlign]}`}
-                    >
-                      <Placeholder className="g-h2 w-100 g-mt2 br4" isPlaceholderActive={false}>
-                        {() => fields[column.id]}
-                      </Placeholder>
-                    </td>
-                  )
-                })
+                  >
+                    <Placeholder className="g-h2 w-100 g-mt2 br4" isPlaceholderActive={false}>
+                      {() => fields[column.id]}
+                    </Placeholder>
+                  </td>
+                )
+              })
 
-                return <tr key={index}>{formatted_row}</tr>
-              })}
+              return <tr key={index}>{formatted_row}</tr>
+            })}
         </tbody>
       </table>
     )
@@ -71,6 +70,8 @@ class TableList extends PureComponent {
 }
 
 TableList.propTypes = {
+  /** If table has a line dividing lines. */
+  hasLineDivision: PropTypes.bool,
   /** Columns that will have on table. */
   columns: PropTypes.arrayOf(
     PropTypes.shape({
@@ -91,6 +92,7 @@ TableList.propTypes = {
 }
 
 TableList.defaultProps = {
+  hasLineDivision: false,
   isLoading: false
 }
 
