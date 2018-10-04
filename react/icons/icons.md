@@ -114,8 +114,15 @@
       IconCheck
     </a>
     <div>
-      <IconCheck className="g-mr2" family="light" />
       <IconCheck />
+    </div>
+  </div>
+  <div className="flex flex-column items-center w-20 g-mb6">
+    <a href="#!/IconCheckCircle" className="g-mb2 blue no-underline">
+      IconCheckCircle
+    </a>
+    <div>
+      <IconCheckCircle />
     </div>
   </div>
   <div className="flex flex-column items-center w-20 g-mb6">
@@ -389,7 +396,7 @@
       <IconLogOut />
     </div>
   </div>
-    <div className="flex flex-column items-center w-20 g-mb6">
+  <div className="flex flex-column items-center w-20 g-mb6">
     <a href="#!/IconOrder" className="g-mb2 blue no-underline">
       IconOrder
     </a>
