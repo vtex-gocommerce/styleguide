@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import styles from './style.css'
 import Input from './../Input'
+import Select from './../Select/index'
 
 //http://battuta.medunes.net/api/region/ar/all/?key=295f77b7ce1151371edb94429a2437c5
 
@@ -51,46 +52,34 @@ class SelectCountryStates extends PureComponent {
   }
 
   render() {
-    const { name, id, placeholder, disabled, hasError, required } = this.props
+    const { name, id, placeholder, disabled, hasError, required, className, defaultValue } = this.props
     const { loadedCountryStates, value } = this.state
 
     const list =
       loadedCountryStates &&
       loadedCountryStates.reduce((prev, element) => [...prev, { label: element, value: element }], [])
-    let classes = 'g-pa3 ba br1 '
-    if (disabled) classes += 'b--base-4 bg-base-3 c-on-base-2  '
-    if (hasError) classes += 'b--danger bg-light-danger c-danger '
-    if (!disabled && !hasError) classes += 'b--base-4 bg-base-1 c-on-base-1 '
-    classes += this.props.elementClassName
+
     return list ? (
-      <div className={`${styles.selectWrapper} ${this.props.className}`}>
-        <select
-          name={name}
-          id={id || name}
-          className={classes}
-          disabled={disabled}
-          onChange={this.handleChange}
-          onFocus={this.handleFocus}
-          onBlur={this.handleBlur}
-          value={value}
-        >
-          <option value="" disabled={required}>
-            {placeholder}
-          </option>
-          {list.map(item => {
-            return (
-              <option key={item.countryCode} value={`${item.value}`} disabled={item.disabled}>
-                {item.label}
-              </option>
-            )
-          })}
-        </select>
-      </div>
+      <Select
+        name={name}
+        id={id || name}
+        className={className}
+        disabled={disabled}
+        onChange={this.handleChange}
+        onFocus={this.handleFocus}
+        onBlur={this.handleBlur}
+        value={value}
+        list={list}
+        hasError={hasError}
+        required={required}
+        placeholder={placeholder}
+        defaultValue={defaultValue}
+      />
     ) : (
       <Input
         name={name}
         id={id || name}
-        className={classes}
+        className={className}
         disabled={disabled}
         onChange={this.handleChange}
         onFocus={this.handleFocus}
@@ -127,7 +116,9 @@ SelectCountryStates.propTypes = {
   /** Append css classes to the select wrapper. */
   className: PropTypes.string,
   /** Append css classes to the select */
-  elementClassName: PropTypes.string
+  elementClassName: PropTypes.string,
+  /** defaultValue */
+  defaultValue: PropTypes.string
 }
 
 SelectCountryStates.defaultProps = {

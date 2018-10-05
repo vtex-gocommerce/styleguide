@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
+import Select from './../Select/index'
 import styles from './style.css'
 import countries_en from 'i18n-country-code/locales/en.json'
 import countries_pt from 'i18n-country-code/locales/pt.json'
@@ -52,41 +53,27 @@ class SelectCountry extends PureComponent {
   }
 
   render() {
-    const { name, id, placeholder, disabled, hasError, required } = this.props
+    const { name, id, placeholder, disabled, hasError, required, className, defaultValue } = this.props
     const { value } = this.state
 
     const list = this.getElementList()
 
-    let classes = 'g-pa3 ba br1 '
-    if (disabled) classes += 'b--base-4 bg-base-3 c-on-base-2  '
-    if (hasError) classes += 'b--danger bg-light-danger c-danger '
-    if (!disabled && !hasError) classes += 'b--base-4 bg-base-1 c-on-base-1 '
-    classes += this.props.elementClassName
-
     return (
-      <div className={`${styles.selectWrapper} ${this.props.className}`}>
-        <select
-          name={name}
-          id={id || name}
-          className={classes}
-          disabled={disabled}
-          onChange={this.handleChange}
-          onFocus={this.handleFocus}
-          onBlur={this.handleBlur}
-          value={value}
-        >
-          <option value="" disabled={required}>
-            {placeholder}
-          </option>
-          {list.map((item, index) => {
-            return (
-              <option key={item.value} value={`${item.value}`} disabled={item.disabled}>
-                {item.label}
-              </option>
-            )
-          })}
-        </select>
-      </div>
+      <Select
+        name={name}
+        id={id || name}
+        className={className}
+        disabled={disabled}
+        onChange={this.handleChange}
+        onFocus={this.handleFocus}
+        onBlur={this.handleBlur}
+        value={value}
+        list={list}
+        hasError={hasError}
+        required={required}
+        placeholder={placeholder}
+        defaultValue={defaultValue}
+      />
     )
   }
 }
