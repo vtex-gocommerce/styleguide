@@ -19,6 +19,13 @@
       <IconAngle side="left" />
     </div>
   </div>
+    <div className="flex flex-column items-center w-20 g-mb6">
+    <a href="#!/IconEarth" className="g-mb2 blue no-underline">
+      IconEarth
+    </a>
+      <IconEarth />
+    </div>
+  </div>
   <div className="flex flex-column items-center w-20 g-mb6">
     <a href="#!/IconArc" className="g-mb2 blue no-underline">
       IconArc
