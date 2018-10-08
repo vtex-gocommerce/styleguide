@@ -296,6 +296,8 @@ var _IconFacebook = require('./lib/icons/IconFacebook')
 
 var _IconFacebook2 = _interopRequireDefault(_IconFacebook)
 
+var _IconFullScreen = require('./lib/icons/IconFullScreen')
+
 var _IconFilter = require('./lib/icons/IconFilter')
 
 var _IconFilter2 = _interopRequireDefault(_IconFilter)
@@ -481,6 +483,7 @@ exports.IconEdit = _IconEdit2.default
 exports.IconExchange = _IconExchange2.default
 exports.IconEye = _IconEye.default
 exports.IconFacebook = _IconFacebook2.default
+exports.IconFullScreen = _IconFullScreen.default
 exports.IconFilter = _IconFilter2.default
 exports.IconGoogle = _IconGoogle2.default
 exports.IconHelp = _IconHelp2.default

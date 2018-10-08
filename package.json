@@ -5,7 +5,7 @@
     "styleguide": "styleguidist server",
     "styleguide:build": "styleguidist build",
     "github": "gh-pages -d styleguide",
-    "babel": "NODE_ENV=production babel ./react --out-dir ./lib --ignore '__tests__,*.spec.js' && npm run copycss",
+    "babel": "NODE_ENV=production babel ./react/advancedComponents ./react/components ./react/icons --out-dir ./lib --ignore '__tests__,*.spec.js' && npm run copycss",
     "compile": "run-s cleanlib babel",
     "cleanlib": "rm -rf lib",
     "entrypoints": "node ./scripts/entrypoints.js",
@@ -40,7 +40,7 @@
     "react-responsive-modal": "^2.0.1",
     "react-select": "^2.0.0-beta.2",
     "speakingurl": "^14.0.1",
-    "vtex": "^2.30.0",
+    "vtex": "^2.31.2",
     "vtex-tachyons": "2.5.1"
   }
 }
