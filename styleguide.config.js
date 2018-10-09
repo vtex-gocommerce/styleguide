@@ -1,10 +1,7 @@
 const path = require('path')
 
 module.exports = {
-  require: [
-    'vtex-tachyons',
-    '@gocommerce/tachyons'
-  ],
+  require: ['vtex-tachyons', '@gocommerce/tachyons'],
   showUsage: false,
   title: 'GoCommerce Styleguide',
   skipComponentsWithoutExample: true,

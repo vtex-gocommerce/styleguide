@@ -1,0 +1,16 @@
+.iconAnimate {
+  transform: rotate(0deg);
+  animation-name: animate;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes animate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
