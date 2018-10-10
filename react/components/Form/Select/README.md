@@ -39,5 +39,9 @@ const Disabled = [
     <Select placeholder="Select a fruit..." list={Simple} withoutStyle />
     <span className="g-ml4 no-underline c-on-base-2">Without styles</span>
   </div>
+  <div>
+    <Select list={Simple} placeholder={false} />
+    <span className="g-ml4 no-underline c-on-base-2">Without Placeholder</span>
+  </div>
 </div>
 ```

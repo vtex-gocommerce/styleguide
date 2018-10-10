@@ -69,9 +69,11 @@ class Select extends Component {
           onBlur={this.handleBlur}
           value={value}
         >
-          <option value="" disabled={required}>
-            {placeholder}
-          </option>
+          {placeholder !== false && (
+            <option value="" disabled={required}>
+              {placeholder}
+            </option>
+          )}
           {list.map((item, index) => {
             return (
               <option key={item.value} value={`${item.value}`} disabled={item.disabled}>
