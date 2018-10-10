@@ -71,7 +71,7 @@ class Search extends PureComponent {
         )}
         <div className="flex flex-auto items-center w-100">
           <div
-            className={`g-pl3 ${disabled ? '' : 'pointer hover-c-primary'} ${classesIcon}`}
+            className={`g-pl3 flex ${disabled ? '' : 'pointer hover-c-primary'} ${classesIcon}`}
             onClick={this.handleClick}
           >
             <IconSearch />
@@ -80,7 +80,7 @@ class Search extends PureComponent {
           <Input
             disabled={disabled}
             placeholder={placeholder}
-            className="bn w-100 w-100 f6"
+            className="bn w-100 f6"
             onBlue={this.handleSearch}
             onChange={this.handleSearch}
             value={this.state.searchValue}
@@ -90,7 +90,7 @@ class Search extends PureComponent {
 
           {this.state.searchValue && (
             <div
-              className={`g-pr3 pointer hover-c-primary animated fadeIn ${classesIcon}`}
+              className={`g-pr3 flex pointer hover-c-primary animated fadeIn ${classesIcon}`}
               onClick={this.handleClearSearch}
             >
               <IconClose />
