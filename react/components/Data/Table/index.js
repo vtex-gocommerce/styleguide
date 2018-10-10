@@ -59,7 +59,7 @@ class Table extends PureComponent {
   }
 
   render() {
-    const { columns, rows, selectable, placeholderLength } = this.props
+    const { columns, rows, selectable, placeholderLength, bodyTrHeight } = this.props
 
     return (
       <table className={`w-100 ba b--base-4`} cellSpacing="0">
@@ -89,9 +89,9 @@ class Table extends PureComponent {
         <tbody className="bg-base-1">
           {this.props.isLoading
             ? [...Array(placeholderLength).keys()].map(e => (
-                <tr key={e}>
+                <tr key={e} style={{ height: bodyTrHeight }}>
                   {[...Array(this.props.columns.length).keys()].map(e => (
-                    <td key={e} className={`g-pv3 g-ph4 c-on-base-1 tc bb b--base-4`}>
+                    <td key={e} className={`g-pv4 g-ph4 c-on-base-1 tc bb b--base-4`}>
                       <Placeholder className="g-h2 w-100 g-mt2 br4" isPlaceholderActive={this.props.isLoading} />
                     </td>
                   ))}
@@ -104,7 +104,7 @@ class Table extends PureComponent {
                   return (
                     <td
                       key={index + column.id}
-                      className={`g-pv3 g-ph4 c-on-base-1 bb b--base-4 ${textAligns[textAlign]} `}
+                      className={`g-pv4 g-ph4 c-on-base-1 bb b--base-4 ${textAligns[textAlign]} `}
                     >
                       <Placeholder className="g-h2 w-100 g-mt2 br4" isPlaceholderActive={false}>
                         {() => fields[column.id]}
@@ -116,6 +116,7 @@ class Table extends PureComponent {
                 return (
                   <tr
                     key={index}
+                    style={{ height: bodyTrHeight }}
                     className={`${fields.bgColor && 'bg-' + fields.bgColor} ${fields.lineLink &&
                       'pointer'} hover-bg-base-2 bg-animate `}
                     onClick={fields.lineLink && fields.lineLink}
@@ -162,13 +163,15 @@ Table.propTypes = {
   isLoading: PropTypes.bool,
 
   placeholderLength: PropTypes.number,
-  onChange: PropTypes.func
+  onChange: PropTypes.func,
+  bodyTrHeight: PropTypes.string
 }
 
 Table.defaultProps = {
   selectable: false,
   isLoading: false,
   placeholderLength: 3,
+  bodyTrHeight: 'auto',
   onChange: () => {}
 }
 
