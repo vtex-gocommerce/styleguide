@@ -10,6 +10,15 @@ const textAligns = {
   center: 'tc'
 }
 
+const buildTableTd = (Wrapper, props = {}, children) =>
+  Wrapper ? (
+    <Wrapper className="g-pv4 g-ph4 db no-underline c-on-base" {...props}>
+      {children}
+    </Wrapper>
+  ) : (
+    children
+  )
+
 class Table extends PureComponent {
   constructor(props) {
     super(props)
@@ -60,7 +69,6 @@ class Table extends PureComponent {
 
   render() {
     const { columns, rows, selectable, placeholderLength, bodyTrHeight } = this.props
-
     return (
       <table className={`w-100 ba b--base-4`} cellSpacing="0">
         <thead className={`tl bg-base-2`}>
@@ -101,14 +109,19 @@ class Table extends PureComponent {
                 const formatted_row = columns.map(column => {
                   const textAlign =
                     (column.textAlign && column.textAlign) || (column && column.isCentered ? 'center' : 'left')
+                  const hasWrapper = !!column.cellWrapper
                   return (
                     <td
                       key={index + column.id}
-                      className={`g-pv4 g-ph4 c-on-base-1 bb b--base-4 ${textAligns[textAlign]} `}
+                      className={`c-on-base-1 bb b--base-4 ${textAligns[textAlign]} ${hasWrapper ? '' : 'g-pv4 g-ph4'}`}
                     >
-                      <Placeholder className="g-h2 w-100 g-mt2 br4" isPlaceholderActive={false}>
-                        {() => fields[column.id]}
-                      </Placeholder>
+                      {buildTableTd(
+                        column.cellWrapper,
+                        fields.wrapperProps,
+                        <Placeholder className="g-h2 w-100 g-mt2 br4" isPlaceholderActive={false}>
+                          {() => fields[column.id]}
+                        </Placeholder>
+                      )}
                     </td>
                   )
                 })
@@ -151,6 +164,8 @@ Table.propTypes = {
       size: PropTypes.number,
       /** @deprecated Make the column centered. */
       isCentered: PropTypes.bool,
+      /** Component to wrap a cell. */
+      cellWrapper: PropTypes.node,
       /** Make the column text align. One of: left, right, center */
       textAlign: PropTypes.oneOf(['left', 'right', 'center'])
     })
