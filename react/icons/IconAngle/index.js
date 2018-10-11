@@ -3,7 +3,10 @@ import PropTypes from 'prop-types'
 import colors from '../colors'
 
 const rotate = {
-  'up': 90, 'right': 180, 'down': 270, 'left': 0
+  up: 90,
+  right: 180,
+  down: 270,
+  left: 0
 }
 
 class IconAngle extends PureComponent {
@@ -12,11 +15,16 @@ class IconAngle extends PureComponent {
     const style = !ignoreSize ? { width: width, height: height } : {}
     const svgColor = color === 'currentColor' || !colors[color] ? 'currentColor' : colors[color]
 
-
     return (
-      <svg style={{ transform: `rotate(${rotate[side]}deg)` }} className={className} {...style} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18">
+      <svg
+        style={{ transform: `rotate(${rotate[side]}deg)` }}
+        className={className}
+        {...style}
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 18 18"
+      >
         <path
-          d="M17.13,8.24H4l7.17-6.75a.87.87,0,0,0,0-1.22.86.86,0,0,0-1.22,0L1.29,8.37a.87.87,0,0,0,0,1.26l8.64,8.13a.86.86,0,1,0,1.19-1.25L4,9.76H17.13Z"
+          d="M10.75,14a1,1,0,0,1-.66-.25l-4.5-4a1,1,0,0,1,0-1.5l4.5-4a1,1,0,1,1,1.32,1.5L7.76,9l3.65,3.25a1,1,0,0,1,.09,1.41A1,1,0,0,1,10.75,14Z"
           fill={svgColor}
         />
       </svg>

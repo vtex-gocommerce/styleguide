@@ -109,14 +109,6 @@
     </div>
   </div>
   <div className="flex flex-column items-center w-20 g-mb6">
-    <a href="#!/IconChartBar" className="g-mb2 blue no-underline">
-      IconChartBar
-    </a>
-    <div>
-      <IconChartBar />
-    </div>
-  </div>
-  <div className="flex flex-column items-center w-20 g-mb6">
     <a href="#!/IconCheck" className="g-mb2 blue no-underline">
       IconCheck
     </a>
