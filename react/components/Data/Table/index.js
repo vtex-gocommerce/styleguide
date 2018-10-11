@@ -117,7 +117,7 @@ class Table extends PureComponent {
                     >
                       {buildTableTd(
                         column.cellWrapper,
-                        fields.wrapperProps,
+                        fields.cellWrapperProps,
                         <Placeholder className="g-h2 w-100 g-mt2 br4" isPlaceholderActive={false}>
                           {() => fields[column.id]}
                         </Placeholder>
