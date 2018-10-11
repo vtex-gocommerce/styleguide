@@ -4,7 +4,7 @@ import IconArrow from '../../../icons/IconArrow'
 
 class Breadcrumb extends PureComponent {
   renderItemLink = (item, icon = false) => {
-    const classesLink = 'c-on-base-2 inline-flex items-center no-underline hover-c-primary'
+    const classesLink = 'c-on-base-2 no-underline hover-c-primary'
 
     if (!this.props.link)
       return (
@@ -54,7 +54,7 @@ class Breadcrumb extends PureComponent {
       <div className="c-on-base g-f5 fw6 lh-copy tracked-tight">
         {items.map((item, index, items) => {
           if (index + 1 === items.length) {
-            return <React.Fragment key={index}>{this.renderItemText(item, index)}</React.Fragment>
+            return <span key={index}>{this.renderItemText(item, index)}</span>
           }
           return this.renderItem(item, index)
         })}
