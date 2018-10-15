@@ -12,7 +12,7 @@ const textAligns = {
 
 const buildTableTd = (Wrapper, props = {}, children) =>
   Wrapper ? (
-    <Wrapper className="g-pv4 g-ph4 db no-underline c-on-base" {...props}>
+    <Wrapper className="g-pv3 g-ph4 db no-underline c-on-base" {...props}>
       {children}
     </Wrapper>
   ) : (
@@ -68,13 +68,13 @@ class Table extends PureComponent {
   }
 
   render() {
-    const { columns, rows, selectable, placeholderLength, bodyTrHeight } = this.props
+    const { columns, rows, selectable, placeholderLength } = this.props
     return (
-      <table className={`w-100 ba b--base-4`} cellSpacing="0">
+      <table className={`w-100 g-f2 ba b--base-4`} cellSpacing="0">
         <thead className={`tl bg-base-2`}>
           <tr>
             {selectable && (
-              <th className={`g-pv3 g-ph4 tc bb b--base-4`} style={{ width: '40px' }}>
+              <th className={`g-pv2 g-ph4 tc bb b--base-4`} style={{ width: '40px' }}>
                 <CheckBox onClick={this.selectAll} />
               </th>
             )}
@@ -85,7 +85,7 @@ class Table extends PureComponent {
               return (
                 <th
                   key={column.id}
-                  className={`g-pv3 g-ph4 c-on-base-2 fw4 g-f1 bb b--base-4 ${textAligns[textAlign]} `}
+                  className={`g-h9 g-pv1 g-ph4 c-on-base-2 fw4 g-f1 bb b--base-4 ${textAligns[textAlign]}`}
                   style={{ width: column.size + '%' }}
                 >
                   {column.label}
@@ -97,10 +97,10 @@ class Table extends PureComponent {
         <tbody className="bg-base-1">
           {this.props.isLoading
             ? [...Array(placeholderLength).keys()].map(e => (
-                <tr key={e} style={{ height: bodyTrHeight }}>
+                <tr key={e} className="g-h11">
                   {[...Array(this.props.columns.length).keys()].map(e => (
                     <td key={e} className={`g-pv4 g-ph4 c-on-base-1 tc bb b--base-4`}>
-                      <Placeholder className="g-h2 w-100 g-mt2 br4" isPlaceholderActive={this.props.isLoading} />
+                      <Placeholder className="g-h2 w-100 br4" isPlaceholderActive={this.props.isLoading} />
                     </td>
                   ))}
                 </tr>
@@ -113,12 +113,12 @@ class Table extends PureComponent {
                   return (
                     <td
                       key={index + column.id}
-                      className={`c-on-base-1 bb b--base-4 ${textAligns[textAlign]} ${hasWrapper ? '' : 'g-pv4 g-ph4'}`}
+                      className={`c-on-base-1 bb b--base-4 ${textAligns[textAlign]} ${hasWrapper ? '' : 'g-pv1 g-ph4'}`}
                     >
                       {buildTableTd(
                         column.cellWrapper,
                         fields.cellWrapperProps,
-                        <Placeholder className="g-h2 w-100 g-mt2 br4" isPlaceholderActive={false}>
+                        <Placeholder className="g-h2 w-100 br4" isPlaceholderActive={false}>
                           {() => fields[column.id]}
                         </Placeholder>
                       )}
@@ -129,13 +129,12 @@ class Table extends PureComponent {
                 return (
                   <tr
                     key={index}
-                    style={{ height: bodyTrHeight }}
                     className={`${fields.bgColor && 'bg-' + fields.bgColor} ${fields.lineLink &&
-                      'pointer'} hover-bg-base-2 bg-animate `}
+                      'pointer'} hover-bg-base-2 bg-animate g-h11`}
                     onClick={fields.lineLink && fields.lineLink}
                   >
                     {selectable && (
-                      <th className="g-pv3 g-f1 tc bb b--base-4" style={{ width: '40px' }}>
+                      <th className="g-pv1 g-f1 tc bb b--base-4" style={{ width: '40px' }}>
                         <CheckBox
                           onClick={checked => this.select(index, checked)}
                           checked={this.state.selectedList.includes(index)}
@@ -178,15 +177,13 @@ Table.propTypes = {
   isLoading: PropTypes.bool,
 
   placeholderLength: PropTypes.number,
-  onChange: PropTypes.func,
-  bodyTrHeight: PropTypes.string
+  onChange: PropTypes.func
 }
 
 Table.defaultProps = {
   selectable: false,
   isLoading: false,
   placeholderLength: 3,
-  bodyTrHeight: 'auto',
   onChange: () => {}
 }
 

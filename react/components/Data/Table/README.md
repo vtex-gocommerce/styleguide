@@ -1,33 +1,43 @@
 ```js
+
+// Use "import { Link } from 'render'"
+Link = (props) =>{ return <a href="#a" className={props.className}>{props.children}</a> }
+
 const columns = [
   {
     id: 'Name',
-    label: 'Name'
+    label: 'Name',
+    cellWrapper: Link
   },
   {
     id: 'Address',
-    label: 'Address'
+    label: 'Address',
+    cellWrapper: Link
   },
   {
     id: 'Price',
     label: <IconMoney />,
-    isCentered: true,
-    size: 15
+    textAlign: 'center',
+    size: 15,
+    cellWrapper: Link
   },
   {
     id: 'Count',
     label: 'Count',
-    size: 10
+    size: 10,
+    cellWrapper: Link
   },
   {
     id: 'Active',
-    label: 'Active'
+    label: 'Active',
+    size: 10,
+    textAlign: 'center'
   },
   {
     id: 'Actions',
     label: '',
     size: 7,
-    isCentered: true
+    textAlign: 'center'
   }
 ]
 
@@ -40,59 +50,61 @@ const rows = [
     Price: (
       <div>
         <span className="navy-60 strike">$ 2399.00</span>
-        <br />$ 2199.90
+        <br />
+        <span className="navy-60">$ 2299.00</span>
       </div>
     ),
     Active: <Toggle value="isActive" checked />,
-    Actions: <IconMore className="blue" width="20" height="20" />
+    Actions: <IconMore className="blue" width="20" height="20" />,
+    wrapperProps: { page: 'admin/settings/view', params: { file_name: 1 } }
   },
   {
-    id: 3,
+    id: 2,
     Name: 'Last Test',
     Address: 'Just a big street',
     Count: (
-      <p className="yellow">
-        24 <IconWarning className="g-ml1" family="regular" />
-      </p>
+      <span className="yellow">
+        24 <IconWarning className="g-ml1 v-top" family="regular" />
+      </span>
     ),
     Active: <Toggle value="isActive" />,
     Actions: <IconMore className="blue" width="20" height="20" />,
-    bgColor: 'danger-light'
+    bgColor: 'danger-light',
+    wrapperProps: { page: 'admin/settings/view', params: { file_name: 2 } }
   },
   {
-    id: 1,
+    id: 3,
     Name: 'Example Test',
     Address: 'Street of Test',
     Count: 245,
     Price: (
       <div>
         <span className="navy-60 strike">$ 2399.00</span>
-        <br />$ 2199.90
       </div>
     ),
     Active: <Toggle value="isActive" checked />,
-    Actions: <IconMore className="blue" width="20" height="20" />
+    Actions: <IconMore className="blue" width="20" height="20" />,
+    wrapperProps: { page: 'admin/settings/view', params: { file_name: 3 } }
   },
   {
-    id: 3,
+    id: 4,
     Name: 'Last Test',
     Address: 'Just a big street',
     Count: (
-      <p className="yellow">
-        24 <IconWarning className="g-ml1" family="regular" />
-      </p>
+      <span className="yellow">
+        24 <IconWarning className="g-ml1 v-top" family="regular" />
+      </span>
     ),
     Active: <Toggle value="isActive" />,
     Actions: <IconMore className="blue" width="20" height="20" />,
     bgColor: 'success-light',
-    lineLink: () => alert('link')
+    wrapperProps: { page: 'admin/settings/view', params: { file_name: 4 } }
   }
 ]
 
-class ShowModal extends React.Component {
+class TableExample extends React.Component {
   constructor(props) {
     super(props)
-
     this.state = { placeholderIsActive: true }
     this.tooglePlaceHolderStatus = this.tooglePlaceHolderStatus.bind(this)
   }
@@ -105,24 +117,24 @@ class ShowModal extends React.Component {
     return (
       <div className="flex flex-column">
         <div>
-          <Button onClick={this.tooglePlaceHolderStatus}> Change status </Button> Is Placeholder Active:{' '}
+          <Button onClick={this.tooglePlaceHolderStatus}> Change status</Button> Is placeholder active:{' '}
           {this.state.placeholderIsActive ? 'active' : 'inactive'}
+          <br /><br />
+          Table Pagination is a diffente Component <a href="#tablepagination">click here</a> to check it out
         </div>
         <div>
           <div className="g-mb4 g-mt4">
-            Table Pagination is a diffente Component <a href="#pagepaginate">click here</a> to check it out
+            <div className="g-mb3">With <strong>loading</strong>:</div>
             <Table columns={columns} rows={rows} isLoading={this.state.placeholderIsActive} />
           </div>
           <div className="g-mb4 g-mt4">
+            <div className="g-mb3">With <strong>selectable</strong>:</div>
             <Table columns={columns} rows={rows} selectable onChange={e => console.log(e)} />
-          </div>
-          <div className="g-mb4 g-mt4">
-            <Table columns={columns} rows={rows} bodyTrHeight="72px" onChange={e => console.log(e)} />
           </div>
         </div>
       </div>
     )
   }
 }
-;<ShowModal />
+<TableExample />
 ```
