@@ -56,7 +56,7 @@ const rows = [
     ),
     Active: <Toggle value="isActive" checked />,
     Actions: <IconMore className="blue" width="20" height="20" />,
-    wrapperProps: { page: 'admin/settings/view', params: { file_name: 1 } }
+    cellWrapperProps: { page: 'admin/settings/view', params: { file_name: 1 } }
   },
   {
     id: 2,
@@ -70,7 +70,7 @@ const rows = [
     Active: <Toggle value="isActive" />,
     Actions: <IconMore className="blue" width="20" height="20" />,
     bgColor: 'danger-light',
-    wrapperProps: { page: 'admin/settings/view', params: { file_name: 2 } }
+    cellWrapperProps: { page: 'admin/settings/view', params: { file_name: 2 } }
   },
   {
     id: 3,
@@ -84,7 +84,7 @@ const rows = [
     ),
     Active: <Toggle value="isActive" checked />,
     Actions: <IconMore className="blue" width="20" height="20" />,
-    wrapperProps: { page: 'admin/settings/view', params: { file_name: 3 } }
+    cellWrapperProps: { page: 'admin/settings/view', params: { file_name: 3 } }
   },
   {
     id: 4,
@@ -98,7 +98,7 @@ const rows = [
     Active: <Toggle value="isActive" />,
     Actions: <IconMore className="blue" width="20" height="20" />,
     bgColor: 'success-light',
-    wrapperProps: { page: 'admin/settings/view', params: { file_name: 4 } }
+    cellWrapperProps: { page: 'admin/settings/view', params: { file_name: 4 } }
   }
 ]
 
