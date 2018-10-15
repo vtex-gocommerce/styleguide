@@ -9,6 +9,10 @@ const textAligns = {
   left: 'tl',
   center: 'tc'
 }
+const placeholderSizes = {
+  default: 'g-pv4',
+  large: 'g-pv8'
+}
 
 const buildTableTd = (Wrapper, props = {}, children) =>
   Wrapper ? (
@@ -68,7 +72,7 @@ class Table extends PureComponent {
   }
 
   render() {
-    const { columns, rows, selectable, placeholderLength } = this.props
+    const { columns, rows, selectable, placeholderLength, placeholderSize } = this.props
     return (
       <table className={`w-100 g-f2 ba b--base-4`} cellSpacing="0">
         <thead className={`tl bg-base-2`}>
@@ -99,7 +103,7 @@ class Table extends PureComponent {
             ? [...Array(placeholderLength).keys()].map(e => (
                 <tr key={e} className="g-h11">
                   {[...Array(this.props.columns.length).keys()].map(e => (
-                    <td key={e} className={`g-pv4 g-ph4 c-on-base-1 tc bb b--base-4`}>
+                    <td key={e} className={`${placeholderSizes[placeholderSize]} g-ph4 c-on-base-1 tc bb b--base-4`}>
                       <Placeholder className="g-h2 w-100 br4" isPlaceholderActive={this.props.isLoading} />
                     </td>
                   ))}
@@ -129,8 +133,8 @@ class Table extends PureComponent {
                 return (
                   <tr
                     key={index}
-                    className={`${fields.bgColor && 'bg-' + fields.bgColor} ${fields.lineLink &&
-                      'pointer'} hover-bg-base-2 bg-animate g-h11`}
+                    className={`${fields.bgColor && 'bg-' + fields.bgColor || ''} ${fields.lineLink &&
+                      'pointer' || ''} hover-bg-base-2 bg-animate g-h11`}
                     onClick={fields.lineLink && fields.lineLink}
                   >
                     {selectable && (
@@ -161,8 +165,6 @@ Table.propTypes = {
       label: PropTypes.oneOfType([PropTypes.string, PropTypes.element]).isRequired,
       /** Size of the column in percentage. */
       size: PropTypes.number,
-      /** @deprecated Make the column centered. */
-      isCentered: PropTypes.bool,
       /** Component to wrap a cell. */
       cellWrapper: PropTypes.node,
       /** Make the column text align. One of: left, right, center */
@@ -175,8 +177,9 @@ Table.propTypes = {
   selectable: PropTypes.bool,
   /** Is table in Loading State */
   isLoading: PropTypes.bool,
-
+  /** Placeholder options */
   placeholderLength: PropTypes.number,
+  placeholderSize: PropTypes.oneOf(['default', 'large']),
   onChange: PropTypes.func
 }
 
@@ -184,6 +187,7 @@ Table.defaultProps = {
   selectable: false,
   isLoading: false,
   placeholderLength: 3,
+  placeholderSize: 'default',
   onChange: () => {}
 }
 

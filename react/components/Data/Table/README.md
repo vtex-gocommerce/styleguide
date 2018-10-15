@@ -131,6 +131,10 @@ class TableExample extends React.Component {
             <div className="g-mb3">With <strong>selectable</strong>:</div>
             <Table columns={columns} rows={rows} selectable onChange={e => console.log(e)} />
           </div>
+          <div className="g-mb4 g-mt4">
+            <div className="g-mb3">With <strong>Placeholder Large</strong>:</div>
+            <Table columns={columns} rows={rows} placeholderSize="large" isLoading={this.state.placeholderIsActive} />
+          </div>
         </div>
       </div>
     )
