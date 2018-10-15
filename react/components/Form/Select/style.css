@@ -26,6 +26,10 @@
   z-index: 2;
 }
 
+.selectWrapper1:hover::before {
+  border-top: 5px solid #0093e9;
+}
+
 .selectWrapper1 select:focus {
   outline: 0;
 }
