@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import colors from '../colors'
 
-class IconDowload extends PureComponent {
+class IconDownload extends PureComponent {
   render() {
     const { className, ignoreSize, width, height, color } = this.props
     const style = !ignoreSize ? { width: width, height: height } : {}
@@ -19,7 +19,7 @@ class IconDowload extends PureComponent {
   }
 }
 
-IconDowload.propTypes = {
+IconDownload.propTypes = {
   /** Ignore fixed width and height. */
   ignoreSize: PropTypes.bool,
   /** Define width of the icon. */
@@ -31,7 +31,7 @@ IconDowload.propTypes = {
   className: PropTypes.string
 }
 
-IconDowload.defaultProps = {
+IconDownload.defaultProps = {
   ignoreSize: false,
   color: 'currentColor',
   height: '16px',
@@ -39,4 +39,4 @@ IconDowload.defaultProps = {
   className: ''
 }
 
-export default IconDowload
+export default IconDownload
