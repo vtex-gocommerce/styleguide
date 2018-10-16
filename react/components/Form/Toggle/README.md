@@ -23,8 +23,7 @@
   </div>
   <div className="dib">
     <div className="flex items-center">
-      <Toggle value="isHuman" className="dib mr2" />
-      Label
+      <Toggle value="isHuman" className="dib mr2" label="Label" />
     </div>
   </div>
 </div>

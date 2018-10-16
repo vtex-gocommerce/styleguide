@@ -28,7 +28,7 @@ class Toggle extends PureComponent {
   }
 
   render() {
-    const { disabled, value, name, id, className, hasError } = this.props
+    const { disabled, value, name, id, className, hasError, label } = this.props
     const { checked } = this.state
 
     let classes = `flex items-center relative g-h8 g-ph4 br-pill ${styles.toggle} `
@@ -47,10 +47,12 @@ class Toggle extends PureComponent {
     classes += hasError ? ' ba b--danger' : ''
 
     return (
-      <label className={`${className} ${!disabled && 'pointer'}`}>
+      <label className={`${className} ${!disabled && 'pointer'} inline-flex items-center`}>
         <div className={classes}>
           <div className={circle} />
         </div>
+        {label && <span className="g-ml3 hover-c-primary pointer">{label}</span>}
+
         <input
           name={name}
           id={id || name}
@@ -84,10 +86,13 @@ Toggle.propTypes = {
   /** Append css classes to the parent. */
   className: PropTypes.string,
   /** On click callback function. */
-  onClick: PropTypes.func
+  onClick: PropTypes.func,
+  /** Label [optional] */
+  label: PropTypes.string
 }
 
 Toggle.defaultProps = {
+  label: null,
   disabled: false,
   value: '',
   className: '',

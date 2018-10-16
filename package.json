@@ -27,7 +27,7 @@
     "watch": "^1.0.2"
   },
   "dependencies": {
-    "@gocommerce/tachyons": "^3.0.19",
+    "@gocommerce/tachyons": "^3.0.20",
     "i18n-country-code": "^1.0.0",
     "npm": "^6.4.1",
     "npm-run-all": "^4.1.3",
