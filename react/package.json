@@ -1,9 +1,9 @@
 {
   "name": "@gocommerce/styleguide",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "devDependencies": {},
   "dependencies": {
-    "@gocommerce/tachyons": "^3.0.17",
+    "@gocommerce/tachyons": "^3.0.20",
     "i18n-country-code": "^1.0.0",
     "moment": "^2.22.2",
     "react-datepicker": "^1.6.0",
