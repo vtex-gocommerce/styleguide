@@ -7,23 +7,23 @@ import './ReactToastify.global.css'
 
 const types = {
   info: {
-    className: 'bg-primary-light b--primary b--dashed',
-    bodyClassName: 'c-primary',
+    className: 'bg-primary-light b--primary',
+    bodyClassName: 'c-base-inverted-1',
     progressClassName: 'bg-primary'
   },
   success: {
-    className: 'bg-success-light b--success b--dashed',
-    bodyClassName: 'c-success',
+    className: 'bg-success-light b--success',
+    bodyClassName: 'c-base-inverted-1',
     progressClassName: 'bg-success'
   },
   danger: {
     className: 'bg-danger-light b--danger ',
-    bodyClassName: 'c-danger',
+    bodyClassName: 'c-base-inverted-1',
     progressClassName: 'bg-danger'
   },
   warning: {
-    className: 'bg-warning-light b--warning b--dashed',
-    bodyClassName: 'c-warning',
+    className: 'bg-warning-light b--warning',
+    bodyClassName: 'c-base-inverted-1',
     progressClassName: 'bg-warning'
   }
 }
@@ -40,8 +40,8 @@ const show = (text, options) => {
   }
 
   toast(text, {
-    className: 'ba br2 b--dashed ' + types[type].className,
-    bodyClassName: 'fw6 g-f2 lh-copy ' + types[type].bodyClassName,
+    className: 'ba br2 ' + types[type].className,
+    bodyClassName: 'g-f2 lh-copy ' + types[type].bodyClassName,
     progressClassName: types[type].progressClassName,
     position: options.position || 'top-right',
     autoClose: autoClose,

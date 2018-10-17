@@ -61,7 +61,7 @@
   min-height: 64px;
   box-sizing: border-box;
   margin-bottom: 1rem;
-  padding: 11px;
+  padding: 9px 16px 14px;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-pack: justify;
@@ -70,6 +70,7 @@
   overflow: hidden;
   cursor: pointer;
   direction: ltr;
+  box-shadow: 0 4px 6px 0 rgba(20, 32, 50, 0.2);
 }
 .Toastify__toast--rtl {
   direction: rtl;

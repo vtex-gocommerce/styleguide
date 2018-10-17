@@ -8,7 +8,12 @@ class NotifyExample extends React.Component {
   }
 
   notify(type, position) {
-    Notify.show('Teste', { type: type, position: position, autoClose: 5000, onClose: () => console.log('teste') })
+    Notify.show('Change a few things up and try submit again', {
+      type: type,
+      position: position,
+      autoClose: 5000,
+      onClose: () => console.log('teste')
+    })
   }
 
   render() {
