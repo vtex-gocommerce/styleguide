@@ -8,20 +8,47 @@ import './ReactToastify.global.css'
 const types = {
   info: {
     className: 'bg-primary-light b--primary b--dashed',
-    bodyClassName: 'c-primary'
+    bodyClassName: 'c-primary',
+    progressClassName: 'bg-primary'
   },
   success: {
     className: 'bg-success-light b--success b--dashed',
-    bodyClassName: 'c-success'
+    bodyClassName: 'c-success',
+    progressClassName: 'bg-success'
   },
   danger: {
     className: 'bg-danger-light b--danger ',
-    bodyClassName: 'c-danger'
+    bodyClassName: 'c-danger',
+    progressClassName: 'bg-danger'
   },
   warning: {
     className: 'bg-warning-light b--warning b--dashed',
-    bodyClassName: 'c-warning'
+    bodyClassName: 'c-warning',
+    progressClassName: 'bg-warning'
   }
+}
+
+const show = (text, options) => {
+  let autoClose
+  let type = options.type || 'info'
+  if (options.autoClose !== 'undefined' && options.autoClose === false) {
+    autoClose = false
+  } else if (options.autoClose && options.autoClose !== false) {
+    autoClose = options.autoClose
+  } else {
+    autoClose = 5000
+  }
+
+  toast(text, {
+    className: 'ba br2 b--dashed ' + types[type].className,
+    bodyClassName: 'fw6 g-f2 lh-copy ' + types[type].bodyClassName,
+    progressClassName: types[type].progressClassName,
+    position: options.position || 'top-right',
+    autoClose: autoClose,
+    draggable: options.draggable && options.draggable === false ? false : true,
+    pauseOnHover: options.pauseOnHover && options.pauseOnHover === false ? false : true,
+    onClose: options.onClose || null
+  })
 }
 
 class Notify extends PureComponent {
@@ -38,50 +65,12 @@ class Notify extends PureComponent {
   }
 
   render() {
-    const { type, position, autoClose, text, onClose, show } = this.props
-
-    if (this.state.componentDidMount && show) {
-      toast(text, {
-        onClose: this.onClose,
-        className: 'ba br2 b--dashed ' + types[type].className,
-        bodyClassName: 'fw6 g-f2 lh-copy ' + types[type].bodyClassName
-      })
-    }
-
-    return (
-      <ToastContainer
-        position={position}
-        autoClose={autoClose}
-        closeButton={<IconCloseAlt width="12px" heigth="12px" className="c-base-inverted-1" />}
-        draggable
-        pauseOnHover
-      />
-    )
+    return <ToastContainer closeButton={<IconCloseAlt width="12px" heigth="12px" className="c-base-inverted-1" />} />
   }
 }
 
-Notify.propTypes = {
-  /** Define how the alert will look. */
-  type: PropTypes.oneOf(['success', 'error', 'warning', 'info']),
-  /** Define position. */
-  position: PropTypes.oneOf(['top-left', 'top-right', 'top-center', 'bottom-left', 'bottom-right', 'bottom-center']),
-  /** Autoclose */
-  autoClose: PropTypes.bool,
-  /** Function that will be called when user click to close Alert. */
-  onClose: PropTypes.func,
-  /** text of alert. */
-  text: PropTypes.string,
-  /** Show alert. */
-  show: PropTypes.bool
-}
+Notify.propTypes = {}
 
-Notify.defaultProps = {
-  type: 'info',
-  position: 'top-right',
-  onClose: null,
-  autoClose: 5000,
-  text: '',
-  show: true
-}
+Notify.defaultProps = {}
 
-export default Notify
+export default { Notify, show }

@@ -8,18 +8,7 @@ class NotifyExample extends React.Component {
   }
 
   notify(type, position) {
-    this.setState({
-      notify: (
-        <Notify
-          onClose={() => this.setState({ notify: null })}
-          type={type}
-          position={position}
-          text="Notification test Notification test Notification test"
-          show={true}
-          autoClose={false}
-        />
-      )
-    })
+    Notify.show('Teste', { type: type, position: position, autoClose: 5000, onClose: () => console.log('teste') })
   }
 
   render() {
@@ -59,7 +48,8 @@ class NotifyExample extends React.Component {
             Bottom Rigth
           </Button>
         </div>
-        {this.state.notify}
+
+        <Notify.Notify />
       </div>
     )
   }
