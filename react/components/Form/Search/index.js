@@ -4,6 +4,15 @@ import Input from '../Input'
 import Select from '../Select'
 import IconSearch from '../../../icons/IconSearch'
 import IconClose from '../../../icons/IconClose'
+import IconArc from '../../../icons/IconArc'
+
+export const debounceTime = (milliseconds, fn) => {
+  let timer = 0
+  return () => {
+    clearTimeout(timer)
+    timer = setTimeout(fn, milliseconds)
+  }
+}
 
 class Search extends PureComponent {
   constructor(props) {
@@ -21,6 +30,8 @@ class Search extends PureComponent {
 
   handleSearch = event => {
     this.setState({ searchValue: event.target.value })
+
+    this.handleClickDebounce()
   }
 
   handleClearSearch = () => {
@@ -43,8 +54,10 @@ class Search extends PureComponent {
     this.props.onClick && this.props.onClick(values)
   }
 
+  handleClickDebounce = debounceTime(600, this.handleClick)
+
   render() {
-    const { placeholder, withOptions, options, name, id, size, nav, disabled } = this.props
+    const { placeholder, withOptions, options, name, id, size, nav, disabled, isLoading } = this.props
 
     const classes = !nav ? 'b--base-4 bg-white' : 'bg-base-inverted-5 bn c-on-base-inverted'
     const classesIcon = !nav ? 'c-on-base-2' : 'c-base-inverted-3'
@@ -69,11 +82,9 @@ class Search extends PureComponent {
             size="small"
           />
         )}
+
         <div className="flex flex-auto items-center w-100">
-          <div
-            className={`g-pl3 flex ${disabled ? '' : 'pointer hover-c-primary'} ${classesIcon}`}
-            onClick={this.handleClick}
-          >
+          <div className={`g-pl3 flex ${classesIcon}`} onClick={this.handleClick}>
             <IconSearch />
           </div>
 
@@ -81,19 +92,28 @@ class Search extends PureComponent {
             disabled={disabled}
             placeholder={placeholder}
             className="bn w-100 f6"
-            onBlue={this.handleSearch}
             onChange={this.handleSearch}
             value={this.state.searchValue}
             withoutStyle={nav}
             onKeyPress={this.handlePressEnter}
           />
 
-          {this.state.searchValue && (
+          {this.state.searchValue &&
+            !isLoading && (
+              <div
+                className={`g-pr3 flex pointer hover-c-primary animated fadeIn ${classesIcon}`}
+                onClick={this.handleClearSearch}
+              >
+                <IconClose />
+              </div>
+            )}
+
+          {isLoading && (
             <div
               className={`g-pr3 flex pointer hover-c-primary animated fadeIn ${classesIcon}`}
               onClick={this.handleClearSearch}
             >
-              <IconClose />
+              <IconArc />
             </div>
           )}
         </div>
@@ -113,6 +133,8 @@ Search.propTypes = {
   searchValue: PropTypes.string,
   /** Set if search is disabled. */
   disabled: PropTypes.bool,
+  /** Set if search is loading. */
+  isLoading: PropTypes.bool,
   /** Set option selected*/
   optionValue: PropTypes.string,
   /** Set if Search will have filter options. */
@@ -141,7 +163,8 @@ Search.defaultProps = {
   searchValue: '',
   optionValue: '',
   size: 'default',
-  nav: false
+  nav: false,
+  isLoading: false
 }
 
 export default Search
