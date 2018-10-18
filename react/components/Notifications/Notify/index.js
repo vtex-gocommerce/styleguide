@@ -29,15 +29,8 @@ const types = {
 }
 
 const show = (text, options = {}) => {
-  let autoClose
-  let type = options.type || 'info'
-  if (options.autoClose !== 'undefined' && options.autoClose === false) {
-    autoClose = false
-  } else if (options.autoClose && options.autoClose !== false) {
-    autoClose = options.autoClose
-  } else {
-    autoClose = 5000
-  }
+  let type = options.type || 'success'
+  const autoClose = !(typeof options.autoClose === 'boolean') ? options.autoClose : options.autoClose === true && 5000
 
   toast(text, {
     toastId: options.toastId || null,
@@ -53,14 +46,6 @@ const show = (text, options = {}) => {
 }
 
 class Notify extends PureComponent {
-  state = {
-    componentDidMount: false
-  }
-
-  componentDidMount() {
-    this.setState({ componentDidMount: true })
-  }
-
   onClose = () => {
     this.props.onClose && this.props.onClose()
   }

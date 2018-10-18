@@ -29,7 +29,7 @@ class Button extends PureComponent {
     const { status, icon } = this.props
 
     return (
-      (status === 'loading' && <IconSpinner animate />) ||
+      (status === 'loading' && <IconSpinner animate ignoreSize={false} />) ||
       (status === 'success' && <IconCheck />) ||
       (status === 'error' && <IconCloseAlt />) ||
       (icon || null)
