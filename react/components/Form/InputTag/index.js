@@ -95,6 +95,10 @@ class InputTag extends Component {
     this.props.onBlur && this.props.onBlur(e)
   }
 
+  onFocus = e => {
+    this.props.onFocus && this.props.onFocus(e)
+  }
+
   onRemoveValue = value => {
     const values = [...this.state.values]
     const index = values.indexOf(value)
@@ -132,6 +136,7 @@ class InputTag extends Component {
           placeholder={!this.state.values.length ? this.props.placeholder : ''}
           onChange={this.onChangeValue}
           onBlur={this.onBlur}
+          onFocus={this.onFocus}
           onKeyDown={this.onKeyPressAtOptionValue}
         />
       </div>
@@ -148,7 +153,9 @@ InputTag.propTypes = {
   placeholder: PropTypes.string,
   tagStyle: PropTypes.string,
   onChangeValues: PropTypes.func,
-  onChangeInput: PropTypes.func
+  onChangeInput: PropTypes.func,
+  onBlur: PropTypes.func,
+  onFocus: PropTypes.func
 }
 
 InputTag.defaultProps = {
