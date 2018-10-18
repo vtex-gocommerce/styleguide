@@ -28,7 +28,7 @@ const types = {
   }
 }
 
-const show = (text, options) => {
+const show = (text, options = {}) => {
   let autoClose
   let type = options.type || 'info'
   if (options.autoClose !== 'undefined' && options.autoClose === false) {
@@ -40,6 +40,7 @@ const show = (text, options) => {
   }
 
   toast(text, {
+    toastId: options.toastId || null,
     className: 'ba br2 ' + types[type].className,
     bodyClassName: 'g-f2 lh-copy ' + types[type].bodyClassName,
     progressClassName: types[type].progressClassName,
