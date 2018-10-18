@@ -22,9 +22,10 @@ class TablePagination extends PureComponent {
         <div className="flex overflow-hidden justify-end">
           <div className="pointer">
             <Select
-              className="g-w14"
+              elementClassName="tracked-tight zeitungMicroPro pointer hover-c-primary"
               list={viewPageOptions}
               required
+              placeholder={false}
               value={perPage}
               onChange={this.handleChangePerPage}
               withoutStyle
