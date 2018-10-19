@@ -32,7 +32,7 @@ class Table extends PureComponent {
     }
   }
 
-  selectAll = checked => {
+  selectAll = (event, checked) => {
     let updatedList
 
     if (checked) {
@@ -61,27 +61,37 @@ class Table extends PureComponent {
       el != -1 && updatedList.splice(el, 1)
     }
 
+    this.setState({ selectedList: [...updatedList].sort() })
+
     const mapped = this.props.rows.filter((element, index) => {
       if (updatedList.includes(index)) {
         return element
       }
     })
 
-    this.setState({ selectedList: updatedList })
     this.props.onChange(mapped)
   }
 
   render() {
     const { columns, rows, selectable, placeholderLength, placeholderSize } = this.props
+    const { selectedList } = this.state
     return (
       <table className={`w-100 g-f2 ba b--base-4`} cellSpacing="0">
         <thead className={`tl bg-base-2`}>
-          <tr>
-            {selectable && (
+          {selectable && (
+            <tr>
               <th className={`g-pv2 g-ph4 tc bb b--base-4`} style={{ width: '40px' }}>
                 <CheckBox onClick={this.selectAll} />
               </th>
-            )}
+              <th className={`g-pv2 g-ph4 tc bb b--base-4`} colSpan={columns.length}>
+                {selectedList.length > 0 && <span>{selectedList.length} select</span>}
+                {JSON.stringify(selectedList)}
+              </th>
+            </tr>
+          )}
+
+          <tr>
+            {selectable && <th className={`g-pv2 g-ph4 tc bb b--base-4`} style={{ width: '40px' }} />}
             {columns.map((column, index) => {
               const textAlign =
                 (column.textAlign && column.textAlign) || (column && column.isCentered ? 'center' : 'left')
@@ -133,14 +143,16 @@ class Table extends PureComponent {
                 return (
                   <tr
                     key={index}
-                    className={`${fields.bgColor && 'bg-' + fields.bgColor || ''} ${fields.lineLink &&
-                      'pointer' || ''} hover-bg-base-2 bg-animate g-h11`}
+                    className={`${(fields.bgColor && 'bg-' + fields.bgColor) || ''} ${(fields.lineLink && 'pointer') ||
+                      ''} hover-bg-base-2 bg-animate g-h11`}
                     onClick={fields.lineLink && fields.lineLink}
                   >
                     {selectable && (
                       <th className="g-pv1 g-f1 tc bb b--base-4" style={{ width: '40px' }}>
                         <CheckBox
-                          onClick={checked => this.select(index, checked)}
+                          onClick={(event, checked) => {
+                            this.select(index, checked)
+                          }}
                           checked={this.state.selectedList.includes(index)}
                         />
                       </th>
