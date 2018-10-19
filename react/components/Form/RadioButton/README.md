@@ -22,5 +22,8 @@
       height="40px"
     />
   </div>
+  <div className="dib g-mr2">
+    <RadioButton name="settings" value="visible" className="addclasses" label="Label" />
+  </div>
 </div>
 ```

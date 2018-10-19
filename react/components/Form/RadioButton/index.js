@@ -25,7 +25,7 @@ class RadioButton extends PureComponent {
   }
 
   render() {
-    const { disabled, value, name, width, height, className, id, hasError } = this.props
+    const { disabled, value, name, width, height, className, id, hasError, label } = this.props
     const { checked } = this.state
 
     let classesCircleOutside = `b--base-4 `
@@ -41,7 +41,11 @@ class RadioButton extends PureComponent {
     classesCircleOutside = hasError ? 'b--danger' : classesCircleOutside
 
     return (
-      <label className={`gc-radiobutton dib w-auto ${className} ${!disabled && 'pointer'} ${styles.gc_radiobutton}`}>
+      <label
+        className={`gc-radiobutton dib inline-flex items-center w-auto ${className} ${!disabled && 'pointer'} ${
+          styles.gc_radiobutton
+        }`}
+      >
         <input
           id={id || name}
           type="radio"
@@ -55,6 +59,7 @@ class RadioButton extends PureComponent {
         <div className={classesCircleOutside} style={{ width: width || '20px', height: height || '20px' }}>
           <span className={`icon ${classesCircleInside}`} />
         </div>
+        {label && <span className="g-ml2 hover-c-primary pointer">{label}</span>}
       </label>
     )
   }
@@ -80,10 +85,13 @@ RadioButton.propTypes = {
   /** Append css classes to the parent. */
   className: PropTypes.string,
   /** On click callback function. */
-  onClick: PropTypes.func
+  onClick: PropTypes.func,
+  /** Label [optional] */
+  label: PropTypes.string
 }
 
 RadioButton.defaultProps = {
+  label: null,
   checked: false,
   disabled: false,
   className: '',
