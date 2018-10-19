@@ -1,7 +1,12 @@
 ```js
-
 // Use "import { Link } from 'render'"
-Link = (props) =>{ return <a href="#a" className={props.className}>{props.children}</a> }
+Link = props => {
+  return (
+    <a href="#a" className={props.className}>
+      {props.children}
+    </a>
+  )
+}
 
 const columns = [
   {
@@ -119,20 +124,35 @@ class TableExample extends React.Component {
         <div>
           <Button onClick={this.tooglePlaceHolderStatus}> Change status</Button> Is placeholder active:{' '}
           {this.state.placeholderIsActive ? 'active' : 'inactive'}
-          <br /><br />
+          <br />
+          <br />
           Table Pagination is a diffente Component <a href="#tablepagination">click here</a> to check it out
         </div>
         <div>
           <div className="g-mb4 g-mt4">
-            <div className="g-mb3">With <strong>loading</strong>:</div>
+            <div className="g-mb3">
+              With <strong>loading</strong>:
+            </div>
             <Table columns={columns} rows={rows} isLoading={this.state.placeholderIsActive} />
           </div>
           <div className="g-mb4 g-mt4">
-            <div className="g-mb3">With <strong>selectable</strong>:</div>
-            <Table columns={columns} rows={rows} selectable onChange={e => console.log(e)} />
+            <div className="g-mb3">
+              With <strong>selectable</strong>:
+            </div>
+            <Table
+              actions={<span class="hover-c-primary g-f2 pointer">Remover</span>}
+              columns={columns}
+              rows={rows}
+              selectable
+              onChange={e => {
+                console.log(e)
+              }}
+            />
           </div>
           <div className="g-mb4 g-mt4">
-            <div className="g-mb3">With <strong>Placeholder Large</strong>:</div>
+            <div className="g-mb3">
+              With <strong>Placeholder Large</strong>:
+            </div>
             <Table columns={columns} rows={rows} placeholderSize="large" isLoading={this.state.placeholderIsActive} />
           </div>
         </div>
@@ -140,5 +160,5 @@ class TableExample extends React.Component {
     )
   }
 }
-<TableExample />
+;<TableExample />
 ```
