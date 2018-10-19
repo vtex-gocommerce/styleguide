@@ -140,11 +140,12 @@ class TableExample extends React.Component {
               With <strong>selectable</strong>:
             </div>
             <Table
+              actions={<span class="hover-c-primary g-f2 pointer">Remover</span>}
               columns={columns}
               rows={rows}
               selectable
               onChange={e => {
-                // console.log(e)
+                console.log(e)
               }}
             />
           </div>

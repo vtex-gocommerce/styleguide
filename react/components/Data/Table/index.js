@@ -73,8 +73,8 @@ class Table extends PureComponent {
   }
 
   render() {
-    const { columns, rows, selectable, placeholderLength, placeholderSize } = this.props
-    const { selectedList } = this.state
+    const { columns, rows, selectable, placeholderLength, placeholderSize, actions } = this.props
+
     return (
       <table className={`w-100 g-f2 ba b--base-4`} cellSpacing="0">
         <thead className={`tl bg-base-2`}>
@@ -83,9 +83,8 @@ class Table extends PureComponent {
               <th className={`g-pv2 g-ph4 tc bb b--base-4`} style={{ width: '40px' }}>
                 <CheckBox onClick={this.selectAll} />
               </th>
-              <th className={`g-pv2 g-ph4 tc bb b--base-4`} colSpan={columns.length}>
-                {selectedList.length > 0 && <span>{selectedList.length} select</span>}
-                {JSON.stringify(selectedList)}
+              <th className={`g-pv2 g-ph4 tl bb b--base-4 normal c-on-base`} colSpan={columns.length}>
+                {actions && actions}
               </th>
             </tr>
           )}
@@ -192,7 +191,8 @@ Table.propTypes = {
   /** Placeholder options */
   placeholderLength: PropTypes.number,
   placeholderSize: PropTypes.oneOf(['default', 'large']),
-  onChange: PropTypes.func
+  onChange: PropTypes.func,
+  actions: PropTypes.node
 }
 
 Table.defaultProps = {
