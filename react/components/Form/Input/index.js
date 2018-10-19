@@ -69,7 +69,7 @@ class Input extends PureComponent {
 
     let colors = ``
     const isDisableAspect = disabled || readOnly
-    if (isDisableAspect) colors += 'b--base-4 bg-base-3 c-on-base-2 '
+    if (isDisableAspect) colors += 'b--base-4 bg-base-2 c-on-base-2 '
     if (hasError) colors += 'b--danger bg-light-danger c-danger '
     if (!isDisableAspect && !hasError && !withoutStyle) colors += 'b--base-4 bg-base-1 c-on-base-1 '
     if (withoutStyle) colors += 'c-on-base-1 bg-transparent bn '

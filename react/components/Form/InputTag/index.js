@@ -117,7 +117,11 @@ class InputTag extends Component {
 
   render() {
     return (
-      <div className={`flex flex-wrap items-center ba br2 b--base-3 ${this.props.className}`}>
+      <div
+        className={`flex flex-wrap items-center ba br2 b--base-3 ${this.props.className} ${
+          this.props.disabled ? 'bg-base-2' : ''
+        }`}
+      >
         <div className="">
           {this.state.values.map((data, key) => (
             <span key={key} className="dib g-ml1 g-mb1 g-mt1">
