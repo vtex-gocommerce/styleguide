@@ -91,6 +91,14 @@
     </div>
   </div>
   <div className="flex flex-column items-center w-20 g-mb6">
+    <a href="#!/IconPercent" className="g-mb2 blue no-underline">
+      IconPercent
+    </a>
+    <div>
+      <IconPercent />
+    </div>
+  </div>
+  <div className="flex flex-column items-center w-20 g-mb6">
     <a href="#!/IconCaret" className="g-mb2 blue no-underline">
       IconCaret
     </a>
