@@ -38,7 +38,7 @@ IconSpinner.propTypes = {
 }
 
 IconSpinner.defaultProps = {
-  ignoreSize: true,
+  ignoreSize: false,
   color: 'currentColor',
   height: '16px',
   width: '16px',
