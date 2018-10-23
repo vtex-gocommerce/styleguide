@@ -111,7 +111,7 @@ class Table extends PureComponent {
           {this.props.isLoading
             ? [...Array(placeholderLength).keys()].map(e => (
                 <tr key={e} className="g-h11">
-                  {[...Array(this.props.columns.length).keys()].map(e => (
+                  {[...Array(this.props.columns.length + (selectable ? 1 : 0)).keys()].map(e => (
                     <td key={e} className={`${placeholderSizes[placeholderSize]} g-ph4 c-on-base-1 tc bb b--base-4`}>
                       <Placeholder className="g-h2 w-100 br4" isPlaceholderActive={this.props.isLoading} />
                     </td>
