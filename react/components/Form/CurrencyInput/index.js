@@ -10,7 +10,7 @@ class CurrencyInput extends PureComponent {
     const value = props.defaultValue || props.value
 
     this.state = {
-      value: value > 0 ? this.toCurrency(parseFloat(value).toFixed(2)) : value
+      value: value > 0 ? this.toCurrency(value) : value
     }
   }
 
@@ -28,11 +28,34 @@ class CurrencyInput extends PureComponent {
     return floatNumber
   }
 
+  onlyNumber = value => {
+    return value.toString().replace(/[^0-9]/gi, '')
+  }
+
   toCurrency = value => {
-    let formatedNumber = this.toFloatNumber(value).toLocaleString(this.props.locale, {
-      style: 'currency',
-      currency: this.props.currency
-    })
+    value = this.onlyNumber(value)
+
+    const { currencySymbol, currencyFormatInfo } = this.props.currencySpec
+    const {
+      currencyDecimalDigits,
+      currencyDecimalSeparator,
+      currencyGroupSeparator,
+      currencyGroupSize,
+      startsWithCurrencySymbol
+    } = currencyFormatInfo
+    const separatorRegex = new RegExp(`\\B(?=(\\d{${currencyGroupSize}})+(?!\\d))`, 'g')
+    const valueToNumber = +value
+    const valueToFloat = valueToNumber % 1 === 0 ? valueToNumber / 100 : valueToNumber
+    const valueToFixed = valueToFloat.toFixed(currencyDecimalDigits)
+    const valueDividedInParts = valueToFixed.split('.')
+    const decimalPart = valueDividedInParts[1]
+    let wholePart = valueDividedInParts[0]
+    wholePart = wholePart.replace(separatorRegex, currencyGroupSeparator)
+    const valueFinal = currencyDecimalDigits > 0 ? wholePart + currencyDecimalSeparator + decimalPart : wholePart
+
+    let formatedNumber = startsWithCurrencySymbol
+      ? `${currencySymbol} ${valueFinal}`
+      : `${valueFinal} ${currencySymbol}`
 
     if (!this.props.showCurrency) {
       formatedNumber = formatedNumber.replace(/[^0-9,.]/gi, '')
@@ -223,17 +246,21 @@ CurrencyInput.propTypes = {
   iconBefore: PropTypes.element,
   /** remove borders and bgColor. */
   withoutStyle: PropTypes.bool,
-  /** Locale Ex: pt-BR */
-  locale: PropTypes.string,
-  /** Currency Ex: BRL */
-  currency: PropTypes.string,
-  showCurrency: PropTypes.bool
+  showCurrency: PropTypes.bool,
+  currencySpec: PropTypes.shape({
+    currencySymbol: PropTypes.string,
+    currencyFormatInfo: PropTypes.shape({
+      currencyDecimalDigits: PropTypes.string,
+      currencyDecimalSeparator: PropTypes.string,
+      currencyGroupSeparator: PropTypes.string,
+      currencyGroupSize: PropTypes.string,
+      startsWithCurrencySymbol: PropTypes.bool
+    })
+  })
 }
 
 CurrencyInput.defaultProps = {
   type: 'text',
-  locale: 'pt-BR',
-  currency: 'BRL',
   showCurrency: false,
   value: '',
   placeholder: '',
