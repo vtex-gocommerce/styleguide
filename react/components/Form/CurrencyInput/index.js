@@ -98,6 +98,7 @@ class CurrencyInput extends PureComponent {
       disabled,
       type,
       placeholder,
+      formatPlaceholder,
       maxLength,
       showMaxLength,
       mask,
@@ -127,7 +128,7 @@ class CurrencyInput extends PureComponent {
       type: type,
       name: name,
       id: id || name,
-      placeholder: placeholder,
+      placeholder: formatPlaceholder ? this.toCurrency(placeholder) : placeholder,
       onBlur: this.handleBlur,
       onFocus: this.handleFocus,
       onChange: this.handleChange,
@@ -247,6 +248,7 @@ CurrencyInput.propTypes = {
   /** remove borders and bgColor. */
   withoutStyle: PropTypes.bool,
   showCurrency: PropTypes.bool,
+  formatPlaceholder: PropTypes.bool,
   currencySpec: PropTypes.shape({
     currencySymbol: PropTypes.string,
     currencyFormatInfo: PropTypes.shape({
@@ -264,6 +266,7 @@ CurrencyInput.defaultProps = {
   showCurrency: false,
   value: '',
   placeholder: '',
+  formatPlaceholder: false,
   hasError: false,
   disabled: false,
   onChange: null,
@@ -275,6 +278,7 @@ CurrencyInput.defaultProps = {
   alwaysShowMask: false,
   suffix: null,
   iconBefore: null,
+  formatPlaceholder: false,
   currencySpec: {
     currencySymbol: 'R$',
     currencyFormatInfo: {

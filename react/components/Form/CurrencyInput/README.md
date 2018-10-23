@@ -19,7 +19,8 @@ class ExternalValueProp extends React.Component {
         <CurrencyInput
           {...this.props}
           showCurrency={true}
-          value={this.state.value}
+          placeholder="100.00"
+          formatPlaceholder={true}
           currencySpec={{
             currencySymbol: 'R$',
             currencyFormatInfo: {
