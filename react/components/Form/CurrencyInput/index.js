@@ -274,7 +274,17 @@ CurrencyInput.defaultProps = {
   maskChar: ' ',
   alwaysShowMask: false,
   suffix: null,
-  iconBefore: null
+  iconBefore: null,
+  currencySpec: {
+    currencySymbol: 'R$',
+    currencyFormatInfo: {
+      currencyDecimalDigits: 2,
+      currencyDecimalSeparator: ',',
+      currencyGroupSeparator: '.',
+      currencyGroupSize: 3,
+      startsWithCurrencySymbol: true
+    }
+  }
 }
 
 export default CurrencyInput
