@@ -5,6 +5,9 @@ module.exports = {
   showUsage: false,
   title: 'GoCommerce Styleguide',
   skipComponentsWithoutExample: true,
+  styleguideComponents: {
+    Wrapper: path.join(__dirname, 'react/Wrapper')
+  },
   sections: [
     {
       name: 'Introduction',
