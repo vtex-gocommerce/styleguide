@@ -7,7 +7,8 @@ class CurrencyInput extends PureComponent {
   constructor(props) {
     super(props)
 
-    const value = props.defaultValue || props.value
+    let value = props.defaultValue || props.value
+    value = props.currencyIsInteger ? value : value * 100
 
     this.state = {
       value: value > 0 ? this.toCurrency(value) : value
@@ -20,16 +21,12 @@ class CurrencyInput extends PureComponent {
     }
   }
 
-  toFloatNumber = value => {
-    const onlyNumber = `00${value}`.replace(/[^0-9]/gi, '')
-
-    const floatNumber = parseFloat(`${onlyNumber.substr(0, onlyNumber.length - 2)}.${onlyNumber.substr(-2)}`) || 0
-
-    return floatNumber
-  }
-
   onlyNumber = value => {
     return value.toString().replace(/[^0-9]/gi, '')
+  }
+
+  removeCurrencySymbols = value => {
+    return value.toString().replace(/[^0-9,.]/gi, '')
   }
 
   toCurrency = value => {
@@ -45,6 +42,7 @@ class CurrencyInput extends PureComponent {
     } = currencyFormatInfo
     const separatorRegex = new RegExp(`\\B(?=(\\d{${currencyGroupSize}})+(?!\\d))`, 'g')
     const valueToNumber = +value
+
     const valueToFloat = valueToNumber % 1 === 0 ? valueToNumber / 100 : valueToNumber
     const valueToFixed = valueToFloat.toFixed(currencyDecimalDigits)
     const valueDividedInParts = valueToFixed.split('.')
@@ -58,17 +56,26 @@ class CurrencyInput extends PureComponent {
       : `${valueFinal} ${currencySymbol}`
 
     if (!this.props.showCurrency) {
-      formatedNumber = formatedNumber.replace(/[^0-9,.]/gi, '')
+      formatedNumber = this.removeCurrencySymbols(formatedNumber)
     }
 
     return formatedNumber
+  }
+
+  currencyToNumber = value => {
+    const { currencyGroupSeparator, currencyDecimalSeparator } = this.props.currencySpec.currencyFormatInfo
+    let number = this.removeCurrencySymbols(value)
+    number = number.replace(currencyGroupSeparator, '').replace(currencyDecimalSeparator, '.')
+
+    return this.props.currencyIsInteger ? parseInt(number * 100) : parseFloat(number)
   }
 
   handleChange = event => {
     const formatedNumber = this.toCurrency(event.target.value)
 
     this.setState({ value: formatedNumber })
-    event.target.value = this.toFloatNumber(formatedNumber)
+    event.target.value = this.currencyToNumber(formatedNumber)
+
     this.props.onChange && this.props.onChange(event)
   }
 
@@ -249,6 +256,7 @@ CurrencyInput.propTypes = {
   withoutStyle: PropTypes.bool,
   showCurrency: PropTypes.bool,
   formatPlaceholder: PropTypes.bool,
+  currencyIsInteger: PropTypes.bool,
   currencySpec: PropTypes.shape({
     currencySymbol: PropTypes.string,
     currencyFormatInfo: PropTypes.shape({
@@ -264,6 +272,7 @@ CurrencyInput.propTypes = {
 CurrencyInput.defaultProps = {
   type: 'text',
   showCurrency: false,
+  currencyIsInteger: false,
   value: '',
   placeholder: '',
   formatPlaceholder: false,
