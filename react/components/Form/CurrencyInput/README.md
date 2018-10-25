@@ -20,7 +20,7 @@ class ExternalValueProp extends React.Component {
           {...this.props}
           showCurrency={true}
           placeholder="100.00"
-          value={2}
+          value={100}
           currencyIsInteger={false}
           formatPlaceholder={true}
           currencySpec={{
