@@ -38,6 +38,7 @@ class ListTableTemplate extends PureComponent {
   static Filter = Filter
   static Table = Table
   static Pagination = Pagination
+  static Consumer = ListTableTemplateConsumer
 
   componentDidMount() {
     const urlData = {
@@ -213,6 +214,7 @@ ListTableTemplate.propTypes = {
   pageUrl: PropTypes.string,
   toQueryStringConfig: PropTypes.array,
   sidebarFilterConfig: PropTypes.array,
+  tabsConfig: PropTypes.array,
   navigate: PropTypes.func,
   refecthData: PropTypes.func,
   intl: PropTypes.any
@@ -220,6 +222,7 @@ ListTableTemplate.propTypes = {
 
 ListTableTemplate.defaultProps = {
   query: {},
+  tabsConfig: [],
   toQueryStringConfig: [],
   sidebarFilterConfig: [],
   navigate: data => console.log('------Navigate-------', data),

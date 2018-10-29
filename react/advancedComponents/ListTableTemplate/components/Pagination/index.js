@@ -22,8 +22,6 @@ class Pagination extends PureComponent {
     return (
       <ListTableTemplateConsumer>
         {context => {
-          console.log('------PaginationContext-------', context)
-
           const { page, perPage, handleChangePerPage, handleChangePage, intl } = context
 
           return (
