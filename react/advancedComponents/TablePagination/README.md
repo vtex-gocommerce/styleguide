@@ -1,5 +1,5 @@
 ```js
-<div class="bg-base-3">
+<div>
   <TablePagination
     recordsLabel="records found"
     total={25}
