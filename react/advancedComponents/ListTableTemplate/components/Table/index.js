@@ -115,6 +115,7 @@ class Table extends PureComponent {
 
 Table.propTypes = {
   tableConfig: PropTypes.object,
+  currencySpec: PropTypes.object,
   data: PropTypes.array,
   isLoading: PropTypes.bool,
   selectable: PropTypes.bool,
