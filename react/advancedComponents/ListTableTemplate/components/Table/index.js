@@ -48,7 +48,7 @@ class Table extends PureComponent {
     return this.props.tableConfig.options && this.props.tableConfig.options.cellWrapperProps
   }
 
-  parseRows = () => {
+  parseRows = refetch => {
     return this.props.data.map(item => {
       const row = this.props.tableConfig.columns.reduce((row, column) => {
         return {
@@ -57,7 +57,8 @@ class Table extends PureComponent {
             [column.id]: column.row(item, {
               intl: this.props.intl,
               currencySpec: this.props.currencySpec,
-              timezone: this.props.timezone
+              timezone: this.props.timezone,
+              refetch
             })
           }
         }
@@ -77,37 +78,39 @@ class Table extends PureComponent {
 
   render() {
     const { isLoading, selectable, actions, onChange } = this.props
-    const rows = this.parseRows()
 
     return (
       <ListTableTemplateConsumer>
-        {({ sort, handleChangeOrderBy, isFiltered }) => (
-          <React.Fragment>
-            <div className="g-f2">
-              <ListTable
-                columns={this.parseColumns(sort, handleChangeOrderBy)}
-                rows={rows}
-                isLoading={isLoading}
-                placeholderLength={rows.length || 5}
-                selectable={selectable}
-                actions={actions}
-                onChange={onChange}
-              />
-            </div>
-            {!isLoading &&
-              rows.length === 0 && (
-                <div className="tc c-on-base-2 g-f6 fw6 g-pv12 bg-on-inverted bl br bb b--base-4 br--bottom br1">
-                  <IconSearch width="40px" height="40px" />
-                  <p className="g-mv3">
-                    <FormattedMessage id="admin.oms.could-not-find-any-item" />
-                  </p>
-                  <p className="g-f2 normal">
-                    <FormattedMessage id="admin.oms.try-using-another-filter-or-searching-for-a-less-specific-term" />
-                  </p>
-                </div>
-              )}
-          </React.Fragment>
-        )}
+        {({ sort, handleChangeOrderBy, isFiltered }) => {
+          const rows = this.parseRows(handleChangeOrderBy)
+          return (
+            <React.Fragment>
+              <div className="g-f2">
+                <ListTable
+                  columns={this.parseColumns(sort, handleChangeOrderBy)}
+                  rows={rows}
+                  isLoading={isLoading}
+                  placeholderLength={rows.length || 5}
+                  selectable={selectable}
+                  actions={actions}
+                  onChange={onChange}
+                />
+              </div>
+              {!isLoading &&
+                rows.length === 0 && (
+                  <div className="tc c-on-base-2 g-f6 fw6 g-pv12 bg-on-inverted bl br bb b--base-4 br--bottom br1">
+                    <IconSearch width="40px" height="40px" />
+                    <p className="g-mv3">
+                      <FormattedMessage id="admin.oms.could-not-find-any-item" />
+                    </p>
+                    <p className="g-f2 normal">
+                      <FormattedMessage id="admin.oms.try-using-another-filter-or-searching-for-a-less-specific-term" />
+                    </p>
+                  </div>
+                )}
+            </React.Fragment>
+          )
+        }}
       </ListTableTemplateConsumer>
     )
   }
