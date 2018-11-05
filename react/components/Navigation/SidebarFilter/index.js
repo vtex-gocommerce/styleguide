@@ -208,7 +208,7 @@ SidebarFilter.propTypes = {
   enabledOptions: PropTypes.arrayOf(
     PropTypes.shape({
       code: PropTypes.string.isRequired,
-      title: PropTypes.string.isRequired,
+      title: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
       value: PropTypes.string.isRequired
     })
   ),
