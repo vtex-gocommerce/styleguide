@@ -45,9 +45,10 @@ class Select extends Component {
 
     const disabled = _disabled || readOnly
     let classesSelectWrapper = `ba br2 `
-    const disableClass = disabled ? 'b--base-4 bg-base-3 c-on-base-2 ' : ''
+
+    const disableClass = disabled ? 'bg-base-3 c-on-base-2 ' : `${styles.selectIcon} `
     if (hasError) classesSelectWrapper += 'b--danger bg-light-danger '
-    if (!disabled && !hasError && !withoutStyle) classesSelectWrapper += 'b--base-4 bg-base-1 c-on-base '
+    if (!disabled && !hasError && !withoutStyle) classesSelectWrapper += 'bg-base-1 c-on-base '
     if (withoutStyle) classesSelectWrapper += 'c-on-base-2 bg-transparent bn '
 
     let classes = `g-pl4 g-pr2 ${size === 'small' ? ' g-h8' : ' g-h11 '} `
@@ -55,7 +56,7 @@ class Select extends Component {
     if (withoutStyle) classes += 'c-on-base-2 '
     if (!disabled && !hasError && !withoutStyle) classes += 'c-on-base '
 
-    classes += 'bg-transparent  w-100 pointer'
+    classes += 'b--base-4 bg-transparent  w-100 pointer'
     classes += this.props.elementClassName
     return (
       <div className={`${styles.selectWrapper1} ${this.props.className}  ${disableClass} pointer`}>
