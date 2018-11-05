@@ -93,7 +93,7 @@ Select.propTypes = {
   /** (Input id attribute) */
   id: PropTypes.string,
   /** Option to be shown as placeholder. */
-  placeholder: PropTypes.string,
+  placeholder: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
   /** List of options to populate select. */
   list: PropTypes.array.isRequired,
   /** Visually change input to show error. */
