@@ -80,7 +80,6 @@ class DateTimePicker extends PureComponent {
       onChange: this.handleChange,
       disabled: disabled,
       maxLength: maxLength,
-      value: value,
       defaultValue: defaultValue,
       calendarClassName: 'zeitungMicroPro',
       useShortMonthInDropdown: true,

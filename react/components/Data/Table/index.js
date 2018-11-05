@@ -177,7 +177,7 @@ Table.propTypes = {
       /** Size of the column in percentage. */
       size: PropTypes.number,
       /** Component to wrap a cell. */
-      cellWrapper: PropTypes.node,
+      cellWrapper: PropTypes.oneOfType([PropTypes.node, PropTypes.element, PropTypes.func]),
       /** Make the column text align. One of: left, right, center */
       textAlign: PropTypes.oneOf(['left', 'right', 'center'])
     })

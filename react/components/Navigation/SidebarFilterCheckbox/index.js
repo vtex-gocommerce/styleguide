@@ -81,11 +81,13 @@ SidebarFilterCheckbox.propTypes = {
   filter: PropTypes.object.isRequired,
   handleChange: PropTypes.func.isRequired,
   enabledOptions: PropTypes.array,
-  locale: PropTypes.object
+  localeConfig: PropTypes.object,
+  locale: PropTypes.string
 }
 
 SidebarFilterCheckbox.defaultProps = {
-  locale: {}
+  localeConfig: {},
+  locale: 'en-US'
 }
 
 export default SidebarFilterCheckbox
