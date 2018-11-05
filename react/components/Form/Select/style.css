@@ -26,7 +26,7 @@
   z-index: 2;
 }
 
-.selectWrapper1:hover::before {
+.selectIcon:hover::before {
   border-top: 5px solid #0093e9;
 }
 
