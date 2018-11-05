@@ -17,6 +17,7 @@ class Toggle extends PureComponent {
     if (nextProps.checked !== prevState.prevPropsValue) {
       return { checked: nextProps.checked, prevPropsValue: nextProps.checked }
     }
+    return null
   }
 
   handleClick = event => {
