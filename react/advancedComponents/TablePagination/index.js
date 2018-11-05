@@ -51,7 +51,7 @@ TablePagination.propTypes = {
   /** Current page. */
   page: PropTypes.number,
   /** How many elements should be shown per page */
-  perPage: PropTypes.string,
+  perPage: PropTypes.number,
   /** Func called when a perPage change event is trigged */
   handleChangePerPage: PropTypes.Funciton,
   /** Func called when a page change event is trigged */
