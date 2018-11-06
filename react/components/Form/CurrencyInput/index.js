@@ -260,10 +260,10 @@ CurrencyInput.propTypes = {
   currencySpec: PropTypes.shape({
     currencySymbol: PropTypes.string,
     currencyFormatInfo: PropTypes.shape({
-      currencyDecimalDigits: PropTypes.string,
+      currencyDecimalDigits: PropTypes.number,
       currencyDecimalSeparator: PropTypes.string,
       currencyGroupSeparator: PropTypes.string,
-      currencyGroupSize: PropTypes.string,
+      currencyGroupSize: PropTypes.number,
       startsWithCurrencySymbol: PropTypes.bool
     })
   })
