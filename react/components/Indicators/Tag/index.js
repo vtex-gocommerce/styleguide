@@ -11,6 +11,14 @@ const styleClasses = {
   success: 'bg-success-light b--success'
 }
 
+const buttonCloseStyleHover = {
+  default: 'hover-c-primary',
+  primary: 'hover-c-primary',
+  danger: 'hover-c-danger',
+  warning: 'hover-c-warning',
+  success: 'hover-c-success'
+}
+
 class Tag extends PureComponent {
   render() {
     const { onRemove, style } = this.props
@@ -27,7 +35,7 @@ class Tag extends PureComponent {
         <span className="flex items-center">
           {this.props.children}
           {onRemove && (
-            <span onClick={onRemove}>
+            <span className={buttonCloseStyleHover[style]} onClick={onRemove}>
               <IconClose className="g-ml2" family="regular" height="18px" width="18px" />
             </span>
           )}
