@@ -52,9 +52,15 @@ class Search extends PureComponent {
     }
 
     this.props.onClick && this.props.onClick(values)
+    this.props.onSubmit && this.props.onSubmit(values)
   }
 
-  handleClickDebounce = debounceTime(600, this.handleClick)
+  handleSubmit = () => {
+    const { searchValue, optionValue } = this.state
+    this.props.onSubmit && this.props.onSubmit({ searchValue, optionValue })
+  }
+
+  handleClickDebounce = debounceTime(600, this.handleSubmit)
 
   render() {
     const { placeholder, withOptions, options, name, id, size, nav, disabled, isLoading } = this.props
@@ -98,15 +104,14 @@ class Search extends PureComponent {
             onKeyPress={this.handlePressEnter}
           />
 
-          {this.state.searchValue &&
-            !isLoading && (
-              <div
-                className={`g-pr3 flex pointer hover-c-primary animated fadeIn ${classesIcon}`}
-                onClick={this.handleClearSearch}
-              >
-                <IconClose />
-              </div>
-            )}
+          {this.state.searchValue && !isLoading && (
+            <div
+              className={`g-pr3 flex pointer hover-c-primary animated fadeIn ${classesIcon}`}
+              onClick={this.handleClearSearch}
+            >
+              <IconClose />
+            </div>
+          )}
 
           {isLoading && (
             <div
@@ -150,6 +155,8 @@ Search.propTypes = {
   ),
   /** Set function when clicking search button. Receive `values`. */
   onClick: PropTypes.func,
+  /** Set function when clicking and changing input value (with debounce). */
+  onSubmit: PropTypes.func,
   nav: PropTypes.bool,
   /** Size */
   size: PropTypes.oneOf(['small', 'default'])
