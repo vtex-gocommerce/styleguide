@@ -47,13 +47,7 @@ class InputTag extends Component {
     const value = event.target.value
 
     if (event.key == 'Enter' && value !== '' && value !== ',') {
-      this.setState(
-        {
-          values: [...this.state.values, value.replace(',', '')],
-          input: ''
-        },
-        () => this.handleChangeValues()
-      )
+      this.setValuesToStateAndHandle(value)
     }
   }
 
@@ -61,14 +55,9 @@ class InputTag extends Component {
     let value = event.target.value
 
     if (value.includes(',') && value.length > 1) {
-      this.setState(
-        {
-          values: [...this.state.values, value.replace(',', '')]
-        },
-        () => this.handleChangeValues()
-      )
+      this.setValuesToStateAndHandle(value)
 
-      value = ''
+      return
     }
 
     this.setState(
@@ -83,13 +72,7 @@ class InputTag extends Component {
     const value = e.target.value
 
     if (value !== '' && value !== ',') {
-      this.setState(
-        {
-          values: [...this.state.values, value.replace(',', '')],
-          input: ''
-        },
-        () => this.handleChangeValues()
-      )
+      this.setValuesToStateAndHandle(value)
     }
 
     this.props.onBlur && this.props.onBlur(e)
@@ -113,6 +96,37 @@ class InputTag extends Component {
       },
       () => this.handleChangeValues()
     )
+  }
+
+  setValuesToStateAndHandle = value => {
+    let newValues = [...this.state.values, value.replace(',', '')]
+
+    if (!this.props.allowDuplicate && this.checkIfValueAlreadyExists(value)) {
+      this.setState(
+        {
+          input: ''
+        },
+        () => this.handleChangeInput()
+      )
+
+      this.props.onDuplicateItem(value)
+
+      return
+    }
+
+    this.setState(
+      {
+        values: newValues,
+        input: ''
+      },
+      () => this.handleChangeValues()
+    )
+  }
+
+  checkIfValueAlreadyExists = valueToCheck => {
+    const values = this.state.values
+
+    return values.some(value => value === valueToCheck)
   }
 
   render() {
@@ -156,6 +170,8 @@ InputTag.propTypes = {
   className: PropTypes.string,
   placeholder: PropTypes.string,
   tagStyle: PropTypes.string,
+  allowDuplicate: PropTypes.bool,
+  onDuplicateItem: PropTypes.func,
   onChangeValues: PropTypes.func,
   onChangeInput: PropTypes.func,
   onBlur: PropTypes.func,
@@ -169,6 +185,8 @@ InputTag.defaultProps = {
   className: '',
   placeholder: 'Enter values separated by commas',
   tagStyle: 'default',
+  allowDuplicate: true,
+  onDuplicateItem: values => {},
   onChangeValues: values => {},
   onChangeInput: input => {}
 }
