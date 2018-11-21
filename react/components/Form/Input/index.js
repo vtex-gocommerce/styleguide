@@ -110,7 +110,9 @@ class Input extends PureComponent {
         <div className={`dib ${className}`}>
           <div className="flex">
             <input {...props} className={`${inputClasses} w-100 dib ba br-0 br1 br--left`} />
-            <span className={`ba br2 br--right b--base-4 inline-flex items-center g-ph3 c-on-base-2`}>
+            <span
+              className={`ba br2 br--right inline-flex items-center g-ph3 ${!hasError ? 'c-on-base-2' : ''} ${colors}`}
+            >
               {this.props.suffix}
             </span>
           </div>
@@ -131,16 +133,15 @@ class Input extends PureComponent {
         <React.Fragment>
           {label && <label className="db c-on-base-2 g-mb1 g-f2 lh-copy">{label}</label>}
           <input {...props} className={inputClasses} />
-          {showMaxLength &&
-            maxLength !== 0 && (
-              <label
-                className={`flex flex-row-reverse db g-pb2 g-pa1 g-f2 ${
-                  maxLength - this.state.value.length <= 0 ? 'red' : 'c-on-base-2'
-                }`}
-              >
-                {maxLength && maxLength - this.state.value.length}
-              </label>
-            )}
+          {showMaxLength && maxLength !== 0 && (
+            <label
+              className={`flex flex-row-reverse db g-pb2 g-pa1 g-f2 ${
+                maxLength - this.state.value.length <= 0 ? 'red' : 'c-on-base-2'
+              }`}
+            >
+              {maxLength && maxLength - this.state.value.length}
+            </label>
+          )}
         </React.Fragment>
       )
     }

@@ -43,8 +43,10 @@
       <strong className="db g-mb1">How to write a mask:</strong>
       Default format characters are:
       <pre>
-        9: 0-9<br />
-        a: A-Z, a-z<br />
+        9: 0-9
+        <br />
+        a: A-Z, a-z
+        <br />
         *: A-Z, a-z, 0-9
       </pre>
       Any character can be escaped with a backslash. It will appear as a double backslash in JS strings. For example, a German
