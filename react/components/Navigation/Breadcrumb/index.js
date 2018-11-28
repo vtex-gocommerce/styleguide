@@ -24,7 +24,7 @@ class Breadcrumb extends PureComponent {
     }
 
     return (
-      <Link to={item.to} query={query} className={classesLink}>
+      <Link to={item.to} page={item.page} query={query} className={classesLink}>
         {icon && <IconArrow side="left" className="g-mr2" />} {item.title}
       </Link>
     )
@@ -37,7 +37,7 @@ class Breadcrumb extends PureComponent {
   renderItem = (item, index) => {
     return (
       <React.Fragment key={item.title}>
-        {item.hasOwnProperty('to') ? (
+        {item.hasOwnProperty('to') || item.hasOwnProperty('page') ? (
           this.renderItemLink(item, index === 0)
         ) : (
           <span className="c-on-base-2">{this.renderItemText(item)}</span>
@@ -68,7 +68,8 @@ Breadcrumb.propTypes = {
   items: PropTypes.arrayOf(
     PropTypes.shape({
       title: PropTypes.oneOfType([PropTypes.string, PropTypes.element]).isRequired,
-      to: PropTypes.oneOfType([PropTypes.string, PropTypes.element])
+      to: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
+      page: PropTypes.oneOfType([PropTypes.string, PropTypes.element])
     })
   ).isRequired,
   /** Separator character */
