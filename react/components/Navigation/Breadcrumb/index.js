@@ -9,7 +9,8 @@ class Breadcrumb extends PureComponent {
     if (!this.props.link)
       return (
         <a href={item.to} className={classesLink}>
-          {icon && <IconArrow side="left" className="g-mr2" />} {item.title}
+          {icon && <IconArrow side="left" className="g-mr2" />}
+          <span className="dn dib-ns">{item.title}</span>
         </a>
       )
 
@@ -25,7 +26,8 @@ class Breadcrumb extends PureComponent {
 
     return (
       <Link to={item.to} page={item.page} query={query} className={classesLink}>
-        {icon && <IconArrow side="left" className="g-mr2" />} {item.title}
+        {icon && <IconArrow side="left" className="g-mr2" />}
+        <span className="dn dib-ns">{item.title}</span>
       </Link>
     )
   }
@@ -40,9 +42,9 @@ class Breadcrumb extends PureComponent {
         {item.hasOwnProperty('to') || item.hasOwnProperty('page') ? (
           this.renderItemLink(item, index === 0)
         ) : (
-          <span className="c-on-base-2">{this.renderItemText(item)}</span>
+          <span className="c-on-base-2 dib">{this.renderItemText(item)}</span>
         )}
-        <span className="c-on-base-2"> {this.props.separator} </span>
+        <span className="c-on-base-2 dn dib-ns"> {this.props.separator} </span>
       </React.Fragment>
     )
   }
@@ -51,7 +53,7 @@ class Breadcrumb extends PureComponent {
     const { items } = this.props
 
     return (
-      <div className="c-on-base g-f5 fw6 lh-copy tracked-tight">
+      <div className="c-on-base g-f3 g-f5-ns fw6 tracked-tight flex items-center">
         {items.map((item, index, items) => {
           if (index + 1 === items.length) {
             return <span key={index}>{this.renderItemText(item, index)}</span>
