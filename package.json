@@ -1,6 +1,6 @@
 {
   "name": "@gocommerce/styleguide",
-  "version": "5.4.95",
+  "version": "5.4.96",
   "scripts": {
     "styleguide": "styleguidist server",
     "styleguide:build": "styleguidist build",
