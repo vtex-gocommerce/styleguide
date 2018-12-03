@@ -26,13 +26,14 @@ class Pagination extends PureComponent {
 
           return (
             <div className="flex justify-between items-center c-on-base-2 g-f2">
-              <span>
+              <span className="dn db-ns">
                 <FormattedMessage id="admin.oms.showing" /> {total} <FormattedMessage id="admin.oms.records" />
               </span>
-              <div className="flex justify-end flex-auto">
-                <div className="pointer justify-end ">
+              <div className="flex justify-between justify-end-ns flex-auto">
+                <div className="pointer justify-end g-nl4 g-nl0-ns">
                   <Select
                     elementClassName="tracked-tight pointer hover-c-primary"
+                    className="pl0 g-pl4-ns"
                     list={this.viewPageOptions(intl)}
                     required
                     placeholder={false}

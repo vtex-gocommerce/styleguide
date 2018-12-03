@@ -21,8 +21,9 @@ class Table extends PureComponent {
         className="c-primary pointer inline-flex justify-center"
       >
         {label}{' '}
-        {sort &&
-          sort.field == value && <IconCaret side={direction === 'DESC' ? 'up' : 'down'} className="g-ml2 g-f2" />}
+        {sort && sort.field == value && (
+          <IconCaret side={direction === 'DESC' ? 'up' : 'down'} className="g-ml2 g-f2" />
+        )}
       </div>
     )
   }
@@ -85,7 +86,7 @@ class Table extends PureComponent {
           const rows = this.parseRows(handleChangeOrderBy)
           return (
             <React.Fragment>
-              <div className="g-f2">
+              <div className="g-f2 overflow-x-auto">
                 <ListTable
                   columns={this.parseColumns(sort, handleChangeOrderBy)}
                   rows={rows}
@@ -96,18 +97,17 @@ class Table extends PureComponent {
                   onChange={onChange}
                 />
               </div>
-              {!isLoading &&
-                rows.length === 0 && (
-                  <div className="tc c-on-base-2 g-f6 fw6 g-pv12 bg-on-inverted bl br bb b--base-4 br--bottom br1">
-                    <IconSearch width="40px" height="40px" />
-                    <p className="g-mv3">
-                      <FormattedMessage id="admin.oms.could-not-find-any-item" />
-                    </p>
-                    <p className="g-f2 normal">
-                      <FormattedMessage id="admin.oms.try-using-another-filter-or-searching-for-a-less-specific-term" />
-                    </p>
-                  </div>
-                )}
+              {!isLoading && rows.length === 0 && (
+                <div className="tc c-on-base-2 g-f6 fw6 g-pv12 bg-on-inverted bl br bb b--base-4 br--bottom br1">
+                  <IconSearch width="40px" height="40px" />
+                  <p className="g-mv3">
+                    <FormattedMessage id="admin.oms.could-not-find-any-item" />
+                  </p>
+                  <p className="g-f2 normal">
+                    <FormattedMessage id="admin.oms.try-using-another-filter-or-searching-for-a-less-specific-term" />
+                  </p>
+                </div>
+              )}
             </React.Fragment>
           )
         }}

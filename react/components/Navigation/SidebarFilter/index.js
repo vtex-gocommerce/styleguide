@@ -99,7 +99,7 @@ class SidebarFilter extends PureComponent {
     const enabledOptions = this.props.enabledOptions
     const { keyRenderOptions } = this.state
     return (
-      <div className="fixed z-9999 w-25 vh-100 top-0 right-0 shadow-2 bg-white">
+      <div className="fixed z-9999 w-100 w-25-ns vh-100 top-0 right-0 shadow-2 bg-white">
         <div className="flex flex-column vh-100 g-ph8 g-pt6 g-pb0 ">
           <div className="flex justify-between  g-pb5">
             <div className="g-f5 fw6 tracked-tight c-on-base">{this.getTextByLocale('filters')}</div>
@@ -115,23 +115,22 @@ class SidebarFilter extends PureComponent {
             </div>
           </div>
           <div className="flex-auto overflow-y-scroll">
-            {enabledOptions &&
-              enabledOptions.length > 0 && (
-                <div className="w-100">
-                  <p className="c-on-base-2 g-f1 fw6">{this.getTextByLocale('appliedFilters')}</p>
-                  <div className="flex flex-wrap g-pt2">
-                    {enabledOptions.map((item, index) => {
-                      return (
-                        <span key={item.code} className="dib g-mb2">
-                          <Tag className="g-h10 " onRemove={() => this.handleRemove(item)}>
-                            {item.title}
-                          </Tag>
-                        </span>
-                      )
-                    })}
-                  </div>
+            {enabledOptions && enabledOptions.length > 0 && (
+              <div className="w-100">
+                <p className="c-on-base-2 g-f1 fw6">{this.getTextByLocale('appliedFilters')}</p>
+                <div className="flex flex-wrap g-pt2">
+                  {enabledOptions.map((item, index) => {
+                    return (
+                      <span key={item.code} className="dib g-mb2">
+                        <Tag className="g-h10 " onRemove={() => this.handleRemove(item)}>
+                          {item.title}
+                        </Tag>
+                      </span>
+                    )
+                  })}
                 </div>
-              )}
+              </div>
+            )}
 
             <div className="w-100">
               <div className="g-pt2">

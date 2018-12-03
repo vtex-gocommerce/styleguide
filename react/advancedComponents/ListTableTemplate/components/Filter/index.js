@@ -14,7 +14,7 @@ class Filter extends PureComponent {
         {({ searchText, handleSearch, handleOpenSidebarFilter, disableSidebar, enabledSidebarFilterOptions }) => {
           return (
             <div className="flex justify-between">
-              <div className="w-third">
+              <div className="w-auto w-third-ns">
                 <Search
                   placeholder={false}
                   onClick={handleSearch}
@@ -24,8 +24,8 @@ class Filter extends PureComponent {
                   isLoading={isLoading && (enabledSidebarFilterOptions.length > 0 || searchText !== '')}
                 />
               </div>
-              <div className="w-third g-mh8" />
-              <div className="pointer self-center w-third">
+              <div className="dn db-ns w-third-ns g-mh8" />
+              <div className="pointer self-center w-auto w-third-ns">
                 {!disableSidebar && (
                   <span className="fr dib">
                     {enabledSidebarFilterOptions.length === 0 ? (
