@@ -59,6 +59,7 @@ class Table extends PureComponent {
               intl: this.props.intl,
               currencySpec: this.props.currencySpec,
               timezone: this.props.timezone,
+              extraData: this.props.extraData,
               refetch
             })
           }
@@ -123,10 +124,12 @@ Table.propTypes = {
   isLoading: PropTypes.bool,
   selectable: PropTypes.bool,
   actions: PropTypes.node,
-  onChange: PropTypes.func
+  onChange: PropTypes.func,
+  extraData: PropTypes.object
 }
 
 Table.defaultProps = {
-  onChange: () => {}
+  onChange: () => {},
+  extraData: {}
 }
 export default Table
