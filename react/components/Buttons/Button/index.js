@@ -39,7 +39,7 @@ class Button extends PureComponent {
   render() {
     const { status, style, type, fullWidth, disabled, id } = this.props
 
-    let classes = `inline-flex items-center justify-center g-f2 fw6 g-ph5 br2 g-h11 tc `
+    let classes = `inline-flex items-center justify-center g-f2 fw6 g-ph2 g-ph5-ns br2 g-h8 g-h11-ns tc `
     classes += disabled ? 'ba b--base-3 bg-base-3 c-on-base-2 ' : `${listOfStyles[style]} `
     if (fullWidth) classes += 'w-100 '
     if (this.props.className) classes += this.props.className
