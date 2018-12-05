@@ -129,35 +129,40 @@ class InputTag extends Component {
     return values.some(value => value === valueToCheck)
   }
 
+  getTagList = () => {
+    return this.state.values.map((data, key) => (
+      <span key={key} className="dib g-ml1 g-mb1 g-mt1">
+        <Tag style={this.props.tagStyle} onRemove={() => this.onRemoveValue(data)}>
+          {data}
+        </Tag>
+      </span>
+    ))
+  }
+
   render() {
     return (
-      <div
-        className={`flex flex-wrap items-center ba br2 b--base-3 ${this.props.className} ${
-          this.props.disabled ? 'bg-base-2' : ''
-        }`}
-      >
-        <div className="">
-          {this.state.values.map((data, key) => (
-            <span key={key} className="dib g-ml1 g-mb1 g-mt1">
-              <Tag style={this.props.tagStyle} onRemove={() => this.onRemoveValue(data)}>
-                {data}
-              </Tag>
-            </span>
-          ))}
+      <React.Fragment>
+        <div
+          className={`flex flex-wrap items-center ba br2 b--base-3 ${this.props.className} ${
+            this.props.disabled ? 'bg-base-2' : ''
+          }`}
+        >
+          <div className="dn db-ns">{this.getTagList()}</div>
+          <Input
+            name="option_values"
+            className={`dib w-auto flex-auto ${this.props.hasError ? '' : 'b--none g-pl1'}`}
+            hasError={this.props.hasError}
+            value={this.state.input}
+            disabled={this.state.disabled}
+            placeholder={!this.state.values.length ? this.props.placeholder : ''}
+            onChange={this.onChangeValue}
+            onBlur={this.onBlur}
+            onFocus={this.onFocus}
+            onKeyDown={this.onKeyPressAtOptionValue}
+          />
         </div>
-        <Input
-          name="option_values"
-          className={`dib w-auto flex-auto ${this.props.hasError ? '' : 'b--none g-pl1'}`}
-          hasError={this.props.hasError}
-          value={this.state.input}
-          disabled={this.state.disabled}
-          placeholder={!this.state.values.length ? this.props.placeholder : ''}
-          onChange={this.onChangeValue}
-          onBlur={this.onBlur}
-          onFocus={this.onFocus}
-          onKeyDown={this.onKeyPressAtOptionValue}
-        />
-      </div>
+        <div className="db dn-ns g-pt2">{this.getTagList()}</div>
+      </React.Fragment>
     )
   }
 }
