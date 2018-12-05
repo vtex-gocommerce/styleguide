@@ -139,27 +139,34 @@ class InputTag extends Component {
     ))
   }
 
+  renderInput = (forceShowPlaceHolder = false) => {
+    return (
+      <Input
+        name="option_values"
+        className={`dib w-100 ${this.props.hasError ? '' : 'b--none g-pl1'}`}
+        hasError={this.props.hasError}
+        value={this.state.input}
+        disabled={this.state.disabled}
+        placeholder={!this.state.values.length || forceShowPlaceHolder ? this.props.placeholder : ''}
+        onChange={this.onChangeValue}
+        onBlur={this.onBlur}
+        onFocus={this.onFocus}
+        onKeyDown={this.onKeyPressAtOptionValue}
+      />
+    )
+  }
+
   render() {
     return (
       <React.Fragment>
         <div
-          className={`flex flex-wrap items-center ba br2 b--base-3 ${this.props.className} ${
+          className={`flex flex-wrap items-center ba br2 b--base-4 ${this.props.className} ${
             this.props.disabled ? 'bg-base-2' : ''
           }`}
         >
           <div className="dn db-ns">{this.getTagList()}</div>
-          <Input
-            name="option_values"
-            className={`dib w-auto flex-auto ${this.props.hasError ? '' : 'b--none g-pl1'}`}
-            hasError={this.props.hasError}
-            value={this.state.input}
-            disabled={this.state.disabled}
-            placeholder={!this.state.values.length ? this.props.placeholder : ''}
-            onChange={this.onChangeValue}
-            onBlur={this.onBlur}
-            onFocus={this.onFocus}
-            onKeyDown={this.onKeyPressAtOptionValue}
-          />
+          <div className="dn db-ns flex-auto">{this.renderInput()}</div>
+          <div className="db dn-ns flex-auto">{this.renderInput(true)}</div>
         </div>
         <div className="db dn-ns g-pt2">{this.getTagList()}</div>
       </React.Fragment>
