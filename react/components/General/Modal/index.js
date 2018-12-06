@@ -17,7 +17,7 @@ class Modal extends PureComponent {
         closeIconSvgPath={<IconCloseAlt />}
         classNames={{
           overlay: `${style.overlay} ${centered ? style.toCenter : style.toTop}`,
-          modal: `br4 br--top br2-ns overflow-y-auto ${className} ${style.modal}`,
+          modal: `br4 br--top br2-ns overflow-y-auto w-100 w-auto-ns ${className} ${style.modal}`,
           closeIcon: `${style.closeIcon}`
         }}
         showCloseIcon={showCloseIcon}
