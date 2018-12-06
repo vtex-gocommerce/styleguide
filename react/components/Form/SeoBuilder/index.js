@@ -59,8 +59,8 @@ class SeoBuilder extends Component {
 
     return (
       <React.Fragment>
-        <div className={`fadeIn flex justify-between g-pl6 g-pt5 ${className}`}>
-          <div className="w-50 g-pr4">
+        <div className={`fadeIn flex-ns justify-between g-pt5 ${className}`}>
+          <div className="w-100 w-50-ns g-pr4-ns">
             <div className="g-pb4 g-f2">
               <div className="flex justify-between">
                 <label className="db g-pb2 c-on-base-2">{this.props.labelPageTitle}</label>
@@ -86,13 +86,13 @@ class SeoBuilder extends Component {
               <Input name="url" className="db w-100" value={this.state.url} onChange={this.onChangeUrl} />
             </div>
           </div>
-          <div className="w-50 g-pl4">
+          <div className="w-100 w-50-ns g-pl4-ns">
             {(this.state.pageTitle || this.state.metaDescription || this.state.url) && (
               <Seo
                 title={this.state.pageTitle}
                 url={this.state.urlBase + this.state.url}
                 description={this.state.metaDescription}
-                className="br-0 h-100"
+                className="br-0 h-100 g-pb4"
               />
             )}
           </div>
@@ -110,7 +110,7 @@ SeoBuilder.propTypes = {
   onChange: PropTypes.func,
   labelPageTitle: PropTypes.string,
   labelMetaDescription: PropTypes.string,
-  labelUrl: PropTypes.url
+  labelUrl: PropTypes.string
 }
 
 SeoBuilder.defaultProps = {

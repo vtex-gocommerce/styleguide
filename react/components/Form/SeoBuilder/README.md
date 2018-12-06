@@ -1,6 +1,6 @@
 ```js
 <div>
-  <div className="g-mb2">
+  <div className="g-mb2 g-pl6-ns">
     <SeoBuilder
       labelPageTitle="Page title"
       labelMetaDescription="Meta description"
