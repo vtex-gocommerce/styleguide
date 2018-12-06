@@ -1,0 +1,50 @@
+.overlay {
+  padding: 0 !important;
+}
+
+.modal {
+  max-width: 100% !important;
+  max-height: 80%;
+}
+
+.closeIcon {
+  top: 25px !important;
+}
+
+.toCenter {
+  align-items: flex-end !important;
+}
+
+.toTop {
+  align-items: flex-end !important;
+}
+
+/* not small */
+@media screen and (min-width: 48em) {
+  .overlay {
+    padding: 1.2rem !important;
+  }
+
+  .toCenter {
+    align-items: center !important;
+  }
+
+  .toTop {
+    align-items: flex-start !important;
+  }
+
+  .modal {
+    padding: 1.75rem !important;
+    max-height: 100%;
+  }
+
+  .closeIcon {
+    top: 30px !important;
+  }
+}
+/* medium */
+@media screen and (min-width: 48em) and (max-width: 64em) {
+}
+/* large */
+@media screen and (min-width: 64em) {
+}

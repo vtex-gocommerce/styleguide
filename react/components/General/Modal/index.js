@@ -1,6 +1,8 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import ModalComponent from 'react-responsive-modal'
+import style from './style.css'
+import IconCloseAlt from './../../../icons/IconCloseAlt'
 
 class Modal extends PureComponent {
   handleClose = event => {
@@ -12,11 +14,16 @@ class Modal extends PureComponent {
       <ModalComponent
         open={open}
         onClose={this.handleClose}
-        classNames={{ modal: `br2 ${className}`, closeIcon: 'navy' }}
+        closeIconSvgPath={<IconCloseAlt />}
+        classNames={{
+          overlay: `${style.overlay} ${centered ? style.toCenter : style.toTop}`,
+          modal: `br4 br--top br2-ns overflow-y-auto ${className} ${style.modal}`,
+          closeIcon: `${style.closeIcon}`
+        }}
         showCloseIcon={showCloseIcon}
         little={centered}
       >
-        <div className="g-pa5">{this.props.children}</div>
+        <div>{this.props.children}</div>
       </ModalComponent>
     )
   }
