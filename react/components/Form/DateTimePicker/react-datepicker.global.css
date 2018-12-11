@@ -81,7 +81,7 @@
 }
 
 .datepicker_gocommerce .react-datepicker-wrapper {
-  display: inline-block;
+  /* display: inline-block; */
   font-family: 'ZeitungMicroPro', -apple-system, BlinkMacSystemFont, avenir next, avenir, helvetica neue, helvetica,
     ubuntu, roboto, noto, segoe ui, arial, sans-serif;
 }
@@ -488,7 +488,7 @@
 
 .datepicker_gocommerce .react-datepicker__input-container {
   position: relative;
-  display: inline-block;
+  /* display: inline-block; */
 }
 
 .datepicker_gocommerce .react-datepicker__year-read-view,
