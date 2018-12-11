@@ -53,6 +53,7 @@ class DateTimePicker extends PureComponent {
       maxLength,
       showMaxLength,
       className,
+      containerClassName,
       name,
       id,
       label,
@@ -88,7 +89,7 @@ class DateTimePicker extends PureComponent {
 
     if (this.props.suffix) {
       return (
-        <div className={`dib datepicker_gocommerce ${className}`}>
+        <div className={`dib datepicker_gocommerce ${className} ${containerClassName}`}>
           <div className="flex">
             <DatePicker {...props} className={`${DateTimePickerClasses} w-100 dib ba br-0 br1 br--left`} />
             <span className={`ba br2 br--right b--base-4 inline-flex items-center g-ph3 c-on-base-2`}>
@@ -100,7 +101,9 @@ class DateTimePicker extends PureComponent {
     }
     if (this.props.iconBefore) {
       return (
-        <div className={`dib datepicker_gocommerce ${style} ${colors} ${className} overflow-hidden`}>
+        <div
+          className={`dib datepicker_gocommerce ${style} ${colors} ${className} overflow-hidden ${containerClassName}`}
+        >
           <div className="flex flex-auto items-center ">
             <div className="g-pl3">{this.props.iconBefore}</div>
             <DatePicker {...props} className={`${colors} ${padding} ${style} bn w-100 dib`} />
@@ -109,7 +112,7 @@ class DateTimePicker extends PureComponent {
       )
     } else {
       return (
-        <div className="dib datepicker_gocommerce">
+        <div className={`dib datepicker_gocommerce ${containerClassName}`}>
           {label && <label className="db c-on-base-2 g-mb1 g-f2 lh-copy">{label}</label>}
           <DatePicker {...props} className={DateTimePickerClasses} />
         </div>
@@ -139,6 +142,8 @@ DateTimePicker.propTypes = {
   onChange: PropTypes.func,
   /** Append css classes to the DateTimePicker. */
   className: PropTypes.string,
+  /** Append css classes to the Container Div. */
+  containerClassName: PropTypes.string,
   /** Show a field after DateTimePicker. */
   suffix: PropTypes.string,
   /** Show a icon before DateTimePicker. */
@@ -154,6 +159,7 @@ DateTimePicker.defaultProps = {
   disabled: false,
   onChange: null,
   className: '',
+  containerClassName: '',
   maxLength: null,
   showMaxLength: false,
   suffix: null,
