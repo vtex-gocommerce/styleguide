@@ -12,12 +12,12 @@ class Badge extends PureComponent {
   }
 
   render() {
-    const { count, outline, icon, size, color } = this.props
+    const { text, outline, icon, size, color } = this.props
     const badgeColor = color ? color : 'danger'
     const Icon = props => icon
-    const areaSizeHeight = size === "default" ? "23px" : "19px";
-    const areaSizeWidth = size === "default" ? "29px" : "25px";
-    const badgeFontSize = '10px';
+    const areaSizeHeight = size === 'default' ? '23px' : '19px'
+    const areaSizeWidth = size === 'default' ? '29px' : '25px'
+    const badgeFontSize = '10px'
 
     let classes = 'ba bw1 br-pill fw6 g-f1 '
     classes += outline ? `bg-white c-${badgeColor} b--${badgeColor} ` : `bg-${badgeColor} white b--${badgeColor} `
@@ -25,25 +25,29 @@ class Badge extends PureComponent {
 
     const badge = (
       <span className={classes} style={{ fontSize: badgeFontSize }}>
-        {count}
+        {text}
       </span>
     )
 
     return icon ? (
-      <div className={`${styles.badgeBox} c-primary`} style={{ height: areaSizeHeight, width: areaSizeWidth }} onClick={this.handleClick}>
+      <div
+        className={`${styles.badgeBox} c-primary`}
+        style={{ height: areaSizeHeight, width: areaSizeWidth }}
+        onClick={this.handleClick}
+      >
         {badge}
         <Icon />
       </div>
     ) : (
-        badge
-      )
+      badge
+    )
   }
 }
 
 Badge.propTypes = {
-  /** Shows the counter number inside the badge. */
-  count: PropTypes.number.isRequired,
-  /** Shows a integer as counter in the context. */
+  /** Shows the text inside the badge. */
+  text: PropTypes.number.isRequired,
+  /** Shows text in the context. */
   outline: PropTypes.bool,
   /** Applies a badge to an Icon */
   icon: PropTypes.element,
@@ -52,7 +56,7 @@ Badge.propTypes = {
   /** Define Badge Color. */
   color: PropTypes.string,
   /** Function that will be called when user click on badge. */
-  onClick: PropTypes.func,
+  onClick: PropTypes.func
 }
 
 Badge.defaultProps = {
