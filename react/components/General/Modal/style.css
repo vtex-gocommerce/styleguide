@@ -5,6 +5,7 @@
 .modal {
   max-width: 100% !important;
   max-height: 80%;
+  min-width: 40%;
 }
 
 .closeIcon {
@@ -35,6 +36,7 @@
 
   .modal {
     padding: 1.75rem !important;
+    max-width: 70% !important;
     max-height: 100%;
   }
 
