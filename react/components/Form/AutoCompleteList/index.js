@@ -47,7 +47,7 @@ class AutoCompleteList extends PureComponent {
   }
 
   render() {
-    const { inputName, inputId, className, hasError, placeholder } = this.props
+    const { inputName, inputId, className, hasError, placeholder, disabled } = this.props
     const { filterInput } = this.state
     const filteredList = this.filteredList(this.state.filterInput)
 
@@ -57,6 +57,7 @@ class AutoCompleteList extends PureComponent {
           <Input
             name={inputName}
             id={inputId || inputName}
+            disabled={disabled}
             value={filterInput}
             onChange={this.onInputChange}
             onBlur={this.onBlur}
@@ -67,18 +68,17 @@ class AutoCompleteList extends PureComponent {
             iconBefore={<IconSearch />}
           />
           <React.Fragment>
-            {filterInput &&
-              filteredList.length > 0 && (
-                <div className={`${styles.gc_autocompletelist} w-100 bg-white g-mt1 ba br2 b--base-4 ${className}`}>
-                  <ul className="list g-pt4 g-pb2 g-ph4 mt0 mb0 c-on-base-1 tl">
-                    {filteredList.map((item, i) => (
-                      <li key={item.label} className="g-pb2 pointer" value={item.id} onClick={this.onClick}>
-                        {item.label}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )}
+            {filterInput && filteredList.length > 0 && (
+              <div className={`${styles.gc_autocompletelist} w-100 bg-white g-mt1 ba br2 b--base-4 ${className}`}>
+                <ul className="list g-pt4 g-pb2 g-ph4 mt0 mb0 c-on-base-1 tl">
+                  {filteredList.map((item, i) => (
+                    <li key={item.label} className="g-pb2 pointer" value={item.id} onClick={this.onClick}>
+                      {item.label}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
           </React.Fragment>
         </div>
       </div>
@@ -99,6 +99,7 @@ AutoCompleteList.propTypes = {
       label: PropTypes.string.isRequired
     })
   ),
+  disabled: PropTypes.bool,
   onClick: PropTypes.func
 }
 
@@ -109,6 +110,7 @@ AutoCompleteList.defaultProps = {
   defaultValue: '',
   list: [],
   hasError: false,
+  disabled: false,
   onClick: selected => {}
 }
 
