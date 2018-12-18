@@ -55,7 +55,7 @@ class SeoBuilder extends Component {
   }
 
   render() {
-    const { className } = this.props
+    const { className, placeholderTitle, placeholderMetaDescription, placeholderUrl } = this.props
 
     return (
       <React.Fragment>
@@ -66,7 +66,7 @@ class SeoBuilder extends Component {
                 <label className="db g-pb2 c-on-base-2">{this.props.labelPageTitle}</label>
                 <TextLimitCounter text={this.state.pageTitle} limit={70} />
               </div>
-              <Input name="pageTitle" className="db w-100" value={this.state.pageTitle} onChange={this.onChange} />
+              <Input name="pageTitle" placeholder={placeholderTitle} className="db w-100" value={this.state.pageTitle} onChange={this.onChange} />
             </div>
             <div className="g-pb4 g-f2">
               <div className="flex justify-between">
@@ -75,6 +75,7 @@ class SeoBuilder extends Component {
               </div>
               <Textarea
                 name="metaDescription"
+                placeholder={placeholderMetaDescription}
                 className="db w-100"
                 value={this.state.metaDescription}
                 rows={3}
@@ -83,7 +84,7 @@ class SeoBuilder extends Component {
             </div>
             <div className="g-pb4 g-f2">
               <label className="db g-pb2 c-on-base-2">{this.props.labelUrl}</label>
-              <Input name="url" className="db w-100" value={this.state.url} onChange={this.onChangeUrl} />
+              <Input name="url" placeholder={placeholderUrl} className="db w-100" value={this.state.url} onChange={this.onChangeUrl} />
             </div>
           </div>
           <div className="w-100 w-50-ns g-pl4-ns">
@@ -110,7 +111,11 @@ SeoBuilder.propTypes = {
   onChange: PropTypes.func,
   labelPageTitle: PropTypes.string,
   labelMetaDescription: PropTypes.string,
-  labelUrl: PropTypes.string
+  labelUrl: PropTypes.string,
+  placeholderTitle: PropTypes.string,
+  placeholderMetaDescription: PropTypes.string,
+  placeholderUrl: PropTypes.string
+
 }
 
 SeoBuilder.defaultProps = {
@@ -120,7 +125,10 @@ SeoBuilder.defaultProps = {
   urlBase: 'http://www.store.com/',
   labelPageTitle: 'Page title',
   labelMetaDescription: 'Meta description',
-  labelUrl: 'URL'
+  labelUrl: 'URL',
+  placeholderTitle: '',
+  placeholderMetaDescription: '',
+  placeholderUrl: ''
 }
 
 export default SeoBuilder
