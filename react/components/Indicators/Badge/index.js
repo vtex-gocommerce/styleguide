@@ -46,7 +46,7 @@ class Badge extends PureComponent {
 
 Badge.propTypes = {
   /** Shows the text inside the badge. */
-  text: PropTypes.number.isRequired,
+  text: PropTypes.oneOfType([PropTypes.string, PropTypes.element]).isRequired,
   /** Shows text in the context. */
   outline: PropTypes.bool,
   /** Applies a badge to an Icon */
