@@ -42,7 +42,7 @@ class Filter extends PureComponent {
                         onClick={() => {
                           handleOpenSidebarFilter()
                         }}
-                        count={enabledSidebarFilterOptions.length}
+                        text={`${enabledSidebarFilterOptions.length}`}
                         icon={<IconFilter className="c-on-base-2 hover-c-primary" />}
                       />
                     )}
