@@ -44,7 +44,7 @@ class Breadcrumb extends PureComponent {
         ) : (
           <span className="c-on-base-2 dib">{this.renderItemText(item)}</span>
         )}
-        <span className="c-on-base-2 dn dib-ns"> {this.props.separator} </span>
+        <span className="c-on-base-2 g-ph2 dn dib-ns">{this.props.separator}</span>
       </React.Fragment>
     )
   }
@@ -53,7 +53,7 @@ class Breadcrumb extends PureComponent {
     const { items } = this.props
 
     return (
-      <div className="c-on-base g-f3 g-f5-ns fw6 tracked-tight flex items-center">
+      <div className="c-on-base g-f3 g-f5-ns fw6 tracked-tight flex flex-wrap items-center">
         {items.map((item, index, items) => {
           if (index + 1 === items.length) {
             return <span key={index}>{this.renderItemText(item, index)}</span>
