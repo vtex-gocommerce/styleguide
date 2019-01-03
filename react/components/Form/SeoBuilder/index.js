@@ -22,7 +22,7 @@ class SeoBuilder extends Component {
     if (nextProps.pageTitle !== this.props.pageTitle) {
       this.setState({
         pageTitle: nextProps.pageTitle,
-        url: this.state.url.length ? this.state.url : getSlug(nextProps.pageTitle)
+        url: !this.props.editUrlWhenChangeTitle ? this.state.url : getSlug(nextProps.pageTitle)
       })
     }
 
@@ -129,7 +129,8 @@ SeoBuilder.propTypes = {
   labelUrl: PropTypes.string,
   placeholderTitle: PropTypes.string,
   placeholderMetaDescription: PropTypes.string,
-  placeholderUrl: PropTypes.string
+  placeholderUrl: PropTypes.string,
+  editUrlWhenChangeTitle: PropTypes.bool
 }
 
 SeoBuilder.defaultProps = {
@@ -142,7 +143,8 @@ SeoBuilder.defaultProps = {
   labelUrl: 'URL',
   placeholderTitle: '',
   placeholderMetaDescription: '',
-  placeholderUrl: ''
+  placeholderUrl: '',
+  editUrlWhenChangeTitle: true
 }
 
 export default SeoBuilder
