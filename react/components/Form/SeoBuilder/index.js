@@ -20,7 +20,10 @@ class SeoBuilder extends Component {
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.pageTitle !== this.props.pageTitle) {
-      this.setState({ pageTitle: nextProps.pageTitle, url: getSlug(nextProps.pageTitle) })
+      this.setState({
+        pageTitle: nextProps.pageTitle,
+        url: this.state.url.length ? this.state.url : getSlug(nextProps.pageTitle)
+      })
     }
 
     if (nextProps.metaDescription !== this.props.metaDescription) {
@@ -66,7 +69,13 @@ class SeoBuilder extends Component {
                 <label className="db g-pb2 c-on-base-2">{this.props.labelPageTitle}</label>
                 <TextLimitCounter text={this.state.pageTitle} limit={70} />
               </div>
-              <Input name="pageTitle" placeholder={placeholderTitle} className="db w-100" value={this.state.pageTitle} onChange={this.onChange} />
+              <Input
+                name="pageTitle"
+                placeholder={placeholderTitle}
+                className="db w-100"
+                value={this.state.pageTitle}
+                onChange={this.onChange}
+              />
             </div>
             <div className="g-pb4 g-f2">
               <div className="flex justify-between">
@@ -84,7 +93,13 @@ class SeoBuilder extends Component {
             </div>
             <div className="g-pb4 g-f2">
               <label className="db g-pb2 c-on-base-2">{this.props.labelUrl}</label>
-              <Input name="url" placeholder={placeholderUrl} className="db w-100" value={this.state.url} onChange={this.onChangeUrl} />
+              <Input
+                name="url"
+                placeholder={placeholderUrl}
+                className="db w-100"
+                value={this.state.url}
+                onChange={this.onChangeUrl}
+              />
             </div>
           </div>
           <div className="w-100 w-50-ns g-pl4-ns">
@@ -115,7 +130,6 @@ SeoBuilder.propTypes = {
   placeholderTitle: PropTypes.string,
   placeholderMetaDescription: PropTypes.string,
   placeholderUrl: PropTypes.string
-
 }
 
 SeoBuilder.defaultProps = {
