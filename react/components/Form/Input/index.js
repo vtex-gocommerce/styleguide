@@ -96,13 +96,16 @@ class Input extends PureComponent {
 
     if (this.props.mask) {
       return (
-        <InputMask
-          {...props}
-          className={inputClasses}
-          mask={mask}
-          maskChar={maskChar}
-          alwaysShowMask={alwaysShowMask}
-        />
+        <React.Fragment>
+          {label && <label className="db c-on-base-2 g-mb1 g-f2 lh-copy">{label}</label>}
+          <InputMask
+            {...props}
+            className={inputClasses}
+            mask={mask}
+            maskChar={maskChar}
+            alwaysShowMask={alwaysShowMask}
+          />
+        </React.Fragment>
       )
     }
     if (this.props.suffix) {
