@@ -22,7 +22,7 @@ const localeSelected = {
   <div className="dib">
     <LanguageButton
       locales={locales}
-      localeSelected={localeSelected}
+      localeSelected="en-US"
       className="hover-c-red"
       onClick={locale => console.log(locale)}
     />

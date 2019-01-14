@@ -9,7 +9,7 @@ class LanguageButton extends PureComponent {
     super(props)
 
     this.state = {
-      localeSelected: this.findLocale(props.localeSelected.id)
+      localeSelected: this.findLocale(props.localeSelected)
     }
   }
 
@@ -66,10 +66,7 @@ class LanguageButton extends PureComponent {
 
 LanguageButton.propTypes = {
   onClick: PropTypes.func,
-  localeSelected: PropTypes.shape({
-    text: PropTypes.string,
-    id: PropTypes.string
-  }),
+  localeSelected: PropTypes.string,
   locales: PropTypes.arrayOf(
     PropTypes.shape({
       text: PropTypes.string,
