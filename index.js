@@ -12,6 +12,10 @@ var _DropdownButton = require('./lib/components/Buttons/DropdownButton')
 
 var _DropdownButton2 = _interopRequireDefault(_DropdownButton)
 
+var _LanguageButton = require('./lib/components/Buttons/LanguageButton')
+
+var _LanguageButton2 = _interopRequireDefault(_LanguageButton)
+
 var _Card = require('./lib/components/Cards/Card')
 
 var _Card2 = _interopRequireDefault(_Card)
@@ -411,6 +415,7 @@ function _interopRequireDefault(obj) {
 exports.AuthButton = _AuthButton2.default
 exports.Button = _Button2.default
 exports.DropdownButton = _DropdownButton2.default
+exports.LanguageButton = _LanguageButton2.default
 exports.Card = _Card2.default
 exports.NumberCard = _NumberCard2.default
 exports.Table = _Table2.default
