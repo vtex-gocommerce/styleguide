@@ -1,5 +1,3 @@
-```js
-<div>
-  <IconPlusCircle />
-</div>
+```js 
+<IconPlusCircle /> 
 ```

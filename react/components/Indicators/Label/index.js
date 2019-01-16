@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
-import IconClose from '../../../icons/IconCloseAlt'
+import IconTimes from '../../../icons/IconTimes'
 
 class Label extends PureComponent {
   render() {
@@ -15,7 +15,7 @@ class Label extends PureComponent {
         <span className="flex items-center justify-center">
           {this.props.children}
           {count && <span className="g-ml2 g-ph2 bg-base-1 br-pill g-f1 c-primary">{count}</span>}
-          {onRemove && <IconClose className="g-ml2" ignoreSize />}
+          {onRemove && <IconTimes className="g-ml2" ignoreSize />}
         </span>
       </span>
     )
@@ -37,7 +37,7 @@ Label.propTypes = {
 Label.defaultProps = {
   count: null,
   onRemove: null,
-  fullWidth: false,
+  fullWidth: false
 }
 
 export default Label

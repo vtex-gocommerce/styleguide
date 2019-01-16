@@ -6,7 +6,7 @@
 
       <div className="w-100">
         <Button fullWidth style="outline">
-          <IconVisibility className="g-mr2" isVisible />
+          <IconEye className="g-mr2" />
           Customer Details
         </Button>
       </div>

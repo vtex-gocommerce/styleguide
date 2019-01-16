@@ -1,3 +1,3 @@
-```js
-<IconFullScreen />
+```js 
+<IconFullscreen /> 
 ```

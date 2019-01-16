@@ -2,7 +2,8 @@ import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { BooleanValue } from 'react-values'
 import IconEarth from '../../../icons/IconEarth'
-import IconCaret from '../../../icons/IconCaret'
+import IconSortDown from '../../../icons/IconSortDown'
+import IconSortUp from '../../../icons/IconSortUp'
 
 class LanguageButton extends PureComponent {
   constructor(props) {
@@ -37,7 +38,11 @@ class LanguageButton extends PureComponent {
             <div className={`flex items-center pointer g-f2 fw6 c-on-base-2 ${className}`} onClick={toggle}>
               <IconEarth className="g-mr3" />
               <span className="g-mr3">{localeSelected.text}</span>
-              <IconCaret side={`${value ? 'up' : 'down'}`} width="16" height="16" className="ml-auto" />
+              {value ? (
+                <IconSortUp width="16" height="16" className="ml-auto" />
+              ) : (
+                <IconSortDown width="16" height="16" className="ml-auto" />
+              )}
             </div>
             {value && (
               <div className={`w-100 g-pt1`}>

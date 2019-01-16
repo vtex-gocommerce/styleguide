@@ -1,3 +1,3 @@
-```js
-<IconAngleUp />
+```js 
+<IconAngleUp /> 
 ```

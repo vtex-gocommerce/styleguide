@@ -10,7 +10,7 @@ const columns = [
   },
   {
     id: 'Price',
-    label: <IconMoney />,
+    label: <IconMoneyBill />,
     isCentered: true,
     size: 15,
     textAlign: 'center'
@@ -48,7 +48,7 @@ const rows = [
     Address: 'Just a big street, also to see what will happen',
     Count: (
       <p className="yellow">
-        24 <IconWarning className="g-ml1" family="regular" />
+        24 <IconExclamationTriangle className="g-ml1" family="regular" />
       </p>
     ),
     Active: 'Inactive'

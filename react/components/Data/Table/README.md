@@ -21,7 +21,7 @@ const columns = [
   },
   {
     id: 'Price',
-    label: <IconMoney />,
+    label: <IconMoneyBill />,
     textAlign: 'center',
     size: 15,
     cellWrapper: Link
@@ -69,7 +69,7 @@ const rows = [
     Address: 'Just a big street',
     Count: (
       <span className="yellow">
-        24 <IconWarning className="g-ml1 v-top" family="regular" />
+        24 <IconExclamationTriangle className="g-ml1 v-top" family="regular" />
       </span>
     ),
     Active: <Toggle value="isActive" />,
@@ -97,7 +97,7 @@ const rows = [
     Address: 'Just a big street',
     Count: (
       <span className="yellow">
-        24 <IconWarning className="g-ml1 v-top" family="regular" />
+        24 <IconExclamationTriangle className="g-ml1 v-top" family="regular" />
       </span>
     ),
     Active: <Toggle value="isActive" />,

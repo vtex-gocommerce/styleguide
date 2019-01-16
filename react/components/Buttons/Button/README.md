@@ -27,9 +27,9 @@ Icon Buttons
 
 ```js
 <div>
-  <Button style="danger" icon={<IconClose />} className="g-mr2" />
-  <Button className="g-mr2" icon={<IconSpinner pulse />} disabled />
-  <Button className="g-mr2" icon={<IconAdd className="g-mr2" />}>
+  <Button style="danger" icon={<IconTimes />} className="g-mr2" />
+  <Button className="g-mr2" icon={<IconSpinner animate />} disabled />
+  <Button className="g-mr2" icon={<IconMore className="g-mr2" />}>
     Add Product
   </Button>
 </div>

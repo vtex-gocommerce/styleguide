@@ -1,7 +1,8 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import Paginate from 'react-paginate'
-import IconArrow from '../../../icons/IconArrow'
+import IconArrowLeft from '../../../icons/IconArrowLeft'
+import IconArrowRight from '../../../icons/IconArrowRight'
 import styles from './style.css'
 
 class Pagination extends PureComponent {
@@ -26,10 +27,7 @@ class Pagination extends PureComponent {
             if (currentPage > 1) this.handleChange(currentPage - 1)
           }}
         >
-          <IconArrow
-            side="left"
-            className={`${currentPage > 1 ? 'c-on-base-2 hover-c-primary pointer' : 'c-base-4'}`}
-          />
+          <IconArrowLeft className={`${currentPage > 1 ? 'c-on-base-2 hover-c-primary pointer' : 'c-base-4'}`} />
         </span>
         <span
           className="db"
@@ -37,8 +35,7 @@ class Pagination extends PureComponent {
             if (currentPage < pageCount) this.handleChange(currentPage + 1)
           }}
         >
-          <IconArrow
-            side="right"
+          <IconArrowRight
             className={`${currentPage < pageCount ? 'c-on-base-2 hover-c-primary pointer ' : 'c-base-4'}`}
           />
         </span>

@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
-import IconCloseAlt from '../../../icons/IconCloseAlt'
-import IconCaret from '../../../icons/IconCaret'
+import IconTimes from '../../../icons/IconTimes'
+import IconSortDown from '../../../icons/IconSortDown'
 import Tag from '../../Indicators/Tag'
 import Button from '../../Buttons/Button'
 import SidebarFilterDate from '../SidebarFilterDate'
@@ -110,7 +110,7 @@ class SidebarFilter extends PureComponent {
                   this.handleClose()
                 }}
               >
-                <IconCloseAlt height="25px" width="25px" />
+                <IconTimes height="25px" width="25px" />
               </div>
             </div>
           </div>
@@ -153,7 +153,7 @@ class SidebarFilter extends PureComponent {
                       <div className="flex fw6 g-f3 c-primary ">{filter.title}</div>
                     </div>
                     <div className="fr flex">
-                      <IconCaret side={filter.expanded ? 'up' : 'down'} className="g-pt1 g-ph3 c-primary" />
+                      <IconSortDown side={filter.expanded ? 'up' : 'down'} className="g-pt1 g-ph3 c-primary" />
                     </div>
                   </div>
                   <div className={filter.expanded ? 'db g-pt0' : 'dn'}>

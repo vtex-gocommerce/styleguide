@@ -1,3 +1,3 @@
-```js
-<IconEarth />
+```js 
+<IconEarth /> 
 ```

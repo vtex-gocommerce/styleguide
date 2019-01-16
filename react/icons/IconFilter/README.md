@@ -1,3 +1,3 @@
-```js
-<IconFilter />
+```js 
+<IconFilter /> 
 ```

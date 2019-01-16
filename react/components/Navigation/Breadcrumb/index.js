@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
-import IconArrow from '../../../icons/IconArrow'
+import IconArrowLeft from '../../../icons/IconArrowLeft'
 
 class Breadcrumb extends PureComponent {
   renderItemLink = (item, icon = false) => {
@@ -9,7 +9,7 @@ class Breadcrumb extends PureComponent {
     if (!this.props.link)
       return (
         <a href={item.to} className={classesLink}>
-          {icon && <IconArrow side="left" className="g-mr2" />}
+          {icon && <IconArrowLeft className="g-mr2" />}
           <span className="dn dib-ns">{item.title}</span>
         </a>
       )
@@ -26,7 +26,7 @@ class Breadcrumb extends PureComponent {
 
     return (
       <Link to={item.to} page={item.page} query={query} className={classesLink}>
-        {icon && <IconArrow side="left" className="g-mr2" />}
+        {icon && <IconArrowLeft className="g-mr2" />}
         <span className="dn dib-ns">{item.title}</span>
       </Link>
     )

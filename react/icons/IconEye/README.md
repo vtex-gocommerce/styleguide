@@ -1,5 +1,3 @@
-```js
-<div>
-  <IconEye />
-</div>
+```js 
+<IconEye /> 
 ```

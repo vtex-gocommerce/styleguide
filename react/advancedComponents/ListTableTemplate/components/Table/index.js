@@ -1,7 +1,8 @@
 import React, { PureComponent } from 'react'
 import { FormattedMessage } from 'react-intl'
 import PropTypes from 'prop-types'
-import IconCaret from './../../../../icons/IconCaret'
+import IconSortDown from './../../../../icons/IconSortDown'
+import IconSortUp from './../../../../icons/IconSortUp'
 import IconSearch from './../../../../icons/IconSearch'
 import { default as ListTable } from './../../../../components/Data/Table'
 import { ListTableTemplateConsumer } from './../../index'
@@ -21,9 +22,9 @@ class Table extends PureComponent {
         className="c-primary pointer inline-flex justify-center"
       >
         {label}{' '}
-        {sort && sort.field == value && (
-          <IconCaret side={direction === 'DESC' ? 'up' : 'down'} className="g-ml2 g-f2" />
-        )}
+        {sort &&
+          sort.field == value &&
+          (direction === 'DESC' ? <IconSortUp className="g-ml2 g-f2" /> : <IconSortDown className="g-ml2 g-f2" />)}
       </div>
     )
   }

@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import IconSpinner from './../../../icons/IconSpinner'
 import IconCheck from './../../../icons/IconCheck'
-import IconCloseAlt from './../../../icons/IconCloseAlt'
+import IconTimes from './../../../icons/IconTimes'
 import styles from './style.css'
 
 const listOfStyles = {
@@ -31,7 +31,7 @@ class Button extends PureComponent {
     return (
       (status === 'loading' && <IconSpinner animate ignoreSize={false} />) ||
       (status === 'success' && <IconCheck />) ||
-      (status === 'error' && <IconCloseAlt />) ||
+      (status === 'error' && <IconTimes />) ||
       (icon || null)
     )
   }

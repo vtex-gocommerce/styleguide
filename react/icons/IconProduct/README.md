@@ -1,3 +1,3 @@
-```js
-<IconProduct />
+```js 
+<IconProduct /> 
 ```

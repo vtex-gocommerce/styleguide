@@ -1,29 +1,29 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
-import IconSuccess from '../../../icons/IconSuccess'
-import IconWarning from '../../../icons/IconWarning'
-import IconDanger from '../../../icons/IconDanger'
-import IconInfo from '../../../icons/IconInfo'
-import IconClose from '../../../icons/IconCloseAlt'
+import IconCheckCircle from '../../../icons/IconCheckCircle'
+import IconExclamationTriangle from '../../../icons/IconExclamationTriangle'
+import IconBan from '../../../icons/IconBan'
+import IconInfoCircle from '../../../icons/IconInfoCircle'
+import IconTimes from '../../../icons/IconTimes'
 
 const types = {
   success: {
-    icon: IconSuccess,
+    icon: IconCheckCircle,
     classes: 'b--success c-success',
     fill: ' bg-success-light'
   },
   warning: {
-    icon: IconWarning,
+    icon: IconExclamationTriangle,
     classes: 'b--warning c-warning',
     fill: 'bg-warning-light'
   },
   error: {
-    icon: IconDanger,
+    icon: IconBan,
     classes: 'b--danger c-danger',
     fill: 'bg-danger-light'
   },
   info: {
-    icon: IconInfo,
+    icon: IconInfoCircle,
     classes: 'b--info  c-info',
     fill: ' bg-info-light'
   }
@@ -58,7 +58,7 @@ class Alert extends PureComponent {
         {action && <Action />}
         {onClose && (
           <div className={`pointer`} onClick={onClose}>
-            <IconClose />
+            <IconTimes />
           </div>
         )}
       </div>

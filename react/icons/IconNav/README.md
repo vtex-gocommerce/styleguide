@@ -1,3 +1,3 @@
-```js
-<IconNav />
+```js 
+<IconNav /> 
 ```

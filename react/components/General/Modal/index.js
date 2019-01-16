@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import ModalComponent from 'react-responsive-modal'
 import style from './style.css'
-import IconCloseAlt from './../../../icons/IconCloseAlt'
+import IconTimes from './../../../icons/IconTimes'
 
 class Modal extends PureComponent {
   handleClose = event => {
@@ -14,7 +14,7 @@ class Modal extends PureComponent {
       <ModalComponent
         open={open}
         onClose={this.handleClose}
-        closeIconSvgPath={<IconCloseAlt />}
+        closeIconSvgPath={<IconTimes />}
         classNames={{
           overlay: `${style.overlay} ${centered ? style.toCenter : style.toTop}`,
           modal: `br4 br--top br2-ns overflow-y-auto w-100 w-auto-ns ${className} ${style.modal}`,

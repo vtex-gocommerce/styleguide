@@ -1,21 +1,22 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
-import colors from '../colors';
+import colors from '../colors'
+import styles from '../rotateAnimation.style.css'
 
 class IconShoppingBasket extends PureComponent {
   render() {
-    const { className, ignoreSize, width, height, color } = this.props
+    const { className, ignoreSize, width, height, color, animate } = this.props
     const style = !ignoreSize ? { width: width, height: height } : {}
-    const svgColor = color === "currentColor" || !colors[color] ? "currentColor" : colors[color]
+    const svgColor = color === 'currentColor' || !colors[color] ? 'currentColor' : colors[color]
 
     return (
-      <svg className={className} {...style} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18">
-        <path
-          d="M5.62,14.66a.65.65,0,0,0,.63.49l.16,0a.65.65,0,0,0,.47-.79l-1-4a.65.65,0,0,0-1.26.32Z" fill={svgColor} />
-        <path d="M11.59,15.13l.16,0a.65.65,0,0,0,.63-.49l1-4a.65.65,0,1,0-1.26-.32l-1,4A.65.65,0,0,0,11.59,15.13Z" fill={svgColor} />
-        <path d="M9,15.15a.65.65,0,0,0,.65-.65V10.45a.65.65,0,1,0-1.3,0V14.5A.65.65,0,0,0,9,15.15Z" fill={svgColor} />
-        <path d="M18,7H16.7a1.06,1.06,0,0,0-.11-.21l-5-6.5A.74.74,0,0,0,10.54.16a.74.74,0,0,0-.13,1.05L14.86,7H3.14L7.59,1.21a.74.74,0,0,0-.13-1,.74.74,0,0,0-1,.13l-5,6.5A1.06,1.06,0,0,0,1.3,7H0V8.5H.84l1.63,7.16A3,3,0,0,0,5.39,18h7.22a3,3,0,0,0,2.92-2.34L17.16,8.5H18Zm-3.93,8.33a1.5,1.5,0,0,1-1.46,1.17H5.39a1.5,1.5,0,0,1-1.46-1.17L2.38,8.5H15.62Z"
-          fill={svgColor} />
+      <svg
+        className={`${className} ${animate ? styles.iconAnimate : ''}`}
+        {...style}
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 18 18"
+      >
+        <path class="cls-2" d="M4.62,10.66a.65.65,0,0,1,1.26-.32l1,4a.65.65,0,0,1-.47.79l-.16,0a.65.65,0,0,1-.63-.49Zm7,4.47.16,0a.65.65,0,0,0,.63-.49l1-4a.65.65,0,1,0-1.26-.32l-1,4A.65.65,0,0,0,11.59,15.13ZM9,15.15a.65.65,0,0,0,.65-.65V10.45a.65.65,0,1,0-1.3,0V14.5A.65.65,0,0,0,9,15.15ZM18,8.5h-.84l-1.63,7.16A3,3,0,0,1,12.61,18H5.39a3,3,0,0,1-2.92-2.34L.84,8.5H0V7H1.3a1.06,1.06,0,0,1,.11-.21l5-6.5a.74.74,0,0,1,1-.13.74.74,0,0,1,.13,1.05L3.14,7H14.86L10.41,1.21a.74.74,0,0,1,.13-1,.74.74,0,0,1,1.05.13l5,6.5A1.06,1.06,0,0,1,16.7,7H18Zm-2.38,0H2.38l1.55,6.83A1.5,1.5,0,0,0,5.39,16.5h7.22a1.5,1.5,0,0,0,1.46-1.17Z" fill={svgColor} />
       </svg>
     )
   }
@@ -31,17 +32,16 @@ IconShoppingBasket.propTypes = {
   /** Define color of the icon. */
   color: PropTypes.string,
   className: PropTypes.string,
+  animate: PropTypes.bool
 }
 
 IconShoppingBasket.defaultProps = {
   ignoreSize: false,
-  color: "currentColor",
+  color: 'currentColor',
   height: '16px',
   width: '16px',
   className: '',
+  animate: false
 }
 
 export default IconShoppingBasket
-
-
-

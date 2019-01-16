@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
-import IconCloseAlt from '../../../icons/IconCloseAlt'
+import IconTimes from '../../../icons/IconTimes'
 
 import { ToastContainer, toast } from 'react-toastify'
 import './ReactToastify.global.css'
@@ -51,7 +51,7 @@ class Notify extends PureComponent {
   }
 
   render() {
-    return <ToastContainer closeButton={<IconCloseAlt width="12px" heigth="12px" className="c-base-inverted-1" />} />
+    return <ToastContainer closeButton={<IconTimes width="12px" heigth="12px" className="c-base-inverted-1" />} />
   }
 }
 

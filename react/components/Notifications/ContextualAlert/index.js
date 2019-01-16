@@ -1,28 +1,27 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
-import IconSuccess from '../../../icons/IconSuccess'
-import IconWarning from '../../../icons/IconWarning'
-import IconDanger from '../../../icons/IconClose'
-import IconInfo from '../../../icons/IconInfo'
-import IconClose from '../../../icons/IconCloseAlt'
+import IconCheckCircle from '../../../icons/IconCheckCircle'
+import IconExclamationTriangle from '../../../icons/IconExclamationTriangle'
+import IconTimesCircle from '../../../icons/IconTimesCircle'
+import IconInfoCircle from '../../../icons/IconInfoCircle'
 const types = {
   success: {
-    icon: IconSuccess,
+    icon: IconCheckCircle,
     classes: 'b--success c-success',
     fill: 'bg-light-success'
   },
   warning: {
-    icon: IconWarning,
+    icon: IconExclamationTriangle,
     classes: 'b--warning c-warning',
     fill: 'bg-light-warning'
   },
   error: {
-    icon: IconDanger,
+    icon: IconTimesCircle,
     classes: 'b--danger c-danger',
     fill: 'bg-light-danger'
   },
   info: {
-    icon: IconInfo,
+    icon: IconInfoCircle,
     classes: 'b--info  c-info',
     fill: 'bg-light-info'
   }
@@ -42,7 +41,9 @@ class ContextualAlert extends PureComponent {
   render() {
     const { type, onClose, fill } = this.props
 
-    const classes = `g-pa4 ba br2 b--dashed flex ${types[(type || 'error')].classes} ${fill ? types[(type || 'error')].fill : ''}`
+    const classes = `g-pa4 ba br2 b--dashed flex ${types[type || 'error'].classes} ${
+      fill ? types[type || 'error'].fill : ''
+    }`
 
     return (
       <div className={classes}>
@@ -51,7 +52,7 @@ class ContextualAlert extends PureComponent {
         </div>
         {onClose && (
           <div className="pointer" onClick={onClose}>
-            <IconClose />
+            <IconTimesCircle />
           </div>
         )}
       </div>

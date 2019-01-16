@@ -1,3 +1,3 @@
-```js
-<IconExchange />
+```js 
+<IconExchange /> 
 ```

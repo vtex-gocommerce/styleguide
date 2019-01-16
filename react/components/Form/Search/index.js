@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import Input from '../Input'
 import Select from '../Select'
 import IconSearch from '../../../icons/IconSearch'
-import IconClose from '../../../icons/IconClose'
+import IconTimesCircle from '../../../icons/IconTimesCircle'
 import IconArc from '../../../icons/IconArc'
 
 export const debounceTime = (milliseconds, fn) => {
@@ -109,7 +109,7 @@ class Search extends PureComponent {
               className={`g-pr3 flex pointer hover-c-primary animated fadeIn ${classesIcon}`}
               onClick={this.handleClearSearch}
             >
-              <IconClose />
+              <IconTimesCircle />
             </div>
           )}
 

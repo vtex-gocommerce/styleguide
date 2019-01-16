@@ -1,5 +1,3 @@
-```js
-<div>
-  <IconCheck />
-</div>
+```js 
+<IconCheck /> 
 ```

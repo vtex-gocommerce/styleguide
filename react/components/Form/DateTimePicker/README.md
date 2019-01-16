@@ -25,7 +25,7 @@
     <span className="g-ml4 no-underline c-on-base-1">Disabled</span>
   </div>
   <div className="g-mb2">
-    <DateTimePicker iconBefore={<IconCalendar className="c-base-4" />} />
+    <DateTimePicker iconBefore={<IconCalendarAlt className="c-base-4" />} />
     <span className="g-ml4 no-underline c-on-base-1">Icon Prefix</span>
   </div>
 </div>

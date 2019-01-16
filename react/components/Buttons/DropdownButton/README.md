@@ -17,7 +17,7 @@ const Dropdown = [
     <DropdownButton options={Dropdown}>
       <Button style="primary" fullWidth>
         Change order status
-        <IconAngle side="down" className="g-ml2" />
+        <IconArrowDown className="g-ml2" />
       </Button>
     </DropdownButton>
   </div>
@@ -25,7 +25,7 @@ const Dropdown = [
     <DropdownButton options={Dropdown} isOpened>
       <Button style="primary" fullWidth>
         Dropdown menu that is already open!
-        <IconAngle side="down" className="g-ml2" />
+        <IconArrowDown className="g-ml2" />
       </Button>
     </DropdownButton>
   </div>

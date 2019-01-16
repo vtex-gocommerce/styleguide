@@ -1,3 +1,3 @@
-```js
-<IconAngleLeft />
+```js 
+<IconAngleLeft /> 
 ```

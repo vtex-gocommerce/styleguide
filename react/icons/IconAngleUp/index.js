@@ -1,19 +1,22 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import colors from '../colors'
+import styles from '../rotateAnimation.style.css'
 
 class IconAngleUp extends PureComponent {
   render() {
-    const { className, ignoreSize, width, height, color } = this.props
+    const { className, ignoreSize, width, height, color, animate } = this.props
     const style = !ignoreSize ? { width: width, height: height } : {}
     const svgColor = color === 'currentColor' || !colors[color] ? 'currentColor' : colors[color]
 
     return (
-      <svg className={className} {...style} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18">
-        <path
-          d="M13,12.2578 C12.725,12.2578 12.45,12.1448 12.252,11.9218 L9,8.2628 L5.748,11.9218 C5.38,12.3348 4.749,12.3718 4.335,12.0048 C3.923,11.6378 3.886,11.0058 4.252,10.5928 L8.252,6.0928 C8.632,5.6658 9.368,5.6658 9.748,6.0928 L13.747,10.5928 C14.114,11.0058 14.077,11.6378 13.664,12.0048 C13.474,12.1738 13.236,12.2578 13,12.2578"
-          fill={svgColor}
-        />
+      <svg
+        className={`${className} ${animate ? styles.iconAnimate : ''}`}
+        {...style}
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 18 18"
+      >
+        <path class="cls-2" d="M13,12.26a1,1,0,0,1-.75-.34L9,8.26,5.75,11.92a1,1,0,0,1-1.5-1.33l4-4.5a1.05,1.05,0,0,1,1.5,0l4,4.5A1,1,0,0,1,13.66,12,1,1,0,0,1,13,12.26Z" fill={svgColor} />
       </svg>
     )
   }
@@ -28,7 +31,8 @@ IconAngleUp.propTypes = {
   height: PropTypes.string,
   /** Define color of the icon. */
   color: PropTypes.string,
-  className: PropTypes.string
+  className: PropTypes.string,
+  animate: PropTypes.bool
 }
 
 IconAngleUp.defaultProps = {
@@ -36,7 +40,8 @@ IconAngleUp.defaultProps = {
   color: 'currentColor',
   height: '16px',
   width: '16px',
-  className: ''
+  className: '',
+  animate: false
 }
 
 export default IconAngleUp
