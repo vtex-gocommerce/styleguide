@@ -1,3 +1,3 @@
-import IconFullscreen from './icons/IconFullscreen/index'
+import IconFullScreen from './icons/IconFullScreen/index'
 
-export default IconFullscreen
+export default IconFullScreen

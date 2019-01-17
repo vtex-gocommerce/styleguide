@@ -1,3 +1,3 @@
-import IconLogout from './icons/IconLogout/index'
+import IconLogOut from './icons/IconLogOut/index'
 
-export default IconLogout
+export default IconLogOut
