@@ -16,7 +16,7 @@ class IconSortUp extends PureComponent {
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 18 18"
       >
-        <path class="cls-2" d="M13,10.47,9.53,7A.75.75,0,0,0,8.47,7L5,10.47a.75.75,0,0,0,.53,1.28h7A.75.75,0,0,0,13,10.47Z" fill={svgColor} />
+        <path  d="M13,10.47,9.53,7A.75.75,0,0,0,8.47,7L5,10.47a.75.75,0,0,0,.53,1.28h7A.75.75,0,0,0,13,10.47Z" fill={svgColor} />
       </svg>
     )
   }

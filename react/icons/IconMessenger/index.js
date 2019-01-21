@@ -16,7 +16,7 @@ class IconMessenger extends PureComponent {
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 18 18"
       >
-        <path id="Bubble_Shape" data-name="Bubble Shape" class="cls-2" d="M9,1.25A7.43,7.43,0,0,0,1.33,8.42,7,7,0,0,0,4.18,14v2.75L6.8,15.3a8.29,8.29,0,0,0,2.2.3,7.43,7.43,0,0,0,7.67-7.18A7.43,7.43,0,0,0,9,1.25Zm.81,9.62-2-2.06L4,10.92,8.19,6.48l2,2.06L14,6.42Z" fill={svgColor} />
+        <path id="Bubble_Shape" data-name="Bubble Shape"  d="M9,1.25A7.43,7.43,0,0,0,1.33,8.42,7,7,0,0,0,4.18,14v2.75L6.8,15.3a8.29,8.29,0,0,0,2.2.3,7.43,7.43,0,0,0,7.67-7.18A7.43,7.43,0,0,0,9,1.25Zm.81,9.62-2-2.06L4,10.92,8.19,6.48l2,2.06L14,6.42Z" fill={svgColor} />
       </svg>
     )
   }

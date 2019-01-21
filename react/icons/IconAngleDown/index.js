@@ -16,7 +16,7 @@ class IconAngleDown extends PureComponent {
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 18 18"
       >
-        <path class="cls-2" d="M9,12.25a1,1,0,0,1-.75-.34l-4-4.5a1,1,0,0,1,1.5-1.33L9,9.74l3.25-3.66a1,1,0,0,1,1.5,1.33l-4,4.5A1,1,0,0,1,9,12.25Z" fill={svgColor} />
+        <path  d="M9,12.25a1,1,0,0,1-.75-.34l-4-4.5a1,1,0,0,1,1.5-1.33L9,9.74l3.25-3.66a1,1,0,0,1,1.5,1.33l-4,4.5A1,1,0,0,1,9,12.25Z" fill={svgColor} />
       </svg>
     )
   }

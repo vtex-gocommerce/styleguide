@@ -16,7 +16,7 @@ class IconItalic extends PureComponent {
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 18 18"
       >
-        <path class="cls-2" d="M13.25,2.5h-5a.75.75,0,0,0,0,1.5H9.7L6.52,14H4.75a.75.75,0,0,0,0,1.5h5a.75.75,0,0,0,0-1.5H8.3L11.48,4h1.77a.75.75,0,0,0,0-1.5Z" fill={svgColor} />
+        <path  d="M13.25,2.5h-5a.75.75,0,0,0,0,1.5H9.7L6.52,14H4.75a.75.75,0,0,0,0,1.5h5a.75.75,0,0,0,0-1.5H8.3L11.48,4h1.77a.75.75,0,0,0,0-1.5Z" fill={svgColor} />
       </svg>
     )
   }

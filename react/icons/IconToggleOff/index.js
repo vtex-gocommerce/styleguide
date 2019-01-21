@@ -16,7 +16,7 @@ class IconToggleOff extends PureComponent {
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 18 18"
       >
-        <path class="cls-2" d="M12,4.5a4.5,4.5,0,0,1,0,9H6a4.5,4.5,0,0,1,0-9h6M12,3H6A6,6,0,0,0,6,15h6A6,6,0,0,0,12,3ZM6,6A3,3,0,1,0,9,9,3,3,0,0,0,6,6Z" fill={svgColor} />
+        <path  d="M12,4.5a4.5,4.5,0,0,1,0,9H6a4.5,4.5,0,0,1,0-9h6M12,3H6A6,6,0,0,0,6,15h6A6,6,0,0,0,12,3ZM6,6A3,3,0,1,0,9,9,3,3,0,0,0,6,6Z" fill={svgColor} />
       </svg>
     )
   }

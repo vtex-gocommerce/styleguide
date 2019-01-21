@@ -16,7 +16,7 @@ class IconArc extends PureComponent {
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 18 18"
       >
-        <path class="cls-2" d="M9,0H8.75A.76.76,0,0,0,8,.75a.76.76,0,0,0,.75.75H9A7.5,7.5,0,0,1,16.5,9v.25a.75.75,0,0,0,1.5,0V9A9,9,0,0,0,9,0Z" fill={svgColor} />
+        <path  d="M9,0H8.75A.76.76,0,0,0,8,.75a.76.76,0,0,0,.75.75H9A7.5,7.5,0,0,1,16.5,9v.25a.75.75,0,0,0,1.5,0V9A9,9,0,0,0,9,0Z" fill={svgColor} />
       </svg>
     )
   }

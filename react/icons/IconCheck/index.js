@@ -16,7 +16,7 @@ class IconCheck extends PureComponent {
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 18 18"
       >
-        <path class="cls-2" d="M6.5,14.8a1.32,1.32,0,0,1-.92-.38l-4-4L3.42,8.58l3.06,3.06,8.58-9,1.88,1.8-9.5,10a1.28,1.28,0,0,1-.92.4Z" fill={svgColor} />
+        <path  d="M6.5,14.8a1.32,1.32,0,0,1-.92-.38l-4-4L3.42,8.58l3.06,3.06,8.58-9,1.88,1.8-9.5,10a1.28,1.28,0,0,1-.92.4Z" fill={svgColor} />
       </svg>
     )
   }

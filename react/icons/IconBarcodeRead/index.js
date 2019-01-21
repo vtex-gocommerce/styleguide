@@ -16,7 +16,7 @@ class IconBarcodeRead extends PureComponent {
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 18 18"
       >
-        <path class="cls-2" d="M5.5,3.5h-3a1,1,0,0,0-1,1v3H0v-3A2.5,2.5,0,0,1,2.5,2h3ZM18,7.5v-3A2.5,2.5,0,0,0,15.5,2h-3V3.5h3a1,1,0,0,1,1,1v3Zm-12.5,7h-3a1,1,0,0,1-1-1v-3H0v3A2.5,2.5,0,0,0,2.5,16h3Zm11-4v3a1,1,0,0,1-1,1h-3V16h3A2.5,2.5,0,0,0,18,13.5v-3ZM6,6H4v6H6ZM8.5,6h-1v6h1ZM12,6H10v6h2Zm2,0H13v6h1Z" fill={svgColor} />
+        <path  d="M5.5,3.5h-3a1,1,0,0,0-1,1v3H0v-3A2.5,2.5,0,0,1,2.5,2h3ZM18,7.5v-3A2.5,2.5,0,0,0,15.5,2h-3V3.5h3a1,1,0,0,1,1,1v3Zm-12.5,7h-3a1,1,0,0,1-1-1v-3H0v3A2.5,2.5,0,0,0,2.5,16h3Zm11-4v3a1,1,0,0,1-1,1h-3V16h3A2.5,2.5,0,0,0,18,13.5v-3ZM6,6H4v6H6ZM8.5,6h-1v6h1ZM12,6H10v6h2Zm2,0H13v6h1Z" fill={svgColor} />
       </svg>
     )
   }

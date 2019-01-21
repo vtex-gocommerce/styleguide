@@ -16,7 +16,7 @@ class IconMinus extends PureComponent {
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 18 18"
       >
-        <rect class="cls-2" x="1.5" y="7.75" width="15" height="2.5" fill={svgColor} />
+        <rect  x="1.5" y="7.75" width="15" height="2.5" fill={svgColor} />
       </svg>
     )
   }

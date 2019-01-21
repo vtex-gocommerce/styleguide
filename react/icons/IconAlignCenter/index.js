@@ -16,7 +16,7 @@ class IconAlignCenter extends PureComponent {
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 18 18"
       >
-        <path class="cls-2" d="M12,4H6V2h6Zm4.5,2H1.5V8h15ZM13,10H5v2h8Zm2,4H3v2H15Z" fill={svgColor} />
+        <path  d="M12,4H6V2h6Zm4.5,2H1.5V8h15ZM13,10H5v2h8Zm2,4H3v2H15Z" fill={svgColor} />
       </svg>
     )
   }

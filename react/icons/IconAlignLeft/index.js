@@ -16,7 +16,7 @@ class IconAlignLeft extends PureComponent {
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 18 18"
       >
-        <path class="cls-2" d="M7.5,4h-6V2h6Zm9,2H1.5V8h15Zm-7,4h-8v2h8Zm4,4H1.5v2h12Z" fill={svgColor} />
+        <path  d="M7.5,4h-6V2h6Zm9,2H1.5V8h15Zm-7,4h-8v2h8Zm4,4H1.5v2h12Z" fill={svgColor} />
       </svg>
     )
   }

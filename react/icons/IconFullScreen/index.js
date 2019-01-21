@@ -16,7 +16,7 @@ class IconFullscreen extends PureComponent {
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 18 18"
       >
-        <path class="cls-2" d="M6,18H0V12H2.5v3.5H6Zm9.5-6v3.5H12V18h6V12ZM6,0H0V6H2.5V2.5H6ZM18,6V0H12V2.5h3.5V6Z" fill={svgColor} />
+        <path  d="M6,18H0V12H2.5v3.5H6Zm9.5-6v3.5H12V18h6V12ZM6,0H0V6H2.5V2.5H6ZM18,6V0H12V2.5h3.5V6Z" fill={svgColor} />
       </svg>
     )
   }

@@ -9,6 +9,7 @@
     "compile": "run-s cleanlib babel",
     "cleanlib": "rm -rf lib",
     "entrypoints": "node ./scripts/entrypoints.js",
+    "gen-icons": "node ./scripts/svgToComponent.js && npm run entrypoints",
     "copycss": "copyfiles -u 2 react/**/*.css lib"
   },
   "homepage": "https://vtex-gocommerce.github.io/styleguide",

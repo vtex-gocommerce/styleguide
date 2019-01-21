@@ -16,7 +16,7 @@ class IconTimes extends PureComponent {
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 18 18"
       >
-        <polygon class="cls-2" points="15.88 3.88 14.12 2.12 9 7.23 3.88 2.12 2.12 3.88 7.23 9 2.12 14.12 3.88 15.88 9 10.77 14.12 15.88 15.88 14.12 10.77 9 15.88 3.88" fill={svgColor} />
+        <polygon  points="15.88 3.88 14.12 2.12 9 7.23 3.88 2.12 2.12 3.88 7.23 9 2.12 14.12 3.88 15.88 9 10.77 14.12 15.88 15.88 14.12 10.77 9 15.88 3.88" fill={svgColor} />
       </svg>
     )
   }

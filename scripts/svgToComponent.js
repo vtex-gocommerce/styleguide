@@ -39,7 +39,8 @@ fs.readdir(iconsFolder, (err, files) => {
     const parser = new DomParser()
     let doc = parser.parseFromString(svgContent)
     let svgMainContent = doc.getElementById('Icons').innerHTML
-    svgMainContent = svgMainContent.replace(/\/>/g, ' fill={svgColor} />')
+    svgMainContent = svgMainContent.replace(/\/>/g, ' fill={svgColor} />') // put fill attribute
+    svgMainContent = svgMainContent.replace(/class="[a-zA-Z0-9:;\.\s\(\)\-\,]*"/g, '') // remove class
 
     let componentContent = fs.readFileSync(componentLayout, 'utf8')
     componentContent = componentContent.replace(/ComponentName/g, componentName)
