@@ -47,7 +47,7 @@ class Button extends PureComponent {
     const Icon = this.getIcon
     return (
       <button id={id} type={type} className={classes} disabled={disabled} onClick={this.handleClick}>
-        <span>
+        <span className="flex items-center">
           <Icon />
           {!status && this.props.children}
         </span>
