@@ -19,7 +19,7 @@ class Table extends PureComponent {
             direction: direction
           })
         }
-        className="c-primary pointer inline-flex justify-center"
+        className="c-primary pointer inline-flex justify-center items-center"
       >
         {label}{' '}
         {sort &&
