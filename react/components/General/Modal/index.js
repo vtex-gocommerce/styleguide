@@ -37,7 +37,7 @@ Modal.propTypes = {
   /** Use false for modal with a lot of content */
   centered: PropTypes.bool,
   /** Append css classes to the Modal. */
-  className: PropTypes.bool,
+  className: PropTypes.string,
   /** Function that will be called for close the modal */
   onClose: PropTypes.func,
   children: PropTypes.node

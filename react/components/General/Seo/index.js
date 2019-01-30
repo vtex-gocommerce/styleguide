@@ -16,7 +16,9 @@ class Seo extends Component {
         <div className="g-pt5 ">
           {title && <span className={`db g-f4 g-pb1 word-break ${styles.gc_seo__title}`}>{title}</span>}
           {url && <span className={`db g-f2 g-pb1 word-break ${styles.gc_seo__url}`}>{url}</span>}
-          {description && <span className={`db g-pt1 g-f2 fw3 word-break ${styles.gc_seo__description}`}>{description}</span>}
+          {description && (
+            <span className={`db g-pt1 g-f2 fw3 word-break ${styles.gc_seo__description}`}>{description}</span>
+          )}
         </div>
       </div>
     )
@@ -30,7 +32,7 @@ Seo.propTypes = {
   noBorder: PropTypes.bool,
   title: PropTypes.string,
   url: PropTypes.string,
-  description: PropTypes
+  description: PropTypes.string
 }
 
 Seo.defaultProps = {
