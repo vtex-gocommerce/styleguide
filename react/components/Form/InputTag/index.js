@@ -130,13 +130,18 @@ class InputTag extends Component {
   }
 
   getTagList = () => {
-    return this.state.values.map((data, key) => (
-      <span key={key} className="dib g-ml1 g-mb1 g-mt1">
-        <Tag style={this.props.tagStyle} onRemove={() => this.onRemoveValue(data)}>
-          {data}
-        </Tag>
-      </span>
-    ))
+    return (
+      <React.Fragment>
+        {this.state.values.map((data, key) => (
+          <span key={key} className="inline-flex g-ml1 g-mb1 g-mt1">
+            <Tag style={this.props.tagStyle} onRemove={() => this.onRemoveValue(data)}>
+              {data}
+            </Tag>
+          </span>
+        ))}
+        <div className="dn db-ns flex-auto">{this.renderInput()}</div>
+      </React.Fragment>
+    )
   }
 
   renderInput = (forceShowPlaceHolder = false) => {
@@ -164,8 +169,7 @@ class InputTag extends Component {
             this.props.disabled ? 'bg-base-2' : ''
           }`}
         >
-          <div className="dn db-ns">{this.getTagList()}</div>
-          <div className="dn db-ns flex-auto">{this.renderInput()}</div>
+          <div className="dn flex-ns flex-wrap w-100">{this.getTagList()}</div>
           <div className="db dn-ns flex-auto">{this.renderInput(true)}</div>
         </div>
         <div className="db dn-ns g-pt2">{this.getTagList()}</div>
