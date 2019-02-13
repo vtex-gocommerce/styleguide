@@ -6,11 +6,14 @@ class Container extends PureComponent {
   static HR = () => <hr className="w-auto g-nh8 g-mv6 bw0 bg-base-4 c-on-base-4" style={{ height: 1 }} />
 
   render() {
-    const { isPlaceholderActive, classNameArray, children, noVerticalPadding, noHorizontalPadding } = this.props
+    const { id, isPlaceholderActive, classNameArray, children, noVerticalPadding, noHorizontalPadding } = this.props
     const verticalPadding = isPlaceholderActive || !noVerticalPadding ? 'g-pv6' : ''
     const horizontalPadding = isPlaceholderActive || !noHorizontalPadding ? `g-ph8` : ''
     return (
-      <div className={`w-100 flex flex-column g-mb8 br2 ba b--base-4 bg-base-1 c-on-base-2 g-f3 ${verticalPadding}`}>
+      <div
+        id={id}
+        className={`w-100 flex flex-column g-mb8 br2 ba b--base-4 bg-base-1 c-on-base-2 g-f3 ${verticalPadding}`}
+      >
         <div className={horizontalPadding}>
           <PlaceholderContainer isPlaceholderActive={isPlaceholderActive} classNameArray={classNameArray}>
             {() => children}
@@ -30,10 +33,12 @@ Container.propTypes = {
   noVerticalPadding: PropTypes.bool,
   /** Revome inner horizontal padding of the container */
   noHorizontalPadding: PropTypes.bool,
-  children: PropTypes.node
+  children: PropTypes.node,
+  id: PropTypes.string
 }
 
 Container.defaultProps = {
+  id: '',
   isPlaceholderActive: false,
   classNameArray: [
     ['g-h8 w-30 g-mb7'],
