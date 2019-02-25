@@ -18,7 +18,7 @@ class Tab extends PureComponent {
 
   handleClick = value => {
     this.setState({ active: value })
-    this.props.onClick(value)
+    this.props.onClick && this.props.onClick(value)
   }
 
   render() {
@@ -31,7 +31,7 @@ class Tab extends PureComponent {
           return (
             <div
               key={element.id}
-              className={`h-100 dib g-pt2 g-pb4 g-mr4 pointer hover-c-primary  ${
+              className={`h-100 dib g-pb4 g-mr4 pointer hover-c-primary  ${
                 element.id === active ? 'bb bw1 c-primary b--primary' : 'c-on-base-2'
               }`}
               onClick={() => this.handleClick(element.id)}
@@ -56,7 +56,7 @@ Tab.propTypes = {
   /** Set initial tab value. */
   initialTab: PropTypes.string.isRequired,
   /** Callback when clicking a tab. */
-  onClick: PropTypes.func.isRequired,
+  onClick: PropTypes.func,
   /** Append css classes to the tab. */
   className: PropTypes.string,
   /** force a new active tab */

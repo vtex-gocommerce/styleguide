@@ -8,7 +8,7 @@ class CurrencyInput extends PureComponent {
     super(props)
 
     let value = props.defaultValue || props.value
-    value = props.currencyIsInteger || value == 0 ? value : value * 100
+    value = props.currencyIsInteger || value == 0 ? value : parseInt(value * 100)
 
     this.state = {
       value: value > 0 ? this.toCurrency(value) : value
@@ -185,16 +185,15 @@ class CurrencyInput extends PureComponent {
         <React.Fragment>
           {label && <label className="db c-on-base-2 g-mb1 g-f2 lh-copy">{label}</label>}
           <input {...props} className={inputClasses} />
-          {showMaxLength &&
-            maxLength !== 0 && (
-              <label
-                className={`flex flex-row-reverse db g-pb2 g-pa1 g-f2 ${
-                  maxLength - this.state.value.length <= 0 ? 'red' : 'c-on-base-2'
-                }`}
-              >
-                {maxLength && maxLength - this.state.value.length}
-              </label>
-            )}
+          {showMaxLength && maxLength !== 0 && (
+            <label
+              className={`flex flex-row-reverse db g-pb2 g-pa1 g-f2 ${
+                maxLength - this.state.value.length <= 0 ? 'red' : 'c-on-base-2'
+              }`}
+            >
+              {maxLength && maxLength - this.state.value.length}
+            </label>
+          )}
         </React.Fragment>
       )
     }

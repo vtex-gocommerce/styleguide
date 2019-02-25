@@ -53,10 +53,14 @@ class Breadcrumb extends PureComponent {
     const { items } = this.props
 
     return (
-      <div className="c-on-base g-f3 g-f5-ns fw6 tracked-tight flex flex-wrap items-center">
+      <div className="c-on-base g-f3 g-f5-ns fw6 tracked-tight flex items-center overflow-hidden nowrap w-60-ns g-pr11-ns">
         {items.map((item, index, items) => {
           if (index + 1 === items.length) {
-            return <span key={index}>{this.renderItemText(item, index)}</span>
+            return (
+              <span key={index} className="truncate">
+                {this.renderItemText(item, index)}
+              </span>
+            )
           }
           return this.renderItem(item, index)
         })}
