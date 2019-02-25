@@ -1,12 +1,12 @@
 {
   "vendor": "gocommerce",
   "name": "styleguide",
-  "version": "1.0.4",
+  "version": "2.0.0",
   "title": "GoCommerce Styleguide",
   "description": "The GoCommerce Styleguide components for the Render framework",
   "builders": {
-    "react": "2.x",
-    "messages": "0.x"
+    "react": "3.x",
+    "messages": "1.x"
   },
   "scripts": {
     "postreleasy": "vtex publish --verbose"

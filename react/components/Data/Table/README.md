@@ -1,5 +1,5 @@
 ```js
-// Use "import { Link } from 'render'"
+// Use "import { Link } from 'vtex.render-runtime'"
 Link = props => {
   return (
     <a href="#a" className={props.className}>
