@@ -8,7 +8,7 @@ class CurrencyInput extends PureComponent {
     super(props)
 
     let value = props.defaultValue || props.value
-    value = props.currencyIsInteger || value == 0 ? value : parseInt(value * 100)
+    value = props.currencyIsInteger || value == 0 ? value : parseFloat(value * 100).toFixed(0)
 
     this.state = {
       value: value > 0 ? this.toCurrency(value) : value
