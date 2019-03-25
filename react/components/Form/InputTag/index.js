@@ -49,6 +49,10 @@ class InputTag extends Component {
     if (event.key == 'Enter' && value !== '' && value !== ',') {
       this.setValuesToStateAndHandle(value)
     }
+
+    if ((event.key == 'Backspace' || event.key == 'Delete') && value === '') {
+      this.removeLastValueOnPressBackSpaceButton()
+    }
   }
 
   onChangeValue = event => {
@@ -118,6 +122,19 @@ class InputTag extends Component {
       {
         values: newValues,
         input: ''
+      },
+      () => this.handleChangeValues()
+    )
+  }
+
+  removeLastValueOnPressBackSpaceButton = () => {
+    let newValues = [...this.state.values]
+    let indexToRemove = newValues.length - 1
+
+    newValues.splice(indexToRemove, 1)
+    this.setState(
+      {
+        values: newValues
       },
       () => this.handleChangeValues()
     )
