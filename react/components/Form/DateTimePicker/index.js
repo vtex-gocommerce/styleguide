@@ -77,7 +77,7 @@ class DateTimePicker extends PureComponent {
     const props = {
       name: name,
       id: id || name,
-      placeholder: placeholder,
+      placeholderText: placeholder,
       onChange: this.handleChange,
       disabled: disabled,
       maxLength: maxLength,
