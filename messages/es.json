@@ -1,4 +1,5 @@
 {
+  "advancedComponents.tablePagination.showing": "Mostrando {perPage} de {total} elementos",
   "advancedComponents.tablePagination.view-1": "Vista 1",
   "advancedComponents.tablePagination.view-15": "Vista 15",
   "advancedComponents.tablePagination.view-50": "Vista 50",

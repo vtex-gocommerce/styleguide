@@ -24,10 +24,15 @@ class Pagination extends PureComponent {
         {context => {
           const { page, perPage, handleChangePerPage, handleChangePage, intl } = context
 
+          const showingItens = total <= perPage ? total : perPage
+
           return (
             <div className="flex justify-between items-center c-on-base-2 g-f2">
               <span className="dn db-ns">
-                <FormattedMessage id="admin.oms.showing" /> {total} <FormattedMessage id="admin.oms.records" />
+                <FormattedMessage
+                  id="advancedComponents.tablePagination.showing"
+                  values={{ perPage: showingItens, total: total }}
+                />
               </span>
               <div className="flex justify-between justify-end-ns flex-auto">
                 <div className="pointer justify-end g-nl4 g-nl0-ns">
