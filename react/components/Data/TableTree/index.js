@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import Placeholder from '../../DataLoading/Placeholder'
 import CheckBox from '../../Form/CheckBox'
 
-import IconAngleDown from '../../../icons/IconAngleDown/index'
+import Row from './Row'
 
 const textAligns = {
   right: 'tr',
@@ -14,15 +14,6 @@ const placeholderSizes = {
   default: 'g-pv4',
   large: 'g-pv8'
 }
-
-const buildTableTd = (Wrapper, props = {}, children) =>
-  Wrapper ? (
-    <Wrapper className="g-pv3 g-ph4 db no-underline c-on-base flex-grow-1" {...props}>
-      {children}
-    </Wrapper>
-  ) : (
-    children
-  )
 
 class Table extends PureComponent {
   constructor(props) {
@@ -79,56 +70,16 @@ class Table extends PureComponent {
     const { columns, selectable } = this.props
     
     return rows.map((fields, index) => {
-      const formatted_row = columns.map(column => {
-        const textAlign =
-          (column.textAlign && column.textAlign) || (column && column.isCentered ? 'center' : 'left')
-        const hasWrapper = !!column.cellWrapper
-        return (
-          <div
-            key={index + column.id}
-            className={`flex-grow-1 flex items-center c-on-base-1 bb b--base-4 ${textAligns[textAlign]} ${hasWrapper ? '' : 'g-pv1 g-ph4'}`}
-          >
-            {buildTableTd(
-              column.cellWrapper,
-              fields.cellWrapperProps,
-              <Placeholder className="g-h2 w-100 br4" isPlaceholderActive={false}>
-                {() => fields[column.id]}
-              </Placeholder>
-            )}
-          </div>
-        )
-      })
-
       return (
-        <div className={'flex flex-column'} key={`${depth} - ${index}`}>
-          <div
-            key={index}
-            className={`${(fields.bgColor && 'bg-' + fields.bgColor) || ''} ${(fields.lineLink && 'pointer') ||
-              ''} hover-bg-base-2 bg-animate g-h11 flex flex-row`}
-            onClick={fields.lineLink && fields.lineLink}
-          >
-            {selectable && (
-              <div className="g-pv1 g-f1 tc bb b--base-4" style={{ width: '40px' }}>
-                <CheckBox
-                  onClick={(event, checked) => {
-                    this.select(index, checked)
-                  }}
-                  checked={this.state.selectedList.includes(index)}
-                />
-              </div>
-            )}
-            <div className={`flex flex-row flex-grow-1`} style={{ paddingLeft: `${depth*40}px` }}>
-              {formatted_row}              
-            </div>
-            {/* {!!fields.children && (
-              <div className="g-pv1 g-f1 tc bb b--base-4 pointer hover-blue flex items-center justify-center" style={{ width: '40px' }} onClick={() => console.log('--- open dropdown')}>
-                <IconAngleDown />
-              </div>
-            )} */}
-          </div>
-
+        <Row 
+          key={`${depth} - ${index}`}
+          fields={fields}
+          columns={columns}
+          selectable={selectable}
+          depth={depth}
+        >
           {this.renderTreeNodes(fields.children, depth+1)}            
-        </div>
+        </Row>
       )
     })
   }
