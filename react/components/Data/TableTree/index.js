@@ -15,7 +15,7 @@ const placeholderSizes = {
   large: 'g-pv8'
 }
 
-class Table extends PureComponent {
+class TableTree extends PureComponent {
   constructor(props) {
     super(props)
 
@@ -68,7 +68,7 @@ class Table extends PureComponent {
     if (!rows) return
 
     const { columns, selectable } = this.props
-    
+
     return rows.map((fields, index) => {
       return (
         <Row 
@@ -77,6 +77,9 @@ class Table extends PureComponent {
           columns={columns}
           selectable={selectable}
           depth={depth}
+          root={depth === 0}
+          onSelect={this.select}
+          isChecked={this.state.selectedList.includes(index)}
         >
           {this.renderTreeNodes(fields.children, depth+1)}            
         </Row>
@@ -85,7 +88,7 @@ class Table extends PureComponent {
   }
 
   render() {
-    const { columns, rows, selectable, placeholderLength, placeholderSize, actions, multilevel } = this.props
+    const { columns, rows, selectable, placeholderLength, placeholderSize, actions } = this.props
 
     return (
       <div className={`w-100 g-f2 ba b--base-4`} cellSpacing="0">
@@ -98,7 +101,7 @@ class Table extends PureComponent {
               <div className={`g-pv2 g-ph4 tl bb b--base-4 normal c-on-base`} colSpan={columns.length}>
                 {actions && actions}
               </div>
-              {multilevel && <div className='g-pv2 g-ph4 tc bb b--base-4' />}
+              <div className='g-pv2 g-ph4 tc bb b--base-4' style={{ width: '50px' }} />
             </div>
           )}
 
@@ -118,7 +121,7 @@ class Table extends PureComponent {
                 </div>
               )
             })}
-            {multilevel && <div className={`g-pv2 g-ph4 tc bb b--base-4`} style={{ width: '40px' }} />}
+            <div className={`g-pv2 g-ph4 tc bb b--base-4`} style={{ width: '40px' }} />
           </div>
         </div>
         <div className="bg-base-1">
@@ -139,7 +142,7 @@ class Table extends PureComponent {
   }
 }
 
-Table.propTypes = {
+TableTree.propTypes = {
   /** Columns that will have on table. */
   columns: PropTypes.arrayOf(
     PropTypes.shape({
@@ -168,7 +171,7 @@ Table.propTypes = {
   actions: PropTypes.node
 }
 
-Table.defaultProps = {
+TableTree.defaultProps = {
   selectable: false,
   isLoading: false,
   placeholderLength: 3,
@@ -176,4 +179,4 @@ Table.defaultProps = {
   onChange: () => {}
 }
 
-export default Table
+export default TableTree
