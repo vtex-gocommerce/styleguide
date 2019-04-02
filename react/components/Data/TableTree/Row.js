@@ -88,10 +88,9 @@ export default class Row extends React.PureComponent {
 
         <div 
           style={{ 
-            height: 'auto', 
-            maxHeight: open ? '500px' : 0, // for animation purposes
+            maxHeight: open ? '500px' : '0px',
             overflow: 'hidden',
-            transition: 'max-height .3s ease-in'
+            transition: open ? 'max-height 1s' : 'max-height .2s'
           }}
         >
           {this.props.children}
