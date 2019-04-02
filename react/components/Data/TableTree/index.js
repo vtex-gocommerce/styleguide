@@ -92,20 +92,21 @@ class TableTree extends PureComponent {
 
     return (
       <div className={`w-100 g-f2 ba b--base-4`} cellSpacing="0">
-        <div className={`tl bg-base-2 flex flex-row`}>
-          {selectable && (
-            <div>
-              <div className={`g-pv2 g-ph4 tc bb b--base-4`} style={{ width: '40px' }}>
-                <CheckBox onClick={this.selectAll} />
-              </div>
-              <div className={`g-pv2 g-ph4 tl bb b--base-4 normal c-on-base`} colSpan={columns.length}>
-                {actions && actions}
-              </div>
-              <div className='g-pv2 g-ph4 tc bb b--base-4' style={{ width: '50px' }} />
+        {selectable && (
+          <div className={'flex flex-row'}>
+            <div className={'bb b--base-4'} style={{ width: '10px' }} />
+            <div className={`g-pv2 g-f1 tc flex justify-center items-center bb b--base-4`} style={{ width: '40px' }}>
+              <CheckBox onClick={this.selectAll} />
             </div>
-          )}
-
+            <div className={`g-pv2 g-ph4 tl bb b--base-4 normal c-on-base flex-grow-1`}>
+              {actions && actions}
+            </div>
+            <div className='g-pv2 g-ph4 tc bb b--base-4' style={{ width: '50px' }} />
+          </div>
+        )}
+        <div className={`tl bg-base-2 flex flex-row`}>
           <div className={'flex flex-row flex-grow-1'}>
+            <div className={'bb b--base-4'} style={{ width: '10px' }} />
             {selectable && <div className={`g-pv2 g-ph4 tc bb b--base-4`} style={{ width: '40px' }} />}
             {columns.map((column, index) => {
               const textAlign =
@@ -127,9 +128,9 @@ class TableTree extends PureComponent {
         <div className="bg-base-1">
           {this.props.isLoading
             ? [...Array(placeholderLength).keys()].map(e => (
-                <div key={e} className="g-h11">
+                <div key={e} className="g-h11 flex">
                   {[...Array(this.props.columns.length + (selectable ? 1 : 0)).keys()].map(e => (
-                    <div key={e} className={`${placeholderSizes[placeholderSize]} g-ph4 c-on-base-1 tc bb b--base-4`}>
+                    <div key={e} className={`${placeholderSizes[placeholderSize]} g-ph4 c-on-base-1 tc bb b--base-4 flex items-center flex-grow-1`}>
                       <Placeholder className="g-h2 w-100 br4" isPlaceholderActive={this.props.isLoading} />
                     </div>
                   ))}

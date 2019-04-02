@@ -60,10 +60,11 @@ export default class Row extends React.PureComponent {
             className={`${(fields.bgColor && 'bg-' + fields.bgColor) || ''} ${(fields.lineLink && 'pointer') ||
               ''} g-h11 flex flex-row`}
             onClick={fields.lineLink && fields.lineLink}
+            style={{ paddingLeft: `${depth*40}px` }}
           >
-            {depth == 0 && <div style={{ width: '10px' }} />}
+            <div style={{ width: '10px' }} />
             {selectable && (
-              <div className="g-pv1 g-f1 tc" style={{ width: '40px' }}>
+              <div className={`g-pv1 g-f1 tc flex justify-center items-center ${open ? 'bb b--base-4' : ''}`} style={{ width: '40px' }}>
                 <CheckBox
                   onClick={(event, checked) => {
                     this.props.onSelect(index, checked)
@@ -72,7 +73,7 @@ export default class Row extends React.PureComponent {
                 />
               </div>
             )}
-            <div className={`flex flex-row flex-grow-1`} style={{ paddingLeft: `${depth*40}px` }}>
+            <div className={`flex flex-row flex-grow-1`}>
               {this.getFormattedRow()}
             </div>
             <div 
