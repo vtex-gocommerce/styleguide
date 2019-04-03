@@ -35,7 +35,7 @@ export default class Row extends React.PureComponent {
       return (
         <div
           key={depth + column.id}
-          className={`flex-grow-1 flex items-center c-on-base-1 ${open ? 'bb b--base-4' : ''} ${textAligns[textAlign]} ${hasWrapper ? '' : 'g-pv1 g-ph4'}`}
+          className={`flex-grow-1 flex items-center c-on-base-1 ${open || !isLast ? 'bb b--base-4' : ''} ${textAligns[textAlign]} ${hasWrapper ? '' : 'g-pv1 g-ph4'}`}
         >
           {buildTableTd(
             column.cellWrapper,
@@ -50,11 +50,11 @@ export default class Row extends React.PureComponent {
   }
 
   render() {
-    const { fields, depth, root, selectable } = this.props
+    const { fields, depth, root, selectable, isLast } = this.props
     const { open } = this.state
 
     return (
-      <div className={`hover-bg-base-2 bg-animate ${root ? 'bb b--base-4': ''}`}>
+      <div className={`hover-bg-base-2 bg-animate`}>
         <div className={'flex flex-column'}>
           <div
             className={`${(fields.bgColor && 'bg-' + fields.bgColor) || ''} ${(fields.lineLink && 'pointer') ||
@@ -62,9 +62,9 @@ export default class Row extends React.PureComponent {
             onClick={fields.lineLink && fields.lineLink}
             style={{ paddingLeft: `${depth*40}px` }}
           >
-            <div style={{ width: '10px' }} />
+            <div style={{ width: '10px' }} className={`${!open && depth === 0 && !isLast ? 'bb b--base-4' : ''}`} />
             {selectable && (
-              <div className={`g-pv1 g-f1 tc flex justify-center items-center ${open ? 'bb b--base-4' : ''}`} style={{ width: '40px' }}>
+              <div className={`g-pv1 g-f1 tc flex justify-center items-center ${open || !isLast ? 'bb b--base-4' : ''}`} style={{ width: '40px' }}>
                 <CheckBox
                   onClick={(event, checked) => {
                     this.props.onSelect(index, checked)
@@ -77,11 +77,11 @@ export default class Row extends React.PureComponent {
               {this.getFormattedRow()}
             </div>
             <div 
-              className={`g-pv1 g-f1 tc b--base-4 pointer hover-blue flex items-center justify-center`} 
+              className={`g-pv1 g-f1 tc b--base-4 pointer hover-blue flex items-center justify-center ${!open && depth === 0 && !isLast ? 'bb b--base-4' : ''}`} 
               style={{ width: '50px' }} 
               onClick={() => this.setState({ open: !open })}
             >
-              {!!fields.children && <IconAngleDown />}
+              {!!fields.children && !!fields.children.length && <IconAngleDown />}
             </div>
           </div>
         </div>

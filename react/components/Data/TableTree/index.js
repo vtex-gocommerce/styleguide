@@ -78,6 +78,7 @@ class TableTree extends PureComponent {
           selectable={selectable}
           depth={depth}
           root={depth === 0}
+          isLast={index + 1 === rows.length}
           onSelect={this.select}
           isChecked={this.state.selectedList.includes(index)}
         >

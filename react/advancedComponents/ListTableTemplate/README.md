@@ -34,6 +34,7 @@ const tableConfig = {
     }
   ]
 }
+
 ;<div>
   <p>Minimal Config</p>
   <hr />
