@@ -5,6 +5,7 @@ import IconSortDown from './../../../../icons/IconSortDown'
 import IconSortUp from './../../../../icons/IconSortUp'
 import IconSearch from './../../../../icons/IconSearch'
 import { default as ListTable } from './../../../../components/Data/Table'
+import { default as TableTree } from './../../../../components/Data/TableTree'
 import { ListTableTemplateConsumer } from './../../index'
 
 class Table extends PureComponent {
@@ -50,8 +51,17 @@ class Table extends PureComponent {
     return this.props.tableConfig.options && this.props.tableConfig.options.cellWrapperProps
   }
 
-  parseRows = refetch => {
-    return this.props.data.map(item => {
+  hasChildren() {
+    return this.props.tableConfig.options && this.props.tableConfig.options.children
+  }
+
+  getChildren(item) {
+    return this.props.tableConfig.options && this.props.tableConfig.options.children && this.props.tableConfig.options.children(item)
+  }
+
+  parseRows = (data, refetch) => {
+    if (!data) return 
+    return data.map(item => {
       const row = this.props.tableConfig.columns.reduce((row, column) => {
         return {
           ...row,
@@ -75,29 +85,59 @@ class Table extends PureComponent {
         row.cellWrapperProps = this.props.tableConfig.options.cellWrapperProps(item)
       }
 
+      if (this.hasChildren()) {
+        const children = this.getChildren(item)
+        row.children = this.parseRows(children, refetch)
+      }
+
       return row
     })
   }
 
+  renderTable = (rows, columns) => {
+    const { isLoading, selectable, actions, onChange, multilevel } = this.props
+
+    if (multilevel) {
+      return (
+        <TableTree
+          columns={columns}
+          rows={rows}
+          isLoading={isLoading}
+          placeholderLength={rows.length || 5}
+          selectable={selectable}
+          actions={actions}
+          onChange={onChange}
+          multilevel={multilevel}
+        />
+      )
+    }
+
+    return (
+      <ListTable
+        columns={columns}
+        rows={rows}
+        isLoading={isLoading}
+        placeholderLength={rows.length || 5}
+        selectable={selectable}
+        actions={actions}
+        onChange={onChange}
+      />
+    )
+  }
+
   render() {
-    const { isLoading, selectable, actions, onChange } = this.props
+    const { isLoading } = this.props
 
     return (
       <ListTableTemplateConsumer>
-        {({ sort, handleChangeOrderBy, isFiltered }) => {
-          const rows = this.parseRows(handleChangeOrderBy)
+        {({ sort, handleChangeOrderBy }) => {
+          const rows = this.parseRows(this.props.data, handleChangeOrderBy)
+          const columns = this.parseColumns(sort, handleChangeOrderBy)
+
           return (
             <React.Fragment>
               <div className="g-f2 overflow-x-auto">
-                <ListTable
-                  columns={this.parseColumns(sort, handleChangeOrderBy)}
-                  rows={rows}
-                  isLoading={isLoading}
-                  placeholderLength={rows.length || 5}
-                  selectable={selectable}
-                  actions={actions}
-                  onChange={onChange}
-                />
+                {this.renderTable(rows, columns)}
               </div>
               {!isLoading && rows.length === 0 && (
                 <div className="tc c-on-base-2 g-f6 fw6 g-pv12 bg-on-inverted bl br bb b--base-4 br--bottom br1">
