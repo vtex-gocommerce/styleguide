@@ -27,6 +27,20 @@ const rows = [
     Name: 'Example Test',
     Address: 'Street of Test',
     cellWrapperProps: { page: 'admin/settings/view', params: { file_name: 1 } },
+    children: [
+      {
+        id: 6,
+        Name: 'Street',
+        Address: 'Lorem Ipsum',
+        cellWrapperProps: { page: 'admin/settings/view', params: { file_name: 1 } },
+      },
+      {
+        id: 6,
+        Name: 'Street',
+        Address: 'Lorem Ipsum',
+        cellWrapperProps: { page: 'admin/settings/view', params: { file_name: 1 } },
+      },
+    ],
   },
   {
     id: 3,
@@ -47,7 +61,7 @@ const rows = [
         cellWrapperProps: { page: 'admin/settings/view', params: { file_name: 4 } },
         children: [
           {
-            id: 4,
+            id: 5,
             Name: 'Last Test',
             Address: 'Just a big street',
             cellWrapperProps: { page: 'admin/settings/view', params: { file_name: 4 } }

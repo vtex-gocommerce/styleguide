@@ -54,7 +54,7 @@ export default class Row extends React.PureComponent {
     const { open } = this.state
 
     return (
-      <div className={`hover-bg-base-2 bg-animate`}>
+      <div className={`hover-bg-base-2 bg-animate ${root && open && !isLast ? 'bb b--base-4' : ''}`}>
         <div className={'flex flex-column'}>
           <div
             className={`${(fields.bgColor && 'bg-' + fields.bgColor) || ''} ${(fields.lineLink && 'pointer') ||
