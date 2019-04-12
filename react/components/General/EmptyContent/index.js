@@ -9,7 +9,7 @@ const EmptyContent = ({ title, description, helpText, image, handleHelp }) => {
       <span className={'f5 black-40 mb8'}>{ description }</span>
 
       {helpText && (
-        <div onClick={handleHelp} className={'cursor flex content-center black-40 link mb8'}>
+        <div onClick={handleHelp} className={'pointer flex content-center black-40 link mb8'}>
           <IconQuestionCircle />
           <span className={'ml3'}>{ helpText }</span>
         </div>
