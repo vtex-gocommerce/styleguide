@@ -14,7 +14,6 @@ class SeoBuilder extends Component {
       pageTitle: this.props.pageTitle,
       metaDescription: this.props.metaDescription,
       url: getSlug(this.props.url),
-      urlBase: this.props.urlBase
     }
   }
 
@@ -32,10 +31,6 @@ class SeoBuilder extends Component {
 
     if (nextProps.url !== this.props.url) {
       this.setState({ url: getSlug(nextProps.url) })
-    }
-
-    if (nextProps.urlBase !== this.props.urlBase) {
-      this.setState({ urlBase: nextProps.urlBase })
     }
   }
 
@@ -106,7 +101,7 @@ class SeoBuilder extends Component {
             {(this.state.pageTitle || this.state.metaDescription || this.state.url) && (
               <Seo
                 title={this.state.pageTitle}
-                url={this.state.urlBase + this.state.url}
+                url={this.props.urlBase + this.state.url + this.props.urlAppend}
                 description={this.state.metaDescription}
                 className="br-0 h-100 g-pb4"
               />
@@ -123,6 +118,7 @@ SeoBuilder.propTypes = {
   metaDescription: PropTypes.string,
   url: PropTypes.string,
   urlBase: PropTypes.string,
+  urlAppend: PropTypes.string,
   onChange: PropTypes.func,
   labelPageTitle: PropTypes.string,
   labelMetaDescription: PropTypes.string,
@@ -138,6 +134,7 @@ SeoBuilder.defaultProps = {
   metaDescription: '',
   url: '',
   urlBase: 'http://www.store.com/',
+  urlAppend: '',
   labelPageTitle: 'Page title',
   labelMetaDescription: 'Meta description',
   labelUrl: 'URL',
