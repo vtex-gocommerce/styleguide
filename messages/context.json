@@ -1,7 +1,18 @@
 {
-  "advancedComponents.tablePagination.showing": "Showing {perPage} of {total} itens",
-  "advancedComponents.tablePagination.view-1": "View 1",
-  "advancedComponents.tablePagination.view-15": "View 15",
-  "advancedComponents.tablePagination.view-50": "View 50",
-  "advancedComponents.tablePagination.view-100": "View 100"
+  "admin/styleguide.tablePagination.showing": "Showing {perPage} of {total} itens",
+  "admin/styleguide.tablePagination.view-1": "View 1",
+  "admin/styleguide.tablePagination.view-15": "View 15",
+  "admin/styleguide.tablePagination.view-50": "View 50",
+  "admin/styleguide.tablePagination.view-100": "View 100",
+  "admin/styleguide.could-not-find-any-item": "Could not find any item",
+  "admin/styleguide.try-using-another-filter-or-searching-for-a-less-specific-term": "Try using another filter or searching for a less specific term",
+  "admin/styleguide.sidebarfilter.filters": "Filters",
+  "admin/styleguide.sidebarfilter.apply-filter": "Apply filter",
+  "admin/styleguide.sidebarfilter.edit-filters": "Edit filters",
+  "admin/styleguide.sidebarfilter.applied-filters": "Applied filters",
+  "admin/styleguide.sidebarfilter.incomplete-orders": "Incomplete",
+  "admin/styleguide.sidebarfilter.incomplete-orders.show-all": "Show incomplete orders",
+  "admin/sidebar.date-range": "Date range",
+  "admin/sidebar.from": "From",
+  "admin/sidebar.to": "To"
 }

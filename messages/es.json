@@ -1,7 +1,18 @@
 {
-  "advancedComponents.tablePagination.showing": "Mostrando {perPage} de {total} elementos",
-  "advancedComponents.tablePagination.view-1": "Vista 1",
-  "advancedComponents.tablePagination.view-15": "Vista 15",
-  "advancedComponents.tablePagination.view-50": "Vista 50",
-  "advancedComponents.tablePagination.view-100": "Vista 100"
+  "admin/styleguide.tablePagination.showing": "Mostrando {perPage} de {total} elementos",
+  "admin/styleguide.tablePagination.view-1": "Vista 1",
+  "admin/styleguide.tablePagination.view-15": "Vista 15",
+  "admin/styleguide.tablePagination.view-50": "Vista 50",
+  "admin/styleguide.tablePagination.view-100": "Vista 100",
+  "admin/styleguide.could-not-find-any-item": "Ningún ítem encontrado",
+  "admin/styleguide.try-using-another-filter-or-searching-for-a-less-specific-term": "Intenta usar otro filtro o busca por un termino menos especifico",
+  "admin/styleguide.sidebarfilter.filters": "Filtros",
+  "admin/styleguide.sidebarfilter.apply-filter": "Aplicar filtro",
+  "admin/styleguide.sidebarfilter.edit-filters": "Editar filtro",
+  "admin/styleguide.sidebarfilter.applied-filters": "Filtros seleccionados",
+  "admin/styleguide.sidebarfilter.incomplete-orders": "Incompleto",
+  "admin/styleguide.sidebarfilter.incomplete-orders.show-all": "Mostrar pedidos incompletos",
+  "admin/sidebar.date-range": "Rango de fechas",
+  "admin/sidebar.from": "De",
+  "admin/sidebar.to": "A"
 }

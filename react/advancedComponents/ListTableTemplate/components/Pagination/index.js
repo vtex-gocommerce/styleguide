@@ -9,10 +9,10 @@ import { ListTableTemplateConsumer } from './../../index'
 class Pagination extends PureComponent {
   viewPageOptions = intl => {
     return [
-      { label: intl.formatMessage({ id: 'admin.oms.view-1' }), value: 1 },
-      { label: intl.formatMessage({ id: 'admin.oms.view-15' }), value: 15 },
-      { label: intl.formatMessage({ id: 'admin.oms.view-50' }), value: 50 },
-      { label: intl.formatMessage({ id: 'admin.oms.view-100' }), value: 100 }
+      { label: intl.formatMessage({ id: 'admin/styleguide.tablePagination.view-1' }), value: 1 },
+      { label: intl.formatMessage({ id: 'admin/styleguide.tablePagination.view-15' }), value: 15 },
+      { label: intl.formatMessage({ id: 'admin/styleguide.tablePagination.view-50' }), value: 50 },
+      { label: intl.formatMessage({ id: 'admin/styleguide.tablePagination.view-100' }), value: 100 }
     ]
   }
 
@@ -30,7 +30,7 @@ class Pagination extends PureComponent {
             <div className="flex justify-between items-center c-on-base-2 g-f2">
               <span className="dn db-ns">
                 <FormattedMessage
-                  id="advancedComponents.tablePagination.showing"
+                  id="admin/advancedComponents.tablePagination.showing"
                   values={{ perPage: showingItens, total: total }}
                 />
               </span>

@@ -174,15 +174,15 @@ class ListTableTemplate extends PureComponent {
 
   render() {
     const sidebarFilterLocale = {
-      filters: <FormattedMessage id="admin.oms.sidebarfilter.filters" />,
-      applyFilter: <FormattedMessage id="admin.oms.sidebarfilter.apply-filter" />,
-      editFilters: <FormattedMessage id="admin.oms.sidebarfilter.edit-filters" />,
-      appliedFilters: <FormattedMessage id="admin.oms.sidebarfilter.applied-filters" />,
+      filters: <FormattedMessage id="admin/styleguide.sidebarfilter.filters" />,
+      applyFilter: <FormattedMessage id="admin/styleguide.sidebarfilter.apply-filter" />,
+      editFilters: <FormattedMessage id="admin/styleguide.sidebarfilter.edit-filters" />,
+      appliedFilters: <FormattedMessage id="admin/styleguide.sidebarfilter.applied-filters" />,
       filtersConfig: {
         date: {
-          dateRange: <FormattedMessage id="admin.sidebar.date-range" />,
-          from: <FormattedMessage id="admin.sidebar.from" />,
-          to: <FormattedMessage id="admin.sidebar.to" />
+          dateRange: <FormattedMessage id="admin/sidebar.date-range" />,
+          from: <FormattedMessage id="admin/sidebar.from" />,
+          to: <FormattedMessage id="admin/sidebar.to" />
         }
       }
     }
