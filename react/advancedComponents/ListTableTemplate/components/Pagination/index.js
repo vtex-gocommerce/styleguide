@@ -30,7 +30,7 @@ class Pagination extends PureComponent {
             <div className="flex justify-between items-center c-on-base-2 g-f2">
               <span className="dn db-ns">
                 <FormattedMessage
-                  id="admin/advancedComponents.tablePagination.showing"
+                  id="admin/styleguide.tablePagination.showing"
                   values={{ perPage: showingItens, total: total }}
                 />
               </span>
