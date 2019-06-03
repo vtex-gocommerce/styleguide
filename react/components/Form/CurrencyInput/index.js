@@ -116,7 +116,6 @@ class CurrencyInput extends PureComponent {
       id,
       label,
       withoutStyle,
-      defaultValue
     } = this.props
     const { value } = this.state
 
@@ -145,7 +144,6 @@ class CurrencyInput extends PureComponent {
       disabled: disabled,
       maxLength: maxLength,
       value: value,
-      defaultValue: defaultValue
     }
 
     if (this.props.mask) {

@@ -32,7 +32,7 @@ class Card extends Component {
 
 Card.propTypes = {
   /** Title of the card. */
-  title: PropTypes.oneOfType([PropTypes.string, PropTypes.element]).isRequired,
+  title: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
   /** Display a card with placeholders. */
   isLoading: PropTypes.bool,
   children: PropTypes.node.isRequired
