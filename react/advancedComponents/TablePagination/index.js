@@ -4,6 +4,25 @@ import Select from '../../components/Form/Select'
 import Pagination from '../../components/Navigation/Pagination'
 import { injectIntl } from 'react-intl'
 
+const messages = {
+  view1: {
+    id: 'admin/styleguide.tablePagination.view-1',
+    defaultMessage: 'View 1',
+  },
+  view15: {
+    id: 'admin/styleguide.tablePagination.view-15',
+    defaultMessage: 'View 15',
+  },
+  view50: {
+    id: 'admin/styleguide.tablePagination.view-50',
+    defaultMessage: 'View 50',
+  },
+  view100: {
+    id: 'admin/styleguide.tablePagination.view-100',
+    defaultMessage: 'View 100',
+  },
+}
+
 class TablePagination extends PureComponent {
   handleChangePerPage = e => this.props.handleChangePerPage(e.target.value)
   formatMessage = id => this.props.intl.formatMessage({ id }, {})
@@ -12,10 +31,11 @@ class TablePagination extends PureComponent {
     const { total, page, perPage, handleChangePage, recordsLabel } = this.props
 
     const viewPageOptions = [
-      { label: this.formatMessage('admin/styleguide.tablePagination.view-15'), value: 15 },
-      { label: this.formatMessage('admin/styleguide.tablePagination.view-50'), value: 50 },
-      { label: this.formatMessage('admin/styleguide.tablePagination.view-100'), value: 100 }
+      { label: this.props.intl.formatMessage(messages.view15), value: 15 },
+      { label: this.props.intl.formatMessage(messages.view50), value: 50 },
+      { label: this.props.intl.formatMessage(messages.view100), value: 100 }
     ]
+
     return (
       <div className="flex justify-between items-center c-on-base-2">
         {total} {recordsLabel || 'records'}

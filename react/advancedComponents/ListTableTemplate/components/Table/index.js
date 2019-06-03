@@ -143,10 +143,10 @@ class Table extends PureComponent {
                 <div className="tc c-on-base-2 g-f6 fw6 g-pv12 bg-on-inverted bl br bb b--base-4 br--bottom br1">
                   <IconSearch width="40px" height="40px" />
                   <p className="g-mv3">
-                    <FormattedMessage id="admin/styleguide.could-not-find-any-item" />
+                    <FormattedMessage id="admin/styleguide.could-not-find-any-item" defaultMessage='Could not find any item' />
                   </p>
                   <p className="g-f2 normal">
-                    <FormattedMessage id="admin/styleguide.try-using-another-filter-or-searching-for-a-less-specific-term" />
+                    <FormattedMessage id="admin/styleguide.try-using-another-filter-or-searching-for-a-less-specific-term" defaultMessage='Try using another filter or searching for a less specific term' />
                   </p>
                 </div>
               )}

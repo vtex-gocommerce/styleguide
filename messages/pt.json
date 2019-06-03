@@ -10,7 +10,7 @@
   "admin/styleguide.sidebarfilter.apply-filter": "Aplicar filtro",
   "admin/styleguide.sidebarfilter.edit-filters": "Editar filtro",
   "admin/styleguide.sidebarfilter.applied-filters": "Filtros aplicados",
-  "admin/styleguide.sidebarfilter.incomplete-orders": "Incompletos",
+  "admin/styleguide.sidebarfilter.incomplete-orders.title": "Incompletos",
   "admin/styleguide.sidebarfilter.incomplete-orders.show-all": "Mostrar pedidos incompletos",
   "admin/sidebar.date-range": "Intervalo de datas",
   "admin/sidebar.from": "De",

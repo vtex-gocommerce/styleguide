@@ -1,18 +1,38 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
-import { FormattedMessage } from 'react-intl'
+import { FormattedMessage, defineMessages } from 'react-intl'
+
 import Select from './../../../../components/Form/Select'
 import { default as PaginationStyleguide } from './../../../../components/Navigation/Pagination'
 
 import { ListTableTemplateConsumer } from './../../index'
 
+const messages = {
+  view1: {
+    id: 'admin/styleguide.tablePagination.view-1',
+    defaultMessage: 'View 1',
+  },
+  view15: {
+    id: 'admin/styleguide.tablePagination.view-15',
+    defaultMessage: 'View 15',
+  },
+  view50: {
+    id: 'admin/styleguide.tablePagination.view-50',
+    defaultMessage: 'View 50',
+  },
+  view100: {
+    id: 'admin/styleguide.tablePagination.view-100',
+    defaultMessage: 'View 100',
+  },
+}
+
 class Pagination extends PureComponent {
   viewPageOptions = intl => {
     return [
-      { label: intl.formatMessage({ id: 'admin/styleguide.tablePagination.view-1' }), value: 1 },
-      { label: intl.formatMessage({ id: 'admin/styleguide.tablePagination.view-15' }), value: 15 },
-      { label: intl.formatMessage({ id: 'admin/styleguide.tablePagination.view-50' }), value: 50 },
-      { label: intl.formatMessage({ id: 'admin/styleguide.tablePagination.view-100' }), value: 100 }
+      { label: intl.formatMessage(messages.view1), value: 1 },
+      { label: intl.formatMessage(messages.view15), value: 15 },
+      { label: intl.formatMessage(messages.view50), value: 50 },
+      { label: intl.formatMessage(messages.view100), value: 100 }
     ]
   }
 
