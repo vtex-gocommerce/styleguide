@@ -6,20 +6,21 @@ class Breadcrumb extends PureComponent {
   renderItemLink = (item, icon = false) => {
     const classesLink = 'c-on-base-2 no-underline hover-c-primary'
 
-    if (!this.props.link)
+    if (!this.props.link) {
       return (
         <a href={item.to} className={classesLink}>
           {icon && <IconArrowLeft className="g-mr2" />}
           <span className="dn dib-ns">{item.title}</span>
         </a>
       )
+    }
 
     const Link = this.props.link
 
     let query = ''
     if (window.localStorage !== undefined) {
       const filterBack = JSON.parse(localStorage.getItem('filterBack'))
-      if (filterBack && `/${filterBack.page}` == item.to) {
+      if (filterBack && `/${filterBack.page}` === item.to) {
         query = filterBack.query
       }
     }
@@ -44,7 +45,7 @@ class Breadcrumb extends PureComponent {
         ) : (
           <span className="c-on-base-2 dib">{this.renderItemText(item)}</span>
         )}
-        <span className="c-on-base-2 g-ph2 dn dib-ns">{this.props.separator}</span>
+        <span className="c-on-base-2 g-ph2 dib">{this.props.separator}</span>
       </React.Fragment>
     )
   }
@@ -53,7 +54,7 @@ class Breadcrumb extends PureComponent {
     const { items } = this.props
 
     return (
-      <div className="c-on-base g-f3 g-f5-ns fw6 tracked-tight flex items-center overflow-hidden nowrap w-60-ns g-pr11-ns">
+      <div className="c-on-base g-f3 g-f5-ns fw6 tracked-tight flex items-center overflow-hidden nowrap w-80-ns g-pr11-ns">
         {items.map((item, index, items) => {
           if (index + 1 === items.length) {
             return (
@@ -75,18 +76,18 @@ Breadcrumb.propTypes = {
     PropTypes.shape({
       title: PropTypes.oneOfType([PropTypes.string, PropTypes.element]).isRequired,
       to: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
-      page: PropTypes.oneOfType([PropTypes.string, PropTypes.element])
+      page: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
     })
   ).isRequired,
   /** Separator character */
   separator: PropTypes.string,
   /** Link Component */
-  link: PropTypes.oneOfType([PropTypes.func, PropTypes.element])
+  link: PropTypes.oneOfType([PropTypes.func, PropTypes.element]),
 }
 
 Breadcrumb.defaultProps = {
   separator: '/',
-  link: null
+  link: null,
 }
 
 export default Breadcrumb

@@ -9,7 +9,7 @@ class Toggle extends PureComponent {
     const checked = props.defaultChecked || props.checked || false
     this.state = {
       prevPropsValue: checked,
-      checked: checked
+      checked: checked,
     }
   }
 
@@ -22,7 +22,7 @@ class Toggle extends PureComponent {
 
   handleClick = event => {
     this.setState(prev => ({
-      checked: !prev.checked
+      checked: !prev.checked,
     }))
 
     this.props.onClick(event, !this.state.checked)
@@ -89,7 +89,11 @@ Toggle.propTypes = {
   /** On click callback function. */
   onClick: PropTypes.func,
   /** Label [optional] */
-  label: PropTypes.string
+  label: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+    PropTypes.element,
+  ]),
 }
 
 Toggle.defaultProps = {
@@ -97,7 +101,7 @@ Toggle.defaultProps = {
   disabled: false,
   value: '',
   className: '',
-  onClick: checked => {}
+  onClick: () => {},
 }
 
 export default Toggle
