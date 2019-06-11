@@ -13,6 +13,10 @@
   },
   "mustUpdateAt": "2018-09-05",
   "categories": [],
-  "registries": ["smartcheckout", "gocommerce"],
-  "settingsSchema": {}
+  "registries": [
+    "smartcheckout",
+    "gocommerce"
+  ],
+  "settingsSchema": {},
+  "$schema": "https://raw.githubusercontent.com/vtex/node-vtex-api/master/gen/manifest.schema"
 }

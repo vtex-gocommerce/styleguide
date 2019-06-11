@@ -6,12 +6,12 @@ class Tab extends PureComponent {
     super(props)
 
     this.state = {
-      active: this.props.initialTab
+      active: this.props.initialTab,
     }
   }
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.forceValue && nextProps.forceValue != this.props.forceValue) {
+    if (nextProps.forceValue && nextProps.forceValue !== this.props.forceValue) {
       this.setState({ active: nextProps.forceValue })
     }
   }
@@ -22,7 +22,7 @@ class Tab extends PureComponent {
   }
 
   render() {
-    const { list, initialTab, className } = this.props
+    const { list, className } = this.props
     const { active } = this.state
 
     return (
@@ -50,7 +50,7 @@ Tab.propTypes = {
   list: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string.isRequired,
-      label: PropTypes.oneOfType([PropTypes.string, PropTypes.element]).isRequired
+      label: PropTypes.oneOfType([PropTypes.string, PropTypes.element]).isRequired,
     })
   ).isRequired,
   /** Set initial tab value. */
@@ -60,11 +60,11 @@ Tab.propTypes = {
   /** Append css classes to the tab. */
   className: PropTypes.string,
   /** force a new active tab */
-  forceValue: PropTypes.string
+  forceValue: PropTypes.string,
 }
 
 Tab.defaultProps = {
-  className: ''
+  className: '',
 }
 
 export default Tab
