@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import Input from '../Input'
-import Tag from '../../Indicators/Tag'
+
+import Input from '../Input/index'
+import AutoCompleteList from '../AutoCompleteList/index'
+import Tag from '../../Indicators/Tag/index'
 
 class InputTag extends Component {
   constructor(props) {
@@ -59,9 +61,7 @@ class InputTag extends Component {
     let value = event.target.value
 
     if (value.includes(',') && value.length > 1) {
-      this.setValuesToStateAndHandle(value)
-
-      return
+      return this.setValuesToStateAndHandle(value)
     }
 
     this.setState(
@@ -162,6 +162,23 @@ class InputTag extends Component {
   }
 
   renderInput = (forceShowPlaceHolder = false) => {
+    if (this.props.autocomplete) {
+      return (
+        <AutoCompleteList
+          inputId='option_values'
+          name="option_values"
+          className={`dib w-100 b--none`}
+          value={this.state.input}
+          disabled={this.state.disabled}
+          placeholder={!this.state.values.length || forceShowPlaceHolder ? this.props.placeholder : ''}
+          onChange={this.onChangeValue}
+          list={this.props.source}
+          onClick={this.setValuesToStateAndHandle}
+          onKeyDown={this.onKeyPressAtOptionValue}
+        />
+      )
+    }
+
     return (
       <Input
         name="option_values"
@@ -208,10 +225,13 @@ InputTag.propTypes = {
   onChangeValues: PropTypes.func,
   onChangeInput: PropTypes.func,
   onBlur: PropTypes.func,
-  onFocus: PropTypes.func
+  onFocus: PropTypes.func,
+  autocomplete: PropTypes.bool,
+  source: PropTypes.array,
 }
 
 InputTag.defaultProps = {
+  autocomplete: false,
   disabled: false,
   hasError: false,
   values: [],
@@ -221,7 +241,8 @@ InputTag.defaultProps = {
   allowDuplicate: true,
   onDuplicateItem: values => {},
   onChangeValues: values => {},
-  onChangeInput: input => {}
+  onChangeInput: input => {},
+  source: [],
 }
 
 export default InputTag
