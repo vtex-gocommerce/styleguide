@@ -5,7 +5,8 @@ import Input from '../Input'
 
 class AutoCompleteList extends PureComponent {
   state = {
-    filterInput: this.props.defaultValue,
+    value: this.props.defaultValue,
+    isControlled: this.props.value !== undefined,
     isFocused: false,
   }
 
@@ -19,7 +20,7 @@ class AutoCompleteList extends PureComponent {
       return this.props.onClick(clickedLabel)
     }
 
-    this.setState({ filterInput: clickedLabel })
+    this.setState({ value: clickedLabel })
     this.onChange({ target: { value: clickedLabel } })
   }
 
@@ -42,7 +43,7 @@ class AutoCompleteList extends PureComponent {
   }
 
   onInputChange = event => {
-    this.setState({ filterInput: event.target.value })
+    this.setState({ value: event.target.value })
     this.props.onChange && this.props.onChange(event)
   }
 
@@ -60,9 +61,10 @@ class AutoCompleteList extends PureComponent {
 
   render() {
     const { inputName, inputId, className, hasError, placeholder, disabled, iconBefore, onKeyDown } = this.props
-    const { filterInput } = this.state
+    const { isControlled } = this.state
 
-    const filteredList = this.filteredList(this.state.filterInput)
+    const value = isControlled ? this.props.value : this.state.value
+    const filteredList = this.filteredList(value)
 
     return (
       <div className="db w-100">
@@ -72,7 +74,7 @@ class AutoCompleteList extends PureComponent {
             name={inputName}
             id={inputId || inputName}
             disabled={disabled}
-            value={filterInput}
+            value={value}
             onChange={this.onInputChange}
             onBlur={this.onBlur}
             onFocus={this.onFocus}

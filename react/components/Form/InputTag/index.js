@@ -113,9 +113,7 @@ class InputTag extends Component {
         () => this.handleChangeInput()
       )
 
-      this.props.onDuplicateItem(value)
-
-      return
+      return this.props.onDuplicateItem(value)
     }
 
     this.setState(
