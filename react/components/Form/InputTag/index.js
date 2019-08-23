@@ -58,7 +58,7 @@ class InputTag extends Component {
   }
 
   onChangeValue = event => {
-    let value = event.target.value
+    const value = event.target.value
 
     if (value.includes(',') && value.length > 1) {
       return this.setValuesToStateAndHandle(value)
@@ -172,6 +172,7 @@ class InputTag extends Component {
           onChange={this.onChangeValue}
           list={this.props.source}
           onClick={this.setValuesToStateAndHandle}
+          onBlur={this.onBlur}
           onKeyDown={this.onKeyPressAtOptionValue}
         />
       )

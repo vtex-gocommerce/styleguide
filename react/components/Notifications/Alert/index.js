@@ -74,7 +74,7 @@ Alert.propTypes = {
   /** Set a timeout for alert execute **onClose** function. */
   autoClose: PropTypes.number,
   /** title of alert. */
-  title: PropTypes.string,
+  title: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
   /** Sets whether to have background. */
   fill: PropTypes.bool,
   /** Set action on alert */
