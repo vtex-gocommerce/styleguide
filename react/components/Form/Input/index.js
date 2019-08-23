@@ -90,9 +90,9 @@ class Input extends PureComponent {
       disabled: disabled,
       readOnly: readOnly,
       maxLength: maxLength,
-      value: value,
+      value: value || '',
       defaultValue: defaultValue,
-      autoComplete: false,
+      autoComplete: 'off',
     }
 
     if (this.props.mask) {
@@ -113,11 +113,7 @@ class Input extends PureComponent {
       return (
         <div className={`dib ${className}`}>
           <div className="flex">
-            <input
-              {...props}
-              className={`${inputClasses} w-100 dib ba br-0 br1 br--left`}
-              autocomplete="off"
-            />
+            <input {...props} className={`${inputClasses} w-100 dib ba br-0 br1 br--left`} />
             <span
               className={`ba br2 br--right inline-flex items-center g-ph3 ${!hasError ? 'c-on-base-2' : ''} ${colors}`}
             >
@@ -132,11 +128,7 @@ class Input extends PureComponent {
         <div className={`dib ${style} ${colors} ${className} overflow-hidden`}>
           <div className="flex flex-auto items-center ">
             <div className="g-pl3">{this.props.iconBefore}</div>
-            <input 
-              {...props}
-              className={`${colors} ${padding} ${style} bn w-100 dib`}
-              autocomplete="off"
-            />
+            <input {...props} className={`${colors} ${padding} ${style} bn w-100 dib`} />
           </div>
         </div>
       )
@@ -144,7 +136,7 @@ class Input extends PureComponent {
       return (
         <React.Fragment>
           {label && <label className="db c-on-base-2 g-mb1 g-f2 lh-copy">{label}</label>}
-          <input {...props} className={inputClasses} autocomplete="off" />
+          <input {...props} className={inputClasses} />
           {showMaxLength && maxLength !== 0 && (
             <label
               className={`flex flex-row-reverse db g-pb2 g-pa1 g-f2 ${
