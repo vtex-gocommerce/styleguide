@@ -103,9 +103,10 @@ class InputTag extends Component {
   }
 
   setValuesToStateAndHandle = value => {
-    let newValues = [...this.state.values, value.replace(',', '')]
+    const cleanedValue = value.replace(',', '').trim()
+    const newValues = [...this.state.values, cleanedValue]
 
-    if (!this.props.allowDuplicate && this.checkIfValueAlreadyExists(value)) {
+    if (!this.props.allowDuplicate && this.checkIfValueAlreadyExists(cleanedValue)) {
       this.setState(
         {
           input: ''
@@ -113,7 +114,7 @@ class InputTag extends Component {
         () => this.handleChangeInput()
       )
 
-      return this.props.onDuplicateItem(value)
+      return this.props.onDuplicateItem(cleanedValue)
     }
 
     this.setState(
