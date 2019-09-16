@@ -28,6 +28,7 @@ class RadioButton extends PureComponent {
     const { disabled, value, name, width, height, className, id, hasError, label } = this.props
     const { checked } = this.state
 
+    const inputId = id || name
     let classesCircleOutside = `b--base-4 `
     let classesCircleInside = ''
 
@@ -47,7 +48,7 @@ class RadioButton extends PureComponent {
         }`}
       >
         <input
-          id={id || name}
+          id={inputId}
           type="radio"
           className="dn"
           disabled={disabled}
@@ -59,7 +60,7 @@ class RadioButton extends PureComponent {
         <div className={classesCircleOutside} style={{ width: width || '20px', height: height || '20px' }}>
           <span className={`icon ${classesCircleInside}`} />
         </div>
-        {label && <span className="g-ml2 hover-c-primary pointer">{label}</span>}
+        {label && <span className="g-ml2 hover-c-primary pointer" for={inputId}>{label}</span>}
       </label>
     )
   }

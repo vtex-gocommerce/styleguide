@@ -30,6 +30,7 @@ class CheckBox extends PureComponent {
     const { disabled, value, name, hasError, id } = this.props
     const { checked } = this.state
 
+    const inputId = id || name
     let classes = `flex justify-center items-center ba br2 ${styles.checkbox} `
 
     if (disabled) {
@@ -41,12 +42,12 @@ class CheckBox extends PureComponent {
     classes = hasError ? `${classes} b--danger` : classes
 
     return (
-      <label className={`dib g-w5 ${!disabled && 'pointer'}`}>
+      <label className={`dib g-w5 ${!disabled && 'pointer'}`} for={inputId}>
         <div className={classes}>
           <IconCheck className={`white ${!checked && 'o-0'}`} />
         </div>
         <input
-          id={id || name}
+          id={inputId}
           type="checkbox"
           className="dn"
           disabled={disabled}

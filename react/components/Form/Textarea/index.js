@@ -47,10 +47,11 @@ class Textarea extends PureComponent {
 
     inputClasses += className
 
+    const inputId = id || name
     const props = {
       type: type,
       name: name,
-      id: id || name,
+      id: inputId,
       placeholder: placeholder,
       onBlur: this.handleBlur,
       onFocus: this.handleFocus,
@@ -62,7 +63,7 @@ class Textarea extends PureComponent {
 
     return (
       <React.Fragment>
-        {label && <label className="db c-on-base-2 g-mb1 g-f2 lh-copy">{label}</label>}
+        {label && <label className="db c-on-base-2 g-mb1 g-f2 lh-copy" for={inputId}>{label}</label>}
         <textarea {...props} className={inputClasses} value={value} />
         {showCounter &&
           maxLength !== 0 && (

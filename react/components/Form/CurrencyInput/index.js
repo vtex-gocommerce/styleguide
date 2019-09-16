@@ -130,10 +130,11 @@ class CurrencyInput extends PureComponent {
 
     let inputClasses = style + padding + colors + className
 
+    const inputId = id || name
     const props = {
       type: type,
       name: name,
-      id: id || name,
+      id: inputId,
       placeholder: formatPlaceholder ? this.toCurrency(placeholder) : placeholder,
       onBlur: this.handleBlur,
       onFocus: this.handleFocus,
@@ -182,7 +183,7 @@ class CurrencyInput extends PureComponent {
     } else {
       return (
         <React.Fragment>
-          {label && <label className="db c-on-base-2 g-mb1 g-f2 lh-copy">{label}</label>}
+          {label && <label className="db c-on-base-2 g-mb1 g-f2 lh-copy" for={inputId}>{label}</label>}
           <input {...props} className={inputClasses} />
           {showMaxLength && maxLength !== 0 && (
             <label
