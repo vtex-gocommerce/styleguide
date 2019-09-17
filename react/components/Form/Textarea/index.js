@@ -63,7 +63,7 @@ class Textarea extends PureComponent {
 
     return (
       <React.Fragment>
-        {label && <label className="db c-on-base-2 g-mb1 g-f2 lh-copy" for={inputId}>{label}</label>}
+        {label && <label className="db c-on-base-2 g-mb1 g-f2 lh-copy" htmlFor={inputId}>{label}</label>}
         <textarea {...props} className={inputClasses} value={value} />
         {showCounter &&
           maxLength !== 0 && (

@@ -42,7 +42,7 @@ class CheckBox extends PureComponent {
     classes = hasError ? `${classes} b--danger` : classes
 
     return (
-      <label className={`dib g-w5 ${!disabled && 'pointer'}`} for={inputId}>
+      <label className={`dib g-w5 ${!disabled && 'pointer'}`} htmlFor={inputId}>
         <div className={classes}>
           <IconCheck className={`white ${!checked && 'o-0'}`} />
         </div>

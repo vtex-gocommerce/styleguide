@@ -53,7 +53,7 @@ class Toggle extends PureComponent {
         <div className={classes}>
           <div className={circle} />
         </div>
-        {label && <span className="g-ml3 hover-c-primary pointer" for={inputId}>{label}</span>}
+        {label && <span className="g-ml3 hover-c-primary pointer" htmlFor={inputId}>{label}</span>}
 
         <input
           name={name}

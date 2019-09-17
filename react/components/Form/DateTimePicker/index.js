@@ -114,7 +114,7 @@ class DateTimePicker extends PureComponent {
     } else {
       return (
         <div className={`dib datepicker_gocommerce ${containerClassName}`}>
-          {label && <label className="db c-on-base-2 g-mb1 g-f2 lh-copy" for={inputId}>{label}</label>}
+          {label && <label className="db c-on-base-2 g-mb1 g-f2 lh-copy" htmlFor={inputId}>{label}</label>}
           <DatePicker {...props} className={DateTimePickerClasses} />
         </div>
       )
