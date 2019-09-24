@@ -166,9 +166,10 @@ class InputTag extends Component {
         <AutoCompleteList
           inputId='option_values'
           name="option_values"
-          className={`dib w-100 b--none`}
+          className={`dib w-100 ${this.props.hasError ? '' : 'b--none'}`}
           value={this.state.input}
           disabled={this.state.disabled}
+          hasError={this.props.hasError}
           placeholder={!this.state.values.length || forceShowPlaceHolder ? this.props.placeholder : ''}
           onChange={this.onChangeValue}
           list={this.props.source}
