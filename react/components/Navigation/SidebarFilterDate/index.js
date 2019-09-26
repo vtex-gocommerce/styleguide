@@ -1,9 +1,10 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
+
 import RadioButton from '../../Form/RadioButton'
-import Input from '../../Form/Input'
 import DateTimePicker from '../../Form/DateTimePicker'
-import moment from 'moment'
+
+const currentDate = new Date()
 
 class SidebarFilterDate extends PureComponent {
   constructor(props) {
@@ -22,7 +23,11 @@ class SidebarFilterDate extends PureComponent {
       endDate = dateRange[1]
     }
 
-    this.state = { showDateRange, initDate, endDate, initDateMoment: moment(initDate), endDateMoment: moment(endDate) }
+    this.state = {
+      showDateRange,
+      initDate,
+      endDate,
+    }
   }
 
   handleChange = option => {
@@ -30,8 +35,8 @@ class SidebarFilterDate extends PureComponent {
     this.props.handleChange({ [this.props.filter.code]: [option] })
   }
 
-  handleChangeDateInit = momentValue => {
-    this.setState({ initDate: momentValue.format('YYYY-MM-DD'), initDateMoment: momentValue }, () => {
+  handleChangeDateInit = value => {
+    this.setState({ initDate: value }, () => {
       this.changeDateRangeFilter()
     })
   }
@@ -40,8 +45,8 @@ class SidebarFilterDate extends PureComponent {
     return this.props.localeConfig[key]
   }
 
-  handleChangeDateEnd = momentValue => {
-    this.setState({ endDate: momentValue.format('YYYY-MM-DD'), endDateMoment: momentValue }, () => {
+  handleChangeDateEnd = value => {
+    this.setState({ endDate: value }, () => {
       this.changeDateRangeFilter()
     })
   }
@@ -63,9 +68,8 @@ class SidebarFilterDate extends PureComponent {
   }
 
   render() {
-    const currentDate = new Date()
     const { filter, locale } = this.props
-    const { showDateRange, endDate, initDate, initDateMoment, endDateMoment } = this.state
+    const { showDateRange, endDate, initDate } = this.state
 
     return (
       <div>
@@ -107,36 +111,36 @@ class SidebarFilterDate extends PureComponent {
               />{' '}
               {this.getTextByLocale('dateRange')}
             </label>
-            <div className={`g-mt3 ${showDateRange ? 'db' : 'dn'}`}>
-              <p className="g-ma0 c-on-base-2 g-f2 g-mb1">{this.getTextByLocale('from')}</p>
-              <DateTimePicker // value={initDate}
-                className="w-100"
-                placeholder={`Ex. ${currentDate.getFullYear()}-${currentDate.getMonth() + 1}-${currentDate.getDate()}`}
-                onChange={this.handleChangeDateInit}
-                options={{
-                  dateFormat: 'YYYY-MM-DD',
-                  selected: initDate ? moment(initDate) : null,
-                  selectsStart: true,
-                  startDate: initDateMoment,
-                  endDate: endDateMoment,
-                  locale
-                }}
-              />
-              <p className="g-ma0 c-on-base-2 g-f2 g-mb1 g-mt3">{this.getTextByLocale('to')}</p>
-              <DateTimePicker // value={endDate}
-                className="w-100"
-                placeholder={`Ex. ${currentDate.getFullYear()}-${currentDate.getMonth() + 1}-${currentDate.getDate()}`}
-                onChange={this.handleChangeDateEnd}
-                options={{
-                  dateFormat: 'YYYY-MM-DD',
-                  selected: endDate ? moment(endDate) : null,
-                  selectsEnd: true,
-                  startDate: initDateMoment,
-                  endDate: endDateMoment,
-                  locale
-                }}
-              />
-            </div>
+            {showDateRange && (
+              <div className={`g-mt3`}>
+                <p className="g-ma0 c-on-base-2 g-f2 g-mb1">{this.getTextByLocale('from')}</p>
+                <DateTimePicker
+                  className="w-100"
+                  placeholder={`Ex. ${currentDate.getFullYear()}-${currentDate.getMonth() + 1}-${currentDate.getDate()}`}
+                  onChange={this.handleChangeDateInit}
+                  options={{
+                    selected: initDate,
+                    selectsStart: true,
+                    startDate: initDate,
+                    endDate: endDate,
+                    locale,
+                  }}
+                />
+                <p className="g-ma0 c-on-base-2 g-f2 g-mb1 g-mt3">{this.getTextByLocale('to')}</p>
+                <DateTimePicker
+                  className="w-100"
+                  placeholder={`Ex. ${currentDate.getFullYear()}-${currentDate.getMonth() + 1}-${currentDate.getDate()}`}
+                  onChange={this.handleChangeDateEnd}
+                  options={{
+                    selected: endDate,
+                    selectsEnd: true,
+                    startDate: initDate,
+                    endDate: endDate,
+                    locale,
+                  }}
+                />
+              </div>
+            )}
           </li>
         </ul>
       </div>

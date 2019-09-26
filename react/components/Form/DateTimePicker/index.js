@@ -1,17 +1,19 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
-import DatePicker from 'react-datepicker'
-import moment from 'moment'
+import DatePicker, { registerLocale } from 'react-datepicker'
 
 import './react-datepicker.global.css'
 import styles from './style.css'
 
+import * as locales from './locales'
+
 class DateTimePicker extends PureComponent {
-  constructor(props) {
-    super(props)
-    this.state = {
-      value: moment(props.defaultValue) || moment(props.value)
-    }
+  componentDidMount() {
+    const { options: { locale } } = this.props
+    const formattedLocale = locale.split('-')[0].toUpperCase()
+    const localeRegister = locales[formattedLocale]
+
+    registerLocale(locale, localeRegister)
   }
 
   componentWillReceiveProps = nextProps => {
@@ -51,7 +53,6 @@ class DateTimePicker extends PureComponent {
       disabled,
       placeholder,
       maxLength,
-      showMaxLength,
       className,
       containerClassName,
       name,
@@ -61,7 +62,6 @@ class DateTimePicker extends PureComponent {
       withoutStyle,
       defaultValue
     } = this.props
-    const { value } = this.state
 
     let padding = 'g-ph4 f6 '
     let style = `${styles.input} ba br2 g-h11 `
@@ -85,7 +85,7 @@ class DateTimePicker extends PureComponent {
       defaultValue: defaultValue,
       calendarClassName: 'zeitungMicroPro',
       useShortMonthInDropdown: true,
-      ...options
+      ...options,
     }
 
     if (this.props.suffix) {
