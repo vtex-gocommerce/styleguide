@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
+import formatDate from 'date-fns/format'
 
 import RadioButton from '../../Form/RadioButton'
 import DateTimePicker from '../../Form/DateTimePicker'
@@ -15,12 +16,13 @@ class SidebarFilterDate extends PureComponent {
       showDateRange = false
 
     if (this.isActive(`${props.filter.code}-date-range`)) {
-      const dateRange = props.enabledOptions
+      const [initDateParam, endDateParam] = props.enabledOptions
         .find(item => item.code === `${props.filter.code}-date-range`)
         .value.split('|')
+
       showDateRange = true
-      initDate = dateRange[0]
-      endDate = dateRange[1]
+      initDate = initDateParam !== 'null' && new Date(`${initDateParam} `)
+      endDate = endDateParam !== 'null' && new Date(`${endDateParam} `)
     }
 
     this.state = {
@@ -28,6 +30,16 @@ class SidebarFilterDate extends PureComponent {
       initDate,
       endDate,
     }
+  }
+
+  formatNativeDate = (date) => {
+    if (!date) return null
+    return new Date(date)
+  }
+
+  formatCustomDate = (date, format = 'yyyy-MM-dd') => {
+    if (!date) return null
+    return formatDate(new Date(date), format)
   }
 
   handleChange = option => {
@@ -52,11 +64,14 @@ class SidebarFilterDate extends PureComponent {
   }
 
   changeDateRangeFilter = () => {
-    if (this.state.showDateRange) {
+    const { showDateRange, initDate, endDate } = this.state
+    const { filter: { code } } = this.props
+
+    if (showDateRange) {
       const option = {
-        code: this.props.filter.code + '-date-range',
-        value: `${this.state.initDate}|${this.state.endDate}`,
-        title: `${this.state.initDate} - ${this.state.endDate}`
+        code: code + '-date-range',
+        value: `${this.formatCustomDate(initDate)}|${this.formatCustomDate(endDate)}`,
+        title: `${this.formatCustomDate(initDate)} - ${this.formatCustomDate(endDate)}`
       }
 
       this.handleChange(option)
@@ -103,7 +118,7 @@ class SidebarFilterDate extends PureComponent {
                 className="g-mr3"
                 onClick={() => {
                   this.handleChange({
-                    value: `${this.state.initDate}|${this.state.endDate}`,
+                    value: `${this.formatCustomDate(initDate)}|${this.formatCustomDate(endDate)}`,
                     title: this.getTextByLocale('dateRange'),
                     code: `${filter.code}-date-range`
                   })
@@ -119,10 +134,10 @@ class SidebarFilterDate extends PureComponent {
                   placeholder={`Ex. ${currentDate.getFullYear()}-${currentDate.getMonth() + 1}-${currentDate.getDate()}`}
                   onChange={this.handleChangeDateInit}
                   options={{
-                    selected: initDate,
+                    selected: this.formatNativeDate(initDate),
                     selectsStart: true,
-                    startDate: initDate,
-                    endDate: endDate,
+                    startDate: this.formatNativeDate(initDate),
+                    endDate: this.formatNativeDate(endDate),
                     locale,
                   }}
                 />
@@ -132,10 +147,10 @@ class SidebarFilterDate extends PureComponent {
                   placeholder={`Ex. ${currentDate.getFullYear()}-${currentDate.getMonth() + 1}-${currentDate.getDate()}`}
                   onChange={this.handleChangeDateEnd}
                   options={{
-                    selected: endDate,
+                    selected: this.formatNativeDate(endDate),
                     selectsEnd: true,
-                    startDate: initDate,
-                    endDate: endDate,
+                    startDate: this.formatNativeDate(initDate),
+                    endDate: this.formatNativeDate(endDate),
                     locale,
                   }}
                 />
