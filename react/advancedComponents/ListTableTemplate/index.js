@@ -1,6 +1,7 @@
 import React, { PureComponent, createContext } from 'react'
 import { injectIntl, FormattedMessage } from 'react-intl'
 import PropTypes from 'prop-types'
+
 import Filter from './components/Filter'
 import Pagination from './components/Pagination'
 import Table from './components/Table'
