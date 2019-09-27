@@ -85,6 +85,7 @@ class DateTimePicker extends PureComponent {
       defaultValue: defaultValue,
       calendarClassName: 'zeitungMicroPro',
       useShortMonthInDropdown: true,
+      dateFormat: 'P',
       ...options,
     }
 
@@ -139,7 +140,7 @@ DateTimePicker.propTypes = {
   hasError: PropTypes.bool,
   /** Make DateTimePicker disabled. */
   disabled: PropTypes.bool,
-  /** Callback on change, return Moment Object */
+  /** Callback on change, return date Object */
   onChange: PropTypes.func,
   /** Append css classes to the DateTimePicker. */
   className: PropTypes.string,
