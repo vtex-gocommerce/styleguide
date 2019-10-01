@@ -1,7 +1,6 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
-import RadioButton from '../../Form/RadioButton'
-import Input from '../../Form/Input'
+
 import CheckBox from '../../Form/CheckBox'
 
 class SidebarFilterCheckbox extends PureComponent {
@@ -55,7 +54,7 @@ class SidebarFilterCheckbox extends PureComponent {
                 <label className="inline-flex items-center g-mb2 pointer">
                   <CheckBox
                     value={item.value}
-                    name={filter.code}
+                    name={code}
                     checked={this.isActive(code)}
                     onClick={_ => {
                       if (this.isActive(code) === false) {
