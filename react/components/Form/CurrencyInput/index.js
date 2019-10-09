@@ -1,23 +1,24 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import InputMask from 'react-input-mask'
+
 import styles from './style.css'
 
 class CurrencyInput extends PureComponent {
+  _baseDivider
+
   constructor(props) {
     super(props)
 
-    let value = props.defaultValue || props.value
-    value = props.currencyIsInteger || value == 0 ? value : parseFloat(value * 100).toFixed(0)
+    this._baseDivider = parseInt(`1${'0'.repeat(props.currencySpec.currencyFormatInfo.currencyDecimalDigits)}`)
+
+    const initialValue = props.defaultValue || props.value
+    const value = props.currencyIsInteger || initialValue == 0
+      ? initialValue
+      : parseFloat(initialValue * this._baseDivider).toFixed(0)
 
     this.state = {
       value: value > 0 ? this.toCurrency(value) : value
-    }
-  }
-
-  componentWillReceiveProps = nextProps => {
-    if (nextProps.value !== this.props.value) {
-      this.setState({ value: nextProps.value })
     }
   }
 
@@ -29,37 +30,35 @@ class CurrencyInput extends PureComponent {
     return value.toString().replace(/[^0-9,.]/gi, '')
   }
 
-  toCurrency = value => {
-    value = this.onlyNumber(value)
+  toCurrency = _value => {
+    const value = this.onlyNumber(_value)
 
-    const { currencySymbol, currencyFormatInfo } = this.props.currencySpec
+    const { showCurrency, currencySpec } = this.props
+    const { currencySymbol, currencyFormatInfo } = currencySpec
     const {
       currencyDecimalDigits,
       currencyDecimalSeparator,
       currencyGroupSeparator,
       currencyGroupSize,
-      startsWithCurrencySymbol
+      startsWithCurrencySymbol,
     } = currencyFormatInfo
     const separatorRegex = new RegExp(`\\B(?=(\\d{${currencyGroupSize}})+(?!\\d))`, 'g')
     const valueToNumber = +value
 
-    const valueToFloat = valueToNumber % 1 === 0 ? valueToNumber / 100 : valueToNumber
+    const valueToFloat = valueToNumber % 1 === 0 ? valueToNumber / this._baseDivider : valueToNumber
     const valueToFixed = valueToFloat.toFixed(currencyDecimalDigits)
     const valueDividedInParts = valueToFixed.split('.')
     const decimalPart = valueDividedInParts[1]
-    let wholePart = valueDividedInParts[0]
-    wholePart = wholePart.replace(separatorRegex, currencyGroupSeparator)
+    const wholePart = valueDividedInParts[0].replace(separatorRegex, currencyGroupSeparator)
     const valueFinal = currencyDecimalDigits > 0 ? wholePart + currencyDecimalSeparator + decimalPart : wholePart
 
-    let formatedNumber = startsWithCurrencySymbol
+    const formatedNumber = startsWithCurrencySymbol
       ? `${currencySymbol} ${valueFinal}`
       : `${valueFinal} ${currencySymbol}`
 
-    if (!this.props.showCurrency) {
-      formatedNumber = this.removeCurrencySymbols(formatedNumber)
-    }
-
-    return formatedNumber
+    return showCurrency
+      ? formatedNumber
+      : this.removeCurrencySymbols(formatedNumber)
   }
 
   currencyToNumber = value => {
@@ -67,7 +66,7 @@ class CurrencyInput extends PureComponent {
     let number = this.removeCurrencySymbols(value)
     number = number.replace(currencyGroupSeparator, '').replace(currencyDecimalSeparator, '.')
 
-    return this.props.currencyIsInteger ? parseInt(number * 100) : parseFloat(number)
+    return this.props.currencyIsInteger ? parseInt(number * this._baseDivider) : number
   }
 
   handleChange = event => {
