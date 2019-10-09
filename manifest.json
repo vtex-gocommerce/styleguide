@@ -1,7 +1,7 @@
 {
   "vendor": "gocommerce",
   "name": "styleguide",
-  "version": "2.4.1",
+  "version": "2.4.2",
   "title": "GoCommerce Styleguide",
   "description": "The GoCommerce Styleguide components for the Render framework",
   "builders": {
