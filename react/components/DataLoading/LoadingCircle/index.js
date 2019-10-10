@@ -9,35 +9,35 @@ class LoadingCircle extends PureComponent {
 
     this.state = {
       hide: false,
-      hideEffect: false
+      hideEffect: false,
     }
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (this.props.hideOnFinish && nextProps.current == 100) {
+  componentDidUpdate() {
+    if (this.props.hideOnFinish && this.props.current === 100) {
       window.setTimeout(() => {
         this.setState({
-          hideEffect: true
+          hideEffect: true,
         })
       }, 2000)
       window.setTimeout(() => {
         this.setState({
-          hide: true
+          hide: true,
         })
       }, 3000)
     } else {
       this.setState({
         hideEffect: false,
-        hide: false
+        hide: false,
       })
     }
   }
 
   render() {
-    const { current, className, width, hideOnFinish } = this.props
+    const { current, className, width } = this.props
     const percent = 339.292 * (1 - current / 100)
 
-    const checkWidth = (parseInt(width) * 60) / 100 + 'px'
+    const checkWidth = `${(parseInt(width) * 60) / 100}px`
 
     return (
       <div className={`${styles.gc_loading_circle} ${className} w-auto relative ${this.state.hide ? 'dn' : 'dib'}`}>
@@ -64,7 +64,7 @@ class LoadingCircle extends PureComponent {
           className={`${
             !this.state.hideEffect ? styles.gc_loading_circle__check : styles.gc_loading_circle__check__finish
           }`}
-          style={{ display: current == 100 ? 'block' : 'none', color: '#3DA3C3' }}
+          style={{ display: current === 100 ? 'block' : 'none', color: '#3DA3C3' }}
         >
           <IconCheck width={checkWidth} height={checkWidth} />
         </div>
@@ -78,14 +78,14 @@ LoadingCircle.propTypes = {
   current: PropTypes.number,
   className: PropTypes.string,
   width: PropTypes.string,
-  hideOnFinish: PropTypes.bool
+  hideOnFinish: PropTypes.bool,
 }
 
 LoadingCircle.defaultProps = {
   current: 0,
   className: '',
   width: '50px',
-  hideOnFinish: false
+  hideOnFinish: false,
 }
 
 export default LoadingCircle

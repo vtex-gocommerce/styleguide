@@ -9,13 +9,16 @@ class Textarea extends PureComponent {
     this.state = {
       value: props.defaultValue || props.value,
       maxLength: props.maxLength || null,
-      currentLength: props.value.length || 0
+      currentLength: props.value.length || 0,
     }
   }
 
-  componentWillReceiveProps = nextProps => {
-    if (nextProps.value !== this.props.value) {
-      this.setState({ value: nextProps.value, currentLength: nextProps.value.length })
+  componentDidUpdate = prevProps => {
+    if (prevProps.value !== this.props.value) {
+      this.setState({
+        value: this.props.value,
+        currentLength: this.props.value.length,
+      })
     }
   }
 
@@ -36,7 +39,7 @@ class Textarea extends PureComponent {
   }
 
   render() {
-    const { hasError, disabled, type, placeholder, className, name, id, style, rows, resize, showCounter, label } = this.props
+    const { hasError, disabled, placeholder, className, name, id, style, rows, resize, showCounter, label } = this.props
     const { value, currentLength, maxLength } = this.state
     const currentCharacterIndex = maxLength - currentLength
 
@@ -49,7 +52,6 @@ class Textarea extends PureComponent {
 
     const inputId = id || name
     const props = {
-      type: type,
       name: name,
       id: inputId,
       placeholder: placeholder,
@@ -58,23 +60,22 @@ class Textarea extends PureComponent {
       onChange: this.handleChange,
       disabled: disabled,
       style: { ...style, resize: !resize ? 'none' : 'vertical' },
-      rows: rows
+      rows: rows,
     }
 
     return (
       <React.Fragment>
         {label && <label className="db c-on-base-2 g-mb1 g-f2 lh-copy" htmlFor={inputId}>{label}</label>}
         <textarea {...props} className={inputClasses} value={value} />
-        {showCounter &&
-          maxLength !== 0 && (
-            <label
-              className={`flex flex-row-reverse db g-pb2 g-pa1 g-f2 ${
-                currentCharacterIndex <= 0 ? 'red' : 'c-on-base-2'
-              }`}
-            >
-              {maxLength && currentCharacterIndex}
-            </label>
-          )}
+        {showCounter && maxLength !== 0 && (
+          <label
+            className={`flex flex-row-reverse db g-pb2 g-pa1 g-f2 ${
+              currentCharacterIndex <= 0 ? 'red' : 'c-on-base-2'
+            }`}
+          >
+            {maxLength && currentCharacterIndex}
+          </label>
+        )}
       </React.Fragment>
     )
   }
@@ -114,7 +115,7 @@ Textarea.propTypes = {
   /** show maxLength counter */
   showCounter: PropTypes.bool,
   /** textarea rows. */
-  resize: PropTypes.bool
+  resize: PropTypes.bool,
 }
 
 Textarea.defaultProps = {
@@ -128,7 +129,7 @@ Textarea.defaultProps = {
   className: '',
   style: null,
   rows: 5,
-  resize: true
+  resize: true,
 }
 
 export default Textarea

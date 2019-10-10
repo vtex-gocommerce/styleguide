@@ -17,36 +17,36 @@ class SeoBuilder extends Component {
     }
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.pageTitle !== this.props.pageTitle) {
+  componentDidUpdate = prevProps => {
+    if (prevProps.pageTitle !== this.props.pageTitle) {
       this.setState({
-        pageTitle: nextProps.pageTitle,
-        url: !this.props.editUrlWhenChangeTitle ? this.state.url : getSlug(nextProps.pageTitle)
+        pageTitle: this.props.pageTitle,
+        url: !this.props.editUrlWhenChangeTitle ? this.state.url : getSlug(this.props.pageTitle),
       })
     }
 
-    if (nextProps.metaDescription !== this.props.metaDescription) {
-      this.setState({ metaDescription: nextProps.metaDescription })
+    if (prevProps.metaDescription !== this.props.metaDescription) {
+      this.setState({ metaDescription: this.props.metaDescription })
     }
 
-    if (nextProps.url !== this.props.url) {
-      this.setState({ url: getSlug(nextProps.url) })
+    if (prevProps.url !== this.props.url) {
+      this.setState({ url: getSlug(this.props.url) })
     }
   }
 
-  onChange = event => {
+  handleChange = event => {
     this.setState(
       {
-        [event.target.name]: event.target.value
+        [event.target.name]: event.target.value,
       },
       () => this.props.onChange && this.props.onChange(this.state)
     )
   }
 
-  onChangeUrl = event => {
+  handleChangeUrl = event => {
     this.setState(
       {
-        url: getSlug(event.target.value)
+        url: getSlug(event.target.value),
       },
       () => this.props.onChange && this.props.onChange(this.state)
     )
@@ -69,7 +69,7 @@ class SeoBuilder extends Component {
                 placeholder={placeholderTitle}
                 className="db w-100"
                 value={this.state.pageTitle}
-                onChange={this.onChange}
+                onChange={this.handleChange}
               />
             </div>
             <div className="g-pb4 g-f2">
@@ -83,7 +83,7 @@ class SeoBuilder extends Component {
                 className="db w-100"
                 value={this.state.metaDescription}
                 rows={3}
-                onChange={this.onChange}
+                onChange={this.handleChange}
               />
             </div>
             <div className="g-pb4 g-f2">
@@ -93,7 +93,7 @@ class SeoBuilder extends Component {
                 placeholder={placeholderUrl}
                 className="db w-100"
                 value={this.state.url}
-                onChange={this.onChangeUrl}
+                onChange={this.handleChangeUrl}
               />
             </div>
           </div>
@@ -114,6 +114,7 @@ class SeoBuilder extends Component {
 }
 
 SeoBuilder.propTypes = {
+  className: PropTypes.string,
   pageTitle: PropTypes.string,
   metaDescription: PropTypes.string,
   url: PropTypes.string,
@@ -126,10 +127,11 @@ SeoBuilder.propTypes = {
   placeholderTitle: PropTypes.string,
   placeholderMetaDescription: PropTypes.string,
   placeholderUrl: PropTypes.string,
-  editUrlWhenChangeTitle: PropTypes.bool
+  editUrlWhenChangeTitle: PropTypes.bool,
 }
 
 SeoBuilder.defaultProps = {
+  className: '',
   pageTitle: '',
   metaDescription: '',
   url: '',
@@ -141,7 +143,7 @@ SeoBuilder.defaultProps = {
   placeholderTitle: '',
   placeholderMetaDescription: '',
   placeholderUrl: '',
-  editUrlWhenChangeTitle: true
+  editUrlWhenChangeTitle: true,
 }
 
 export default SeoBuilder

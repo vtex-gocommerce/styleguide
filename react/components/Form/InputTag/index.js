@@ -12,26 +12,24 @@ class InputTag extends Component {
     this.state = {
       disabled: props.disabled,
       input: '',
-      values: props.defaultValues || props.values || []
+      values: props.defaultValues || props.values || [],
     }
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.disabled !== this.props.disabled) {
+  componentDidUpdate(prevProps) {
+    if (prevProps.disabled !== this.props.disabled) {
       this.setState({
-        disabled: nextProps.disabled
+        disabled: this.props.disabled,
       })
     }
-
-    if (nextProps.values !== this.props.values) {
+    if (prevProps.values !== this.props.values) {
       this.setState({
-        values: nextProps.values
+        values: this.props.values,
       })
     }
-
-    if (nextProps.input !== this.props.input) {
+    if (prevProps.input !== this.props.input) {
       this.setState({
-        input: nextProps.input
+        input: this.props.input,
       })
     }
   }
@@ -45,44 +43,44 @@ class InputTag extends Component {
     this.props.onChangeInput(this.state.input)
   }
 
-  onKeyPressAtOptionValue = event => {
+  handleKeyPressAtOptionValue = event => {
     const value = event.target.value
 
-    if (event.key == 'Enter' && value !== '' && value !== ',') {
-      this.setValuesToStateAndHandle(value)
+    if (event.key === 'Enter' && value !== '' && value !== ',') {
+      this.handleSetValuesToStateAndHandle(value)
     }
 
-    if ((event.key == 'Backspace' || event.key == 'Delete') && value === '') {
+    if ((event.key === 'Backspace' || event.key === 'Delete') && value === '') {
       this.removeLastValueOnPressBackSpaceButton()
     }
   }
 
-  onChangeValue = event => {
+  handleChangeValue = event => {
     const value = event.target.value
 
     if (value.includes(',') && value.length > 1) {
-      return this.setValuesToStateAndHandle(value)
+      return this.handleSetValuesToStateAndHandle(value)
     }
 
     this.setState(
       {
-        input: value
+        input: value,
       },
       () => this.handleChangeInput()
     )
   }
 
-  onBlur = e => {
+  handleBlur = e => {
     const value = e.target.value
 
     if (value !== '' && value !== ',') {
-      this.setValuesToStateAndHandle(value)
+      this.handleSetValuesToStateAndHandle(value)
     }
 
     this.props.onBlur && this.props.onBlur(e)
   }
 
-  onFocus = e => {
+  handleFocus = e => {
     this.props.onFocus && this.props.onFocus(e)
   }
 
@@ -96,20 +94,20 @@ class InputTag extends Component {
 
     this.setState(
       {
-        values: values
+        values: values,
       },
       () => this.handleChangeValues()
     )
   }
 
-  setValuesToStateAndHandle = value => {
+  handleSetValuesToStateAndHandle = value => {
     const cleanedValue = value.replace(',', '').trim()
     const newValues = [...this.state.values, cleanedValue]
 
     if (!this.props.allowDuplicate && this.checkIfValueAlreadyExists(cleanedValue)) {
       this.setState(
         {
-          input: ''
+          input: '',
         },
         () => this.handleChangeInput()
       )
@@ -120,20 +118,20 @@ class InputTag extends Component {
     this.setState(
       {
         values: newValues,
-        input: ''
+        input: '',
       },
       () => this.handleChangeValues()
     )
   }
 
   removeLastValueOnPressBackSpaceButton = () => {
-    let newValues = [...this.state.values]
-    let indexToRemove = newValues.length - 1
+    const newValues = [...this.state.values]
+    const indexToRemove = newValues.length - 1
 
     newValues.splice(indexToRemove, 1)
     this.setState(
       {
-        values: newValues
+        values: newValues,
       },
       () => this.handleChangeValues()
     )
@@ -164,18 +162,18 @@ class InputTag extends Component {
     if (this.props.autocomplete) {
       return (
         <AutoCompleteList
-          inputId='option_values'
+          inputId="option_values"
           name="option_values"
           className={`dib w-100 ${this.props.hasError ? '' : 'b--none'}`}
           value={this.state.input}
           disabled={this.state.disabled}
           hasError={this.props.hasError}
           placeholder={!this.state.values.length || forceShowPlaceHolder ? this.props.placeholder : ''}
-          onChange={this.onChangeValue}
+          onChange={this.handleChangeValue}
           list={this.props.source}
-          onClick={this.setValuesToStateAndHandle}
-          onBlur={this.onBlur}
-          onKeyDown={this.onKeyPressAtOptionValue}
+          onClick={this.handleSetValuesToStateAndHandle}
+          onBlur={this.handleBlur}
+          onKeyDown={this.handleKeyPressAtOptionValue}
         />
       )
     }
@@ -188,10 +186,10 @@ class InputTag extends Component {
         value={this.state.input}
         disabled={this.state.disabled}
         placeholder={!this.state.values.length || forceShowPlaceHolder ? this.props.placeholder : ''}
-        onChange={this.onChangeValue}
-        onBlur={this.onBlur}
-        onFocus={this.onFocus}
-        onKeyDown={this.onKeyPressAtOptionValue}
+        onChange={this.handleChangeValue}
+        onBlur={this.handleBlur}
+        onFocus={this.handleFocus}
+        onKeyDown={this.handleKeyPressAtOptionValue}
       />
     )
   }
@@ -227,8 +225,10 @@ InputTag.propTypes = {
   onChangeInput: PropTypes.func,
   onBlur: PropTypes.func,
   onFocus: PropTypes.func,
+  onChange: PropTypes.func,
   autocomplete: PropTypes.bool,
   source: PropTypes.array,
+  input: PropTypes.string,
 }
 
 InputTag.defaultProps = {
@@ -240,10 +240,11 @@ InputTag.defaultProps = {
   placeholder: 'Enter values separated by commas',
   tagStyle: 'default',
   allowDuplicate: true,
-  onDuplicateItem: values => {},
-  onChangeValues: values => {},
-  onChangeInput: input => {},
+  onDuplicateItem: () => {},
+  onChangeValues: () => {},
+  onChangeInput: () => {},
   source: [],
+  input: '',
 }
 
 export default InputTag
