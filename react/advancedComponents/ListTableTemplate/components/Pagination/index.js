@@ -7,7 +7,7 @@ import { default as PaginationStyleguide } from './../../../../components/Naviga
 
 import { ListTableTemplateConsumer } from './../../index'
 
-const messages = {
+const messages = defineMessages({
   view1: {
     id: 'admin/styleguide.tablePagination.view-1',
     defaultMessage: 'View 1',
@@ -24,7 +24,7 @@ const messages = {
     id: 'admin/styleguide.tablePagination.view-100',
     defaultMessage: 'View 100',
   },
-}
+})
 
 class Pagination extends PureComponent {
   viewPageOptions = intl => {
@@ -32,7 +32,7 @@ class Pagination extends PureComponent {
       { label: intl.formatMessage(messages.view1), value: 1 },
       { label: intl.formatMessage(messages.view15), value: 15 },
       { label: intl.formatMessage(messages.view50), value: 50 },
-      { label: intl.formatMessage(messages.view100), value: 100 }
+      { label: intl.formatMessage(messages.view100), value: 100 },
     ]
   }
 
@@ -85,11 +85,11 @@ class Pagination extends PureComponent {
 }
 
 Pagination.propTypes = {
-  total: PropTypes.number
+  total: PropTypes.number,
 }
 
 Pagination.defaultProps = {
-  total: 0
+  total: 0,
 }
 
 export default Pagination

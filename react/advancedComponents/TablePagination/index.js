@@ -2,9 +2,9 @@ import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import Select from '../../components/Form/Select'
 import Pagination from '../../components/Navigation/Pagination'
-import { injectIntl } from 'react-intl'
+import { injectIntl, intlShape, defineMessages } from 'react-intl'
 
-const messages = {
+const messages = defineMessages({
   view1: {
     id: 'admin/styleguide.tablePagination.view-1',
     defaultMessage: 'View 1',
@@ -21,7 +21,7 @@ const messages = {
     id: 'admin/styleguide.tablePagination.view-100',
     defaultMessage: 'View 100',
   },
-}
+})
 
 class TablePagination extends PureComponent {
   handleChangePerPage = e => this.props.handleChangePerPage(e.target.value)
@@ -33,7 +33,7 @@ class TablePagination extends PureComponent {
     const viewPageOptions = [
       { label: this.props.intl.formatMessage(messages.view15), value: 15 },
       { label: this.props.intl.formatMessage(messages.view50), value: 50 },
-      { label: this.props.intl.formatMessage(messages.view100), value: 100 }
+      { label: this.props.intl.formatMessage(messages.view100), value: 100 },
     ]
 
     return (
@@ -77,7 +77,8 @@ TablePagination.propTypes = {
   /** Func called when a page change event is trigged */
   handleChangePage: PropTypes.Funciton,
   /** Records Label */
-  recordsLabel: PropTypes.string
+  recordsLabel: PropTypes.string,
+  intl: intlShape,
 }
 
 export default injectIntl(TablePagination)
