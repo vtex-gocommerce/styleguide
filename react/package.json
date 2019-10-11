@@ -1,6 +1,6 @@
 {
   "name": "@gocommerce/styleguide",
-  "version": "0.0.2",
+  "version": "2.4.3",
   "devDependencies": {},
   "dependencies": {
     "@gocommerce/tachyons": "^3.0.20",
