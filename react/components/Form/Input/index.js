@@ -7,13 +7,13 @@ class Input extends PureComponent {
   constructor(props) {
     super(props)
     this.state = {
-      value: props.defaultValue || props.value
+      value: props.defaultValue || props.value,
     }
   }
 
-  componentWillReceiveProps = nextProps => {
-    if (nextProps.value !== this.props.value) {
-      this.setState({ value: nextProps.value })
+  componentDidUpdate = prevProps => {
+    if (prevProps.value !== this.props.value) {
+      this.setState({ value: this.props.value })
     }
   }
 
@@ -60,21 +60,21 @@ class Input extends PureComponent {
       label,
       withoutStyle,
       defaultValue,
-      readOnly
+      readOnly,
     } = this.props
     const { value } = this.state
 
-    let padding = 'g-ph4 f6 '
-    let style = `${styles.input} ba br2 g-h11 `
+    const padding = 'g-ph4 f6 '
+    const style = `${styles.input} ba br2 g-h11 `
 
-    let colors = ``
+    let colors = ''
     const isDisableAspect = disabled || readOnly
     if (isDisableAspect) colors += 'b--base-4 bg-base-2 c-on-base-2 '
     if (hasError) colors += 'b--danger bg-light-danger c-danger '
     if (!isDisableAspect && !hasError && !withoutStyle) colors += 'b--base-4 bg-base-1 c-on-base-1 '
     if (withoutStyle) colors += 'c-on-base-1 bg-transparent bn '
 
-    let inputClasses = style + padding + colors + className
+    const inputClasses = style + padding + colors + className
 
     const inputId = id || name
     const props = {
@@ -133,23 +133,22 @@ class Input extends PureComponent {
           </div>
         </div>
       )
-    } else {
-      return (
-        <React.Fragment>
-          {label && <label className="db c-on-base-2 g-mb1 g-f2 lh-copy" htmlFor={inputId}>{label}</label>}
-          <input {...props} className={inputClasses} />
-          {showMaxLength && maxLength !== 0 && (
-            <label
-              className={`flex flex-row-reverse db g-pb2 g-pa1 g-f2 ${
-                maxLength - this.state.value.length <= 0 ? 'red' : 'c-on-base-2'
-              }`}
-            >
-              {maxLength && maxLength - this.state.value.length}
-            </label>
-          )}
-        </React.Fragment>
-      )
     }
+    return (
+      <React.Fragment>
+        {label && <label className="db c-on-base-2 g-mb1 g-f2 lh-copy" htmlFor={inputId}>{label}</label>}
+        <input {...props} className={inputClasses} />
+        {showMaxLength && maxLength !== 0 && (
+          <label
+            className={`flex flex-row-reverse db g-pb2 g-pa1 g-f2 ${
+              maxLength - this.state.value.length <= 0 ? 'red' : 'c-on-base-2'
+            }`}
+          >
+            {maxLength && maxLength - this.state.value.length}
+          </label>
+        )}
+      </React.Fragment>
+    )
   }
 }
 
@@ -209,7 +208,7 @@ Input.propTypes = {
   /** Show a icon before input. */
   iconBefore: PropTypes.element,
   /** remove borders and bgColor. */
-  withoutStyle: PropTypes.bool
+  withoutStyle: PropTypes.bool,
 }
 
 Input.defaultProps = {
@@ -228,7 +227,7 @@ Input.defaultProps = {
   maskChar: ' ',
   alwaysShowMask: false,
   suffix: null,
-  iconBefore: null
+  iconBefore: null,
 }
 
 export default Input

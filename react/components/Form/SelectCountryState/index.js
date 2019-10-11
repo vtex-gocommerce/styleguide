@@ -1,10 +1,11 @@
+/*eslint no-unused-vars: "off"*/
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import styles from './style.css'
 import Input from './../Input'
 import Select from './../Select/index'
 
-//http://battuta.medunes.net/api/region/ar/all/?key=295f77b7ce1151371edb94429a2437c5
+// http://battuta.medunes.net/api/region/ar/all/?key=295f77b7ce1151371edb94429a2437c5
 
 class SelectCountryStates extends PureComponent {
   constructor(props) {
@@ -13,7 +14,7 @@ class SelectCountryStates extends PureComponent {
     this.state = {
       countryCode: props.defaultCountryCode || props.countryCode,
       value: props.value,
-      loadedCountryStates: null
+      loadedCountryStates: null,
     }
   }
 
@@ -22,9 +23,9 @@ class SelectCountryStates extends PureComponent {
     this.setLocale(countryCode)
   }
 
-  componentWillReceiveProps = nextProps => {
-    if (this.props.countryCode != nextProps.countryCode) this.setLocale(nextProps.countryCode)
-    if (this.state.value != nextProps.value) this.setState(prevState => ({ ...prevState, value: nextProps.value }))
+  componentDidUpdate = prevProps => {
+    if (this.props.countryCode !== prevProps.countryCode) { this.setLocale(this.props.countryCode) }
+    if (this.state.value !== this.props.value) { this.setState(prevState => ({ ...prevState, value: this.props.value })) }
   }
 
   setLocale = countryCode => {
@@ -95,6 +96,8 @@ SelectCountryStates.propTypes = {
   name: PropTypes.string,
   /** (Input id attribute) */
   id: PropTypes.string,
+  /** Set the value of the input. */
+  value: PropTypes.any,
   /** Option to be shown as placeholder. */
   placeholder: PropTypes.string,
   /** Visually change input to show error. */
@@ -118,7 +121,7 @@ SelectCountryStates.propTypes = {
   /** Append css classes to the select */
   elementClassName: PropTypes.string,
   /** defaultValue */
-  defaultValue: PropTypes.string
+  defaultValue: PropTypes.string,
 }
 
 SelectCountryStates.defaultProps = {
@@ -131,7 +134,7 @@ SelectCountryStates.defaultProps = {
   countryCode: '',
   required: false,
   className: '',
-  elementClassName: ''
+  elementClassName: '',
 }
 
 export default SelectCountryStates

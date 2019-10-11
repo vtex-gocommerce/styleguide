@@ -10,9 +10,9 @@ class Tab extends PureComponent {
     }
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.forceValue && nextProps.forceValue !== this.props.forceValue) {
-      this.setState({ active: nextProps.forceValue })
+  componentDidUpdate = prevProps => {
+    if (this.props.forceValue && prevProps.value !== this.props.forceValue) {
+      this.setState({ active: this.props.forceValue })
     }
   }
 

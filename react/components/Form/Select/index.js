@@ -6,12 +6,14 @@ class Select extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      value: this.props.defaultValue || this.props.value || ''
+      value: this.props.defaultValue || this.props.value || '',
     }
   }
 
-  componentWillReceiveProps = nextProps => {
-    if (nextProps.value !== this.props.value) this.setState({ value: nextProps.value })
+  componentDidUpdate = prevProps => {
+    if (prevProps.value !== this.props.value) {
+      this.setState({ value: this.props.value })
+    }
   }
 
   handleChange = event => {
@@ -39,12 +41,12 @@ class Select extends Component {
       hasError,
       required,
       withoutStyle,
-      size
+      size,
     } = this.props
     const { value } = this.state
 
     const disabled = _disabled || readOnly
-    let classesSelectWrapper = `ba br2 `
+    let classesSelectWrapper = 'ba br2 '
 
     const disableClass = disabled ? 'bg-base-3 c-on-base-2 ' : `${styles.selectIcon} `
     if (hasError) classesSelectWrapper += 'b--danger bg-light-danger '
@@ -75,7 +77,7 @@ class Select extends Component {
               {placeholder}
             </option>
           )}
-          {list.map((item, index) => {
+          {list.map((item) => {
             return (
               <option key={item.value} value={`${item.value}`} disabled={item.disabled}>
                 {item.label}
@@ -122,7 +124,7 @@ Select.propTypes = {
   /** remove borders and bgColor. */
   withoutStyle: PropTypes.bool,
   /** Size */
-  size: PropTypes.oneOf(['small', 'default'])
+  size: PropTypes.oneOf(['small', 'default']),
 }
 
 Select.defaultProps = {
@@ -136,7 +138,7 @@ Select.defaultProps = {
   required: false,
   className: '',
   elementClassName: '',
-  size: 'default'
+  size: 'default',
 }
 
 export default Select

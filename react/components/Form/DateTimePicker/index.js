@@ -11,14 +11,14 @@ class DateTimePicker extends PureComponent {
   componentDidMount() {
     const { options: { locale } } = this.props
     const formattedLocale = locale.split('-')[0].toUpperCase()
+    /*eslint import/namespace: ['error', { allowComputed: true }]*/
     const localeRegister = locales[formattedLocale]
-
     registerLocale(locale, localeRegister)
   }
 
-  componentWillReceiveProps = nextProps => {
-    if (nextProps.value !== this.props.value) {
-      this.setState({ value: nextProps.value })
+  componentDidUpdate = prevProps => {
+    if (prevProps.value !== this.props.value) {
+      this.setState({ value: this.props.value })
     }
   }
 
@@ -52,7 +52,6 @@ class DateTimePicker extends PureComponent {
       hasError,
       disabled,
       placeholder,
-      maxLength,
       className,
       containerClassName,
       name,
@@ -60,19 +59,19 @@ class DateTimePicker extends PureComponent {
       label,
       options,
       withoutStyle,
-      defaultValue
+      defaultValue,
     } = this.props
 
-    let padding = 'g-ph4 f6 '
-    let style = `${styles.input} ba br2 g-h11 `
+    const padding = 'g-ph4 f6 '
+    const style = `${styles.input} ba br2 g-h11 `
 
-    let colors = ``
+    let colors = ''
     if (disabled) colors += 'b--base-4 bg-base-3 c-on-base-2 '
     if (hasError) colors += 'b--danger bg-light-danger c-danger '
     if (!disabled && !hasError && !withoutStyle) colors += 'b--base-4 bg-base-1 c-on-base-1 '
     if (withoutStyle) colors += 'c-on-base-1 bg-transparent bn '
 
-    let DateTimePickerClasses = style + padding + colors + className
+    const DateTimePickerClasses = style + padding + colors + className
 
     const inputId = id || name
     const props = {
@@ -81,7 +80,6 @@ class DateTimePicker extends PureComponent {
       placeholderText: placeholder,
       onChange: this.handleChange,
       disabled: disabled,
-      maxLength: maxLength,
       defaultValue: defaultValue,
       calendarClassName: 'zeitungMicroPro',
       useShortMonthInDropdown: true,
@@ -94,7 +92,7 @@ class DateTimePicker extends PureComponent {
         <div className={`dib datepicker_gocommerce ${className} ${containerClassName}`}>
           <div className="flex">
             <DatePicker {...props} className={`${DateTimePickerClasses} w-100 dib ba br-0 br1 br--left`} />
-            <span className={`ba br2 br--right b--base-4 inline-flex items-center g-ph3 c-on-base-2`}>
+            <span className="ba br2 br--right b--base-4 inline-flex items-center g-ph3 c-on-base-2">
               {this.props.suffix}
             </span>
           </div>
@@ -112,14 +110,13 @@ class DateTimePicker extends PureComponent {
           </div>
         </div>
       )
-    } else {
-      return (
-        <div className={`dib datepicker_gocommerce ${containerClassName}`}>
-          {label && <label className="db c-on-base-2 g-mb1 g-f2 lh-copy" htmlFor={inputId}>{label}</label>}
-          <DatePicker {...props} className={DateTimePickerClasses} />
-        </div>
-      )
     }
+    return (
+      <div className={`dib datepicker_gocommerce ${containerClassName}`}>
+        {label && <label className="db c-on-base-2 g-mb1 g-f2 lh-copy" htmlFor={inputId}>{label}</label>}
+        <DatePicker {...props} className={DateTimePickerClasses} />
+      </div>
+    )
   }
 }
 
@@ -151,7 +148,15 @@ DateTimePicker.propTypes = {
   /** Show a icon before DateTimePicker. */
   iconBefore: PropTypes.element,
   /** ReactJS Datepicker options. https://reactdatepicker.com */
-  options: PropTypes.object
+  options: PropTypes.object,
+  /** remove borders and bgColor. */
+  withoutStyle: PropTypes.bool,
+  /** On events */
+  onFocus: PropTypes.func,
+  onBlur: PropTypes.func,
+  onKeyPress: PropTypes.func,
+  onKeyDown: PropTypes.func,
+  onKeyUp: PropTypes.func,
 }
 
 DateTimePicker.defaultProps = {
@@ -162,10 +167,9 @@ DateTimePicker.defaultProps = {
   onChange: null,
   className: '',
   containerClassName: '',
-  maxLength: null,
   showMaxLength: false,
   suffix: null,
-  iconBefore: null
+  iconBefore: null,
 }
 
 export default DateTimePicker

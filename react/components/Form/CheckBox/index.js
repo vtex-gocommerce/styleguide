@@ -8,19 +8,19 @@ class CheckBox extends PureComponent {
     super(props)
 
     this.state = {
-      checked: this.props.checked
+      checked: this.props.checked,
     }
   }
 
-  componentWillReceiveProps(nextProps, nextState) {
-    if (nextProps.checked != this.state.checked) {
-      this.setState({ checked: nextProps.checked })
+  static getDerivedStateFromProps(props, state) {
+    if (props.checked !== state.checked) {
+      return { checked: props.checked }
     }
   }
 
   handleClick = event => {
     this.setState(prev => ({
-      checked: !prev.checked
+      checked: !prev.checked,
     }))
 
     this.props.onClick(event, !this.state.checked)
@@ -75,13 +75,13 @@ CheckBox.propTypes = {
   /** Set value of CheckBox. */
   value: PropTypes.string,
   /** On click callback function. */
-  onClick: PropTypes.func
+  onClick: PropTypes.func,
 }
 
 CheckBox.defaultProps = {
   checked: false,
   disabled: false,
-  onClick: checked => {}
+  onClick: () => {},
 }
 
 export default CheckBox
