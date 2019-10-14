@@ -6,9 +6,12 @@ import AutoCompleteList from '../AutoCompleteList/index'
 import Tag from '../../Indicators/Tag/index'
 
 class InputTag extends Component {
+  _inputId
+
   constructor(props) {
     super(props)
 
+    this._inputId = props.id || props.name
     this.state = {
       disabled: props.disabled,
       input: '',
@@ -162,8 +165,13 @@ class InputTag extends Component {
     if (this.props.autocomplete) {
       return (
         <AutoCompleteList
+<<<<<<< HEAD
           inputId="option_values"
           name="option_values"
+=======
+          inputId={this._inputId}
+          name={this.props.name}
+>>>>>>> Make inputTag accept name and id props
           className={`dib w-100 ${this.props.hasError ? '' : 'b--none'}`}
           value={this.state.input}
           disabled={this.state.disabled}
@@ -180,7 +188,8 @@ class InputTag extends Component {
 
     return (
       <Input
-        name="option_values"
+        id={this._inputId}
+        name={this.props.name}
         className={`dib w-100 ${this.props.hasError ? '' : 'b--none g-pl1'}`}
         hasError={this.props.hasError}
         value={this.state.input}
@@ -195,11 +204,21 @@ class InputTag extends Component {
   }
 
   render() {
+    const { label, className, disabled, required } = this.props
+
     return (
       <React.Fragment>
+        {label && (
+          <label
+            className="db c-on-base-2 g-mb1 g-f2 lh-copy"
+            htmlFor={this._inputId}
+          >
+            {`${label}${required ? '*' : ''}`}
+          </label>
+        )}
         <div
-          className={`flex flex-wrap items-center ba br2 b--base-4 ${this.props.className} ${
-            this.props.disabled ? 'bg-base-2' : ''
+          className={`flex flex-wrap items-center ba br2 b--base-4 ${className} ${
+            disabled ? 'bg-base-2' : ''
           }`}
         >
           <div className="dn flex-ns flex-wrap w-100">{this.getTagList()}</div>
@@ -212,6 +231,9 @@ class InputTag extends Component {
 }
 
 InputTag.propTypes = {
+  id: PropTypes.string,
+  name: PropTypes.string,
+  label: PropTypes.string,
   hasError: PropTypes.bool,
   disabled: PropTypes.bool,
   values: PropTypes.any,
@@ -228,10 +250,15 @@ InputTag.propTypes = {
   onChange: PropTypes.func,
   autocomplete: PropTypes.bool,
   source: PropTypes.array,
+<<<<<<< HEAD
   input: PropTypes.string,
+=======
+  required: PropTypes.boolean,
+>>>>>>> Make inputTag accept name and id props
 }
 
 InputTag.defaultProps = {
+  name: 'option_values',
   autocomplete: false,
   disabled: false,
   hasError: false,
