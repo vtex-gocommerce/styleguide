@@ -61,6 +61,7 @@ class Input extends PureComponent {
       withoutStyle,
       defaultValue,
       readOnly,
+      required,
     } = this.props
     const { value } = this.state
 
@@ -136,7 +137,14 @@ class Input extends PureComponent {
     }
     return (
       <React.Fragment>
-        {label && <label className="db c-on-base-2 g-mb1 g-f2 lh-copy" htmlFor={inputId}>{label}</label>}
+        {label && (
+          <label
+            className="db c-on-base-2 g-mb1 g-f2 lh-copy"
+            htmlFor={inputId}
+          >
+            {`${label}${required ? '*' : ''}`}
+          </label>
+        )}
         <input {...props} className={inputClasses} />
         {showMaxLength && maxLength !== 0 && (
           <label

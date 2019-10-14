@@ -165,13 +165,8 @@ class InputTag extends Component {
     if (this.props.autocomplete) {
       return (
         <AutoCompleteList
-<<<<<<< HEAD
-          inputId="option_values"
-          name="option_values"
-=======
           inputId={this._inputId}
           name={this.props.name}
->>>>>>> Make inputTag accept name and id props
           className={`dib w-100 ${this.props.hasError ? '' : 'b--none'}`}
           value={this.state.input}
           disabled={this.state.disabled}
@@ -250,11 +245,7 @@ InputTag.propTypes = {
   onChange: PropTypes.func,
   autocomplete: PropTypes.bool,
   source: PropTypes.array,
-<<<<<<< HEAD
-  input: PropTypes.string,
-=======
   required: PropTypes.boolean,
->>>>>>> Make inputTag accept name and id props
 }
 
 InputTag.defaultProps = {
