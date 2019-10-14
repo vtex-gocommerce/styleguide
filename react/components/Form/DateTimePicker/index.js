@@ -84,6 +84,7 @@ class DateTimePicker extends PureComponent {
       calendarClassName: 'zeitungMicroPro',
       useShortMonthInDropdown: true,
       dateFormat: 'P',
+      autoComplete: 'off',
       ...options,
     }
 
