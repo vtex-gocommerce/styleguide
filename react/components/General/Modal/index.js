@@ -14,14 +14,15 @@ class Modal extends PureComponent {
       <ModalComponent
         open={open}
         onClose={this.handleClose}
-        closeIconSvgPath={<IconTimes />}
+        closeIconSvgPath={<IconTimes width="25" height="25" />}
+        closeIconSize="20"
         classNames={{
           overlay: `${style.overlay} ${centered ? style.toCenter : style.toTop}`,
           modal: `br4 br--top br2-ns overflow-y-auto w-100 w-auto-ns ${className} ${style.modal}`,
-          closeIcon: `${style.closeIcon}`
+          closeButton: `${style.closeButton}`,
         }}
         showCloseIcon={showCloseIcon}
-        little={centered}
+        center={centered}
       >
         <div>{this.props.children}</div>
       </ModalComponent>
@@ -40,14 +41,14 @@ Modal.propTypes = {
   className: PropTypes.string,
   /** Function that will be called for close the modal */
   onClose: PropTypes.func,
-  children: PropTypes.node
+  children: PropTypes.node,
 }
 
 Modal.defaultProps = {
   open: false,
   showCloseIcon: true,
   centered: true,
-  onClose: null
+  onClose: null,
 }
 
 export default Modal

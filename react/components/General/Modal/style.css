@@ -8,8 +8,11 @@
   min-width: 40%;
 }
 
-.closeIcon {
-  top: 25px !important;
+.closeButton {
+  top: 15px !important;
+  padding: 10px;
+  cursor: pointer;
+  outline: none;
 }
 
 .toCenter {
@@ -40,8 +43,8 @@
     max-height: 100%;
   }
 
-  .closeIcon {
-    top: 30px !important;
+  .closeButton {
+    top: 20px !important;
   }
 }
 /* medium */
