@@ -121,7 +121,7 @@
 }
 
 .datepicker_gocommerce .react-datepicker-popper {
-  z-index: 1;
+  z-index: 9;
 }
 
 .datepicker_gocommerce .react-datepicker-popper[data-placement^='bottom'] {

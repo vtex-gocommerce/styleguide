@@ -15,7 +15,7 @@ class Modal extends PureComponent {
         open={open}
         onClose={this.handleClose}
         closeIconSvgPath={<IconTimes width="25" height="25" />}
-        closeIconSize="20"
+        closeIconSize={20}
         classNames={{
           overlay: `${style.overlay} ${centered ? style.toCenter : style.toTop}`,
           modal: `br4 br--top br2-ns overflow-y-auto w-100 w-auto-ns ${className} ${style.modal}`,
