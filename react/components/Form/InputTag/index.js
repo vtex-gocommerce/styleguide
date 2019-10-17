@@ -245,7 +245,7 @@ InputTag.propTypes = {
   onChange: PropTypes.func,
   autocomplete: PropTypes.bool,
   source: PropTypes.array,
-  required: PropTypes.boolean,
+  required: PropTypes.bool,
 }
 
 InputTag.defaultProps = {
@@ -263,6 +263,7 @@ InputTag.defaultProps = {
   onChangeInput: () => {},
   source: [],
   input: '',
+  required: false,
 }
 
 export default InputTag
