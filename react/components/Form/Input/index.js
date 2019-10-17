@@ -184,6 +184,8 @@ Input.propTypes = {
   defaultValue: PropTypes.any,
   /** Add placeholder text. */
   placeholder: PropTypes.string,
+  /** Make it obligatory */
+  required: PropTypes.bool,
   /** Visually change input to present error. */
   hasError: PropTypes.bool,
   /** Make input disabled. */
@@ -245,6 +247,7 @@ Input.defaultProps = {
   alwaysShowMask: false,
   suffix: null,
   iconBefore: null,
+  required: false,
 }
 
 export default Input

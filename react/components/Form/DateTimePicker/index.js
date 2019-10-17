@@ -4,8 +4,9 @@ import DatePicker, { registerLocale } from 'react-datepicker'
 
 import './react-datepicker.global.css'
 import styles from './style.css'
-
 import * as locales from './locales'
+
+import InputLabel from '../InputLabel/index'
 
 class DateTimePicker extends PureComponent {
   componentDidMount() {
@@ -60,6 +61,7 @@ class DateTimePicker extends PureComponent {
       options,
       withoutStyle,
       defaultValue,
+      required,
     } = this.props
 
     const padding = 'g-ph4 f6 '
@@ -88,33 +90,46 @@ class DateTimePicker extends PureComponent {
       ...options,
     }
 
+    const LabelComponent = (
+      <InputLabel
+        text={label}
+        required={required}
+        hasError={hasError}
+        htmlFor={inputId}
+      />
+    )
+
     if (this.props.suffix) {
       return (
-        <div className={`dib datepicker_gocommerce ${className} ${containerClassName}`}>
-          <div className="flex">
-            <DatePicker {...props} className={`${DateTimePickerClasses} w-100 dib ba br-0 br1 br--left`} />
-            <span className="ba br2 br--right b--base-4 inline-flex items-center g-ph3 c-on-base-2">
-              {this.props.suffix}
-            </span>
+        <React.Fragment>
+          {LabelComponent}
+          <div className={`dib datepicker_gocommerce ${className} ${containerClassName}`}>
+            <div className="flex">
+              <DatePicker {...props} className={`${DateTimePickerClasses} w-100 dib ba br-0 br1 br--left`} />
+              <span className="ba br2 br--right b--base-4 inline-flex items-center g-ph3 c-on-base-2">
+                {this.props.suffix}
+              </span>
+            </div>
           </div>
-        </div>
+        </React.Fragment>
       )
     }
     if (this.props.iconBefore) {
       return (
-        <div
-          className={`dib datepicker_gocommerce ${style} ${colors} ${className} overflow-hidden ${containerClassName}`}
-        >
-          <div className="flex flex-auto items-center ">
-            <div className="g-pl3">{this.props.iconBefore}</div>
-            <DatePicker {...props} className={`${colors} ${padding} ${style} bn w-100 dib`} />
+        <React.Fragment>
+          {LabelComponent}
+          <div className={`dib datepicker_gocommerce ${style} ${colors} ${className} overflow-hidden ${containerClassName}`}>
+            <div className="flex flex-auto items-center ">
+              <div className="g-pl3">{this.props.iconBefore}</div>
+              <DatePicker {...props} className={`${colors} ${padding} ${style} bn w-100 dib`} />
+            </div>
           </div>
-        </div>
+        </React.Fragment>
       )
     }
     return (
       <div className={`dib datepicker_gocommerce ${containerClassName}`}>
-        {label && <label className="db c-on-base-2 g-mb1 g-f2 lh-copy" htmlFor={inputId}>{label}</label>}
+        {LabelComponent}
         <DatePicker {...props} className={DateTimePickerClasses} />
       </div>
     )
@@ -134,6 +149,8 @@ DateTimePicker.propTypes = {
   defaultValue: PropTypes.any,
   /** Add placeholder text. */
   placeholder: PropTypes.string,
+  /** Make it obligatory */
+  required: PropTypes.bool,
   /** Visually change DateTimePicker to present error. */
   hasError: PropTypes.bool,
   /** Make DateTimePicker disabled. */
@@ -171,6 +188,7 @@ DateTimePicker.defaultProps = {
   showMaxLength: false,
   suffix: null,
   iconBefore: null,
+  required: false,
 }
 
 export default DateTimePicker
