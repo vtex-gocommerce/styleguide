@@ -4,6 +4,8 @@ import InputMask from 'react-input-mask'
 
 import styles from './style.css'
 
+import InputLabel from '../InputLabel/index'
+
 class CurrencyInput extends PureComponent {
   _baseDivider
 
@@ -115,6 +117,7 @@ class CurrencyInput extends PureComponent {
       id,
       label,
       withoutStyle,
+      required,
     } = this.props
     const { value } = this.state
 
@@ -147,55 +150,71 @@ class CurrencyInput extends PureComponent {
       autoComplete: 'off',
     }
 
+    const LabelComponent = (
+      <InputLabel
+        text={label}
+        required={required}
+        hasError={hasError}
+        htmlFor={inputId}
+      />
+    )
+
     if (this.props.mask) {
       return (
-        <InputMask
-          {...props}
-          className={inputClasses}
-          mask={mask}
-          maskChar={maskChar}
-          alwaysShowMask={alwaysShowMask}
-        />
+        <React.Fragment>
+          {LabelComponent}
+          <InputMask
+            {...props}
+            className={inputClasses}
+            mask={mask}
+            maskChar={maskChar}
+            alwaysShowMask={alwaysShowMask}
+          />
+        </React.Fragment>
       )
     }
     if (this.props.suffix) {
       return (
-        <div className={`dib ${className}`}>
-          <div className="flex">
-            <input {...props} className={`${inputClasses} w-100 dib ba br-0 br1 br--left`} />
-            <span className={`ba br2 br--right b--base-4 inline-flex items-center g-ph3 c-on-base-2`}>
-              {this.props.suffix}
-            </span>
+        <React.Fragment>
+          {LabelComponent}
+          <div className={`dib ${className}`}>
+            <div className="flex">
+              <input {...props} className={`${inputClasses} w-100 dib ba br-0 br1 br--left`} />
+              <span className={`ba br2 br--right b--base-4 inline-flex items-center g-ph3 c-on-base-2`}>
+                {this.props.suffix}
+              </span>
+            </div>
           </div>
-        </div>
+        </React.Fragment>
       )
     }
     if (this.props.iconBefore) {
       return (
-        <div className={`dib ${style} ${colors} ${className} overflow-hidden`}>
-          <div className="flex flex-auto items-center ">
-            <div className="g-pl3">{this.props.iconBefore}</div>
-            <input {...props} className={`${colors} ${padding} ${style} bn w-100 dib`} />
-          </div>
-        </div>
-      )
-    } else {
-      return (
         <React.Fragment>
-          {label && <label className="db c-on-base-2 g-mb1 g-f2 lh-copy" htmlFor={inputId}>{label}</label>}
-          <input {...props} className={inputClasses} />
-          {showMaxLength && maxLength !== 0 && (
-            <label
-              className={`flex flex-row-reverse db g-pb2 g-pa1 g-f2 ${
-                maxLength - this.state.value.length <= 0 ? 'red' : 'c-on-base-2'
-              }`}
-            >
-              {maxLength && maxLength - this.state.value.length}
-            </label>
-          )}
+          {LabelComponent}
+          <div className={`dib ${style} ${colors} ${className} overflow-hidden`}>
+            <div className="flex flex-auto items-center ">
+              <div className="g-pl3">{this.props.iconBefore}</div>
+              <input {...props} className={`${colors} ${padding} ${style} bn w-100 dib`} />
+            </div>
+          </div>
         </React.Fragment>
       )
     }
+
+    return (
+      <React.Fragment>
+        {LabelComponent}
+        <input {...props} className={inputClasses} />
+        {showMaxLength && maxLength !== 0 && (
+          <InputLabel
+            text={`${maxLength && maxLength - this.state.value.length}`}
+            className="flex flex-row-reverse db g-pb2 g-pa1 g-f2"
+            hasError={maxLength - this.state.value.length <= 0}
+          />
+        )}
+      </React.Fragment>
+    )
   }
 }
 
@@ -214,6 +233,8 @@ CurrencyInput.propTypes = {
   defaultValue: PropTypes.any,
   /** Add placeholder text. */
   placeholder: PropTypes.string,
+  /** Make it obligatory */
+  required: PropTypes.bool,
   /** Visually change input to present error. */
   hasError: PropTypes.bool,
   /** Make input disabled. */
@@ -273,6 +294,7 @@ CurrencyInput.defaultProps = {
   currencyIsInteger: false,
   value: '',
   placeholder: '',
+  required: false,
   formatPlaceholder: false,
   hasError: false,
   disabled: false,
