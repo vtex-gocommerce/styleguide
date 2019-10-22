@@ -65,8 +65,9 @@ class CurrencyInput extends PureComponent {
 
   currencyToNumber = value => {
     const { currencyGroupSeparator, currencyDecimalSeparator } = this.props.currencySpec.currencyFormatInfo
+    const separatorRegex = new RegExp(`\\${currencyGroupSeparator}`, 'g')
     let number = this.removeCurrencySymbols(value)
-    number = number.replace(currencyGroupSeparator, '').replace(currencyDecimalSeparator, '.')
+    number = number.replace(separatorRegex, '').replace(currencyDecimalSeparator, '.')
 
     return this.props.currencyIsInteger ? parseInt(number * this._baseDivider) : number
   }
