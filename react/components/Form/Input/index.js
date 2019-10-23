@@ -65,6 +65,9 @@ class Input extends PureComponent {
       defaultValue,
       readOnly,
       required,
+      min,
+      max,
+      step,
     } = this.props
     const { value } = this.state
 
@@ -82,22 +85,25 @@ class Input extends PureComponent {
 
     const inputId = id || name
     const props = {
-      type: type,
-      name: name,
       id: inputId,
-      placeholder: placeholder,
+      type,
+      name,
+      placeholder,
+      disabled,
+      readOnly,
+      maxLength,
+      value: value || '',
+      defaultValue,
+      autoComplete: 'off',
+      min,
+      max,
+      step,
       onBlur: this.handleBlur,
       onFocus: this.handleFocus,
       onChange: this.handleChange,
       onKeyPress: this.handleKeyPress,
       onKeyDown: this.handleKeyDown,
       onKeyUp: this.handleKeyUp,
-      disabled: disabled,
-      readOnly: readOnly,
-      maxLength: maxLength,
-      value: value || '',
-      defaultValue: defaultValue,
-      autoComplete: 'off',
     }
 
     const LabelComponent = (
@@ -228,6 +234,12 @@ Input.propTypes = {
   iconBefore: PropTypes.element,
   /** remove borders and bgColor. */
   withoutStyle: PropTypes.bool,
+  /** min limit to number input */
+  max: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  /** max limit to number input */
+  min: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  /** increment/decrement steps to number input */
+  step: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
 }
 
 Input.defaultProps = {
