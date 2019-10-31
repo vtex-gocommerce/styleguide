@@ -12,8 +12,15 @@ class RadioButton extends PureComponent {
     }
   }
 
-  componentDidMount(nextProps, nextState) {
+  componentDidMount(nextProps) {
     this.props.containerBuild && this.props.containerBuild(nextProps)
+  }
+
+  static getDerivedStateFromProps(props, state) {
+    if (props.checked !== state.checked) {
+      return { checked: props.checked }
+    }
+    return null
   }
 
   handleClick = event => {
