@@ -149,6 +149,13 @@ class InputTag extends Component {
   getTagList = () => {
     return (
       <React.Fragment>
+        {this.props.fixedTags.map((data, index) => (
+          <span key={`${data}#${index}`} className="inline-flex g-ml1 g-mb1 g-mt1 o-50">
+            <Tag style={this.props.tagStyle}>
+              {data}
+            </Tag>
+          </span>
+        ))}
         {this.state.values.map((data, key) => (
           <span key={key} className="inline-flex g-ml1 g-mb1 g-mt1">
             <Tag style={this.props.tagStyle} onRemove={() => this.onRemoveValue(data)}>
@@ -246,6 +253,7 @@ InputTag.propTypes = {
   autocomplete: PropTypes.bool,
   source: PropTypes.array,
   required: PropTypes.bool,
+  fixedTags: PropTypes.arrayOf(PropTypes.string),
 }
 
 InputTag.defaultProps = {
@@ -264,6 +272,7 @@ InputTag.defaultProps = {
   source: [],
   input: '',
   required: false,
+  fixedTags: [],
 }
 
 export default InputTag

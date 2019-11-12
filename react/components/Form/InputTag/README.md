@@ -33,6 +33,7 @@
       className="w-100"
       autocomplete={true}
       tagStyle="primary"
+      fixedTags={['fixed tag']}
       defaultValues={['tag', 'tag2', 'tag3']}
       onChangeValues={values => console.log(values)}
       onChangeInput={input => console.log(input)}
