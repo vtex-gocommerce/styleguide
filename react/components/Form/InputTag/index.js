@@ -106,9 +106,7 @@ class InputTag extends Component {
 
   handleSetValuesToStateAndHandle = value => {
     const cleanedValue = value.replace(',', '').trim()
-    const formattedValue = this.props.beforeAddItem
-      ? this.props.beforeAddItem(cleanedValue)
-      : cleanedValue
+    const formattedValue = this.props.beforeAddItem(cleanedValue)
     const newValues = [...this.state.values, formattedValue]
 
     if (!this.props.allowDuplicate && this.checkIfValueAlreadyExists(formattedValue)) {
@@ -275,7 +273,7 @@ InputTag.defaultProps = {
   onDuplicateItem: () => {},
   onChangeValues: () => {},
   onChangeInput: () => {},
-  beforeAddItem: () => {},
+  beforeAddItem: value => value,
   source: [],
   input: '',
   required: false,
