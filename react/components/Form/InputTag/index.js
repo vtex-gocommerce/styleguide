@@ -28,6 +28,7 @@ class InputTag extends Component {
     if (prevProps.values !== this.props.values) {
       this.setState({
         values: this.props.values,
+        input: '',
       })
     }
     if (prevProps.input !== this.props.input) {
@@ -105,9 +106,12 @@ class InputTag extends Component {
 
   handleSetValuesToStateAndHandle = value => {
     const cleanedValue = value.replace(',', '').trim()
-    const newValues = [...this.state.values, cleanedValue]
+    const formattedValue = this.props.beforeAddItem
+      ? this.props.beforeAddItem(cleanedValue)
+      : cleanedValue
+    const newValues = [...this.state.values, formattedValue]
 
-    if (!this.props.allowDuplicate && this.checkIfValueAlreadyExists(cleanedValue)) {
+    if (!this.props.allowDuplicate && this.checkIfValueAlreadyExists(formattedValue)) {
       this.setState(
         {
           input: '',
@@ -115,7 +119,7 @@ class InputTag extends Component {
         () => this.handleChangeInput()
       )
 
-      return this.props.onDuplicateItem(cleanedValue)
+      return this.props.onDuplicateItem(formattedValue)
     }
 
     this.setState(
@@ -183,6 +187,7 @@ class InputTag extends Component {
           list={this.props.source}
           onClick={this.handleSetValuesToStateAndHandle}
           onBlur={this.handleBlur}
+          onFocus={this.handleFocus}
           onKeyDown={this.handleKeyPressAtOptionValue}
         />
       )
@@ -254,6 +259,7 @@ InputTag.propTypes = {
   source: PropTypes.array,
   required: PropTypes.bool,
   fixedTags: PropTypes.arrayOf(PropTypes.string),
+  beforeAddItem: PropTypes.func,
 }
 
 InputTag.defaultProps = {
@@ -269,6 +275,7 @@ InputTag.defaultProps = {
   onDuplicateItem: () => {},
   onChangeValues: () => {},
   onChangeInput: () => {},
+  beforeAddItem: () => {},
   source: [],
   input: '',
   required: false,

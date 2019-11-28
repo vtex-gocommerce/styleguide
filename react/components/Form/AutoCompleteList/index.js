@@ -11,9 +11,9 @@ class AutoCompleteList extends PureComponent {
   }
 
   onClick = e => {
-    const clickedLabel = this.props.list.filter(item => {
+    const clickedLabel = this.props.list.find(item => {
       return item.id == e.target.value
-    })[0].label
+    }).label
 
     // steal click with a custom function
     if (this.props.onClick) {
@@ -30,7 +30,7 @@ class AutoCompleteList extends PureComponent {
       this.setState({ isFocused: false })
     }, 200)
 
-    this.props.onBlur && this.props.onBlur(e)
+    // this.props.onBlur && this.props.onBlur(e)
   }
 
   onFocus = e => {
