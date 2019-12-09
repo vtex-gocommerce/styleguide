@@ -6,6 +6,9 @@ import Seo from '../../General/Seo'
 import TextLimitCounter from '../../Indicators/TextLimitCounter'
 import getSlug from 'speakingurl'
 
+const PAGE_TITLE_LIMIT = 70
+const DESCRIPTION_LIMIT = 320
+
 class SeoBuilder extends Component {
   constructor(props) {
     super(props)
@@ -52,6 +55,8 @@ class SeoBuilder extends Component {
     )
   }
 
+  truncateTextDisplay = (text, displayLimit) => text.substring(0, displayLimit) + (text.length > displayLimit ? '...' : '') 
+
   render() {
     const { className, placeholderTitle, placeholderMetaDescription, placeholderUrl } = this.props
 
@@ -62,7 +67,7 @@ class SeoBuilder extends Component {
             <div className="g-pb4 g-f2">
               <div className="flex justify-between">
                 <label className="db g-pb2 c-on-base-2">{this.props.labelPageTitle}</label>
-                <TextLimitCounter text={this.state.pageTitle} limit={70} />
+                <TextLimitCounter text={this.state.pageTitle} limit={PAGE_TITLE_LIMIT} />
               </div>
               <Input
                 name="pageTitle"
@@ -75,7 +80,7 @@ class SeoBuilder extends Component {
             <div className="g-pb4 g-f2">
               <div className="flex justify-between">
                 <label className="db g-pb2 c-on-base-2">{this.props.labelMetaDescription}</label>
-                <TextLimitCounter text={this.state.metaDescription} limit={320} />
+                <TextLimitCounter text={this.state.metaDescription} limit={DESCRIPTION_LIMIT} />
               </div>
               <Textarea
                 name="metaDescription"
@@ -100,9 +105,9 @@ class SeoBuilder extends Component {
           <div className="w-100 w-50-ns g-pl4-ns">
             {(this.state.pageTitle || this.state.metaDescription || this.state.url) && (
               <Seo
-                title={this.state.pageTitle}
+                title={this.truncateTextDisplay(this.state.pageTitle, PAGE_TITLE_LIMIT)}
                 url={this.props.urlBase + this.state.url + this.props.urlAppend}
-                description={this.state.metaDescription}
+                description={this.truncateTextDisplay(this.state.metaDescription, DESCRIPTION_LIMIT)}
                 className="br-0 h-100 g-pb4"
               />
             )}
