@@ -7,10 +7,12 @@ import IconTimesCircle from '../../../icons/IconTimesCircle'
 import IconArc from '../../../icons/IconArc'
 
 export const debounceTime = (milliseconds, fn) => {
-  let timer = 0
-  return () => {
+  let timer
+  return function() {
+    const context = this
+    const args = arguments
     clearTimeout(timer)
-    timer = setTimeout(fn, milliseconds)
+    timer = setTimeout(() => fn.apply(context, args), milliseconds)
   }
 }
 
@@ -60,7 +62,7 @@ class Search extends PureComponent {
     this.props.onSubmit && this.props.onSubmit({ searchValue, optionValue })
   }
 
-  handleClickDebounce = debounceTime(600, this.handleSubmit)
+  handleClickDebounce = debounceTime(600, this.handleClick)
 
   render() {
     const { placeholder, withOptions, options, name, id, size, nav, disabled, isLoading } = this.props

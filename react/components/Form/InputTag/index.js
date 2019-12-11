@@ -28,6 +28,7 @@ class InputTag extends Component {
     if (prevProps.values !== this.props.values) {
       this.setState({
         values: this.props.values,
+        input: '',
       })
     }
     if (prevProps.input !== this.props.input) {
@@ -105,9 +106,10 @@ class InputTag extends Component {
 
   handleSetValuesToStateAndHandle = value => {
     const cleanedValue = value.replace(',', '').trim()
-    const newValues = [...this.state.values, cleanedValue]
+    const formattedValue = this.props.beforeAddItem(cleanedValue)
+    const newValues = [...this.state.values, formattedValue]
 
-    if (!this.props.allowDuplicate && this.checkIfValueAlreadyExists(cleanedValue)) {
+    if (!this.props.allowDuplicate && this.checkIfValueAlreadyExists(formattedValue)) {
       this.setState(
         {
           input: '',
@@ -115,7 +117,7 @@ class InputTag extends Component {
         () => this.handleChangeInput()
       )
 
-      return this.props.onDuplicateItem(cleanedValue)
+      return this.props.onDuplicateItem(formattedValue)
     }
 
     this.setState(
@@ -149,6 +151,13 @@ class InputTag extends Component {
   getTagList = () => {
     return (
       <React.Fragment>
+        {this.props.fixedTags.map((data, index) => (
+          <span key={`${data}#${index}`} className="inline-flex g-ml1 g-mb1 g-mt1 o-50">
+            <Tag style={this.props.tagStyle}>
+              {data}
+            </Tag>
+          </span>
+        ))}
         {this.state.values.map((data, key) => (
           <span key={key} className="inline-flex g-ml1 g-mb1 g-mt1">
             <Tag style={this.props.tagStyle} onRemove={() => this.onRemoveValue(data)}>
@@ -176,6 +185,7 @@ class InputTag extends Component {
           list={this.props.source}
           onClick={this.handleSetValuesToStateAndHandle}
           onBlur={this.handleBlur}
+          onFocus={this.handleFocus}
           onKeyDown={this.handleKeyPressAtOptionValue}
         />
       )
@@ -246,6 +256,8 @@ InputTag.propTypes = {
   autocomplete: PropTypes.bool,
   source: PropTypes.array,
   required: PropTypes.bool,
+  fixedTags: PropTypes.arrayOf(PropTypes.string),
+  beforeAddItem: PropTypes.func,
 }
 
 InputTag.defaultProps = {
@@ -261,9 +273,11 @@ InputTag.defaultProps = {
   onDuplicateItem: () => {},
   onChangeValues: () => {},
   onChangeInput: () => {},
+  beforeAddItem: value => value,
   source: [],
   input: '',
   required: false,
+  fixedTags: [],
 }
 
 export default InputTag
