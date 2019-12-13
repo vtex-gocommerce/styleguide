@@ -7,14 +7,14 @@ import { ListTableTemplateConsumer } from './../../index'
 
 class Filter extends PureComponent {
   render() {
-    const { isLoading } = this.props
+    const { isLoading, fullWidth } = this.props
 
     return (
       <ListTableTemplateConsumer>
         {({ searchText, handleSearch, handleOpenSidebarFilter, disableSidebar, enabledSidebarFilterOptions }) => {
           return (
             <div className="flex justify-between">
-              <div className="w-auto w-third-ns">
+              <div className={`${fullWidth ? 'w-100' : 'w-third-ns'}`}>
                 <Search
                   placeholder={false}
                   onClick={handleSearch}
@@ -24,9 +24,8 @@ class Filter extends PureComponent {
                   isLoading={isLoading && (enabledSidebarFilterOptions.length > 0 || searchText !== '')}
                 />
               </div>
-              <div className="dn db-ns w-third-ns g-mh8" />
-              <div className="pointer self-center w-auto w-third-ns">
-                {!disableSidebar && (
+              {!disableSidebar && (
+                <div className="pointer self-center w-auto w-third-ns">
                   <span className="fr dib">
                     {enabledSidebarFilterOptions.length === 0 ? (
                       <span
@@ -47,8 +46,8 @@ class Filter extends PureComponent {
                       />
                     )}
                   </span>
-                )}
-              </div>
+                </div>
+              )}
             </div>
           )
         }}
@@ -59,7 +58,12 @@ class Filter extends PureComponent {
 
 Filter.propTypes = {
   isLoading: PropTypes.bool,
-  placeholder: PropTypes.string
+  placeholder: PropTypes.string,
+  fullWidth: PropTypes.bool,
+}
+
+Filter.defaultProps = {
+  fullWidth: false,
 }
 
 export default Filter
