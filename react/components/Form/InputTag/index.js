@@ -51,6 +51,7 @@ class InputTag extends Component {
     const value = event.target.value
 
     if (event.key === 'Enter' && value !== '' && value !== ',') {
+      event.preventDefault()
       this.handleSetValuesToStateAndHandle(value)
     }
 
@@ -150,23 +151,31 @@ class InputTag extends Component {
 
   getTagList = () => {
     return (
-      <React.Fragment>
-        {this.props.fixedTags.map((data, index) => (
-          <span key={`${data}#${index}`} className="inline-flex g-ml1 g-mb1 g-mt1 o-50">
-            <Tag style={this.props.tagStyle}>
-              {data}
-            </Tag>
-          </span>
-        ))}
-        {this.state.values.map((data, key) => (
-          <span key={key} className="inline-flex g-ml1 g-mb1 g-mt1">
-            <Tag style={this.props.tagStyle} onRemove={() => this.onRemoveValue(data)}>
-              {data}
-            </Tag>
-          </span>
-        ))}
-        <div className="dn db-ns flex-auto">{this.renderInput()}</div>
-      </React.Fragment>
+      <div className="flex items-center">
+        {!!this.props.iconBefore && (
+          <div className="g-pa4 c-on-base-2 flex">
+            {this.props.iconBefore}
+          </div>
+        )}
+
+        <div className="flex flex-wrap">
+          {this.props.fixedTags.map((data, index) => (
+            <span key={`${data}#${index}`} className="inline-flex g-ml1 g-mb1 g-mt1 o-50">
+              <Tag style={this.props.tagStyle}>
+                {data}
+              </Tag>
+            </span>
+          ))}
+          {this.state.values.map((data, key) => (
+            <span key={key} className="inline-flex g-ml1 g-mb1 g-mt1">
+              <Tag style={this.props.tagStyle} onRemove={() => this.onRemoveValue(data)}>
+                {data}
+              </Tag>
+            </span>
+          ))}
+          <div className="dn db-ns flex-auto">{this.renderInput()}</div>
+        </div>
+      </div>
     )
   }
 
@@ -229,6 +238,7 @@ class InputTag extends Component {
           <div className="dn flex-ns flex-wrap w-100">{this.getTagList()}</div>
           <div className="db dn-ns flex-auto">{this.renderInput(true)}</div>
         </div>
+
         <div className="db dn-ns g-pt2">{this.getTagList()}</div>
       </React.Fragment>
     )
@@ -258,6 +268,7 @@ InputTag.propTypes = {
   required: PropTypes.bool,
   fixedTags: PropTypes.arrayOf(PropTypes.string),
   beforeAddItem: PropTypes.func,
+  iconBefore: PropTypes.element,
 }
 
 InputTag.defaultProps = {
@@ -278,6 +289,7 @@ InputTag.defaultProps = {
   input: '',
   required: false,
   fixedTags: [],
+  iconBefore: null,
 }
 
 export default InputTag
