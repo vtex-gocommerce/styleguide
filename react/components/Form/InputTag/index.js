@@ -151,14 +151,14 @@ class InputTag extends Component {
 
   getTagList = () => {
     return (
-      <div className="flex items-center">
+      <div className="flex items-center flex-auto">
         {!!this.props.iconBefore && (
           <div className="g-pa4 c-on-base-2 flex">
             {this.props.iconBefore}
           </div>
         )}
 
-        <div className="flex flex-wrap">
+        <div className="flex flex-wrap flex-auto">
           {this.props.fixedTags.map((data, index) => (
             <span key={`${data}#${index}`} className="inline-flex g-ml1 g-mb1 g-mt1 o-50">
               <Tag style={this.props.tagStyle}>
