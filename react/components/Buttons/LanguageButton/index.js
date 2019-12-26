@@ -31,9 +31,7 @@ class LanguageButton extends PureComponent {
   render() {
     const { locales, className, itemClassName, abbreviationOn } = this.props
     const { localeSelected } = this.state
-
-    console.log('props', this.props)
-
+    
     return (
       <BooleanValue defaultValue={false}>
         {({ value, toggle }) => (
