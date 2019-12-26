@@ -38,28 +38,28 @@ class LanguageButton extends PureComponent {
       <BooleanValue defaultValue={false}>
         {({ value, toggle }) => (
           <div className={`w-100 relative`}>
-            <div className={`flex items-center pointer g-f2 fw6 c-on-base-2 ${className}`} onClick={toggle}>
-              <IconEarth className="g-mr3" />
-              <span className="g-mr3">{abbreviationOn ? localeSelected.shortText : localeSelected.text}</span>
+            <div className={`flex flex-auto pointer g-f2 fw6 c-on-base-2 ${className}`} onClick={toggle}>
+              <IconEarth className="flex flex-start" />
+              <span className="flex flex-auto mh3">{abbreviationOn ? localeSelected.shortText : localeSelected.text}</span>
               {value ? (
-                <IconSortUp width="16" height="16" className="ml-auto" />
+                <IconSortUp width="16" height="16" className="flex flex-end" />
               ) : (
-                <IconSortDown width="16" height="16" className="ml-auto" />
-              )}
+                  <IconSortDown width="16" height="16" className="flex flex-end" />
+                )}
             </div>
             {value && (
-              <div className={`w-100 g-pt1`}>
+              <div className={`w-100 g-pv1`}>
                 {locales.map(({ id, text, shortText }) =>
                   id !== localeSelected.id ? (
                     <div
                       key={id}
                       id={`appframe-locale@${id}`}
-                      className={`flex items-center g-pv1 g-f2 c-on-base-2 pointer ${itemClassName}`}
+                      className={`g-ph4 g-pv1 g-f2 c-on-base-2 pointer ${itemClassName} ${abbreviationOn ? 'tc' : 'ml6'}`}
                       onClick={() => {
                         this.handleClick(id), toggle()
                       }}
                     >
-                      <span className="g-pl7">{abbreviationOn ? shortText : text}</span>
+                      <span>{abbreviationOn ? shortText : text}</span>
                     </div>
                   ) : null
                 )}
@@ -89,7 +89,7 @@ LanguageButton.propTypes = {
 LanguageButton.defaultProps = {
   className: '',
   itemClassName: '',
-  onClick: () => {},
+  onClick: () => { },
   localeSelected: '',
   locales: [],
   abbreviationOn: false
