@@ -95,7 +95,7 @@ class Table extends PureComponent {
   }
 
   renderTable = (rows, columns) => {
-    const { isLoading, selectable, actions, onChange, multilevel } = this.props
+    const { isLoading, selectable, actions, onChange, multilevel, placeholderSize } = this.props
 
     if (multilevel) {
       return (
@@ -108,6 +108,7 @@ class Table extends PureComponent {
           actions={actions}
           onChange={onChange}
           multilevel={multilevel}
+          placeholderSize={placeholderSize}
         />
       )
     }
@@ -121,6 +122,7 @@ class Table extends PureComponent {
         selectable={selectable}
         actions={actions}
         onChange={onChange}
+        placeholderSize={placeholderSize}
       />
     )
   }
@@ -166,11 +168,13 @@ Table.propTypes = {
   selectable: PropTypes.bool,
   actions: PropTypes.node,
   onChange: PropTypes.func,
-  extraData: PropTypes.object
+  extraData: PropTypes.object,
+  placeholderSize: PropTypes.oneOf(['default', 'large']),
 }
 
 Table.defaultProps = {
   onChange: () => {},
-  extraData: {}
+  extraData: {},
+  placeholderSize: 'default',
 }
 export default Table
