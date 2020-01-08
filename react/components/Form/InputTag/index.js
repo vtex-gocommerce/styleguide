@@ -108,7 +108,9 @@ class InputTag extends Component {
   handleSetValuesToStateAndHandle = value => {
     const cleanedValue = value.replace(',', '').trim()
     const formattedValue = this.props.beforeAddItem(cleanedValue)
-    const newValues = [...this.state.values, formattedValue]
+    const newValues = !!formattedValue
+      ? [...this.state.values, formattedValue]
+      : [...this.state.values]
 
     if (!this.props.allowDuplicate && this.checkIfValueAlreadyExists(formattedValue)) {
       this.setState(
