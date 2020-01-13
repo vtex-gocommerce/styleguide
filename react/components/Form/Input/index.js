@@ -1,16 +1,99 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
-import InputMask from 'react-input-mask'
+import MaskedInput from 'react-text-mask'
 
 import styles from './style.css'
-
 import InputLabel from '../InputLabel/index'
+import CurrencyFunctions from './currencyFunctions'
+
+// Suffix component
+const SuffixComponent = ({ children, suffix, className, hasError, colors }) => {
+  if (!suffix) return children
+  return (
+    <div className={`dib ${className}`}>
+      <div className="flex">
+        {children}
+        <span className={`ba br2 br--right inline-flex items-center g-ph3 ${!hasError ? 'c-on-base-2' : ''} ${colors}`}>
+          {suffix}
+        </span>
+      </div>
+    </div>
+  )
+}
+SuffixComponent.propTypes = {
+  children: PropTypes.any,
+  suffix: PropTypes.string,
+  className: PropTypes.string,
+  hasError: PropTypes.bool,
+  colors: PropTypes.string,
+}
+
+// IconBefore component
+const IconBeforeComponent = ({ children, iconBefore, style, colors, className }) => {
+  if (!iconBefore) return children
+  return (
+    <div className={`dib ${style} ${colors} ${className} overflow-hidden`}>
+      <div className="flex flex-auto items-center ">
+        <div className="g-pl3">{iconBefore}</div>
+        {children}
+      </div>
+    </div>
+  )
+}
+IconBeforeComponent.propTypes = {
+  children: PropTypes.any,
+  iconBefore: PropTypes.any,
+  style: PropTypes.string,
+  colors: PropTypes.string,
+  className: PropTypes.string,
+}
+
+// MaskedInput component
+const MaskedInputComponent = ({ props, className, mask, formatValue }) => {
+  if (formatValue === 'currency') {
+    // Delete non input attributes
+    delete props.guide // eslint-disable-line react/prop-types
+    delete props.placeholderChar // eslint-disable-line react/prop-types
+    return (
+      <input
+        {...props}
+        className={className}
+      />
+    )
+  }
+  return (
+    <MaskedInput
+      {...props}
+      className={className}
+      mask={mask}
+    />
+  )
+}
+MaskedInputComponent.propTypes = {
+  props: PropTypes.any,
+  className: PropTypes.string,
+  mask: PropTypes.any,
+  formatValue: PropTypes.string,
+}
 
 class Input extends PureComponent {
+  _baseDivider
   constructor(props) {
     super(props)
+
+    // Warnings
+    if (props.formatValue === 'currency' && props.currencySpec) console.warn(errorsToDevelopers.missingCurrencySpec)
+    if (props.formatValue && props.mask) console.warn(errorsToDevelopers.maskWithFormatValue)
+
+    // Currency init
+    this._baseDivider = props.formatValue === 'currency' ? CurrencyFunctions.baseDivider(props.currencySpec.currencyFormatInfo.currencyDecimalDigits) : 100
+    const initialValue = props.defaultValue || props.value
     this.state = {
-      value: props.defaultValue || props.value,
+      value: props.formatValue === 'currency' ? CurrencyFunctions.initialValue(
+        initialValue,
+        props,
+        this._baseDivider
+      ) : initialValue,
     }
   }
 
@@ -22,7 +105,9 @@ class Input extends PureComponent {
 
   handleChange = event => {
     const value = event.target.value
-    this.setState({ value })
+    const formatedNumber = this.props.formatValue === 'currency' ? CurrencyFunctions.toCurrency(value, this.props, this._baseDivider) : value
+    this.setState({ value: formatedNumber })
+    if (this.props.formatValue === 'currency') { event.target.value = CurrencyFunctions.currencyToNumber(formatedNumber, this.props, this._baseDivider) }
     this.props.onChange && this.props.onChange(event)
   }
 
@@ -60,44 +145,50 @@ class Input extends PureComponent {
       className,
       name,
       id,
+      iconBefore,
       label,
       withoutStyle,
-      defaultValue,
       readOnly,
       required,
       min,
       max,
       step,
+      suffix,
+      formatPlaceholder,
+      formatValue,
     } = this.props
     const { value } = this.state
+    const inputId = id || name
 
+    // Styles
     const padding = 'g-ph4 f6 '
     const style = `${styles.input} ba br2 g-h11 `
-
     let colors = ''
     const isDisableAspect = disabled || readOnly
     if (isDisableAspect) colors += 'b--base-4 bg-base-2 c-on-base-2 '
     if (hasError) colors += 'b--danger bg-light-danger c-danger '
     if (!isDisableAspect && !hasError && !withoutStyle) colors += 'b--base-4 bg-base-1 c-on-base-1 '
     if (withoutStyle) colors += 'c-on-base-1 bg-transparent bn '
+    const suffixClass = suffix ? 'w-100 dib ba br-0 br1 br--left ' : ''
+    const iconBeforeClass = iconBefore ? `bn w-100 dib ${styles.inputIconBefore} ` : ''
+    const inputClasses = style + padding + colors + suffixClass + iconBeforeClass + className
 
-    const inputClasses = style + padding + colors + className
-
-    const inputId = id || name
+    // Props
     const props = {
       id: inputId,
       type,
       name,
-      placeholder,
+      placeholder: formatPlaceholder ? CurrencyFunctions.toCurrency(placeholder, this.props, this._baseDivider) : placeholder,
+      placeholderChar: maskChar,
       disabled,
       readOnly,
       maxLength,
       value: value || '',
-      defaultValue,
       autoComplete: 'off',
       min,
       max,
       step,
+      guide: alwaysShowMask,
       onBlur: this.handleBlur,
       onFocus: this.handleFocus,
       onChange: this.handleChange,
@@ -106,6 +197,7 @@ class Input extends PureComponent {
       onKeyUp: this.handleKeyUp,
     }
 
+    // Label component
     const LabelComponent = (
       <InputLabel
         text={label}
@@ -115,59 +207,26 @@ class Input extends PureComponent {
       />
     )
 
-    if (this.props.mask) {
-      return (
-        <React.Fragment>
-          {LabelComponent}
-          <InputMask
-            {...props}
-            className={inputClasses}
-            mask={mask}
-            maskChar={maskChar}
-            alwaysShowMask={alwaysShowMask}
-          />
-        </React.Fragment>
-      )
-    }
-    if (this.props.suffix) {
-      return (
-        <React.Fragment>
-          {LabelComponent}
-          <div className={`dib ${className}`}>
-            <div className="flex">
-              <input {...props} className={`${inputClasses} w-100 dib ba br-0 br1 br--left`} />
-              <span
-                className={`ba br2 br--right inline-flex items-center g-ph3 ${!hasError ? 'c-on-base-2' : ''} ${colors}`}
-              >
-                {this.props.suffix}
-              </span>
-            </div>
-          </div>
-        </React.Fragment>
-      )
-    }
-    if (this.props.iconBefore) {
-      return (
-        <React.Fragment>
-          {LabelComponent}
-          <div className={`dib ${style} ${colors} ${className} overflow-hidden`}>
-            <div className="flex flex-auto items-center ">
-              <div className="g-pl3">{this.props.iconBefore}</div>
-              <input {...props} className={`${colors} ${padding} ${style} bn w-100 dib`} />
-            </div>
-          </div>
-        </React.Fragment>
-      )
-    }
+    // Mask configs
+    const maskPattern = formatValue ? formatValuePatterns[formatValue] : mask ? (
+      // Convert old format for backward compatibility
+      (typeof mask === 'string') ? mask.split('').map(e => e === '9' ? /\d/ : e) : mask
+    ) : false
+
+    // Input component
     return (
       <React.Fragment>
         {LabelComponent}
-        <input {...props} className={inputClasses} />
+        <SuffixComponent suffix={suffix} className={className} hasError={hasError} colors={colors}>
+          <IconBeforeComponent iconBefore={iconBefore} style={style} colors={colors} className={suffixClass + className}>
+            <MaskedInputComponent props={props} className={inputClasses} mask={maskPattern || false} formatValue={formatValue} />
+          </IconBeforeComponent>
+        </SuffixComponent>
         {showMaxLength && maxLength !== 0 && (
           <InputLabel
-            text={`${maxLength && maxLength - this.state.value.length}`}
+            text={`${maxLength && maxLength - value.length}`}
             className="flex flex-row-reverse db g-pb2 g-pa1 g-f2"
-            hasError={maxLength - this.state.value.length <= 0}
+            hasError={maxLength - value.length <= 0}
           />
         )}
       </React.Fragment>
@@ -220,10 +279,9 @@ Input.propTypes = {
   showMaxLength: PropTypes.bool,
   /** Mask string. Default format characters are:
   9: 0-9
-  a: A-Z, a-z
-  *: A-Z, a-z, 0-9
+  ['(', /[1-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/]: (555) 392-4932
   */
-  mask: PropTypes.string,
+  mask: PropTypes.any,
   /** Character to cover unfilled parts of the mask */
   maskChar: PropTypes.string,
   /** Show mask when input is empty and has no focus. */
@@ -240,6 +298,22 @@ Input.propTypes = {
   min: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   /** increment/decrement steps to number input */
   step: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  /** format of the input */
+  formatValue: PropTypes.oneOf(['currency', 'onlyNumber', 'onlyLetter', 'onlyAlphanumeric']),
+  /** Currency options */
+  formatPlaceholder: PropTypes.bool,
+  showCurrency: PropTypes.bool,
+  currencyIsInteger: PropTypes.bool,
+  currencySpec: PropTypes.shape({
+    currencySymbol: PropTypes.string,
+    currencyFormatInfo: PropTypes.shape({
+      currencyDecimalDigits: PropTypes.number,
+      currencyDecimalSeparator: PropTypes.string,
+      currencyGroupSeparator: PropTypes.string,
+      currencyGroupSize: PropTypes.number,
+      startsWithCurrencySymbol: PropTypes.bool,
+    }),
+  }),
 }
 
 Input.defaultProps = {
@@ -254,12 +328,37 @@ Input.defaultProps = {
   className: '',
   maxLength: null,
   showMaxLength: false,
-  mask: null,
-  maskChar: ' ',
+  mask: false,
+  maskChar: '\u2000',
   alwaysShowMask: false,
   suffix: null,
   iconBefore: null,
   required: false,
+  formatValue: null,
+  formatPlaceholder: false,
+  showCurrency: false,
+  currencyIsInteger: false,
+  currencySpec: {
+    currencySymbol: 'R$',
+    currencyFormatInfo: {
+      currencyDecimalDigits: 2,
+      currencyDecimalSeparator: ',',
+      currencyGroupSeparator: '.',
+      currencyGroupSize: 3,
+      startsWithCurrencySymbol: true,
+    },
+  },
+}
+
+const errorsToDevelopers = {
+  missingCurrencySpec: 'Prop `currencySpec` is missing. To use currency the attribute is required.',
+  maskWithFormatValue: 'Using `mask` with `formatValue` is not allowed. Please choose just one attribute.',
+}
+
+const formatValuePatterns = {
+  onlyNumber: rawValue => [...rawValue].map(() => /\d/),
+  onlyLetter: rawValue => [...rawValue].map(() => /[A-Za-z]/),
+  onlyAlphanumeric: rawValue => [...rawValue].map(() => /[A-Za-z\d]/),
 }
 
 export default Input

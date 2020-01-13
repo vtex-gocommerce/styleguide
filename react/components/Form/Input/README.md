@@ -37,7 +37,7 @@
     <span className="g-ml4 no-underline c-on-base-1">Icon Prefix</span>
   </div>
   <div className="g-mb2">
-    <Input mask="+4\\9 99 999 99" alwaysShowMask={true} maskChar="_" />
+    <Input mask="+49 99 999 99" alwaysShowMask={true} maskChar="_" />
     <span className="g-ml4 no-underline c-on-base-1">With a mask</span>
     <div className="g-mt3 c-on-base-1">
       <strong className="db g-mb1">How to write a mask:</strong>
@@ -45,12 +45,22 @@
       <pre>
         9: 0-9
         <br />
-        a: A-Z, a-z
-        <br />
-        *: A-Z, a-z, 0-9
+        ['(', /[1-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/]: (555) 392-4932
       </pre>
-      Any character can be escaped with a backslash. It will appear as a double backslash in JS strings. For example, a German
-      phone mask with unremoveable prefix +49 will look like <strong>mask="+4\\9 99 999 99"</strong>.
+      The way to define a mask in Text Mask is through an array.<br />
+      Each element in the array has to be either a string or a regular expression. Each string is a fixed character in the mask and each regular expression is a placeholder that accepts user input.<br />
+      The regular expression will be used to test user input and either allow it or reject it.<br />
+      Any valid regular expressions should work.<br />
+      <br />
+      <strongFunction<strong><br />
+      You can also pass a function as the mask. The function will receive the user input at every change. The function is expected to return a mask array as described above.<br />
+      <pre>
+        var mask = function(rawValue) {
+          // add logic to generate your mask array
+          return [ /*your mask array*/ ]
+        }
+      </pre>
+      https://github.com/text-mask/text-mask/blob/master/componentDocumentation.md#mask-array
     </div>
   </div>
 </div>
