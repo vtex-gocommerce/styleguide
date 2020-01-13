@@ -37,6 +37,52 @@
     <span className="g-ml4 no-underline c-on-base-1">Icon Prefix</span>
   </div>
   <div className="g-mb2">
+    <Input formatValue="onlyNumber" />
+    <span className="g-ml4 no-underline c-on-base-1">Accept only numbers.</span>
+    <div className="g-mt3 c-on-base-1">
+      Options: ['currency', 'onlyNumber', 'onlyLetter', 'onlyAlphanumeric']
+    </div>
+  </div>
+  <div className="g-mb2">
+    <Input
+      formatValue="currency"
+      showCurrency={true}
+      placeholder="100"
+      value={100}
+      currencyIsInteger={false}
+      formatPlaceholder={true}
+      currencySpec={{
+        currencySymbol: 'R$',
+        currencyFormatInfo: {
+          currencyDecimalDigits: '2',
+          currencyDecimalSeparator: ',',
+          currencyGroupSeparator: '.',
+          currencyGroupSize: '3',
+          startsWithCurrencySymbol: true
+        }
+      }}
+    />
+    <span className="g-ml4 no-underline c-on-base-1">Format currency.</span>
+    <div className="g-mt3 c-on-base-1">
+      <pre>
+        formatValue="currency"
+        showCurrency={true}
+        currencyIsInteger={false}
+        formatPlaceholder={true}
+        currencySpec={{
+          currencySymbol: 'R$',
+          currencyFormatInfo: {
+            currencyDecimalDigits: '2',
+            currencyDecimalSeparator: ',',
+            currencyGroupSeparator: '.',
+            currencyGroupSize: '3',
+            startsWithCurrencySymbol: true
+          }
+        }}
+      </pre>
+    </div>
+  </div>
+  <div className="g-mb2">
     <Input mask="+49 99 999 99" alwaysShowMask={true} maskChar="_" />
     <span className="g-ml4 no-underline c-on-base-1">With a mask</span>
     <div className="g-mt3 c-on-base-1">
