@@ -98,7 +98,7 @@
       The regular expression will be used to test user input and either allow it or reject it.<br />
       Any valid regular expressions should work.<br />
       <br />
-      <strongFunction<strong><br />
+      <strong>Function<strong><br />
       You can also pass a function as the mask. The function will receive the user input at every change. The function is expected to return a mask array as described above.<br />
       <pre>
         var mask = function(rawValue) {
