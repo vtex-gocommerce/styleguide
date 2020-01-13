@@ -103,7 +103,7 @@
       <pre>
         var mask = function(rawValue) {
           // add logic to generate your mask array
-          return [ /*your mask array*/ ]
+          // return [ /*your mask array*/ ]
         }
       </pre>
       https://github.com/text-mask/text-mask/blob/master/componentDocumentation.md#mask-array
