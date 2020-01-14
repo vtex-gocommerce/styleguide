@@ -40,7 +40,8 @@
     <Input formatValue="onlyNumber" />
     <span className="g-ml4 no-underline c-on-base-1">Accept only numbers.</span>
     <div className="g-mt3 c-on-base-1">
-      Options: ['currency', 'onlyNumber', 'onlyLetter', 'onlyAlphanumeric']
+      <small>Options: ['currency', 'onlyNumber', 'onlyLetter', 'onlyAlphanumeric']</small>
+      <br /><br />
     </div>
   </div>
   <div className="g-mb2">
@@ -63,24 +64,6 @@
       }}
     />
     <span className="g-ml4 no-underline c-on-base-1">Format currency.</span>
-    <div className="g-mt3 c-on-base-1">
-      <pre>
-        formatValue="currency"
-        showCurrency={true}
-        currencyIsInteger={false}
-        formatPlaceholder={true}
-        currencySpec={{
-          currencySymbol: 'R$',
-          currencyFormatInfo: {
-            currencyDecimalDigits: '2',
-            currencyDecimalSeparator: ',',
-            currencyGroupSeparator: '.',
-            currencyGroupSize: '3',
-            startsWithCurrencySymbol: true
-          }
-        }}
-      </pre>
-    </div>
   </div>
   <div className="g-mb2">
     <Input mask="+49 99 999 99" alwaysShowMask={true} maskChar="_" />
@@ -91,7 +74,7 @@
       <pre>
         9: 0-9
         <br />
-        ['(', /[1-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/]: (555) 392-4932
+        <small>['(', /[1-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/]: (555) 392-4932</small>
       </pre>
       The way to define a mask in Text Mask is through an array.<br />
       Each element in the array has to be either a string or a regular expression. Each string is a fixed character in the mask and each regular expression is a placeholder that accepts user input.<br />
@@ -100,17 +83,34 @@
       <br />
       <strong>Function</strong><br />
       You can also pass a function as the mask. The function will receive the user input at every change. The function is expected to return a mask array as described above.<br />
-      <pre>
-        var mask = function(rawValue) {
-          // add logic to generate your mask array
-          // return [ /*your mask array*/ ]
-        }
-      </pre>
-      https://github.com/text-mask/text-mask/blob/master/componentDocumentation.md#mask-array
+      Docs and examples: <a href="https://github.com/text-mask/text-mask/blob/master/componentDocumentation.md#mask-array">https://github.com/text-mask/text-mask/blob/master/componentDocumentation.md#mask-array</a>
     </div>
   </div>
 </div>
 ```
+
+#### Accepted props:
+
+#### Currency:
+
+| prop name          | type    | default  | required |
+|--------------------|---------|----------|----------|
+| formatValue        | string  | currency | No       |
+| showCurrency       | boolean |          | No       |
+| currencyIsInteger  | boolean |          | No       |
+| formatPlaceholder  | boolean |          | No       |
+| currencySpec       | object  |          | Yes      |
+
+#### formatValue:
+
+| options          |
+|------------------|
+| currency         |
+| onlyNumber       |
+| onlyLetter       |
+| onlyAlphanumeric |
+| `function`       |
+
 
 Receive value from another component
 
