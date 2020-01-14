@@ -17,15 +17,15 @@ In Addition we offer a set of Icons and advanced react compomponents that can be
 
 <div class="flex flex-column">
 	<div class="flex">
-			<span class="pv4 blue">
-			< [Components](styleguide/#components)  >
+		<span class="pv4 blue">
+			< [Components](styleguide/#components) >
 		</span>
 		<span class="pv4 pl5 blue">
 			 [Zoom](styleguide/#!/Components)  
 		</span>
 	</div>
 	<div class="flex">
-			<span class="pv4 blue">
+		<span class="pv4 blue">
 			< [Advanced Components](styleguide/#advanced-components) >
 		</span>
 		<span class="pv4 pl5 blue">
@@ -33,7 +33,7 @@ In Addition we offer a set of Icons and advanced react compomponents that can be
 		</span>
 	</div>
 	<div class="flex">
-			<span class="pv4 blue">  
+		<span class="pv4 blue">  
 			< [Icons](styleguide/#icons) >
 		</span>
 		<span class="pv4 pl5 blue">  
