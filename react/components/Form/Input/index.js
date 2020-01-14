@@ -82,7 +82,7 @@ class Input extends PureComponent {
     super(props)
 
     // Warnings
-    if (props.formatValue === 'currency' && props.currencySpec) console.warn(errorsToDevelopers.missingCurrencySpec)
+    if (props.formatValue === 'currency' && !props.currencySpec) console.warn(errorsToDevelopers.missingCurrencySpec)
     if (props.formatValue && props.mask) console.warn(errorsToDevelopers.maskWithFormatValue)
 
     // Currency init
@@ -98,7 +98,8 @@ class Input extends PureComponent {
   }
 
   componentDidUpdate = prevProps => {
-    if (prevProps.value !== this.props.value) {
+    // When is currency, changing the state cause errors
+    if (this.props.formatValue !== 'currency' && prevProps.value !== this.props.value) {
       this.setState({ value: this.props.value })
     }
   }
