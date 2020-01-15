@@ -37,7 +37,36 @@
     <span className="g-ml4 no-underline c-on-base-1">Icon Prefix</span>
   </div>
   <div className="g-mb2">
-    <Input mask="+4\\9 99 999 99" alwaysShowMask={true} maskChar="_" />
+    <Input formatValue="onlyNumber" />
+    <span className="g-ml4 no-underline c-on-base-1">Accept only numbers.</span>
+    <div className="g-mt3 c-on-base-1">
+      <small>Options: ['currency', 'onlyNumber', 'onlyLetter', 'onlyAlphanumeric']</small>
+      <br /><br />
+    </div>
+  </div>
+  <div className="g-mb2">
+    <Input
+      formatValue="currency"
+      showCurrency={true}
+      placeholder="100"
+      value={100}
+      currencyIsInteger={false}
+      formatPlaceholder={true}
+      currencySpec={{
+        currencySymbol: 'R$',
+        currencyFormatInfo: {
+          currencyDecimalDigits: '2',
+          currencyDecimalSeparator: ',',
+          currencyGroupSeparator: '.',
+          currencyGroupSize: '3',
+          startsWithCurrencySymbol: true
+        }
+      }}
+    />
+    <span className="g-ml4 no-underline c-on-base-1">Format currency.</span>
+  </div>
+  <div className="g-mb2">
+    <Input mask="+49 99 999 99" alwaysShowMask={true} maskChar="_" />
     <span className="g-ml4 no-underline c-on-base-1">With a mask</span>
     <div className="g-mt3 c-on-base-1">
       <strong className="db g-mb1">How to write a mask:</strong>
@@ -45,16 +74,49 @@
       <pre>
         9: 0-9
         <br />
-        a: A-Z, a-z
-        <br />
-        *: A-Z, a-z, 0-9
+        <small>['(', /[1-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/]: (555) 392-4932</small>
       </pre>
-      Any character can be escaped with a backslash. It will appear as a double backslash in JS strings. For example, a German
-      phone mask with unremoveable prefix +49 will look like <strong>mask="+4\\9 99 999 99"</strong>.
+      The way to define a mask in Text Mask is through an array.<br />
+      Each element in the array has to be either a string or a regular expression. Each string is a fixed character in the mask and each regular expression is a placeholder that accepts user input.<br />
+      The regular expression will be used to test user input and either allow it or reject it.<br />
+      Any valid regular expressions should work.<br />
+      <br />
+      <strong>Function</strong><br />
+      You can also pass a function as the mask. The function will receive the user input at every change. The function is expected to return a mask array as described above.<br />
+      Docs and examples: <a href="https://github.com/text-mask/text-mask/blob/master/componentDocumentation.md#mask-array">https://github.com/text-mask/text-mask/blob/master/componentDocumentation.md#mask-array</a>
     </div>
   </div>
 </div>
 ```
+
+#### Accepted props:
+
+#### Currency:
+
+| prop name          | type    | default  | required |
+|--------------------|---------|----------|----------|
+| formatValue        | string  | currency | No       |
+| showCurrency       | boolean |          | No       |
+| currencyIsInteger  | boolean |          | No       |
+| formatPlaceholder  | boolean |          | No       |
+| currencySpec       | object  |          | Yes      |
+
+#### formatValue:
+
+| options          |
+|------------------|
+| currency         |
+| onlyNumber       |
+| onlyLetter       |
+| onlyAlphanumeric |
+
+#### mask:
+
+| options          |
+|------------------|
+| `array`          |
+| `function`       |
+
 
 Receive value from another component
 
