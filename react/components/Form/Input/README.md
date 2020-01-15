@@ -109,6 +109,12 @@
 | onlyNumber       |
 | onlyLetter       |
 | onlyAlphanumeric |
+
+#### mask:
+
+| options          |
+|------------------|
+| `array`          |
 | `function`       |
 
 
