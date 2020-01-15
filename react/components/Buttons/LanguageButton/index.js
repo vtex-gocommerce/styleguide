@@ -1,16 +1,73 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { BooleanValue } from 'react-values'
+import onClickOutside from 'react-onclickoutside'
 import IconEarth from '../../../icons/IconEarth'
 import IconSortDown from '../../../icons/IconSortDown'
 import IconSortUp from '../../../icons/IconSortUp'
 
+class LanguageButtonComponent extends PureComponent {
+  handleClickOutside = (event) => {
+    this.props.closeDropdown()
+  }
+  render() {
+    const {
+      className,
+      abbreviationOn,
+      localeSelected,
+      locales,
+      itemClassName,
+      handleClick,
+      isDropdownOpen,
+      toggleDropdown,
+      closeDropdown,
+      enableOnClickOutside,
+      disableOnClickOutside
+    } = this.props
+    if (isDropdownOpen) {
+      enableOnClickOutside()
+    } else {
+      disableOnClickOutside()
+    }
+    return (
+      <div className={`w-100 relative`}>
+        <div className={`flex flex-auto pointer g-f2 fw6 c-on-base-2 ${className}`} onClick={toggleDropdown}>
+          <IconEarth className="flex flex-start" />
+          <span className="flex flex-auto mh3">{abbreviationOn ? localeSelected.shortText : localeSelected.text}</span>
+          {isDropdownOpen ? (
+            <IconSortUp width="16" height="16" className="flex flex-end" />
+          ) : (
+            <IconSortDown width="16" height="16" className="flex flex-end" />
+          )}
+        </div>
+        {isDropdownOpen && (
+          <div className={`w-100 g-pv1`}>
+            {locales.map(({ id, text, shortText }) =>
+              id !== localeSelected.id ? (
+                <div
+                  key={id}
+                  id={`appframe-locale@${id}`}
+                  className={`g-ph4 g-pv1 g-f2 c-on-base-2 pointer ${itemClassName} ${abbreviationOn ? 'tc' : 'ml6'}`}
+                  onClick={() => {
+                    handleClick(id), toggleDropdown()
+                  }}
+                >
+                  <span>{abbreviationOn ? shortText : text}</span>
+                </div>
+              ) : null
+            )}
+          </div>
+        )}
+      </div>
+    )
+  }
+}
+const LanguageButtonComponentWrapper = onClickOutside(LanguageButtonComponent)
+
 class LanguageButton extends PureComponent {
   constructor(props) {
     super(props)
-
     this.state = {
-
       localeSelected: this.findLocale(props.localeSelected)
     }
   }
@@ -29,41 +86,18 @@ class LanguageButton extends PureComponent {
   }
 
   render() {
-    const { locales, className, itemClassName, abbreviationOn } = this.props
-    const { localeSelected } = this.state
-    
     return (
       <BooleanValue defaultValue={false}>
-        {({ value, toggle }) => (
-          <div className={`w-100 relative`}>
-            <div className={`flex flex-auto pointer g-f2 fw6 c-on-base-2 ${className}`} onClick={toggle}>
-              <IconEarth className="flex flex-start" />
-              <span className="flex flex-auto mh3">{abbreviationOn ? localeSelected.shortText : localeSelected.text}</span>
-              {value ? (
-                <IconSortUp width="16" height="16" className="flex flex-end" />
-              ) : (
-                  <IconSortDown width="16" height="16" className="flex flex-end" />
-                )}
-            </div>
-            {value && (
-              <div className={`w-100 g-pv1`}>
-                {locales.map(({ id, text, shortText }) =>
-                  id !== localeSelected.id ? (
-                    <div
-                      key={id}
-                      id={`appframe-locale@${id}`}
-                      className={`g-ph4 g-pv1 g-f2 c-on-base-2 pointer ${itemClassName} ${abbreviationOn ? 'tc' : 'ml6'}`}
-                      onClick={() => {
-                        this.handleClick(id), toggle()
-                      }}
-                    >
-                      <span>{abbreviationOn ? shortText : text}</span>
-                    </div>
-                  ) : null
-                )}
-              </div>
-            )}
-          </div>
+        {({ value, toggle, clear }) => (
+          <LanguageButtonComponentWrapper
+            {...this.props}
+            localeSelected={this.state.localeSelected}
+            handleClick={this.handleClick}
+            findLocale={this.findLocale}
+            isDropdownOpen={value}
+            toggleDropdown={toggle}
+            closeDropdown={clear}
+          />
         )}
       </BooleanValue>
     )
