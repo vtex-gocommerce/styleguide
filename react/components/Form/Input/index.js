@@ -49,31 +49,32 @@ IconBeforeComponent.propTypes = {
 }
 
 // MaskedInput component
-const MaskedInputComponent = ({ props, className, mask, formatValue }) => {
-  if (formatValue === 'currency') {
-    // Delete non input attributes
-    delete props.guide // eslint-disable-line react/prop-types
-    delete props.placeholderChar // eslint-disable-line react/prop-types
+const MaskedInputComponent = ({ props, className, mask }) => {
+  if (mask) {
     return (
-      <input
+      <MaskedInput
         {...props}
         className={className}
+        mask={mask}
       />
     )
   }
+
+  // Delete non input attributes
+  delete props.guide // eslint-disable-line react/prop-types
+  delete props.placeholderChar // eslint-disable-line react/prop-types
   return (
-    <MaskedInput
+    <input
       {...props}
       className={className}
-      mask={mask}
     />
   )
 }
+
 MaskedInputComponent.propTypes = {
   props: PropTypes.any,
   className: PropTypes.string,
   mask: PropTypes.any,
-  formatValue: PropTypes.string,
 }
 
 class Input extends PureComponent {
@@ -220,7 +221,7 @@ class Input extends PureComponent {
         {LabelComponent}
         <SuffixComponent suffix={suffix} className={className} hasError={hasError} colors={colors}>
           <IconBeforeComponent iconBefore={iconBefore} style={style} colors={colors} className={suffixClass + className}>
-            <MaskedInputComponent props={props} className={inputClasses} mask={maskPattern || false} formatValue={formatValue} />
+            <MaskedInputComponent props={props} className={inputClasses} mask={maskPattern || false} />
           </IconBeforeComponent>
         </SuffixComponent>
         {showMaxLength && maxLength !== 0 && (
