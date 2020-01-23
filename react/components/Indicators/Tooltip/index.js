@@ -1,33 +1,36 @@
-import React, { Component } from 'react'
+import React, { Component, useState } from 'react'
 import PropTypes from 'prop-types'
 import styles from './style.css'
 
-class Tooltip extends Component {
-  render() {
-    return (
-      <div
-        className={`gc_tooltip z-5 absolute br2 g-pa4 bg-base-inverted-1 c-white ${styles.gc_tooltip} ${
-          this.props.className
-        }`}
-        style={{ width: this.props.width }}
-      >
-        {this.props.children}
+const Tooltip = ({ className = '', children, text }) => {
+  const [show, setShow] = useState(false)
+
+  return (
+    <div className="dib mr2 relative">
+      <div className={`absolute ${styles.gc_tooltip_container}`} style={{ width: '250px' }}>
+        <div
+          className={`z-5 br2 g-pa2 bg-base-inverted-1 g-f1 c-white tc
+            ${styles.gc_tooltip} ${className} ${show ? '' : 'dn'}`
+          }
+          style={{ width: 'fit-content' }}
+        >
+          <span>{text}</span>
+        </div>
       </div>
-    )
-  }
+      <div
+        onMouseEnter={() => setShow(true)}
+        onMouseLeave={() => setShow(false)}
+      >
+        {children}
+      </div>
+    </div>
+  )
 }
 
 Tooltip.propTypes = {
-  show: PropTypes.bool,
-  width: PropTypes.string,
+  text: PropTypes.string,
   children: PropTypes.node.isRequired,
   className: PropTypes.string
-}
-
-Tooltip.Tooltip = {
-  show: false,
-  width: 'auto',
-  className: ''
 }
 
 export default Tooltip
