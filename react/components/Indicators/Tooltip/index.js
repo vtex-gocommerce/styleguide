@@ -7,13 +7,15 @@ const Tooltip = ({ className = '', children, text }) => {
 
   return (
     <div className="dib mr2 relative">
-      <div
-        className={`gc_tooltip z-5 absolute br2 g-pa2 bg-base-inverted-1 g-f1 c-white tc
-          ${styles.gc_tooltip} ${className} ${show ? '' : 'dn'}`
-        }
-        style={{ width: '200px' }}
-      >
-        <span>{text}</span>
+      <div className={`absolute ${styles.gc_tooltip_container}`} style={{ width: '250px' }}>
+        <div
+          className={`z-5 br2 g-pa2 bg-base-inverted-1 g-f1 c-white tc
+            ${styles.gc_tooltip} ${className} ${show ? '' : 'dn'}`
+          }
+          style={{ width: 'fit-content' }}
+        >
+          <span>{text}</span>
+        </div>
       </div>
       <div
         onMouseEnter={() => setShow(true)}
