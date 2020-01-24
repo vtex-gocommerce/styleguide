@@ -33,7 +33,8 @@ class TableTree extends PureComponent {
       updatedList = []
     }
 
-    const mapped = this.props.rows.filter((element, index) => {
+    const elements = this.props.data ? this.props.data : this.props.rows
+    const mapped = elements.filter((element, index) => {
       if (updatedList.includes(index)) {
         return element
       }
@@ -55,7 +56,8 @@ class TableTree extends PureComponent {
 
     this.setState({ selectedList: [...updatedList].sort() })
 
-    const mapped = this.props.rows.filter((element, index) => {
+    const elements = this.props.data ? this.props.data : this.props.rows
+    const mapped = elements.filter((element, index) => {
       if (updatedList.includes(index)) {
         return element
       }
@@ -79,7 +81,7 @@ class TableTree extends PureComponent {
           depth={depth}
           root={depth === 0}
           isLast={index + 1 === rows.length}
-          onSelect={this.select}
+          onSelect={(checked) => this.select(index, checked)}
           isChecked={this.state.selectedList.includes(index)}
         >
           {this.renderTreeNodes(fields.children, depth+1)}            
@@ -162,6 +164,8 @@ TableTree.propTypes = {
   ).isRequired,
   /** Rows that will be show on table. */
   rows: PropTypes.array.isRequired,
+  /** Optional data used on select change instead of rows. */
+  data: PropTypes.array,
   /** Makes rows selectable. */
   selectable: PropTypes.bool,
   /** Is table in Loading State */

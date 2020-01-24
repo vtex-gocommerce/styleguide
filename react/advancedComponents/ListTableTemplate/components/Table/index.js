@@ -102,6 +102,7 @@ class Table extends PureComponent {
         <TableTree
           columns={columns}
           rows={rows}
+          data={this.props.data}
           isLoading={isLoading}
           placeholderLength={rows.length || 5}
           selectable={selectable}
@@ -117,6 +118,7 @@ class Table extends PureComponent {
       <ListTable
         columns={columns}
         rows={rows}
+        data={this.props.data}
         isLoading={isLoading}
         placeholderLength={rows.length || 5}
         selectable={selectable}
