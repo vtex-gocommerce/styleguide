@@ -60,7 +60,7 @@ class Table extends PureComponent {
   }
 
   parseRows = (data, refetch) => {
-    if (!data) return 
+    if (!data) return
     return data.map(item => {
       const row = this.props.tableConfig.columns.reduce((row, column) => {
         return {
@@ -175,7 +175,7 @@ Table.propTypes = {
 }
 
 Table.defaultProps = {
-  onChange: () => {},
+  onChange: () => { },
   extraData: {},
   placeholderSize: 'default',
 }
