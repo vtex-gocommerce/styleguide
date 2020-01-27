@@ -20,8 +20,8 @@ const buildTableTd = (Wrapper, props = {}, children) =>
       {children}
     </Wrapper>
   ) : (
-    children
-  )
+      children
+    )
 
 class Table extends PureComponent {
   constructor(props) {
@@ -41,7 +41,8 @@ class Table extends PureComponent {
       updatedList = []
     }
 
-    const mapped = this.props.rows.filter((element, index) => {
+    const elements = this.props.data ? this.props.data : this.props.rows
+    const mapped = elements.filter((element, index) => {
       if (updatedList.includes(index)) {
         return element
       }
@@ -63,7 +64,8 @@ class Table extends PureComponent {
 
     this.setState({ selectedList: [...updatedList].sort() })
 
-    const mapped = this.props.rows.filter((element, index) => {
+    const elements = this.props.data ? this.props.data : this.props.rows
+    const mapped = elements.filter((element, index) => {
       if (updatedList.includes(index)) {
         return element
       }
@@ -110,56 +112,56 @@ class Table extends PureComponent {
         <tbody className="bg-base-1">
           {this.props.isLoading
             ? [...Array(placeholderLength).keys()].map(e => (
-                <tr key={e} className="g-h11">
-                  {[...Array(this.props.columns.length + (selectable ? 1 : 0)).keys()].map(e => (
-                    <td key={e} className={`${placeholderSizes[placeholderSize]} g-ph4 c-on-base-1 tc bb b--base-4`}>
-                      <Placeholder className="g-h2 w-100 br4" isPlaceholderActive={this.props.isLoading} />
-                    </td>
-                  ))}
-                </tr>
-              ))
+              <tr key={e} className="g-h11">
+                {[...Array(this.props.columns.length + (selectable ? 1 : 0)).keys()].map(e => (
+                  <td key={e} className={`${placeholderSizes[placeholderSize]} g-ph4 c-on-base-1 tc bb b--base-4`}>
+                    <Placeholder className="g-h2 w-100 br4" isPlaceholderActive={this.props.isLoading} />
+                  </td>
+                ))}
+              </tr>
+            ))
             : rows.map((fields, index) => {
-                const formatted_row = columns.map(column => {
-                  const textAlign =
-                    (column.textAlign && column.textAlign) || (column && column.isCentered ? 'center' : 'left')
-                  const hasWrapper = !!column.cellWrapper
-                  return (
-                    <td
-                      key={index + column.id}
-                      className={`c-on-base-1 bb b--base-4 ${textAligns[textAlign]} ${hasWrapper ? '' : 'g-pv1 g-ph4'}`}
-                    >
-                      {buildTableTd(
-                        column.cellWrapper,
-                        fields.cellWrapperProps,
-                        <Placeholder className="g-h2 w-100 br4" isPlaceholderActive={false}>
-                          {() => fields[column.id]}
-                        </Placeholder>
-                      )}
-                    </td>
-                  )
-                })
-
+              const formatted_row = columns.map(column => {
+                const textAlign =
+                  (column.textAlign && column.textAlign) || (column && column.isCentered ? 'center' : 'left')
+                const hasWrapper = !!column.cellWrapper
                 return (
-                  <tr
-                    key={index}
-                    className={`${(fields.bgColor && 'bg-' + fields.bgColor) || ''} ${(fields.lineLink && 'pointer') ||
-                      ''} hover-bg-base-2 bg-animate g-h11`}
-                    onClick={fields.lineLink && fields.lineLink}
+                  <td
+                    key={index + column.id}
+                    className={`c-on-base-1 bb b--base-4 ${textAligns[textAlign]} ${hasWrapper ? '' : 'g-pv1 g-ph4'}`}
                   >
-                    {selectable && (
-                      <th className="g-pv1 g-f1 tc bb b--base-4" style={{ width: '40px' }}>
-                        <CheckBox
-                          onClick={(event, checked) => {
-                            this.select(index, checked)
-                          }}
-                          checked={this.state.selectedList.includes(index)}
-                        />
-                      </th>
+                    {buildTableTd(
+                      column.cellWrapper,
+                      fields.cellWrapperProps,
+                      <Placeholder className="g-h2 w-100 br4" isPlaceholderActive={false}>
+                        {() => fields[column.id]}
+                      </Placeholder>
                     )}
-                    {formatted_row}
-                  </tr>
+                  </td>
                 )
-              })}
+              })
+
+              return (
+                <tr
+                  key={index}
+                  className={`${(fields.bgColor && 'bg-' + fields.bgColor) || ''} ${(fields.lineLink && 'pointer') ||
+                    ''} hover-bg-base-2 bg-animate g-h11`}
+                  onClick={fields.lineLink && fields.lineLink}
+                >
+                  {selectable && (
+                    <th className="g-pv1 g-f1 tc bb b--base-4" style={{ width: '40px' }}>
+                      <CheckBox
+                        onClick={(event, checked) => {
+                          this.select(index, checked)
+                        }}
+                        checked={this.state.selectedList.includes(index)}
+                      />
+                    </th>
+                  )}
+                  {formatted_row}
+                </tr>
+              )
+            })}
         </tbody>
       </table>
     )
@@ -184,6 +186,8 @@ Table.propTypes = {
   ).isRequired,
   /** Rows that will be show on table. */
   rows: PropTypes.array.isRequired,
+  /** Mapped rows data returned on select change. */
+  data: PropTypes.array,
   /** Makes rows selectable. */
   selectable: PropTypes.bool,
   /** Is table in Loading State */
@@ -200,7 +204,7 @@ Table.defaultProps = {
   isLoading: false,
   placeholderLength: 3,
   placeholderSize: 'default',
-  onChange: () => {}
+  onChange: () => { }
 }
 
 export default Table

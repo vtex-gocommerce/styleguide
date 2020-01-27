@@ -60,7 +60,7 @@ class Table extends PureComponent {
   }
 
   parseRows = (data, refetch) => {
-    if (!data) return 
+    if (!data) return
     return data.map(item => {
       const row = this.props.tableConfig.columns.reduce((row, column) => {
         return {
@@ -102,6 +102,7 @@ class Table extends PureComponent {
         <TableTree
           columns={columns}
           rows={rows}
+          data={this.props.data}
           isLoading={isLoading}
           placeholderLength={rows.length || 5}
           selectable={selectable}
@@ -117,6 +118,7 @@ class Table extends PureComponent {
       <ListTable
         columns={columns}
         rows={rows}
+        data={this.props.data}
         isLoading={isLoading}
         placeholderLength={rows.length || 5}
         selectable={selectable}
@@ -173,7 +175,7 @@ Table.propTypes = {
 }
 
 Table.defaultProps = {
-  onChange: () => {},
+  onChange: () => { },
   extraData: {},
   placeholderSize: 'default',
 }

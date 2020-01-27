@@ -107,6 +107,36 @@ const rows = [
   }
 ]
 
+const selectableData = [
+  {
+    id: 1,
+    Name: 'Example Test',
+    Address: 'Street of Test',
+    City: 'Example Town',
+    Count: 245,
+    Price: '2399.00',
+  },
+  {
+    id: 2,
+    Name: 'Last Test',
+    Address: 'Just a big street',
+    Count: 24,
+  },
+  {
+    id: 3,
+    Name: 'Example Test',
+    Address: 'Street of Test',
+    Count: 245,
+    Price: '2399.00'
+  },
+  {
+    id: 4,
+    Name: 'Last Test',
+    Address: 'Just a big street',
+    Count: 24,
+  }
+]
+
 class TableExample extends React.Component {
   constructor(props) {
     super(props)
@@ -126,7 +156,7 @@ class TableExample extends React.Component {
           {this.state.placeholderIsActive ? 'active' : 'inactive'}
           <br />
           <br />
-          Table Pagination is a diffente Component <a href="#tablepagination">click here</a> to check it out
+          Table Pagination is a different Component <a href="#tablepagination">click here</a> to check it out
         </div>
         <div>
           <div className="g-mb4 g-mt4">
@@ -143,9 +173,10 @@ class TableExample extends React.Component {
               actions={<span class="hover-c-primary g-f2 pointer">Remover</span>}
               columns={columns}
               rows={rows}
+              data={selectableData}
               selectable
-              onChange={e => {
-                console.log(e)
+              onChange={selectedData => {
+                console.log('Selected rows data: ', selectedData)
               }}
             />
           </div>

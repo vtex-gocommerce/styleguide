@@ -67,7 +67,7 @@ export default class Row extends React.PureComponent {
               <div className={`g-pv1 g-f1 tc flex justify-center items-center ${open || !isLast ? 'bb b--base-4' : ''}`} style={{ width: '40px' }}>
                 <CheckBox
                   onClick={(event, checked) => {
-                    this.props.onSelect(index, checked)
+                    this.props.onSelect(checked)
                   }}
                   checked={this.props.isChecked}
                 />
