@@ -186,7 +186,7 @@ Table.propTypes = {
   ).isRequired,
   /** Rows that will be show on table. */
   rows: PropTypes.array.isRequired,
-  /** Optional data used on select change instead of rows. */
+  /** Mapped rows data returned on select change. */
   data: PropTypes.array,
   /** Makes rows selectable. */
   selectable: PropTypes.bool,
