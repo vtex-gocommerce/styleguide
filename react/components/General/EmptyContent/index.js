@@ -14,8 +14,9 @@ const EmptyContent = ({ title, description, helpText, image, helpLink }) => {
           <span className={'ml3'}>{ helpText }</span>
         </a>
       )}
-
-      <img src={image} />
+      <div className="mw7">
+        <img src={image} />
+      </div>
     </div>
   )
 }
