@@ -119,7 +119,7 @@ class ListTableTemplate extends PureComponent {
   }
 
   handleSearch = value => {
-    this.setStateAndRefetchData({ searchText: value.searchValue })
+    this.setStateAndRefetchData({ searchText: value.searchValue, page: defaultPage })
   }
 
   handleChangeTab = tabId => {
