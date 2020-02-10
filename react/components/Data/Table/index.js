@@ -28,7 +28,7 @@ class Table extends PureComponent {
     super(props)
 
     this.state = {
-      selectedList: []
+      selectedList: props.startSelected
     }
   }
 
@@ -186,6 +186,8 @@ Table.propTypes = {
   rows: PropTypes.array.isRequired,
   /** Makes rows selectable. */
   selectable: PropTypes.bool,
+  /** List of elements index to start selected. */
+  startSelected: PropTypes.array,
   /** Is table in Loading State */
   isLoading: PropTypes.bool,
   /** Placeholder options */
@@ -197,6 +199,7 @@ Table.propTypes = {
 
 Table.defaultProps = {
   selectable: false,
+  startSelected: [],
   isLoading: false,
   placeholderLength: 3,
   placeholderSize: 'default',
