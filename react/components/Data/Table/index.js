@@ -28,8 +28,20 @@ class Table extends PureComponent {
     super(props)
 
     this.state = {
-      selectedList: props.startSelected
+      selectedList: [],
+      prevStartSelected: []
     }
+  }
+
+  static getDerivedStateFromProps(nextProps, prevState) {
+    const newStartSelected = nextProps.startSelected.sort()
+    if (JSON.stringify(newStartSelected) !== JSON.stringify(prevState.prevStartSelected)) {
+      return {
+        selectedList: newStartSelected,
+        prevStartSelected: newStartSelected
+      }
+    }
+    return null
   }
 
   selectAll = (event, checked) => {
@@ -76,6 +88,7 @@ class Table extends PureComponent {
 
   render() {
     const { columns, rows, selectable, placeholderLength, placeholderSize, actions } = this.props
+
 
     return (
       <table className={`w-100 g-f2 ba b--base-4`} cellSpacing="0">

@@ -12,34 +12,7 @@ import { ListTableTemplateConsumer } from './../../index'
 class Table extends PureComponent {
 
   state = {
-    updateTable: 0,
-    rowsData: [],
     selected: []
-  }
-
-  static getDerivedStateFromProps(nextProps, prevState) {
-    const { data, compareElements } = nextProps
-
-    let needUpdate = false
-    if (data.length !== prevState.rowsData.length) needUpdate = true
-
-    const newRowsData = data.reduce((acc, currElement, currIndex) => {
-      const rowElement = prevState.rowsData.find(rowElement => compareElements(rowElement, currElement))
-      const rowIndex = prevState.rowsData.indexOf(rowElement)
-      if (rowIndex === -1 || rowIndex !== currIndex) needUpdate = true
-      if (rowElement) return [...acc, rowElement]
-      const selectedElement = prevState.selected.find(selected => compareElements(selected, currElement))
-      if (selectedElement) return [...acc, selectedElement]
-      return [...acc, { ...currElement, ROW_ID: uniqid() }]
-    }, [])
-
-    if (!needUpdate) {
-      return null
-    }
-    return {
-      rowsData: newRowsData,
-      updateTable: prevState.updateTable + 1
-    }
   }
 
   handleOnSortClick = (value, label, sort, handleChangeOrderBy) => {
@@ -105,8 +78,7 @@ class Table extends PureComponent {
               timezone: this.props.timezone,
               extraData: this.props.extraData,
               refetch
-            }),
-            ROW_ID: item.ROW_ID
+            })
           },
         }
       }, {})
@@ -129,18 +101,14 @@ class Table extends PureComponent {
   }
 
   updateSelected = (selectedRows) => {
-    const keepSelected = this.state.selected.filter(el => !this.state.rowsData.find(rowElement => rowElement.ROW_ID === el.ROW_ID))
-    const newSelected = this.state.rowsData.filter(rowElement => selectedRows.find(el => el.ROW_ID === rowElement.ROW_ID))
+    console.log('selectedRows')
+    const { compareElements, data } = this.props
+    const keepSelected = this.state.selected.filter(selected => !data.find(el => compareElements(el, selected)))
 
-    const updatedList = [...keepSelected, ...newSelected]
+    const updatedList = [...keepSelected, ...selectedRows]
     this.setState({ selected: updatedList })
 
-    // Remove ROW_ID before sending it back
-    this.props.onChange(updatedList.reduce((acc, currElement) => {
-      const element = Object.assign({}, currElement)
-      delete element.ROW_ID
-      return [...acc, element]
-    }, []))
+    this.props.onChange(updatedList)
   }
 
   renderTable = (rows, columns, startSelected) => {
@@ -165,7 +133,6 @@ class Table extends PureComponent {
 
     return (
       <ListTable
-        key={this.state.updateTable}
         columns={columns}
         rows={rows}
         data={data}
@@ -183,17 +150,17 @@ class Table extends PureComponent {
   }
 
   render() {
-    const { isLoading } = this.props
+    const { isLoading, compareElements, data } = this.props
 
     return (
       <ListTableTemplateConsumer>
         {({ sort, handleChangeOrderBy }) => {
 
-          const rows = this.parseRows(this.state.rowsData, handleChangeOrderBy)
+          const rows = this.parseRows(data, handleChangeOrderBy)
           const columns = this.parseColumns(sort, handleChangeOrderBy)
 
-          const startSelected = this.state.rowsData.reduce((acc, currValue, currIndex) => {
-            if (this.state.selected.find(selected => selected.ROW_ID == currValue.ROW_ID)) return [...acc, currIndex]
+          const startSelected = data.reduce((acc, currValue, currIndex) => {
+            if (this.state.selected.find(selected => compareElements(selected, currValue))) return [...acc, currIndex]
             return [...acc]
           }, [])
 
