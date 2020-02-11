@@ -100,7 +100,6 @@ class Table extends PureComponent {
   }
 
   updateSelected = (selectedRows) => {
-    console.log('selectedRows')
     const { compareElements, data } = this.props
     const keepSelected = this.state.selected.filter(selected => !data.find(el => compareElements(el, selected)))
 
