@@ -1,6 +1,5 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
-import style from './style.css'
 import Placeholder from '../../DataLoading/Placeholder'
 import CheckBox from '../../Form/CheckBox'
 
@@ -28,8 +27,20 @@ class Table extends PureComponent {
     super(props)
 
     this.state = {
-      selectedList: []
+      selectedList: [],
+      prevStartSelected: []
     }
+  }
+
+  static getDerivedStateFromProps(nextProps, prevState) {
+    const newStartSelected = nextProps.startSelected.sort()
+    if (JSON.stringify(newStartSelected) !== JSON.stringify(prevState.prevStartSelected)) {
+      return {
+        selectedList: newStartSelected,
+        prevStartSelected: newStartSelected
+      }
+    }
+    return null
   }
 
   selectAll = (event, checked) => {
@@ -76,6 +87,7 @@ class Table extends PureComponent {
 
   render() {
     const { columns, rows, selectable, placeholderLength, placeholderSize, actions } = this.props
+
 
     return (
       <table className={`w-100 g-f2 ba b--base-4`} cellSpacing="0">
@@ -190,6 +202,8 @@ Table.propTypes = {
   data: PropTypes.array,
   /** Makes rows selectable. */
   selectable: PropTypes.bool,
+  /** List of elements index to start selected. */
+  startSelected: PropTypes.array,
   /** Is table in Loading State */
   isLoading: PropTypes.bool,
   /** Placeholder options */
@@ -201,6 +215,7 @@ Table.propTypes = {
 
 Table.defaultProps = {
   selectable: false,
+  startSelected: [],
   isLoading: false,
   placeholderLength: 3,
   placeholderSize: 'default',

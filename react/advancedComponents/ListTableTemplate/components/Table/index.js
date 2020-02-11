@@ -1,14 +1,19 @@
+import PropTypes from 'prop-types'
 import React, { PureComponent } from 'react'
 import { FormattedMessage } from 'react-intl'
-import PropTypes from 'prop-types'
-import IconSortDown from './../../../../icons/IconSortDown'
-import IconSortUp from './../../../../icons/IconSortUp'
-import IconSearch from './../../../../icons/IconSearch'
 import { default as ListTable } from './../../../../components/Data/Table'
 import { default as TableTree } from './../../../../components/Data/TableTree'
+import IconSearch from './../../../../icons/IconSearch'
+import IconSortDown from './../../../../icons/IconSortDown'
+import IconSortUp from './../../../../icons/IconSortUp'
 import { ListTableTemplateConsumer } from './../../index'
 
 class Table extends PureComponent {
+
+  state = {
+    selected: []
+  }
+
   handleOnSortClick = (value, label, sort, handleChangeOrderBy) => {
     const direction = !sort ? 'ASC' : sort.direction === 'ASC' ? 'DESC' : 'ASC'
 
@@ -73,7 +78,7 @@ class Table extends PureComponent {
               extraData: this.props.extraData,
               refetch
             })
-          }
+          },
         }
       }, {})
 
@@ -94,15 +99,25 @@ class Table extends PureComponent {
     })
   }
 
-  renderTable = (rows, columns) => {
-    const { isLoading, selectable, actions, onChange, multilevel, placeholderSize } = this.props
+  updateSelected = (selectedRows) => {
+    const { compareElements, data } = this.props
+    const keepSelected = this.state.selected.filter(selected => !data.find(el => compareElements(el, selected)))
+
+    const updatedList = [...keepSelected, ...selectedRows]
+    this.setState({ selected: updatedList })
+
+    this.props.onChange(updatedList)
+  }
+
+  renderTable = (rows, columns, startSelected) => {
+    const { isLoading, selectable, actions, onChange, multilevel, placeholderSize, data } = this.props
 
     if (multilevel) {
       return (
         <TableTree
           columns={columns}
           rows={rows}
-          data={this.props.data}
+          data={data}
           isLoading={isLoading}
           placeholderLength={rows.length || 5}
           selectable={selectable}
@@ -118,30 +133,39 @@ class Table extends PureComponent {
       <ListTable
         columns={columns}
         rows={rows}
-        data={this.props.data}
+        data={data}
         isLoading={isLoading}
         placeholderLength={rows.length || 5}
         selectable={selectable}
+        startSelected={startSelected}
         actions={actions}
-        onChange={onChange}
+        onChange={(data) => {
+          this.updateSelected(data)
+        }}
         placeholderSize={placeholderSize}
       />
     )
   }
 
   render() {
-    const { isLoading } = this.props
+    const { isLoading, compareElements, data } = this.props
 
     return (
       <ListTableTemplateConsumer>
         {({ sort, handleChangeOrderBy }) => {
-          const rows = this.parseRows(this.props.data, handleChangeOrderBy)
+
+          const rows = this.parseRows(data, handleChangeOrderBy)
           const columns = this.parseColumns(sort, handleChangeOrderBy)
+
+          const startSelected = data.reduce((acc, currValue, currIndex) => {
+            if (this.state.selected.find(selected => compareElements(selected, currValue))) return [...acc, currIndex]
+            return [...acc]
+          }, [])
 
           return (
             <React.Fragment>
               <div className="g-f2 overflow-x-auto">
-                {this.renderTable(rows, columns)}
+                {this.renderTable(rows, columns, startSelected)}
               </div>
               {!isLoading && rows.length === 0 && (
                 <div className="tc c-on-base-2 g-f6 fw6 g-pv12 bg-on-inverted bl br bb b--base-4 br--bottom br1">
@@ -168,6 +192,7 @@ Table.propTypes = {
   data: PropTypes.array,
   isLoading: PropTypes.bool,
   selectable: PropTypes.bool,
+  compareElements: PropTypes.func,
   actions: PropTypes.node,
   onChange: PropTypes.func,
   extraData: PropTypes.object,
@@ -176,6 +201,7 @@ Table.propTypes = {
 
 Table.defaultProps = {
   onChange: () => { },
+  compareElements: (a, b) => JSON.stringify(a) === JSON.stringify(b),
   extraData: {},
   placeholderSize: 'default',
 }
