@@ -31,23 +31,15 @@ class Table extends PureComponent {
       if (element) return [...acc]
       return [...acc, { ...currElement, ROW_ID: uniqid() }]
     }, [])
-    // Update only rows data
-    if (newRows.length === 0) {
-      const diff = rowsInCache.filter(el => !prevState.rowsData.find(rowElement => rowElement.ROW_ID === el.ROW_ID))
-      if (rowsInCache.length === prevState.rowsData.length && diff.length === 0) {
-        return null
-      }
-      return {
-        rowsData: rowsInCache,
-        updateTable: prevState.updateTable + 1
-      }
-    }
+    const diff = rowsInCache.filter(el => !prevState.rowsData.find(rowElement => rowElement.ROW_ID === el.ROW_ID))
+    const needCacheUpdate = newRows.length > 0
+    const rowsDataChange = !needCacheUpdate && rowsInCache.length === prevState.rowsData.length && diff.length === 0
     // Update cache and rows data
     const newCacheData = [...prevState.cacheData, ...newRows]
     const newRowsData = [...rowsInCache, ...newRows]
     return {
-      rowsData: newRowsData,
-      cacheData: newCacheData,
+      cacheData: newRows.length ? newCacheData : prevState.cacheData,
+      rowsData: !newRows.length &&  newRowsData,
       updateTable: prevState.updateTable + 1
     }
   }
