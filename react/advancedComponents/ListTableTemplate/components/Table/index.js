@@ -11,39 +11,33 @@ import { ListTableTemplateConsumer } from './../../index'
 
 class Table extends PureComponent {
 
-  constructor(props) {
-    super(props)
-
-    this.state = {
-      updateTable: 0,
-      rowsData: [],
-      cacheData: [],
-      selected: []
-    }
+  state = {
+    updateTable: 0,
+    rowsData: [],
+    selected: []
   }
 
   static getDerivedStateFromProps(nextProps, prevState) {
-    const { data, compareElements, keepCache } = nextProps
+    const { data, compareElements } = nextProps
 
-    const rowsInCache = prevState.cacheData.filter(cacheElement => data.find(el => compareElements(cacheElement, el)))
-    const newRows = data.reduce((acc, currElement) => {
-      const element = prevState.cacheData.find(cacheElement => compareElements(cacheElement, currElement))
-      if (element) return [...acc]
+    let needUpdate = false
+    if (data.length !== prevState.rowsData.length) needUpdate = true
+
+    const newRowsData = data.reduce((acc, currElement, currIndex) => {
+      const rowElement = prevState.rowsData.find(rowElement => compareElements(rowElement, currElement))
+      const rowIndex = prevState.rowsData.indexOf(rowElement)
+      if (rowIndex === -1 || rowIndex !== currIndex) needUpdate = true
+      if (rowElement) return [...acc, rowElement]
+      const selectedElement = prevState.selected.find(selected => compareElements(selected, currElement))
+      if (selectedElement) return [...acc, selectedElement]
       return [...acc, { ...currElement, ROW_ID: uniqid() }]
     }, [])
-    const diffRows = rowsInCache.filter(el => !prevState.rowsData.find(rowElement => rowElement.ROW_ID === el.ROW_ID))
-    const needCacheUpdate = newRows.length > 0
-    const dontNeedUpdate = !needCacheUpdate && rowsInCache.length === prevState.rowsData.length && diffRows.length === 0
-    // Update cache and rows data
-    const newCacheData = [...prevState.cacheData, ...newRows]
-    const newRowsData = [...rowsInCache, ...newRows]
 
-    if (dontNeedUpdate) {
+    if (!needUpdate) {
       return null
     }
     return {
-      cacheData: keepCache ? newCacheData : [...newRows],
-      rowsData: keepCache ? newRowsData : [...newRows],
+      rowsData: newRowsData,
       updateTable: prevState.updateTable + 1
     }
   }
@@ -234,7 +228,6 @@ Table.propTypes = {
   isLoading: PropTypes.bool,
   selectable: PropTypes.bool,
   compareElements: PropTypes.func,
-  keepCache: PropTypes.bool,
   actions: PropTypes.node,
   onChange: PropTypes.func,
   extraData: PropTypes.object,
@@ -243,8 +236,7 @@ Table.propTypes = {
 
 Table.defaultProps = {
   onChange: () => { },
-  compareElements: (curr, next) => curr === next,
-  keepCache: false,
+  compareElements: (a, b) => JSON.stringify(a) === JSON.stringify(b),
   extraData: {},
   placeholderSize: 'default',
 }
