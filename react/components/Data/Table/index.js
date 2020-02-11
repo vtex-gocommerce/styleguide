@@ -41,7 +41,8 @@ class Table extends PureComponent {
       updatedList = []
     }
 
-    const mapped = this.props.rows.filter((element, index) => {
+    const elements = this.props.data ? this.props.data : this.props.rows
+    const mapped = elements.filter((element, index) => {
       if (updatedList.includes(index)) {
         return element
       }
@@ -63,8 +64,9 @@ class Table extends PureComponent {
 
     this.setState({ selectedList: [...updatedList].sort() })
 
-    const mapped = this.props.rows.filter((element, elementIndex) => {
-      if (updatedList.includes(elementIndex)) {
+    const elements = this.props.data ? this.props.data : this.props.rows
+    const mapped = elements.filter((element, index) => {
+      if (updatedList.includes(index)) {
         return element
       }
     })
@@ -184,6 +186,8 @@ Table.propTypes = {
   ).isRequired,
   /** Rows that will be show on table. */
   rows: PropTypes.array.isRequired,
+  /** Mapped rows data returned on select change. */
+  data: PropTypes.array,
   /** Makes rows selectable. */
   selectable: PropTypes.bool,
   /** List of elements index to start selected. */

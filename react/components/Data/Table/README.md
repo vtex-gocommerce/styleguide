@@ -107,6 +107,36 @@ const rows = [
   }
 ]
 
+const selectableData = [
+  {
+    id: 1,
+    Name: 'Example Test',
+    Address: 'Street of Test',
+    City: 'Example Town',
+    Count: 245,
+    Price: '2399.00',
+  },
+  {
+    id: 2,
+    Name: 'Last Test',
+    Address: 'Just a big street',
+    Count: 24,
+  },
+  {
+    id: 3,
+    Name: 'Example Test',
+    Address: 'Street of Test',
+    Count: 245,
+    Price: '2399.00'
+  },
+  {
+    id: 4,
+    Name: 'Last Test',
+    Address: 'Just a big street',
+    Count: 24,
+  }
+]
+
 class TableExample extends React.Component {
   constructor(props) {
     super(props)
@@ -143,9 +173,10 @@ class TableExample extends React.Component {
               actions={<span class="hover-c-primary g-f2 pointer">Remover</span>}
               columns={columns}
               rows={rows}
+              data={selectableData}
               selectable
               onChange={selectedData => {
-                console.log('Selected: ', selectedData)
+                console.log('Selected rows data: ', selectedData)
               }}
             />
           </div>
