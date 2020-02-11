@@ -7,7 +7,7 @@
     "date-fns": "^2.3.0",
     "i18n-country-code": "^1.0.0",
     "react-datepicker": "^2.9.6",
-    "react-intl": "^2.7.2",
+    "react-intl": "3.9.1",
     "react-onclickoutside": "^6.9.0",
     "react-paginate": "^5.2.2",
     "react-responsive-modal": "^4.0.1",
