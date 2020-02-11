@@ -23,7 +23,7 @@ class Table extends PureComponent {
   }
 
   static getDerivedStateFromProps(nextProps, prevState) {
-    const { data, compareElements } = nextProps
+    const { data, compareElements, keepCache } = nextProps
 
     const rowsInCache = prevState.cacheData.filter(cacheElement => data.find(el => compareElements(cacheElement, el)))
     const newRows = data.reduce((acc, currElement) => {
@@ -42,8 +42,8 @@ class Table extends PureComponent {
       return null
     }
     return {
-      cacheData: newCacheData,
-      rowsData: newRowsData,
+      cacheData: keepCache ? newCacheData : [...newRows],
+      rowsData: keepCache ? newRowsData : [...newRows],
       updateTable: prevState.updateTable + 1
     }
   }
@@ -229,6 +229,7 @@ Table.propTypes = {
   isLoading: PropTypes.bool,
   selectable: PropTypes.bool,
   compareElements: PropTypes.func,
+  keepCache: PropTypes.bool,
   actions: PropTypes.node,
   onChange: PropTypes.func,
   extraData: PropTypes.object,
@@ -238,6 +239,7 @@ Table.propTypes = {
 Table.defaultProps = {
   onChange: () => { },
   compareElements: (curr, next) => curr === next,
+  keepCache: false,
   extraData: {},
   placeholderSize: 'default',
 }
