@@ -1,14 +1,57 @@
+import PropTypes from 'prop-types'
 import React, { PureComponent } from 'react'
 import { FormattedMessage } from 'react-intl'
-import PropTypes from 'prop-types'
-import IconSortDown from './../../../../icons/IconSortDown'
-import IconSortUp from './../../../../icons/IconSortUp'
-import IconSearch from './../../../../icons/IconSearch'
+import uniqid from 'uniqid'
 import { default as ListTable } from './../../../../components/Data/Table'
 import { default as TableTree } from './../../../../components/Data/TableTree'
+import IconSearch from './../../../../icons/IconSearch'
+import IconSortDown from './../../../../icons/IconSortDown'
+import IconSortUp from './../../../../icons/IconSortUp'
 import { ListTableTemplateConsumer } from './../../index'
 
 class Table extends PureComponent {
+
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      updateTable: 0,
+      rowsData: [],
+      cacheData: [],
+      selected: []
+    }
+  }
+
+  static getDerivedStateFromProps(nextProps, prevState) {
+    const { data, compareElements } = nextProps
+
+    const rowsInCache = prevState.cacheData.filter(cacheElement => data.find(el => compareElements(cacheElement, el)))
+    const newRows = data.reduce((acc, currElement) => {
+      const element = prevState.cacheData.find(cacheElement => compareElements(cacheElement, currElement))
+      if (element) return [...acc]
+      return [...acc, { ...currElement, ROW_ID: uniqid() }]
+    }, [])
+    // Update only rows data
+    if (newRows.length === 0) {
+      const diff = rowsInCache.filter(el => !prevState.rowsData.find(rowElement => rowElement.ROW_ID === el.ROW_ID))
+      if (rowsInCache.length === prevState.rowsData.length && diff.length === 0) {
+        return null
+      }
+      return {
+        rowsData: rowsInCache,
+        updateTable: prevState.updateTable + 1
+      }
+    }
+    // Update cache and rows data
+    const newCacheData = [...prevState.cacheData, ...newRows]
+    const newRowsData = [...rowsInCache, ...newRows]
+    return {
+      rowsData: newRowsData,
+      cacheData: newCacheData,
+      updateTable: prevState.updateTable + 1
+    }
+  }
+
   handleOnSortClick = (value, label, sort, handleChangeOrderBy) => {
     const direction = !sort ? 'ASC' : sort.direction === 'ASC' ? 'DESC' : 'ASC'
 
@@ -72,8 +115,9 @@ class Table extends PureComponent {
               timezone: this.props.timezone,
               extraData: this.props.extraData,
               refetch
-            })
-          }
+            }),
+            ROW_ID: item.ROW_ID
+          },
         }
       }, {})
 
@@ -94,15 +138,25 @@ class Table extends PureComponent {
     })
   }
 
-  renderTable = (rows, columns) => {
-    const { isLoading, selectable, actions, onChange, multilevel, placeholderSize } = this.props
+  updateSelected = (selectedRows) => {
+    const keepSelected = this.state.selected.filter(el => !this.state.rowsData.find(rowElement => rowElement.ROW_ID === el.ROW_ID))
+    const newSelected = this.state.rowsData.filter(rowElement => selectedRows.find(el => el.ROW_ID === rowElement.ROW_ID))
+
+    const updatedList = [...keepSelected, ...newSelected]
+
+    this.setState({ selected: updatedList })
+    this.props.onChange(updatedList)
+  }
+
+  renderTable = (rows, columns, startSelected) => {
+    const { isLoading, selectable, actions, onChange, multilevel, placeholderSize, data } = this.props
 
     if (multilevel) {
       return (
         <TableTree
           columns={columns}
           rows={rows}
-          data={this.props.data}
+          data={data}
           isLoading={isLoading}
           placeholderLength={rows.length || 5}
           selectable={selectable}
@@ -116,14 +170,18 @@ class Table extends PureComponent {
 
     return (
       <ListTable
+        key={this.state.updateTable}
         columns={columns}
         rows={rows}
-        data={this.props.data}
+        data={data}
         isLoading={isLoading}
         placeholderLength={rows.length || 5}
         selectable={selectable}
+        startSelected={startSelected}
         actions={actions}
-        onChange={onChange}
+        onChange={(data) => {
+          this.updateSelected(data)
+        }}
         placeholderSize={placeholderSize}
       />
     )
@@ -135,13 +193,19 @@ class Table extends PureComponent {
     return (
       <ListTableTemplateConsumer>
         {({ sort, handleChangeOrderBy }) => {
-          const rows = this.parseRows(this.props.data, handleChangeOrderBy)
+
+          const rows = this.parseRows(this.state.rowsData, handleChangeOrderBy)
           const columns = this.parseColumns(sort, handleChangeOrderBy)
+
+          const startSelected = this.state.rowsData.reduce((acc, currValue, currIndex) => {
+            if (this.state.selected.find(selected => selected.ROW_ID == currValue.ROW_ID)) return [...acc, currIndex]
+            return [...acc]
+          }, [])
 
           return (
             <React.Fragment>
               <div className="g-f2 overflow-x-auto">
-                {this.renderTable(rows, columns)}
+                {this.renderTable(rows, columns, startSelected)}
               </div>
               {!isLoading && rows.length === 0 && (
                 <div className="tc c-on-base-2 g-f6 fw6 g-pv12 bg-on-inverted bl br bb b--base-4 br--bottom br1">
@@ -168,6 +232,7 @@ Table.propTypes = {
   data: PropTypes.array,
   isLoading: PropTypes.bool,
   selectable: PropTypes.bool,
+  compareElements: PropTypes.func,
   actions: PropTypes.node,
   onChange: PropTypes.func,
   extraData: PropTypes.object,
@@ -176,6 +241,7 @@ Table.propTypes = {
 
 Table.defaultProps = {
   onChange: () => { },
+  compareElements: (curr, next) => curr === next,
   extraData: {},
   placeholderSize: 'default',
 }
