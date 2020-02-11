@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types'
 import React, { PureComponent } from 'react'
 import { FormattedMessage } from 'react-intl'
-import uniqid from 'uniqid'
 import { default as ListTable } from './../../../../components/Data/Table'
 import { default as TableTree } from './../../../../components/Data/TableTree'
 import IconSearch from './../../../../icons/IconSearch'
