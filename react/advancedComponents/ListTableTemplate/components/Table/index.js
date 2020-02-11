@@ -139,9 +139,14 @@ class Table extends PureComponent {
     const newSelected = this.state.rowsData.filter(rowElement => selectedRows.find(el => el.ROW_ID === rowElement.ROW_ID))
 
     const updatedList = [...keepSelected, ...newSelected]
-
     this.setState({ selected: updatedList })
-    this.props.onChange(updatedList)
+
+    // Remove ROW_ID before sending it back
+    this.props.onChange(updatedList.reduce((acc, currElement) => {
+      const element = Object.assign({}, currElement)
+      delete element.ROW_ID
+      return [...acc, element]
+    }, []))
   }
 
   renderTable = (rows, columns, startSelected) => {
