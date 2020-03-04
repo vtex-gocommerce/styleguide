@@ -1,6 +1,5 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
-import IconCheck from '../../../icons/IconCheck'
 import styles from './style.css'
 
 class RadioButton extends PureComponent {
@@ -16,17 +15,8 @@ class RadioButton extends PureComponent {
     this.props.containerBuild && this.props.containerBuild(nextProps)
   }
 
-  static getDerivedStateFromProps(props, state) {
-    if (props.checked !== state.checked) {
-      return { checked: props.checked }
-    }
-    return null
-  }
-
   handleClick = event => {
-    this.setState(prev => ({
-      checked: true
-    }))
+    this.setState({ checked: true })
 
     this.props.onClick && this.props.onClick(event)
   }

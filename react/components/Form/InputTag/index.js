@@ -40,7 +40,7 @@ class InputTag extends Component {
 
   handleChangeValues = () => {
     this.props.onChangeValues(this.state.values)
-    this.props.onChange && this.props.onChange({ target: { value: this.state.values } })
+    this.props.onChange && this.props.onChange({ target: { value: this.state.values, name: this.props.name } })
   }
 
   handleChangeInput = () => {
