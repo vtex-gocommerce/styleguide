@@ -21,7 +21,7 @@ const buttonCloseStyleHover = {
 
 class Tag extends PureComponent {
   render() {
-    const { onRemove, style } = this.props
+    const { onRemove, style, id } = this.props
 
     let tagStyleClasses = styleClasses[style]
 
@@ -31,7 +31,7 @@ class Tag extends PureComponent {
     if (onRemove) classes += 'pointer'
 
     return (
-      <span className={classes}>
+      <span className={classes} id={id}>
         <span className="flex items-center">
           {this.props.children}
           {onRemove && (
@@ -47,6 +47,7 @@ class Tag extends PureComponent {
 
 Tag.propTypes = {
   /** Function that will be called when user click to remove tag. */
+  id: PropTypes.string,
   onRemove: PropTypes.func,
   children: PropTypes.node.isRequired,
   style: PropTypes.oneOf(['default', 'primary', 'danger', 'warning', 'success'])
