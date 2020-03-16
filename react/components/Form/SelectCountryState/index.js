@@ -1,13 +1,12 @@
-/*eslint no-unused-vars: "off"*/
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
-import styles from './style.css'
+
 import Input from './../Input'
 import Select from './../Select/index'
 
 // http://battuta.medunes.net/api/region/ar/all/?key=295f77b7ce1151371edb94429a2437c5
 
-class SelectCountryStates extends PureComponent {
+class SelectCountryState extends PureComponent {
   constructor(props) {
     super(props)
 
@@ -91,7 +90,7 @@ class SelectCountryStates extends PureComponent {
   }
 }
 
-SelectCountryStates.propTypes = {
+SelectCountryState.propTypes = {
   /** (Input spec attribute) */
   name: PropTypes.string,
   /** (Input id attribute) */
@@ -124,7 +123,7 @@ SelectCountryStates.propTypes = {
   defaultValue: PropTypes.string,
 }
 
-SelectCountryStates.defaultProps = {
+SelectCountryState.defaultProps = {
   name: null,
   id: null,
   placeholder: '',
@@ -137,4 +136,4 @@ SelectCountryStates.defaultProps = {
   elementClassName: '',
 }
 
-export default SelectCountryStates
+export default SelectCountryState

@@ -12,13 +12,6 @@ class CheckBox extends PureComponent {
     }
   }
 
-  static getDerivedStateFromProps(props, state) {
-    if (props.checked !== state.checked) {
-      return { checked: props.checked }
-    }
-    return null
-  }
-
   handleClick = event => {
     this.setState(prev => ({
       checked: !prev.checked,

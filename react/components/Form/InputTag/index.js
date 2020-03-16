@@ -40,7 +40,7 @@ class InputTag extends Component {
 
   handleChangeValues = () => {
     this.props.onChangeValues(this.state.values)
-    this.props.onChange && this.props.onChange({ target: { value: this.state.values } })
+    this.props.onChange && this.props.onChange({ target: { value: this.state.values, name: this.props.name } })
   }
 
   handleChangeInput = () => {
@@ -170,7 +170,11 @@ class InputTag extends Component {
           ))}
           {this.state.values.map((data, key) => (
             <span key={key} className="inline-flex g-ml1 g-mb1 g-mt1">
-              <Tag style={this.props.tagStyle} onRemove={() => this.onRemoveValue(data)}>
+              <Tag
+                id={`${this._inputId}_tag${key}`}
+                style={this.props.tagStyle}
+                onRemove={() => this.onRemoveValue(data)}
+              >
                 {data}
               </Tag>
             </span>

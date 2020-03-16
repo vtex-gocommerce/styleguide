@@ -1,5 +1,8 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
+
+import InputLabel from '../InputLabel/index'
+
 import styles from './style.css'
 
 class Textarea extends PureComponent {
@@ -39,7 +42,7 @@ class Textarea extends PureComponent {
   }
 
   render() {
-    const { hasError, disabled, placeholder, className, name, id, style, rows, resize, showCounter, label } = this.props
+    const { hasError, disabled, placeholder, className, name, id, style, rows, resize, showCounter, label, required } = this.props
     const { value, currentLength, maxLength } = this.state
     const currentCharacterIndex = maxLength - currentLength
 
@@ -65,7 +68,14 @@ class Textarea extends PureComponent {
 
     return (
       <React.Fragment>
-        {label && <label className="db c-on-base-2 g-mb1 g-f2 lh-copy" htmlFor={inputId}>{label}</label>}
+        {label && (
+          <InputLabel
+            text={label}
+            required={required}
+            hasError={hasError}
+            htmlFor={inputId}
+          />
+        )}
         <textarea {...props} className={inputClasses} value={value} />
         {showCounter && maxLength !== 0 && (
           <label

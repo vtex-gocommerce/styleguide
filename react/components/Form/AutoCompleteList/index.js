@@ -21,7 +21,7 @@ class AutoCompleteList extends PureComponent {
     }
 
     this.setState({ value: clickedLabel })
-    this.onChange({ target: { value: clickedLabel } })
+    this.onChange({ target: { value: clickedLabel, name: this.props.inputName } })
   }
 
   onBlur = e => {

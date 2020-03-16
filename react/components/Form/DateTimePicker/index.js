@@ -17,15 +17,8 @@ class DateTimePicker extends PureComponent {
     registerLocale(locale, localeRegister)
   }
 
-  componentDidUpdate = prevProps => {
-    if (prevProps.value !== this.props.value) {
-      this.setState({ value: this.props.value })
-    }
-  }
-
   handleChange = value => {
-    this.setState({ value })
-    this.props.onChange && this.props.onChange(value)
+    this.props.onChange && this.props.onChange({ target: { value, name: this.props.name }})
   }
 
   handleFocus = event => {
@@ -62,6 +55,7 @@ class DateTimePicker extends PureComponent {
       withoutStyle,
       defaultValue,
       required,
+      value,
     } = this.props
 
     const padding = 'g-ph4 f6 '
@@ -87,6 +81,7 @@ class DateTimePicker extends PureComponent {
       useShortMonthInDropdown: true,
       dateFormat: 'P',
       autoComplete: 'off',
+      selected: value,
       ...options,
     }
 
