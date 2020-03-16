@@ -100,8 +100,16 @@ class Input extends PureComponent {
 
   componentDidUpdate = prevProps => {
     // When is currency, changing the state cause errors
-    if (this.props.formatValue !== 'currency' && prevProps.value !== this.props.value) {
-      this.setState({ value: this.props.value })
+    if (prevProps !== this.props.value) {
+      return this.props.formatValue === 'currency'
+        ? this.setState({
+          value: CurrencyFunctions.initialValue(
+            this.props.value,
+            this.props,
+            this._baseDivider
+          )
+        })
+        : this.setState({ value: this.props.value })
     }
   }
 

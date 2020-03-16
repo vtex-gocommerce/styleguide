@@ -46,8 +46,8 @@ class Tag extends PureComponent {
 }
 
 Tag.propTypes = {
-  /** Function that will be called when user click to remove tag. */
   id: PropTypes.string,
+  /** Function that will be called when user click to remove tag. */
   onRemove: PropTypes.func,
   children: PropTypes.node.isRequired,
   style: PropTypes.oneOf(['default', 'primary', 'danger', 'warning', 'success'])
