@@ -99,7 +99,7 @@ class Input extends PureComponent {
   }
 
   componentDidUpdate = prevProps => {
-    if (prevProps !== this.props.value) {
+    if (prevProps.value !== this.props.value) {
       return this.props.formatValue === 'currency'
         ? this.setState({
           value: CurrencyFunctions.initialValue(
