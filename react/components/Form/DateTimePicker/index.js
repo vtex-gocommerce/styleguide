@@ -58,8 +58,8 @@ class DateTimePicker extends PureComponent {
       value,
     } = this.props
 
-    const padding = 'g-ph4 f6 '
-    const style = `${styles.input} ba br2 g-h11 `
+    const padding = "ph4 f6 "
+    const style = `${styles.input} ba br2 h11 `
 
     let colors = ''
     if (disabled) colors += 'b--base-4 bg-base-3 c-on-base-2 '
@@ -101,7 +101,7 @@ class DateTimePicker extends PureComponent {
           <div className={`dib datepicker_gocommerce ${className} ${containerClassName}`}>
             <div className="flex">
               <DatePicker {...props} className={`${DateTimePickerClasses} w-100 dib ba br-0 br1 br--left`} />
-              <span className="ba br2 br--right b--base-4 inline-flex items-center g-ph3 c-on-base-2">
+              <span className="ba br2 br--right b--base-4 inline-flex items-center ph3 c-on-base-2">
                 {this.props.suffix}
               </span>
             </div>
@@ -115,7 +115,7 @@ class DateTimePicker extends PureComponent {
           {LabelComponent}
           <div className={`dib datepicker_gocommerce ${style} ${colors} ${className} overflow-hidden ${containerClassName}`}>
             <div className="flex flex-auto items-center ">
-              <div className="g-pl3">{this.props.iconBefore}</div>
+              <div className="pl3">{this.props.iconBefore}</div>
               <DatePicker {...props} className={`${colors} ${padding} ${style} bn w-100 dib`} />
             </div>
           </div>

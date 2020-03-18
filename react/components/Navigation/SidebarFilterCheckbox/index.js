@@ -45,13 +45,13 @@ class SidebarFilterCheckbox extends PureComponent {
 
     return (
       <div>
-        <ul className="list g-pa0 g-f2">
+        <ul className="list pa0 f6">
           {filter.options.map((item, index) => {
             const code = `${filter.code}-${item.code}`
 
             return (
               <li key={`${filter.code}${index}`}>
-                <label className="inline-flex items-center g-mb2 pointer">
+                <label className="inline-flex items-center mb2 pointer">
                   <CheckBox
                     value={item.value}
                     name={code}
@@ -65,7 +65,7 @@ class SidebarFilterCheckbox extends PureComponent {
                       this.handleRemove({ ...item, code: code })
                     }}
                   />
-                  <span className="g-ml3">{item.title}</span>
+                  <span className="ml3">{item.title}</span>
                 </label>
               </li>
             )

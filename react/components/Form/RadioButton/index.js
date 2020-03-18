@@ -40,9 +40,7 @@ class RadioButton extends PureComponent {
 
     return (
       <label
-        className={`gc-radiobutton dib inline-flex items-center w-auto ${className} ${!disabled && 'pointer'} ${
-          styles.gc_radiobutton
-        }`}
+        className={`gc-radiobutton dib inline-flex items-center w-auto ${className} ${!disabled && 'pointer'} ${styles.gc_radiobutton}`}
       >
         <input
           id={inputId}
@@ -57,7 +55,7 @@ class RadioButton extends PureComponent {
         <div className={classesCircleOutside} style={{ width: width || '20px', height: height || '20px' }}>
           <span className={`icon ${classesCircleInside}`} />
         </div>
-        {label && <span className="g-ml2 hover-c-primary pointer" htmlFor={inputId}>{label}</span>}
+        {label && <span className="ml2 hover-c-primary pointer" htmlFor={inputId}>{label}</span>}
       </label>
     )
   }

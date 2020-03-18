@@ -62,11 +62,11 @@ class SeoBuilder extends Component {
 
     return (
       <React.Fragment>
-        <div className={`fadeIn flex-ns justify-between g-pt5 ${className}`}>
-          <div className="w-100 w-50-ns g-pr4-ns">
-            <div className="g-pb4 g-f2">
+        <div className={`fadeIn flex-ns justify-between pt5 ${className}`}>
+          <div className="w-100 w-50-ns pr4-ns">
+            <div className="pb4 f6">
               <div className="flex justify-between">
-                <label className="db g-pb2 c-on-base-2">{this.props.labelPageTitle}</label>
+                <label className="db pb2 c-on-base-2">{this.props.labelPageTitle}</label>
                 <TextLimitCounter text={this.state.pageTitle} limit={PAGE_TITLE_LIMIT} />
               </div>
               <Input
@@ -77,9 +77,9 @@ class SeoBuilder extends Component {
                 onChange={this.handleChange}
               />
             </div>
-            <div className="g-pb4 g-f2">
+            <div className="pb4 f6">
               <div className="flex justify-between">
-                <label className="db g-pb2 c-on-base-2">{this.props.labelMetaDescription}</label>
+                <label className="db pb2 c-on-base-2">{this.props.labelMetaDescription}</label>
                 <TextLimitCounter text={this.state.metaDescription} limit={DESCRIPTION_LIMIT} />
               </div>
               <Textarea
@@ -91,8 +91,8 @@ class SeoBuilder extends Component {
                 onChange={this.handleChange}
               />
             </div>
-            <div className="g-pb4 g-f2">
-              <label className="db g-pb2 c-on-base-2">{this.props.labelUrl}</label>
+            <div className="pb4 f6">
+              <label className="db pb2 c-on-base-2">{this.props.labelUrl}</label>
               <Input
                 name="url"
                 placeholder={placeholderUrl}
@@ -102,13 +102,13 @@ class SeoBuilder extends Component {
               />
             </div>
           </div>
-          <div className="w-100 w-50-ns g-pl4-ns">
+          <div className="w-100 w-50-ns pl4-ns">
             {(this.state.pageTitle || this.state.metaDescription || this.state.url) && (
               <Seo
                 title={this.truncateTextDisplay(this.state.pageTitle, PAGE_TITLE_LIMIT)}
                 url={this.props.urlBase + this.state.url + this.props.urlAppend}
                 description={this.truncateTextDisplay(this.state.metaDescription, DESCRIPTION_LIMIT)}
-                className="br-0 h-100 g-pb4"
+                className="br-0 h-100 pb4"
               />
             )}
           </div>

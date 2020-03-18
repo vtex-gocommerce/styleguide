@@ -22,8 +22,8 @@ class TableList extends PureComponent {
               return (
                 <th
                   key={column.id}
-                  className={`${index === 0 ? 'g-pl0' : 'g-pl4'} ${index === lastColumn ? 'g-pr0' : 'g-pr4'} 
-                  ${textAligns[textAlign]} c-on-base-2 fw4 g-f1 `}
+                  className={`${index === 0 ? "pl0" : "pl4"} ${index === lastColumn ? "pr0" : "pr4"} 
+                  ${textAligns[textAlign]} c-on-base-2 fw4 f7 `}
                   style={{ width: column.size + '%' }}
                 >
                   {column.label}
@@ -37,8 +37,8 @@ class TableList extends PureComponent {
             ? [...Array(3).keys()].map(e => (
               <tr key={e}>
                 {[...Array(this.props.columns.length).keys()].map(e => (
-                  <td key={e} className={`g-pv5 g-ph4 c-on-base-1 tc `}>
-                    <Placeholder className="g-h2 w-100 g-mt2 br4" isPlaceholderActive={this.props.isLoading} />
+                  <td key={e} className={`pv5 ph4 c-on-base-1 tc `}>
+                    <Placeholder className="h2 w-100 mt2 br4" isPlaceholderActive={this.props.isLoading} />
                   </td>
                 ))}
               </tr>
@@ -49,12 +49,10 @@ class TableList extends PureComponent {
                 return (
                   <td
                     key={index + column.id}
-                    className={` g-pv2 ${hasLineDivision ? "bb b--base-3" : ""} ${indexColumn === 0 ? 'g-pl0' : 'g-pl4'} ${
-                      indexColumn === lastColumn ? 'g-pr0' : 'g-pr4'
-                      }
-                      g-pv2 c-on-base-1 ${textAligns[textAlign]}`}
+                    className={` pv2 ${hasLineDivision ? "bb b--base-3" : ""} ${indexColumn === 0 ? "pl0" : "pl4"} ${indexColumn === lastColumn ? "pr0" : "pr4"}
+                      pv2 c-on-base-1 ${textAligns[textAlign]}`}
                   >
-                    <Placeholder className="g-h2 w-100 g-mt2 br4" isPlaceholderActive={false}>
+                    <Placeholder className="h2 w-100 mt2 br4" isPlaceholderActive={false}>
                       {() => fields[column.id]}
                     </Placeholder>
                   </td>

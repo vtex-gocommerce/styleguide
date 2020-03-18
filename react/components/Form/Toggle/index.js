@@ -33,7 +33,7 @@ class Toggle extends PureComponent {
     const { checked } = this.state
 
     const inputId = id || name
-    let classes = `flex items-center relative g-h8 g-ph4 br-pill ${styles.toggle} `
+    let classes = `flex items-center relative h8 ph4 br-pill ${styles.toggle} `
     let circle = `absolute br-100 ${styles.toggleCircle} `
 
     if (disabled) {
@@ -53,7 +53,7 @@ class Toggle extends PureComponent {
         <div className={classes}>
           <div className={circle} />
         </div>
-        {label && <span className="g-ml3 hover-c-primary pointer" htmlFor={inputId}>{label}</span>}
+        {label && <span className="ml3 hover-c-primary pointer" htmlFor={inputId}>{label}</span>}
 
         <input
           name={name}

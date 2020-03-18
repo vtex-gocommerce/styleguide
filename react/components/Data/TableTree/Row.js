@@ -12,7 +12,7 @@ const textAligns = {
 
 const buildTableTd = (Wrapper, props = {}, children) =>
   Wrapper ? (
-    <Wrapper className="g-pv3 g-ph4 db no-underline c-on-base flex-grow-1" {...props}>
+    <Wrapper className="pv3 ph4 db no-underline c-on-base flex-grow-1" {...props}>
       {children}
     </Wrapper>
   ) : (
@@ -35,12 +35,12 @@ export default class Row extends React.PureComponent {
       return (
         <div
           key={depth + column.id}
-          className={`flex-grow-1 flex items-center c-on-base-1 ${open || !isLast ? 'bb b--base-4' : ''} ${textAligns[textAlign]} ${hasWrapper ? '' : 'g-pv1 g-ph4'}`}
+          className={`flex-grow-1 flex items-center c-on-base-1 ${open || !isLast ? 'bb b--base-4' : ''} ${textAligns[textAlign]} ${hasWrapper ? '' : "pv1 ph4"}`}
         >
           {buildTableTd(
             column.cellWrapper,
             fields.cellWrapperProps,
-            <Placeholder className="g-h2 w-100 br4" isPlaceholderActive={false}>
+            <Placeholder className="h2 w-100 br4" isPlaceholderActive={false}>
               {() => fields[column.id]}
             </Placeholder>
           )}
@@ -58,13 +58,13 @@ export default class Row extends React.PureComponent {
         <div className={'flex flex-column'}>
           <div
             className={`${(fields.bgColor && 'bg-' + fields.bgColor) || ''} ${(fields.lineLink && 'pointer') ||
-              ''} g-h11 flex flex-row`}
+  ''} h11 flex flex-row`}
             onClick={fields.lineLink && fields.lineLink}
             style={{ paddingLeft: `${depth*40}px` }}
           >
             <div style={{ width: '10px' }} className={`${!open && depth === 0 && !isLast ? 'bb b--base-4' : ''}`} />
             {selectable && (
-              <div className={`g-pv1 g-f1 tc flex justify-center items-center ${open || !isLast ? 'bb b--base-4' : ''}`} style={{ width: '40px' }}>
+              <div className={`pv1 f7 tc flex justify-center items-center ${open || !isLast ? 'bb b--base-4' : ''}`} style={{ width: '40px' }}>
                 <CheckBox
                   onClick={(event, checked) => {
                     this.props.onSelect(checked)
@@ -77,7 +77,7 @@ export default class Row extends React.PureComponent {
               {this.getFormattedRow()}
             </div>
             <div 
-              className={`g-pv1 g-f1 tc b--base-4 pointer hover-blue flex items-center justify-center ${!open && depth === 0 && !isLast ? 'bb b--base-4' : ''}`} 
+              className={`pv1 f7 tc b--base-4 pointer hover-blue flex items-center justify-center ${!open && depth === 0 && !isLast ? 'bb b--base-4' : ''}`} 
               style={{ width: '50px' }} 
               onClick={() => this.setState({ open: !open })}
             >

@@ -3,16 +3,16 @@ import PropTypes from 'prop-types'
 import PlaceholderContainer from '../../DataLoading/PlaceholderContainer'
 
 class Container extends PureComponent {
-  static HR = () => <hr className="w-auto g-nh8 g-mv6 bw0 bg-base-4 c-on-base-4" style={{ height: 1 }} />
+  static HR = () => <hr className="w-auto nh8 mv6 bw0 bg-base-4 c-on-base-4" style={{ height: 1 }} />
 
   render() {
     const { id, isPlaceholderActive, classNameArray, children, noVerticalPadding, noHorizontalPadding } = this.props
-    const verticalPadding = isPlaceholderActive || !noVerticalPadding ? 'g-pv6' : ''
-    const horizontalPadding = isPlaceholderActive || !noHorizontalPadding ? `g-ph8` : ''
+    const verticalPadding = isPlaceholderActive || !noVerticalPadding ? "pv6" : ''
+    const horizontalPadding = isPlaceholderActive || !noHorizontalPadding ? `ph8` : ''
     return (
       <div
         id={id}
-        className={`w-100 flex flex-column g-mb8 br2 ba b--base-4 bg-base-1 c-on-base-2 g-f3 ${verticalPadding}`}
+        className={`w-100 flex flex-column mb8 br2 ba b--base-4 bg-base-1 c-on-base-2 f5 ${verticalPadding}`}
       >
         <div className={horizontalPadding}>
           <PlaceholderContainer isPlaceholderActive={isPlaceholderActive} classNameArray={classNameArray}>
@@ -41,13 +41,13 @@ Container.defaultProps = {
   id: '',
   isPlaceholderActive: false,
   classNameArray: [
-    ['g-h8 w-30 g-mb7'],
-    ['g-h4 w-30 g-mb5'],
-    ['g-h10 w-80 g-mb5'],
-    ['g-h4 w-30 g-mb5'],
-    ['g-h10 w-80 g-mb5'],
-    ['g-h4 w-30 g-mb5'],
-    ['g-h10 w-80 g-mb5']
+    ["h8 w-30 mb7"],
+    ["h4 w-30 mb5"],
+    ["h10 w-80 mb5"],
+    ["h4 w-30 mb5"],
+    ["h10 w-80 mb5"],
+    ["h4 w-30 mb5"],
+    ["h10 w-80 mb5"]
   ]
 }
 

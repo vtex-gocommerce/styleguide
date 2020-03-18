@@ -9,7 +9,7 @@ class Breadcrumb extends PureComponent {
     if (!this.props.link) {
       return (
         <a href={item.to} className={classesLink}>
-          {icon && <IconArrowLeft className="g-mr2" />}
+          {icon && <IconArrowLeft className="mr2" />}
           <span className="dn dib-ns">{item.title}</span>
         </a>
       )
@@ -27,7 +27,7 @@ class Breadcrumb extends PureComponent {
 
     return (
       <Link to={item.to} page={item.page} query={query} className={classesLink}>
-        {icon && <IconArrowLeft className="g-mr2" />}
+        {icon && <IconArrowLeft className="mr2" />}
         <span className="dn dib-ns">{item.title}</span>
       </Link>
     )
@@ -45,7 +45,7 @@ class Breadcrumb extends PureComponent {
         ) : (
           <span className="c-on-base-2 dib">{this.renderItemText(item)}</span>
         )}
-        <span className="c-on-base-2 g-ph2 dib">{this.props.separator}</span>
+        <span className="c-on-base-2 ph2 dib">{this.props.separator}</span>
       </React.Fragment>
     )
   }
@@ -54,7 +54,7 @@ class Breadcrumb extends PureComponent {
     const { items } = this.props
 
     return (
-      <div className="c-on-base g-f3 g-f5-ns fw6 tracked-tight flex items-center overflow-hidden flex-auto g-pr11-ns">
+      <div className="c-on-base f5 f5-ns fw6 tracked-tight flex items-center overflow-hidden flex-auto pr11-ns">
         {items.map((item, index, items) => {
           if (index + 1 === items.length) {
             return (

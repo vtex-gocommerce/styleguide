@@ -5,7 +5,7 @@ class Avatar extends PureComponent {
   render() {
     const { size, img, letters, alt } = this.props
     const areaSize = `${size}px`
-    const letterFontSize = `${(size / 2.25)}px`
+    const letterFontSize = `${size / 2.25}px`
 
     return img ? (
       <div className="cover bg-top br-100" style={{ width: areaSize, height: areaSize, backgroundImage: `url(${img})` }}></div>

@@ -13,7 +13,7 @@ const SuffixComponent = ({ children, suffix, className, hasError, colors }) => {
     <div className={`dib ${className}`}>
       <div className="flex">
         {children}
-        <span className={`ba br2 br--right inline-flex items-center g-ph3 ${!hasError ? 'c-on-base-2' : ''} ${colors}`}>
+        <span className={`ba br2 br--right inline-flex items-center ph3 ${!hasError ? 'c-on-base-2' : ''} ${colors}`}>
           {suffix}
         </span>
       </div>
@@ -34,7 +34,7 @@ const IconBeforeComponent = ({ children, iconBefore, style, colors, className })
   return (
     <div className={`dib ${style} ${colors} ${className} overflow-hidden`}>
       <div className="flex flex-auto items-center ">
-        <div className="g-pl3">{iconBefore}</div>
+        <div className="pl3">{iconBefore}</div>
         {children}
       </div>
     </div>
@@ -170,8 +170,8 @@ class Input extends PureComponent {
     const inputId = id || name
 
     // Styles
-    const padding = 'g-ph4 f6 '
-    const style = `${styles.input} ba br2 g-h11 `
+    const padding = "ph4 f6 "
+    const style = `${styles.input} ba br2 h11 `
     let colors = ''
     const isDisableAspect = disabled || readOnly
     if (isDisableAspect) colors += 'b--base-4 bg-base-2 c-on-base-2 '
@@ -234,7 +234,7 @@ class Input extends PureComponent {
         {showMaxLength && maxLength !== 0 && (
           <InputLabel
             text={`${maxLength && maxLength - value.length}`}
-            className="flex flex-row-reverse db g-pb2 g-pa1 g-f2"
+            className="flex flex-row-reverse db pb2 pa1 f6"
             hasError={maxLength - value.length <= 0}
           />
         )}

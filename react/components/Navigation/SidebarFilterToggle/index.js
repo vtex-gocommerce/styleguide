@@ -16,16 +16,16 @@ class SidebarFilterToggle extends PureComponent {
     const { filter } = this.props
     return (
       <div>
-        <ul className="list g-pa0 g-f2">
+        <ul className="list pa0 f6">
           {filter.options.map((item, index) => {
             const code = `${filter.code}-${item.code}`
             return (
               <li key={`${filter.code}${index}`}>
-                <label className="inline-flex items-center g-mb2 pointer">
+                <label className="inline-flex items-center mb2 pointer">
                   <Toggle
                     value={item.value}
                     name={filter.code}
-                    className="g-mr3"
+                    className="mr3"
                     checked={this.isActive(code)}
                     onClick={() => {
                       this.handleChange({ ...item, code: code })

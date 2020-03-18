@@ -42,9 +42,7 @@ class LoadingCircle extends PureComponent {
     return (
       <div className={`${styles.gc_loading_circle} ${className} w-auto relative ${this.state.hide ? 'dn' : 'dib'}`}>
         <svg
-          className={`${
-            !this.state.hideEffect ? styles.gc_loading_circle__progress : styles.gc_loading_circle__progress__finish
-          }`}
+          className={`${!this.state.hideEffect ? styles.gc_loading_circle__progress : styles.gc_loading_circle__progress__finish}`}
           viewBox="0 0 120 120"
           style={{ width: width, height: width }}
         >
@@ -61,9 +59,7 @@ class LoadingCircle extends PureComponent {
           />
         </svg>
         <div
-          className={`${
-            !this.state.hideEffect ? styles.gc_loading_circle__check : styles.gc_loading_circle__check__finish
-          }`}
+          className={`${!this.state.hideEffect ? styles.gc_loading_circle__check : styles.gc_loading_circle__check__finish}`}
           style={{ display: current === 100 ? 'block' : 'none', color: '#3DA3C3' }}
         >
           <IconCheck width={checkWidth} height={checkWidth} />
