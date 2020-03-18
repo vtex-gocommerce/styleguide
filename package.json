@@ -11,7 +11,8 @@
     "entrypoints": "node ./scripts/entrypoints.js",
     "gen-icons": "node ./scripts/svgToComponent.js && npm run entrypoints",
     "copycss": "copyfiles -u 2 react/**/*.css lib",
-    "test:react": "jest react"
+    "test:react": "jest react",
+    "test:codemod": "jest codemod"
   },
   "homepage": "https://vtex-gocommerce.github.io/styleguide",
   "devDependencies": {
@@ -22,6 +23,7 @@
     "copyfiles": "^1.2.0",
     "fs": "0.0.1-security",
     "gh-pages": "^1.2.0",
+    "jscodeshift": "^0.7.0",
     "react": "16.4.2",
     "react-dom": "16.4.2",
     "react-scripts": "^1.1.5",
