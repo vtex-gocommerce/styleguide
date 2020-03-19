@@ -127,7 +127,7 @@ class Table extends PureComponent {
               <tr key={e} className="h-large">
                 {[...Array(this.props.columns.length + (selectable ? 1 : 0)).keys()].map(e => (
                   <td key={e} className={`${placeholderSizes[placeholderSize]} ph4 c-on-base-1 tc bb b--base-4`}>
-                    <Placeholder className="h1 w-100 br4" isPlaceholderActive={this.props.isLoading} />
+                    <Placeholder className="pa2 w-100 br4" isPlaceholderActive={this.props.isLoading} />
                   </td>
                 ))}
               </tr>

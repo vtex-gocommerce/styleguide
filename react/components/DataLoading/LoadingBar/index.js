@@ -7,8 +7,8 @@ class LoadingBar extends PureComponent {
     const { current, withLabel, withStripes } = this.props
 
     return (
-      <div className={`h1 bg-navy-40 ${withLabel && "mt8"}`}>
-        <div className={`relative h1 bg-primary ${styles.bar}`} style={{ width: `${current}%` }}>
+      <div className={`bg-navy-40 ${withLabel && "mt8"}`}>
+        <div className={`relative pv1 bg-primary ${styles.bar}`} style={{ width: `${current}%` }}>
           {withStripes && <span className={styles.stripes} />}
           {withLabel && <span className="absolute bottom-1 right-0 fw6 blue">{current}%</span>}
         </div>
