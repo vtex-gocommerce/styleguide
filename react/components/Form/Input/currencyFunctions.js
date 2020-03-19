@@ -54,7 +54,9 @@ const CurrencyFunctions = {
     let number = CurrencyFunctions.removeCurrencySymbols(value)
     number = number.replace(separatorRegex, '').replace(currencyDecimalSeparator, '.')
 
-    return props.currencyIsInteger ? parseInt(number * _baseDivider) : number
+    return props.currencyIsInteger
+      ? Math.round(parseFloat(number) * _baseDivider)
+      : number
   },
 }
 
