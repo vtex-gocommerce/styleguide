@@ -7,17 +7,17 @@ class Seo extends Component {
     const { className, title, url, description, noBorder } = this.props
     const border = noBorder ? '' : 'ba br2 b--base-3'
     return (
-      <div className={`g-pl5 g-pt4 ${border} ${styles.gc_seo} ${className}`}>
+      <div className={`pl5 pt4 ${border} ${styles.gc_seo} ${className}`}>
         <div>
           <span className={styles.gc_seo_button__close} />
           <span className={styles.gc_seo_button__maximize} />
           <span className={styles.gc_seo_button__minimize} />
         </div>
-        <div className="g-pt5 ">
-          {title && <span className={`db g-f4 g-pb1 word-break ${styles.gc_seo__title}`}>{title}</span>}
-          {url && <span className={`db g-f2 g-pb1 word-break ${styles.gc_seo__url}`}>{url}</span>}
+        <div className="pt5 ">
+          {title && <span className={`db f4 pb1 word-break ${styles.gc_seo__title}`}>{title}</span>}
+          {url && <span className={`db f6 pb1 word-break ${styles.gc_seo__url}`}>{url}</span>}
           {description && (
-            <span className={`db g-pt1 g-f2 fw3 word-break ${styles.gc_seo__description}`}>{description}</span>
+            <span className={`db pt1 f6 fw3 word-break ${styles.gc_seo__description}`}>{description}</span>
           )}
         </div>
       </div>

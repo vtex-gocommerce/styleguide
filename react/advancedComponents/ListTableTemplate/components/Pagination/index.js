@@ -47,7 +47,7 @@ class Pagination extends PureComponent {
           const showingItens = total <= perPage ? total : perPage
 
           return (
-            <div className="flex justify-between items-center c-on-base-2 g-f2">
+            <div className="flex justify-between items-center c-on-base-2 f6">
               <span className="dn db-ns">
                 <FormattedMessage
                   id="admin/styleguide.tablePagination.showing"
@@ -55,10 +55,10 @@ class Pagination extends PureComponent {
                 />
               </span>
               <div className="flex justify-between justify-end-ns flex-auto">
-                <div className="pointer justify-end g-nl4 g-nl0-ns">
+                <div className="pointer justify-end nl4 nl0-ns">
                   <Select
                     elementClassName="tracked-tight pointer hover-c-primary"
-                    className="pl0 g-pl4-ns"
+                    className="pl0 pl4-ns"
                     list={this.viewPageOptions(intl)}
                     required
                     placeholder={false}
@@ -68,7 +68,7 @@ class Pagination extends PureComponent {
                   />
                 </div>
 
-                <div className="flex items-center g-ml3 justify-end relative z-3 g-w14">
+                <div className="flex items-center ml3 justify-end relative z-3 w4">
                   <PaginationStyleguide
                     currentPage={page || 1}
                     pageCount={Math.ceil(total / perPage || 1)}

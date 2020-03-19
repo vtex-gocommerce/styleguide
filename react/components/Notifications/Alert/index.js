@@ -42,17 +42,17 @@ class Alert extends PureComponent {
 
   render() {
     const { type, onClose, title, action } = this.props
-    const classes = `flex g-ph5 g-pv5 ba br2 b--dashed flex ${types[type].classes} ${types[type].fill}`
+    const classes = `flex ph5 pv5 ba br2 b--dashed flex ${types[type].classes} ${types[type].fill}`
     const Icon = types[type].icon
     const Action = props => action
 
     return (
       <div className={classes}>
-        <div className="flex items-center g-mr3 w-100">
+        <div className="flex items-center mr3 w-100">
           <Icon family="regular" width="42px" height="42px" />
-          <div className="g-ml4">
-            {title && <p className="c-on-base-2 g-f2 g-ma0 g-mb1">{title}</p>}
-            <div className="fw6 g-f3">{this.props.children}</div>
+          <div className="ml4">
+            {title && <p className="c-on-base-2 f6 ma0 mb1">{title}</p>}
+            <div className="fw6 f5">{this.props.children}</div>
           </div>
         </div>
         {action && <Action />}
