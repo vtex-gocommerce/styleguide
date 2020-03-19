@@ -52,7 +52,7 @@ class TablePagination extends PureComponent {
             />
           </div>
 
-          <div className="flex items-center ml5 justify-end relative z-3">
+          <div className="flex items-center g-ml5 justify-end relative z-3">
             <Pagination
               currentPage={page}
               pageCount={Math.ceil(total / perPage || 1)}

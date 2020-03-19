@@ -8,8 +8,10 @@ function replaceFromLiteral(source, j) {
           .split(' ')
           .map(cl => {
             let value = cl
+            if (isFontClass(value)) value = replaceFontClass(value)
+            else if (isSizeClass(value)) value = replaceSizeClass(value)
+
             if (value.startsWith('g-')) value = cl.replace('g-', '')
-            if (isFontClass(value)) value = fontClassMap[value]
 
             return value
           })
@@ -36,8 +38,10 @@ function replaceFromTemplate(source, j) {
           .split(' ')
           .map(cl => {
             let value = cl
+            if (isFontClass(value)) value = replaceFontClass(value)
+            else if (isSizeClass(value)) value = replaceSizeClass(value)
+
             if (value.startsWith('g-')) value = cl.replace('g-', '')
-            if (isFontClass(value)) value = fontClassMap[value]
 
             return value
           })
@@ -54,14 +58,76 @@ function replaceFromTemplate(source, j) {
 }
 
 const fontClassMap = {
-  'f1': 'f7',
-  'f2': 'f6',
-  'f3': 'f5',
-  'f4': 'f4',
+  'g-f1': 'f7',
+  'g-f2': 'f6',
+  'g-f3': 'f5',
+  'g-f4': 'f4',
+  'g-f5': 'f3',
+  'g-f6': 'f2',
+  'g-f7': 'f1',
+}
+
+const heightClassMap = {
+  'g-h1': 'h1',
+  'g-h2': 'h1',
+  'g-h3': 'h1',
+  'g-h4': 'h1',
+  'g-h5': 'h1',
+  'g-h6': 'h2',
+  'g-h7': 'h2',
+  'g-h8': 'h2',
+  'g-h9': 'h2',
+  'g-h10': 'h2',
+  'g-h11': 'h2',
+  'g-h12': 'h3',
+  'g-h13': 'h3',
+  'g-h14': 'h4',
+  'g-h15': 'h5',
+  'g-h16': 'h5',
+}
+
+const widthClassMap = {
+  'g-w1': 'w1',
+  'g-w2': 'w1',
+  'g-w3': 'w1',
+  'g-w4': 'w1',
+  'g-w5': 'w1',
+  'g-w6': 'w2',
+  'g-w7': 'w2',
+  'g-w8': 'w2',
+  'g-w9': 'w2',
+  'g-w10': 'w2',
+  'g-w11': 'w2',
+  'g-w12': 'w3',
+  'g-w13': 'w3',
+  'g-w14': 'w4',
+  'g-w15': 'w5',
+  'g-w16': 'w5',
 }
 
 const isFontClass = (cl) => {
-  return Object.keys(fontClassMap).includes(cl)
+  return Object.keys(fontClassMap).findIndex(c => cl.startsWith(c)) > -1
+}
+
+const isSizeClass = cl => {
+  return [
+    ...Object.keys(heightClassMap),
+    ...Object.keys(widthClassMap),
+  ].findIndex(c => cl.startsWith(c)) > -1
+}
+
+const replaceSizeClass = cl => {
+  const [preffix, classname, ...rest] = cl.split('-')
+  const toReplace = `${preffix}-${classname}`
+  const newClass = heightClassMap[toReplace] || widthClassMap[toReplace]
+  return rest.length > 0 ? `${newClass}-${rest.join('-')}` : newClass
+}
+
+const replaceFontClass = cl => {
+  const [preffix, classname, ...rest] = cl.split('-')
+  const toReplace = `${preffix}-${classname}`
+  const newClass = fontClassMap[toReplace]
+  return rest.length > 0 ? `${newClass}-${rest.join('-')}` : newClass
 }
 
 module.exports = function(file, { jscodeshift: j }) {

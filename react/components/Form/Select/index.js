@@ -53,7 +53,7 @@ class Select extends Component {
     if (!disabled && !hasError && !withoutStyle) classesSelectWrapper += 'bg-base-1 c-on-base '
     if (withoutStyle) classesSelectWrapper += 'c-on-base-2 bg-transparent bn '
 
-    let classes = `pl4 pr2 ${size === 'small' ? " h8" : " h11 "} `
+    let classes = `g-pl4 g-pr2 ${size === 'small' ? ' g-h8' : ' g-h11 '} `
     if (disabled) classes += 'c-on-base-2 '
     if (withoutStyle) classes += 'c-on-base-2 '
     if (!disabled && !hasError && !withoutStyle) classes += 'c-on-base '

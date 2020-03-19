@@ -100,12 +100,12 @@ class SidebarFilter extends PureComponent {
     const { keyRenderOptions } = this.state
     return (
       <div className="fixed z-9999 w-100 w-25-ns vh-100 top-0 right-0 shadow-2 bg-white">
-        <div className="flex flex-column vh-100 ph8 pt6 pb0 ">
-          <div className="flex justify-between  pb5">
-            <div className="f5 fw6 tracked-tight c-on-base">{this.getTextByLocale('filters')}</div>
-            <div className="f6">
+        <div className="flex flex-column vh-100 g-ph8 g-pt6 g-pb0 ">
+          <div className="flex justify-between  g-pb5">
+            <div className="g-f5 fw6 tracked-tight c-on-base">{this.getTextByLocale('filters')}</div>
+            <div className="g-f2">
               <div
-                className="fr ph3 c-on-base pointer hover-c-danger"
+                className="fr g-ph3 c-on-base pointer hover-c-danger"
                 onClick={() => {
                   this.handleClose()
                 }}
@@ -117,12 +117,12 @@ class SidebarFilter extends PureComponent {
           <div className="flex-auto overflow-y-scroll">
             {enabledOptions && enabledOptions.length > 0 && (
               <div className="w-100">
-                <p className="c-on-base-2 f7 fw6">{this.getTextByLocale('appliedFilters')}</p>
-                <div className="flex flex-wrap pt2">
+                <p className="c-on-base-2 g-f1 fw6">{this.getTextByLocale('appliedFilters')}</p>
+                <div className="flex flex-wrap g-pt2">
                   {enabledOptions.map((item, index) => {
                     return (
-                      <span key={item.code} className="dib mb2">
-                        <Tag className="h10 " onRemove={() => this.handleRemove(item)}>
+                      <span key={item.code} className="dib g-mb2">
+                        <Tag className="g-h10 " onRemove={() => this.handleRemove(item)}>
                           {item.title}
                         </Tag>
                       </span>
@@ -133,8 +133,8 @@ class SidebarFilter extends PureComponent {
             )}
 
             <div className="w-100">
-              <div className="pt2">
-                <p className="c-on-base-2 f7 fw6 nb2">{this.getTextByLocale('editFilters')} </p>
+              <div className="g-pt2">
+                <p className="c-on-base-2 g-f1 fw6 nb2">{this.getTextByLocale('editFilters')} </p>
               </div>
             </div>
 
@@ -142,7 +142,7 @@ class SidebarFilter extends PureComponent {
               const ComponentListOptions = optionsTypeComponents[filter.optionsType]
 
               return (
-                <div key={`${keyRenderOptions}${filter.code}`} className="pv4 bb b--base-4">
+                <div key={`${keyRenderOptions}${filter.code}`} className="g-pv4 bb b--base-4">
                   <div
                     className="flex outiline c-on-base hover-c-primary pointer"
                     onClick={() => {
@@ -150,13 +150,13 @@ class SidebarFilter extends PureComponent {
                     }}
                   >
                     <div className="flex-auto">
-                      <div className="flex fw6 f5 c-primary ">{filter.title}</div>
+                      <div className="flex fw6 g-f3 c-primary ">{filter.title}</div>
                     </div>
                     <div className="fr flex">
-                      <IconSortDown side={filter.expanded ? 'up' : 'down'} className="pt1 ph3 c-primary" />
+                      <IconSortDown side={filter.expanded ? 'up' : 'down'} className="g-pt1 g-ph3 c-primary" />
                     </div>
                   </div>
-                  <div className={filter.expanded ? "db pt0" : 'dn'}>
+                  <div className={filter.expanded ? 'db g-pt0' : 'dn'}>
                     <ComponentListOptions
                       filter={filter}
                       enabledOptions={enabledOptions}
@@ -175,7 +175,7 @@ class SidebarFilter extends PureComponent {
             })}
           </div>
 
-          <div className="w-100 pv5">
+          <div className="w-100 g-pv5">
             <Button onClick={this.handleAppyFilter} className="w-100">
               {this.getTextByLocale('applyFilter')}
             </Button>

@@ -16,4 +16,4 @@ Timeline.propTypes = {
     children: PropTypes.node.isRequired,
 }
 
-export default Timeline
+export default Timeline;

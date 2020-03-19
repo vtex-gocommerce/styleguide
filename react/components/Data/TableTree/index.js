@@ -11,8 +11,8 @@ const textAligns = {
   center: 'tc'
 }
 const placeholderSizes = {
-  default: "pv4",
-  large: "pv8"
+  default: 'g-pv4',
+  large: 'g-pv8'
 }
 
 class TableTree extends PureComponent {
@@ -94,23 +94,23 @@ class TableTree extends PureComponent {
     const { columns, rows, selectable, placeholderLength, placeholderSize, actions } = this.props
 
     return (
-      <div className={`w-100 f6 ba b--base-4`} cellSpacing="0">
+      <div className={`w-100 g-f2 ba b--base-4`} cellSpacing="0">
         {selectable && (
           <div className={'flex flex-row'}>
             <div className={'bb b--base-4'} style={{ width: '10px' }} />
-            <div className={`pv2 f7 tc flex justify-center items-center bb b--base-4`} style={{ width: '40px' }}>
+            <div className={`g-pv2 g-f1 tc flex justify-center items-center bb b--base-4`} style={{ width: '40px' }}>
               <CheckBox onClick={this.selectAll} />
             </div>
-            <div className={`pv2 ph4 tl bb b--base-4 normal c-on-base flex-grow-1`}>
+            <div className={`g-pv2 g-ph4 tl bb b--base-4 normal c-on-base flex-grow-1`}>
               {actions && actions}
             </div>
-            <div className="pv2 ph4 tc bb b--base-4" style={{ width: '50px' }} />
+            <div className='g-pv2 g-ph4 tc bb b--base-4' style={{ width: '50px' }} />
           </div>
         )}
         <div className={`tl bg-base-2 flex flex-row`}>
           <div className={'flex flex-row flex-grow-1'}>
             <div className={'bb b--base-4'} style={{ width: '10px' }} />
-            {selectable && <div className={`pv2 ph4 tc bb b--base-4`} style={{ width: '40px' }} />}
+            {selectable && <div className={`g-pv2 g-ph4 tc bb b--base-4`} style={{ width: '40px' }} />}
             {columns.map((column, index) => {
               const textAlign =
                 (column.textAlign && column.textAlign) || (column && column.isCentered ? 'center' : 'left')
@@ -118,23 +118,23 @@ class TableTree extends PureComponent {
               return (
                 <div
                   key={column.id}
-                  className={`flex flex-grow-1 h9 pv1 ph4 c-on-base-2 fw4 f7 bb b--base-4 ${textAligns[textAlign]}`}
+                  className={`flex flex-grow-1 g-h9 g-pv1 g-ph4 c-on-base-2 fw4 g-f1 bb b--base-4 ${textAligns[textAlign]}`}
                   style={{ width: column.size + '%' }}
                 >
                   {column.label}
                 </div>
               )
             })}
-            <div className={`pv2 ph4 tc bb b--base-4`} style={{ width: '40px' }} />
+            <div className={`g-pv2 g-ph4 tc bb b--base-4`} style={{ width: '40px' }} />
           </div>
         </div>
         <div className="bg-base-1">
           {this.props.isLoading
             ? [...Array(placeholderLength).keys()].map(e => (
-                <div key={e} className="h11 flex">
+                <div key={e} className="g-h11 flex">
                   {[...Array(this.props.columns.length + (selectable ? 1 : 0)).keys()].map(e => (
-                    <div key={e} className={`${placeholderSizes[placeholderSize]} ph4 c-on-base-1 tc bb b--base-4 flex items-center flex-grow-1`}>
-                      <Placeholder className="h2 w-100 br4" isPlaceholderActive={this.props.isLoading} />
+                    <div key={e} className={`${placeholderSizes[placeholderSize]} g-ph4 c-on-base-1 tc bb b--base-4 flex items-center flex-grow-1`}>
+                      <Placeholder className="g-h2 w-100 br4" isPlaceholderActive={this.props.isLoading} />
                     </div>
                   ))}
                 </div>

@@ -88,16 +88,16 @@ class SidebarFilterDate extends PureComponent {
 
     return (
       <div>
-        <ul className="list pa0 f6">
+        <ul className="list g-pa0 g-f2">
           {filter.options.map((item, index) => {
             const code = `${filter.code}-${item.code}`
             return (
               <li key={`${filter.code}${index}`}>
-                <label className="inline-flex items-center mb2 pointer">
+                <label className="inline-flex items-center g-mb2 pointer">
                   <RadioButton
                     value={item.value}
                     name={filter.code}
-                    className="mr3"
+                    className="g-mr3"
                     checked={this.isActive(code)}
                     onClick={() => {
                       this.handleChange({ ...item, code: code })
@@ -110,12 +110,12 @@ class SidebarFilterDate extends PureComponent {
           })}
 
           <li>
-            <label className="inline-flex items-center mb2 pointer">
+            <label className="inline-flex items-center g-mb2 pointer">
               <RadioButton
                 name={filter.code}
                 checked={this.isActive(`${filter.code}-date-range`)}
                 value="date-range"
-                className="mr3"
+                className="g-mr3"
                 onClick={() => {
                   this.handleChange({
                     value: `${this.formatCustomDate(initDate)}|${this.formatCustomDate(endDate)}`,
@@ -127,8 +127,8 @@ class SidebarFilterDate extends PureComponent {
               {this.getTextByLocale('dateRange')}
             </label>
             {showDateRange && (
-              <div className={`mt3`}>
-                <p className="ma0 c-on-base-2 f6 mb1">{this.getTextByLocale('from')}</p>
+              <div className={`g-mt3`}>
+                <p className="g-ma0 c-on-base-2 g-f2 g-mb1">{this.getTextByLocale('from')}</p>
                 <DateTimePicker
                   className="w-100"
                   placeholder={`Ex. ${currentDate.getFullYear()}-${currentDate.getMonth() + 1}-${currentDate.getDate()}`}
@@ -141,7 +141,7 @@ class SidebarFilterDate extends PureComponent {
                     locale,
                   }}
                 />
-                <p className="ma0 c-on-base-2 f6 mb1 mt3">{this.getTextByLocale('to')}</p>
+                <p className="g-ma0 c-on-base-2 g-f2 g-mb1 g-mt3">{this.getTextByLocale('to')}</p>
                 <DateTimePicker
                   className="w-100"
                   placeholder={`Ex. ${currentDate.getFullYear()}-${currentDate.getMonth() + 1}-${currentDate.getDate()}`}

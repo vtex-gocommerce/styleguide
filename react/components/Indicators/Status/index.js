@@ -10,7 +10,7 @@ const types = {
 
 class Status extends PureComponent {
   render() {
-    return <div className={`${types[this.props.type]} dib pa1 br-100`} />
+    return <div className={`${types[this.props.type]} dib g-pa1 br-100`} />
   }
 }
 

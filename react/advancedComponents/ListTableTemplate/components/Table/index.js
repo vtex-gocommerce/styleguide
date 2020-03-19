@@ -30,7 +30,7 @@ class Table extends PureComponent {
         {label}{' '}
         {sort &&
           sort.field == value &&
-          (direction === 'DESC' ? <IconSortUp className="ml2 f6" /> : <IconSortDown className="ml2 f6" />)}
+          (direction === 'DESC' ? <IconSortUp className="g-ml2 g-f2" /> : <IconSortDown className="g-ml2 g-f2" />)}
       </div>
     )
   }
@@ -164,16 +164,16 @@ class Table extends PureComponent {
 
           return (
             <React.Fragment>
-              <div className="f6 overflow-x-auto">
+              <div className="g-f2 overflow-x-auto">
                 {this.renderTable(rows, columns, startSelected)}
               </div>
               {!isLoading && rows.length === 0 && (
-                <div className="tc c-on-base-2 f6 fw6 pv12 bg-on-inverted bl br bb b--base-4 br--bottom br1">
+                <div className="tc c-on-base-2 g-f6 fw6 g-pv12 bg-on-inverted bl br bb b--base-4 br--bottom br1">
                   <IconSearch width="40px" height="40px" />
-                  <p className="mv3">
+                  <p className="g-mv3">
                     <FormattedMessage id="admin/styleguide.could-not-find-any-item" defaultMessage='Could not find any item' />
                   </p>
-                  <p className="f6 normal">
+                  <p className="g-f2 normal">
                     <FormattedMessage id="admin/styleguide.try-using-another-filter-or-searching-for-a-less-specific-term" defaultMessage='Try using another filter or searching for a less specific term' />
                   </p>
                 </div>

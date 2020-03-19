@@ -9,13 +9,13 @@ const textAligns = {
   center: 'tc'
 }
 const placeholderSizes = {
-  default: "pv4",
-  large: "pv8"
+  default: 'g-pv4',
+  large: 'g-pv8'
 }
 
 const buildTableTd = (Wrapper, props = {}, children) =>
   Wrapper ? (
-    <Wrapper className="pv3 ph4 db no-underline c-on-base" {...props}>
+    <Wrapper className="g-pv3 g-ph4 db no-underline c-on-base" {...props}>
       {children}
     </Wrapper>
   ) : (
@@ -90,21 +90,21 @@ class Table extends PureComponent {
 
 
     return (
-      <table className={`w-100 f6 ba b--base-4`} cellSpacing="0">
+      <table className={`w-100 g-f2 ba b--base-4`} cellSpacing="0">
         <thead className={`tl bg-base-2`}>
           {selectable && (
             <tr>
-              <th className={`pv2 ph4 tc bb b--base-4`} style={{ width: '40px' }}>
+              <th className={`g-pv2 g-ph4 tc bb b--base-4`} style={{ width: '40px' }}>
                 <CheckBox onClick={this.selectAll} />
               </th>
-              <th className={`pv2 ph4 tl bb b--base-4 normal c-on-base`} colSpan={columns.length}>
+              <th className={`g-pv2 g-ph4 tl bb b--base-4 normal c-on-base`} colSpan={columns.length}>
                 {actions && actions}
               </th>
             </tr>
           )}
 
           <tr>
-            {selectable && <th className={`pv2 ph4 tc bb b--base-4`} style={{ width: '40px' }} />}
+            {selectable && <th className={`g-pv2 g-ph4 tc bb b--base-4`} style={{ width: '40px' }} />}
             {columns.map((column, index) => {
               const textAlign =
                 (column.textAlign && column.textAlign) || (column && column.isCentered ? 'center' : 'left')
@@ -112,7 +112,7 @@ class Table extends PureComponent {
               return (
                 <th
                   key={column.id}
-                  className={`h9 pv1 ph4 c-on-base-2 fw4 f7 bb b--base-4 ${textAligns[textAlign]}`}
+                  className={`g-h9 g-pv1 g-ph4 c-on-base-2 fw4 g-f1 bb b--base-4 ${textAligns[textAlign]}`}
                   style={{ width: column.size + '%' }}
                 >
                   {column.label}
@@ -124,10 +124,10 @@ class Table extends PureComponent {
         <tbody className="bg-base-1">
           {this.props.isLoading
             ? [...Array(placeholderLength).keys()].map(e => (
-              <tr key={e} className="h11">
+              <tr key={e} className="g-h11">
                 {[...Array(this.props.columns.length + (selectable ? 1 : 0)).keys()].map(e => (
-                  <td key={e} className={`${placeholderSizes[placeholderSize]} ph4 c-on-base-1 tc bb b--base-4`}>
-                    <Placeholder className="h2 w-100 br4" isPlaceholderActive={this.props.isLoading} />
+                  <td key={e} className={`${placeholderSizes[placeholderSize]} g-ph4 c-on-base-1 tc bb b--base-4`}>
+                    <Placeholder className="g-h2 w-100 br4" isPlaceholderActive={this.props.isLoading} />
                   </td>
                 ))}
               </tr>
@@ -140,12 +140,12 @@ class Table extends PureComponent {
                 return (
                   <td
                     key={index + column.id}
-                    className={`c-on-base-1 bb b--base-4 ${textAligns[textAlign]} ${hasWrapper ? '' : "pv1 ph4"}`}
+                    className={`c-on-base-1 bb b--base-4 ${textAligns[textAlign]} ${hasWrapper ? '' : 'g-pv1 g-ph4'}`}
                   >
                     {buildTableTd(
                       column.cellWrapper,
                       fields.cellWrapperProps,
-                      <Placeholder className="h2 w-100 br4" isPlaceholderActive={false}>
+                      <Placeholder className="g-h2 w-100 br4" isPlaceholderActive={false}>
                         {() => fields[column.id]}
                       </Placeholder>
                     )}
@@ -157,11 +157,11 @@ class Table extends PureComponent {
                 <tr
                   key={index}
                   className={`${(fields.bgColor && 'bg-' + fields.bgColor) || ''} ${(fields.lineLink && 'pointer') ||
-  ''} hover-bg-base-2 bg-animate h11`}
+                    ''} hover-bg-base-2 bg-animate g-h11`}
                   onClick={fields.lineLink && fields.lineLink}
                 >
                   {selectable && (
-                    <th className="pv1 f7 tc bb b--base-4" style={{ width: '40px' }}>
+                    <th className="g-pv1 g-f1 tc bb b--base-4" style={{ width: '40px' }}>
                       <CheckBox
                         onClick={(event, checked) => {
                           this.select(index, checked)

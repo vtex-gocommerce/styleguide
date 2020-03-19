@@ -17,12 +17,12 @@ class Pagination extends PureComponent {
 
     return (
       <div className="flex c-on-base-2 items-center">
-        <div className="dib mr5 tracked-tight">
+        <div className="dib g-mr5 tracked-tight">
           <span className="c-primary">{currentPage}</span> / <span>{pageCount}</span>
         </div>
 
         <span
-          className="db w5 mr2"
+          className="db g-w5 g-mr2"
           onClick={() => {
             if (currentPage > 1) this.handleChange(currentPage - 1)
           }}

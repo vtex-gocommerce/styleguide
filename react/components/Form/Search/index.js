@@ -72,7 +72,9 @@ class Search extends PureComponent {
 
     return (
       <div
-        className={`br2 ba flex flex-auto items-center overflow-hidden ${classes} ${size === 'small' ? " h8" : " h10"} `}
+        className={`br2 ba flex flex-auto items-center overflow-hidden ${classes} ${
+          size === 'small' ? ' g-h8' : ' g-h10'
+        } `}
       >
         {withOptions && (
           <Select
@@ -80,7 +82,7 @@ class Search extends PureComponent {
             name={name}
             id={id || name}
             list={options}
-            elementClassName={`bn h-100 ${size === 'small' ? " h8" : " h10"} `}
+            elementClassName={`bn h-100 ${size === 'small' ? ' g-h8' : ' g-h10'} `}
             className="h-100 br b--base-4 f6"
             onChange={this.handleChangeOption}
             value={this.state.optionValue}
@@ -90,7 +92,7 @@ class Search extends PureComponent {
         )}
 
         <div className="flex flex-auto items-center w-100">
-          <div className={`pl3 flex ${classesIcon}`} onClick={this.handleClick}>
+          <div className={`g-pl3 flex ${classesIcon}`} onClick={this.handleClick}>
             <IconSearch />
           </div>
 
@@ -106,7 +108,7 @@ class Search extends PureComponent {
 
           {this.state.searchValue && !isLoading && (
             <div
-              className={`pr3 flex pointer hover-c-primary animated fadeIn ${classesIcon}`}
+              className={`g-pr3 flex pointer hover-c-primary animated fadeIn ${classesIcon}`}
               onClick={this.handleClearSearch}
             >
               <IconTimesCircle />
@@ -115,7 +117,7 @@ class Search extends PureComponent {
 
           {isLoading && (
             <div
-              className={`pr3 flex pointer hover-c-primary animated fadeIn ${classesIcon}`}
+              className={`g-pr3 flex pointer hover-c-primary animated fadeIn ${classesIcon}`}
               onClick={this.handleClearSearch}
             >
               <IconArc />

@@ -85,10 +85,10 @@ class AutoCompleteList extends PureComponent {
           />
           <React.Fragment>
             {filteredList.length > 0 && (
-              <div className={`${styles.gc_autocompletelist} w-100 bg-white mt1 ba br2 b--base-4`}>
-                <ul className="list pt4 pb2 ph4 mt0 mb0 c-on-base-1 tl">
+              <div className={`${styles.gc_autocompletelist} w-100 bg-white g-mt1 ba br2 b--base-4`}>
+                <ul className="list g-pt4 g-pb2 g-ph4 mt0 mb0 c-on-base-1 tl">
                   {filteredList.map((item) => (
-                    <li key={item.label} className="pb2 pointer" value={item.id} onClick={this.onClick}>
+                    <li key={item.label} className="g-pb2 pointer" value={item.id} onClick={this.onClick}>
                       {item.label}
                     </li>
                   ))}

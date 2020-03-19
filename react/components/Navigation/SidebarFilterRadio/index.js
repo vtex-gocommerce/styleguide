@@ -15,16 +15,16 @@ class SidebarFilterRadio extends PureComponent {
     const { filter } = this.props
     return (
       <div>
-        <ul className="list pa0 f6">
+        <ul className="list g-pa0 g-f2">
           {filter.options.map((item, index) => {
             const code = `${filter.code}-${item.code}`
             return (
               <li key={`${filter.code}${index}`}>
-                <label className="inline-flex items-center mb2 pointer">
+                <label className="inline-flex items-center g-mb2 pointer">
                   <RadioButton
                     value={item.value}
                     name={filter.code}
-                    className="mr3"
+                    className="g-mr3"
                     checked={this.isActive(code)}
                     onClick={() => {
                       this.handleChange({ ...item, code: code })

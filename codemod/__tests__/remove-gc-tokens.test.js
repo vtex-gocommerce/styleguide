@@ -57,4 +57,12 @@ describe('Remove gc tokens', () => {
     'const classes = `ph2 ${foo}`',
     'from dynamic string'
   )
+
+  defineInlineTest(
+    RemoveGCTokens,
+    {},
+    'const classes = `db g-w5 g-w5-ns g-h2`',
+    'const classes = `db w1 w1-ns h1`',
+    'and replace size tokens'
+  )
 })

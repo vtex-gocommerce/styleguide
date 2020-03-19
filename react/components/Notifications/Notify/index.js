@@ -35,7 +35,7 @@ const show = (text, options = {}) => {
   toast(text, {
     toastId: options.toastId || null,
     className: 'ba br2 ' + types[type].className,
-    bodyClassName: "f6 lh-copy " + types[type].bodyClassName,
+    bodyClassName: 'g-f2 lh-copy ' + types[type].bodyClassName,
     progressClassName: types[type].progressClassName,
     position: options.position || 'top-right',
     autoClose: autoClose,

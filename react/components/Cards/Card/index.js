@@ -11,18 +11,18 @@ class Card extends Component {
 
     return (
       <div className={classes}>
-        {title && <h3 className="flex items-center pt4 b--base-1 ma0 ph4 f7 fw6 c-on-base">{title}</h3>}
+        {title && <h3 className="flex items-center g-pt4 b--base-1 g-ma0 g-ph4 g-f1 fw6 c-on-base">{title}</h3>}
         <PlaceholderContainer
           classNameArray={[
-            "w-30 h6 ml4 mt5 br3",
-            "w-60 h4 ml4 mt6 br2",
-            "w-70 h4 ml4 mt3 br2",
-            "w-40 h4 ml4 mt3 br2 mb5",
+            'w-30 g-h6 g-ml4 g-mt5 br3',
+            'w-60 g-h4 g-ml4 g-mt6 br2',
+            'w-70 g-h4 g-ml4 g-mt3 br2',
+            'w-40 g-h4 g-ml4 g-mt3 br2 g-mb5',
           ]}
           isPlaceholderActive={isLoading}
         >
           {() => (
-            <div className={`pv4 ph4 flex flex-column flex-auto ${styles.cardContent}`}>{this.props.children}</div>
+            <div className={`g-pv4 g-ph4 flex flex-column flex-auto ${styles.cardContent}`}>{this.props.children}</div>
           )}
         </PlaceholderContainer>
       </div>
