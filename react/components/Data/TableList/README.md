@@ -48,7 +48,7 @@ const rows = [
     Address: 'Just a big street, also to see what will happen',
     Count: (
       <p className="yellow">
-        24 <IconExclamationTriangle className="g-ml1" family="regular" />
+        24 <IconExclamationTriangle className="ml1" family="regular" />
       </p>
     ),
     Active: 'Inactive'
@@ -73,10 +73,10 @@ class ShowModal extends React.Component {
         <Button onClick={this.tooglePlaceHolderStatus}> Change status </Button> Is Placeholder Active:{' '}
         {this.state.placeholderIsActive ? 'active' : 'inactive'}
         <div>
-          <div className="g-pb7 g-pt7">
+          <div className="pb7 pt7">
             <TableList columns={columns} rows={rows} isLoading={this.state.placeholderIsActive} />
           </div>
-          <div className="g-pb7 g-pt7 bt bt--black">
+          <div className="pb7 pt7 bt bt--black">
             <TableList columns={columns} rows={rows} selectable onChange={e => console.log(e)} />
           </div>
         </div>

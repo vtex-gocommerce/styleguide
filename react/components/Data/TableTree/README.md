@@ -94,14 +94,14 @@ class TableExample extends React.Component {
           Table Pagination is a diffente Component <a href="#tablepagination">click here</a> to check it out
         </div>
         <div>
-          <div className="g-mb4 g-mt4">
-            <div className="g-mb3">
+          <div className="mb4 mt4">
+            <div className="mb3">
               With <strong>loading</strong>:
             </div>
             <TableTree columns={columns} rows={rows} isLoading={this.state.placeholderIsActive} />
           </div>
-          <div className="g-mb4 g-mt4">
-            <div className="g-mb3">
+          <div className="mb4 mt4">
+            <div className="mb3">
               With <strong>selectable</strong>:
             </div>
             <TableTree

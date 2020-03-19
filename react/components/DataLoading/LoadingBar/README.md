@@ -37,13 +37,13 @@ class LoadingBarExample extends React.Component {
                 <div>
                     <LoadingBar current={percent} />
                 </div>
-                <div className="g-mt4">
+                <div className="mt4">
                     <LoadingBar current={percent} withStripes />
                 </div>
-                <div className="g-mt4">
+                <div className="mt4">
                     <LoadingBar current={percent} withLabel />
                 </div>
-                <div className="g-mt4">
+                <div className="mt4">
                     <Button onClick={this.restart}>Restart</Button>
                 </div>
             </div>

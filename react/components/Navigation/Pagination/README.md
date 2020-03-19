@@ -14,7 +14,7 @@ class WithState extends React.Component {
   render() {
     return (
       <div>
-        <div className="flex justify-center g-mb5">
+        <div className="flex justify-center mb5">
           <Pagination currentPage={this.state.value} pageCount={30} onPageChange={this.handleChange} />
         </div>
       </div>
@@ -23,14 +23,14 @@ class WithState extends React.Component {
 }
 
 ;<div>
-  <div className="flex justify-center g-mb5">
+  <div className="flex justify-center mb5">
     <Pagination
       currentPage={1}
       pageCount={600}
       onPageChange={page => console.log('Page changed! current page:' + page)}
     />
   </div>
-  <div className="flex justify-center g-mb5">
+  <div className="flex justify-center mb5">
     <Pagination currentPage={30} pageCount={30} />
   </div>
   <div className="flex justify-center">

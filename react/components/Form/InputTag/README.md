@@ -1,6 +1,6 @@
 ```js
 <div>
-  <div className="g-mb2">
+  <div className="mb2">
     <InputTag
       className="w-100"
       allowDuplicate={false}
@@ -9,7 +9,7 @@
       onChangeInput={input => console.log(input)}
     />
   </div>
-  <div className="g-mb2">
+  <div className="mb2">
     <InputTag
       className="w-100"
       hasError={true}
@@ -19,7 +19,7 @@
       onChangeInput={input => console.log(input)}
     />
   </div>
-  <div className="g-mb2">
+  <div className="mb2">
     <InputTag
       className="w-100"
       tagStyle="primary"
@@ -28,7 +28,7 @@
       onChangeInput={input => console.log(input)}
     />
   </div>
-  <div className="g-mb2">
+  <div className="mb2">
     <InputTag
       className="w-100"
       autocomplete={true}

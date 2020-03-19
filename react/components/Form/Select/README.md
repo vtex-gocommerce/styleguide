@@ -11,37 +11,37 @@ const Disabled = [
   { label: 'Orange', value: 'orange', disabled: true }
 ]
 ;<div>
-  <div className="g-mb2">
+  <div className="mb2">
     <Select placeholder="Select a fruit..." list={Simple} />
-    <span className="g-ml4 no-underline c-on-base-2">Simple Select</span>
+    <span className="ml4 no-underline c-on-base-2">Simple Select</span>
   </div>
-  <div className="g-mb2">
+  <div className="mb2">
     <Select placeholder="Select a fruit..." list={Disabled} />
-    <span className="g-ml4 no-underline c-on-base-2">Select with some disable options</span>
+    <span className="ml4 no-underline c-on-base-2">Select with some disable options</span>
   </div>
-  <div className="g-mb2">
+  <div className="mb2">
     <Select placeholder="Select a fruit..." list={Simple} defaultValue="orange" />
-    <span className="g-ml4 no-underline c-on-base-2">Select with default option</span>
+    <span className="ml4 no-underline c-on-base-2">Select with default option</span>
   </div>
-  <div className="g-mb2">
+  <div className="mb2">
     <Select placeholder="Select a fruit..." list={Simple} required />
-    <span className="g-ml4 no-underline c-on-base-2">Placeholder can't be selected</span>
+    <span className="ml4 no-underline c-on-base-2">Placeholder can't be selected</span>
   </div>
-  <div className="g-mb2">
+  <div className="mb2">
     <Select placeholder="Select a fruit..." list={Simple} hasError />
-    <span className="g-ml4 no-underline c-on-base-2">Select with error</span>
+    <span className="ml4 no-underline c-on-base-2">Select with error</span>
   </div>
-  <div className="g-mb2">
+  <div className="mb2">
     <Select placeholder="You can't pick any..." list={Simple} disabled />
-    <span className="g-ml4 no-underline c-on-base-2">Disabled Select</span>
+    <span className="ml4 no-underline c-on-base-2">Disabled Select</span>
   </div>
   <div>
     <Select placeholder="Select a fruit..." list={Simple} withoutStyle />
-    <span className="g-ml4 no-underline c-on-base-2">Without styles</span>
+    <span className="ml4 no-underline c-on-base-2">Without styles</span>
   </div>
   <div>
     <Select list={Simple} placeholder={false} />
-    <span className="g-ml4 no-underline c-on-base-2">Without Placeholder</span>
+    <span className="ml4 no-underline c-on-base-2">Without Placeholder</span>
   </div>
 </div>
 ```

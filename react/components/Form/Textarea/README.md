@@ -1,6 +1,6 @@
 ```js
 <div>
-  <div className="g-mb2">
+  <div className="mb2">
     <Textarea
       maxLength={10}
       resize={true}
