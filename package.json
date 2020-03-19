@@ -10,7 +10,8 @@
     "cleanlib": "rm -rf lib",
     "entrypoints": "node ./scripts/entrypoints.js",
     "gen-icons": "node ./scripts/svgToComponent.js && npm run entrypoints",
-    "copycss": "copyfiles -u 2 react/**/*.css lib"
+    "copycss": "copyfiles -u 2 react/**/*.css lib",
+    "test:react": "jest react"
   },
   "homepage": "https://vtex-gocommerce.github.io/styleguide",
   "devDependencies": {
