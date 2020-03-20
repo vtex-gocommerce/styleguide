@@ -25,7 +25,7 @@ class Tag extends PureComponent {
 
     let tagStyleClasses = styleClasses[style]
 
-    let classes = `${styles.gc_tag} ${tagStyleClasses} f6 t5 dib ph4 mr1 h-small ba br2 c-on-base-2 b--dashed flex justify-center items-center `
+    let classes = `${styles.gc_tag} ${tagStyleClasses} f6 dib ph4 mr2 h-small ba br2 c-on-base-2 b--dashed flex justify-center items-center `
     if (onRemove) classes += 'pointer'
 
     return (

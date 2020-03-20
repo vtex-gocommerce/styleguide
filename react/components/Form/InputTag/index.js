@@ -169,7 +169,7 @@ class InputTag extends Component {
             </span>
           ))}
           {this.state.values.map((data, key) => (
-            <span key={key} className="inline-flex ml1 mb1 mt1">
+            <span key={key} className="inline-flex ml2 mb3 mt3">
               <Tag
                 id={`${this._inputId}_tag${key}`}
                 style={this.props.tagStyle}
