@@ -25,9 +25,7 @@ class Tag extends PureComponent {
 
     let tagStyleClasses = styleClasses[style]
 
-    let classes = `${
-      styles.gc_tag
-    } ${tagStyleClasses} g-f2 g-t5 dib g-ph4 g-mr1 g-h9 ba br2 c-on-base-2 b--dashed flex justify-center items-center `
+    let classes = `${styles.gc_tag} ${tagStyleClasses} f6 dib ph4 mr2 h-small ba br2 c-on-base-2 b--dashed flex justify-center items-center `
     if (onRemove) classes += 'pointer'
 
     return (
@@ -36,7 +34,7 @@ class Tag extends PureComponent {
           {this.props.children}
           {onRemove && (
             <span className={buttonCloseStyleHover[style]} onClick={onRemove}>
-              <IconTimesCircle className="g-ml2" family="regular" height="18px" width="18px" />
+              <IconTimesCircle className="ml2" family="regular" height="18px" width="18px" />
             </span>
           )}
         </span>

@@ -1,6 +1,6 @@
 ```js
 <div>
-  <div className="dib g-mr2">
+  <div className="dib mr2">
     <RadioButton
       name="settings"
       value="visible"
@@ -8,10 +8,10 @@
       onClick={event => console.log(`Value -> ${event.target.value}`)}
     />
   </div>
-  <div className="dib g-mr2">
+  <div className="dib mr2">
     <RadioButton name="settings" value="visible" className="addclasses" disabled={true} />
   </div>
-  <div className="dib g-mr2">
+  <div className="dib mr2">
     <RadioButton
       name="settings"
       value="enabled"
@@ -22,7 +22,7 @@
       height="40px"
     />
   </div>
-  <div className="dib g-mr2">
+  <div className="dib mr2">
     <RadioButton name="settings" value="visible" className="addclasses" label="Label" />
   </div>
 </div>

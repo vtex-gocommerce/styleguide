@@ -1,50 +1,50 @@
 ```js
 <div>
-  <div className="g-mb2">
+  <div className="mb2">
     <Input label="Label of input" />
-    <span className="g-ml4 no-underline c-on-base-1">With Label</span>
+    <span className="ml4 no-underline c-on-base-1">With Label</span>
   </div>
-  <div className="g-mb2">
+  <div className="mb2">
     <Input />
-    <span className="g-ml4 no-underline c-on-base-1">Plain Input</span>
+    <span className="ml4 no-underline c-on-base-1">Plain Input</span>
   </div>
-  <div className="g-mb2">
+  <div className="mb2">
     <Input placeholder="Look this placeholder..." />
-    <span className="g-ml4 no-underline c-on-base-1">Input with placeholder</span>
+    <span className="ml4 no-underline c-on-base-1">Input with placeholder</span>
   </div>
-  <div className="g-mb2">
+  <div className="mb2">
     <Input value="This is so wrong" hasError />
-    <span className="g-ml4 no-underline c-on-base-1">Input with error</span>
+    <span className="ml4 no-underline c-on-base-1">Input with error</span>
   </div>
-  <div className="g-mb2">
+  <div className="mb2">
     <Input type="password" value="topsecret" />
-    <span className="g-ml4 no-underline c-on-base-1">Password</span>
+    <span className="ml4 no-underline c-on-base-1">Password</span>
   </div>
-  <div className="g-mb2">
+  <div className="mb2">
     <Input type="tel" value="1234124" />
-    <span className="g-ml4 no-underline c-on-base-1">Telephone</span>
+    <span className="ml4 no-underline c-on-base-1">Telephone</span>
   </div>
-  <div className="g-mb2">
+  <div className="mb2">
     <Input type="text" value="" suffix="kg" />
-    <span className="g-ml4 no-underline c-on-base-1">Suffix</span>
+    <span className="ml4 no-underline c-on-base-1">Suffix</span>
   </div>
-  <div className="g-mb2">
+  <div className="mb2">
     <Input value="Disabled" disabled />
-    <span className="g-ml4 no-underline c-on-base-1">Disabled</span>
+    <span className="ml4 no-underline c-on-base-1">Disabled</span>
   </div>
-  <div className="g-mb2">
+  <div className="mb2">
     <Input iconBefore={<IconSearch className="c-base-4" />} />
-    <span className="g-ml4 no-underline c-on-base-1">Icon Prefix</span>
+    <span className="ml4 no-underline c-on-base-1">Icon Prefix</span>
   </div>
-  <div className="g-mb2">
+  <div className="mb2">
     <Input formatValue="onlyNumber" />
-    <span className="g-ml4 no-underline c-on-base-1">Accept only numbers.</span>
-    <div className="g-mt3 c-on-base-1">
+    <span className="ml4 no-underline c-on-base-1">Accept only numbers.</span>
+    <div className="mt3 c-on-base-1">
       <small>Options: ['currency', 'onlyNumber', 'onlyLetter', 'onlyAlphanumeric']</small>
       <br /><br />
     </div>
   </div>
-  <div className="g-mb2">
+  <div className="mb2">
     <Input
       formatValue="currency"
       showCurrency={true}
@@ -63,13 +63,13 @@
         }
       }}
     />
-    <span className="g-ml4 no-underline c-on-base-1">Format currency.</span>
+    <span className="ml4 no-underline c-on-base-1">Format currency.</span>
   </div>
-  <div className="g-mb2">
+  <div className="mb2">
     <Input mask="+49 99 999 99" alwaysShowMask={true} maskChar="_" />
-    <span className="g-ml4 no-underline c-on-base-1">With a mask</span>
-    <div className="g-mt3 c-on-base-1">
-      <strong className="db g-mb1">How to write a mask:</strong>
+    <span className="ml4 no-underline c-on-base-1">With a mask</span>
+    <div className="mt3 c-on-base-1">
+      <strong className="db mb1">How to write a mask:</strong>
       Default format characters are:
       <pre>
         9: 0-9
@@ -138,7 +138,7 @@ class ExternalValueProp extends React.Component {
 
     return (
       <div>
-        <Input {...this.props} value={this.state.value} className="g-mr2" />
+        <Input {...this.props} value={this.state.value} className="mr2" />
         <Button onClick={() => this.handleChange(number)}>Next value: {number}</Button>
       </div>
     )

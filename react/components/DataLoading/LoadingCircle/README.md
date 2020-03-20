@@ -40,7 +40,7 @@ class LoadingCircleExample extends React.Component {
         <div class=" ">
           <LoadingCircle current={percent} width="80px" hideOnFinish={true} />
         </div>
-        <div className="g-mt4">
+        <div className="mt4">
           <Button onClick={this.restart}>Restart</Button>
         </div>
       </div>

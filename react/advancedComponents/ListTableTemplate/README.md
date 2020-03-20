@@ -60,26 +60,26 @@ const data = [
 const ListTableExamples = () => {
   return (
     <div>
-      <div className="g-mv4">
+      <div className="mv4">
         <p>Minimal Config</p>
         <hr />
         <ListTableTemplate pageUrl="/list">
           <ListTableTemplate.Filter />
-          <div className="flex flex-column w-100 g-mt4">
+          <div className="flex flex-column w-100 mt4">
             <ListTableTemplate.Pagination />
-            <div className="w-100 center g-mv2">
+            <div className="w-100 center mv2">
               <ListTableTemplate.Table tableConfig={tableConfig} data={[]} isLoading={true} />
             </div>
           </div>
           <ListTableTemplate.Pagination />
         </ListTableTemplate>
       </div>
-      <div className="g-mv4">
+      <div className="mv4">
         <p>With selectable</p>
         <hr />
         <ListTableTemplate pageUrl="/list">
-          <div className="flex flex-column w-100 g-mt4">
-            <div className="w-100 center g-mv2">
+          <div className="flex flex-column w-100 mt4">
+            <div className="w-100 center mv2">
               <ListTableTemplate.Table
                 tableConfig={tableConfig}
                 data={data}

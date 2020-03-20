@@ -13,11 +13,11 @@ const Dropdown = [
   }
 ]
 ;<div>
-  <div className="g-mb2">
+  <div className="mb2">
     <DropdownButton options={Dropdown}>
       <Button style="primary" fullWidth>
         Change order status
-        <IconArrowDown className="g-ml2" />
+        <IconArrowDown className="ml2" />
       </Button>
     </DropdownButton>
   </div>
@@ -25,7 +25,7 @@ const Dropdown = [
     <DropdownButton options={Dropdown} isOpened>
       <Button style="primary" fullWidth>
         Dropdown menu that is already open!
-        <IconArrowDown className="g-ml2" />
+        <IconArrowDown className="ml2" />
       </Button>
     </DropdownButton>
   </div>

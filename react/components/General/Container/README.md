@@ -23,12 +23,12 @@ class ShowModal extends React.Component {
           <div class="bg-base-2 w-80 center">
             <Container
               isPlaceholderActive={placeholderIsActive}
-              classNameArray={[['g-h8 w-30 g-mb7'], ['g-h4 w-30 g-mb5'], ['g-h10 w-80 g-mb5']]}
+              classNameArray={[['h8 w-30 mb7'], ['h4 w-30 mb5'], ['h10 w-80 mb5']]}
             >
               <div>
                 <div className="flex flex-column">
-                  <span class="g-f5 pb6">Title</span>
-                  <span class="g-f2 g-mb6">lable</span>
+                  <span class="f3 pb6">Title</span>
+                  <span class="f6 mb6">lable</span>
                 </div>
                 <div class="flex">
                   <Input /> <Button>Ok</Button>

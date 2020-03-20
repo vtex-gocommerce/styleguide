@@ -1,6 +1,6 @@
 ```js
 <div className="flex">
-  <div className="w-50 g-mr2">
+  <div className="w-50 mr2">
     <NumberCard title="Sales" icon={<IconShoppingCart ignoreSize />} value="203.931" />
   </div>
   <div className="w-50">

@@ -46,7 +46,7 @@ class Textarea extends PureComponent {
     const { value, currentLength, maxLength } = this.state
     const currentCharacterIndex = maxLength - currentLength
 
-    let inputClasses = `${styles.input} g-pa3 ba br1 `
+    let inputClasses = `${styles.input} pa3 ba br1 `
     if (disabled) inputClasses += 'b--base-4 bg-base-3 c-on-base-2 '
     if (hasError) inputClasses += 'b--danger bg-light-danger c-danger '
     if (!disabled && !hasError) inputClasses += 'b--base-4 bg-base-1 c-on-base-1 '
@@ -79,9 +79,7 @@ class Textarea extends PureComponent {
         <textarea {...props} className={inputClasses} value={value} />
         {showCounter && maxLength !== 0 && (
           <label
-            className={`flex flex-row-reverse db g-pb2 g-pa1 g-f2 ${
-              currentCharacterIndex <= 0 ? 'red' : 'c-on-base-2'
-            }`}
+            className={`flex flex-row-reverse db pb2 pa2 f6 ${currentCharacterIndex <= 0 ? 'red' : 'c-on-base-2'}`}
           >
             {maxLength && currentCharacterIndex}
           </label>

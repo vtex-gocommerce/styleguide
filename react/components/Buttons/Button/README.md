@@ -1,12 +1,12 @@
 ```js
 <div>
-  <Button className="g-mr2" style="primary">
+  <Button className="mr2" style="primary">
     Primary
   </Button>
-  <Button className="g-mr2" style="secondary">
+  <Button className="mr2" style="secondary">
     Secondary
   </Button>
-  <Button className="g-mr2" style="danger">
+  <Button className="mr2" style="danger">
     Danger
   </Button>
   <Button disabled>Disabled</Button>
@@ -17,7 +17,7 @@ Button Full Width
 
 ```js
 <div>
-  <Button className="g-mt2" fullWidth>
+  <Button className="mt2" fullWidth>
     Full Width
   </Button>
 </div>
@@ -27,9 +27,9 @@ Icon Buttons
 
 ```js
 <div>
-  <Button style="danger" icon={<IconTimes />} className="g-mr2" />
-  <Button className="g-mr2" icon={<IconSpinner animate />} disabled />
-  <Button className="g-mr2" icon={<IconMore className="g-mr2" />}>
+  <Button style="danger" icon={<IconTimes />} className="mr2" />
+  <Button className="mr2" icon={<IconSpinner animate />} disabled />
+  <Button className="mr2" icon={<IconMore className="mr2" />}>
     Add Product
   </Button>
 </div>

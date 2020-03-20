@@ -17,16 +17,16 @@ class ShowModal extends React.Component {
         <Button onClick={this.tooglePlaceHolderStatus}> Change status </Button> current Status:{' '}
         {this.state.placeholderIsActive ? 'active' : 'inactive'}
         <div className="pv4">
-          <div className="g-pt4">
+          <div className="pt4">
             Simple text
-            <Placeholder className="g-h7 g-w12 g-mt2" isPlaceholderActive={this.state.placeholderIsActive}>
+            <Placeholder className="h7 w3 mt2" isPlaceholderActive={this.state.placeholderIsActive}>
               {() => <span className="f5 fw6"> Title </span>}
             </Placeholder>
-            <Placeholder className="g-h5 w15 g-mt2" isPlaceholderActive={this.state.placeholderIsActive}>
+            <Placeholder className="h5 w15 mt2" isPlaceholderActive={this.state.placeholderIsActive}>
               {() => 'this is a simple text example'}
             </Placeholder>
           </div>
-          <div className="g-pt4">
+          <div className="pt4">
             Component
             <Placeholder className="h12 w12 br-100" isPlaceholderActive={this.state.placeholderIsActive}>
               {() => (

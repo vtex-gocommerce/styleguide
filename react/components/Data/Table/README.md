@@ -69,7 +69,7 @@ const rows = [
     Address: 'Just a big street',
     Count: (
       <span className="yellow">
-        24 <IconExclamationTriangle className="g-ml1 v-top" family="regular" />
+        24 <IconExclamationTriangle className="ml1 v-top" family="regular" />
       </span>
     ),
     Active: <Toggle value="isActive" />,
@@ -97,7 +97,7 @@ const rows = [
     Address: 'Just a big street',
     Count: (
       <span className="yellow">
-        24 <IconExclamationTriangle className="g-ml1 v-top" family="regular" />
+        24 <IconExclamationTriangle className="ml1 v-top" family="regular" />
       </span>
     ),
     Active: <Toggle value="isActive" />,
@@ -159,18 +159,18 @@ class TableExample extends React.Component {
           Table Pagination is a different Component <a href="#tablepagination">click here</a> to check it out
         </div>
         <div>
-          <div className="g-mb4 g-mt4">
-            <div className="g-mb3">
+          <div className="mb4 mt4">
+            <div className="mb3">
               With <strong>loading</strong>:
             </div>
             <Table columns={columns} rows={rows} isLoading={this.state.placeholderIsActive} />
           </div>
-          <div className="g-mb4 g-mt4">
-            <div className="g-mb3">
+          <div className="mb4 mt4">
+            <div className="mb3">
               With <strong>selectable</strong>:
             </div>
             <Table
-              actions={<span class="hover-c-primary g-f2 pointer">Remover</span>}
+              actions={<span class="hover-c-primary f6 pointer">Remover</span>}
               columns={columns}
               rows={rows}
               data={selectableData}
@@ -180,8 +180,8 @@ class TableExample extends React.Component {
               }}
             />
           </div>
-          <div className="g-mb4 g-mt4">
-            <div className="g-mb3">
+          <div className="mb4 mt4">
+            <div className="mb3">
               With <strong>Placeholder Large</strong>:
             </div>
             <Table columns={columns} rows={rows} placeholderSize="large" isLoading={this.state.placeholderIsActive} />

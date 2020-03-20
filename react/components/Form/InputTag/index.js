@@ -155,21 +155,21 @@ class InputTag extends Component {
     return (
       <div className="flex items-center flex-auto">
         {!!this.props.iconBefore && (
-          <div className="g-pa4 c-on-base-2 flex">
+          <div className="pa4 c-on-base-2 flex">
             {this.props.iconBefore}
           </div>
         )}
 
         <div className="flex flex-wrap flex-auto">
           {this.props.fixedTags.map((data, index) => (
-            <span key={`${data}#${index}`} className="inline-flex g-ml1 g-mb1 g-mt1 o-50">
+            <span key={`${data}#${index}`} className="inline-flex ml1 mb1 mt1 o-50">
               <Tag style={this.props.tagStyle}>
                 {data}
               </Tag>
             </span>
           ))}
           {this.state.values.map((data, key) => (
-            <span key={key} className="inline-flex g-ml1 g-mb1 g-mt1">
+            <span key={key} className="inline-flex ml2 mb3 mt3">
               <Tag
                 id={`${this._inputId}_tag${key}`}
                 style={this.props.tagStyle}
@@ -210,7 +210,7 @@ class InputTag extends Component {
       <Input
         id={this._inputId}
         name={this.props.name}
-        className={`dib w-100 ${this.props.hasError ? '' : 'b--none g-pl1'}`}
+        className={`dib w-100 ${this.props.hasError ? '' : "b--none pl1"}`}
         hasError={this.props.hasError}
         value={this.state.input}
         disabled={this.state.disabled}
@@ -230,22 +230,20 @@ class InputTag extends Component {
       <React.Fragment>
         {label && (
           <label
-            className="db c-on-base-2 g-mb1 g-f2 lh-copy"
+            className="db c-on-base-2 mb1 f6 lh-copy"
             htmlFor={this._inputId}
           >
             {`${label}${required ? '*' : ''}`}
           </label>
         )}
         <div
-          className={`flex flex-wrap items-center ba br2 b--base-4 ${className} ${
-            disabled ? 'bg-base-2' : ''
-          }`}
+          className={`flex flex-wrap items-center ba br2 b--base-4 ${className} ${disabled ? 'bg-base-2' : ''}`}
         >
           <div className="dn flex-ns flex-wrap w-100">{this.getTagList()}</div>
           <div className="db dn-ns flex-auto">{this.renderInput(true)}</div>
         </div>
 
-        <div className="db dn-ns g-pt2">{this.getTagList()}</div>
+        <div className="db dn-ns pt2">{this.getTagList()}</div>
       </React.Fragment>
     )
   }

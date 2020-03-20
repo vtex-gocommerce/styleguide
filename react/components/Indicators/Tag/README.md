@@ -1,6 +1,6 @@
 ```js
 <div>
-  <div className="dib g-mr2">
+  <div className="dib mr2">
     <Tag bgColor="primary">Tag</Tag>
   </div>
   <div className="dib">
