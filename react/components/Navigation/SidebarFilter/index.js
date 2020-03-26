@@ -9,7 +9,6 @@ import SidebarFilterToggle from '../SidebarFilterToggle'
 import SidebarFilterRadio from '../SidebarFilterRadio'
 
 import Tag from '../../Indicators/Tag'
-// import Button from '../../Buttons/Button'
 
 import IconTimes from '../../../icons/IconTimes'
 import IconSortDown from '../../../icons/IconSortDown'
