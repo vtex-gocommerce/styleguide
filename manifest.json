@@ -11,6 +11,9 @@
   "scripts": {
     "postreleasy": "vtex publish --verbose"
   },
+  "dependencies": {
+    "vtex.styleguide": "9.x"
+  },
   "mustUpdateAt": "2018-09-05",
   "categories": [],
   "registries": [
