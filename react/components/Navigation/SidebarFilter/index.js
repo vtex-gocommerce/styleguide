@@ -1,13 +1,18 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
-import IconTimes from '../../../icons/IconTimes'
-import IconSortDown from '../../../icons/IconSortDown'
-import Tag from '../../Indicators/Tag'
-import Button from '../../Buttons/Button'
+
+import { Button } from 'vtex.styleguide'
+
 import SidebarFilterDate from '../SidebarFilterDate'
 import SidebarFilterCheckbox from '../SidebarFilterCheckbox'
 import SidebarFilterToggle from '../SidebarFilterToggle'
 import SidebarFilterRadio from '../SidebarFilterRadio'
+
+import Tag from '../../Indicators/Tag'
+// import Button from '../../Buttons/Button'
+
+import IconTimes from '../../../icons/IconTimes'
+import IconSortDown from '../../../icons/IconSortDown'
 
 const defaultLocale = {
   filters: 'Filters',
@@ -176,7 +181,11 @@ class SidebarFilter extends PureComponent {
           </div>
 
           <div className="w-100 pv5">
-            <Button onClick={this.handleAppyFilter} className="w-100">
+            <Button
+              size="large"
+              onClick={this.handleAppyFilter}
+              block
+            >
               {this.getTextByLocale('applyFilter')}
             </Button>
           </div>
