@@ -31,7 +31,7 @@ class LanguageButtonComponent extends PureComponent {
     }
     return (
       <div className={`w-100 relative`}>
-        <div className={`flex flex-auto pointer f6 fw6 c-on-base-2 ${className}`} onClick={toggleDropdown}>
+        <div className={`flex flex-auto pointer f6 fw6 gray ${className}`} onClick={toggleDropdown}>
           <IconEarth className="flex flex-start" />
           <span className="flex flex-auto mh3">{abbreviationOn ? localeSelected.shortText : localeSelected.text}</span>
           {isDropdownOpen ? (
@@ -47,7 +47,7 @@ class LanguageButtonComponent extends PureComponent {
                 <div
                   key={id}
                   id={`appframe-locale@${id}`}
-                  className={`ph4 pv1 f6 c-on-base-2 pointer ${itemClassName} ${abbreviationOn ? 'tc' : 'ml6'}`}
+                  className={`ph4 pv1 f6 gray pointer ${itemClassName} ${abbreviationOn ? 'tc' : 'ml6'}`}
                   onClick={() => {
                     handleClick(id), toggleDropdown()
                   }}

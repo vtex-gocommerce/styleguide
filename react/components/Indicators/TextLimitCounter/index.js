@@ -6,7 +6,7 @@ class TextLimitCounter extends PureComponent {
     const { text, limit, className } = this.props
 
     return (
-      <span className={`c-on-base-2 o-50 ${className}`}>
+      <span className={`gray o-50 ${className}`}>
         {text.length}/{limit}
       </span>
     )

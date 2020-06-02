@@ -31,7 +31,7 @@ class Tab extends PureComponent {
           return (
             <div
               key={element.id}
-              className={`h-100 dib pb4 mr4 pointer hover-c-primary  ${element.id === active ? 'bb bw1 c-primary b--primary' : 'c-on-base-2'}`}
+              className={`h-100 dib pb4 mr4 pointer hover-c-primary  ${element.id === active ? 'bb bw1 c-primary b--blue' : 'gray'}`}
               onClick={() => this.handleClick(element.id)}
             >
               {element.label}

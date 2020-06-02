@@ -62,7 +62,7 @@ class DateTimePicker extends PureComponent {
     const style = `${styles.input} ba br2 h-large `
 
     let colors = ''
-    if (disabled) colors += 'b--base-4 bg-base-3 c-on-base-2 '
+    if (disabled) colors += 'b--base-4 bg-base-3 gray '
     if (hasError) colors += 'b--danger bg-light-danger c-danger '
     if (!disabled && !hasError && !withoutStyle) colors += 'b--base-4 bg-base-1 c-on-base-1 '
     if (withoutStyle) colors += 'c-on-base-1 bg-transparent bn '
@@ -101,7 +101,7 @@ class DateTimePicker extends PureComponent {
           <div className={`dib datepicker_gocommerce ${className} ${containerClassName}`}>
             <div className="flex">
               <DatePicker {...props} className={`${DateTimePickerClasses} w-100 dib ba br-0 br1 br--left`} />
-              <span className="ba br2 br--right b--base-4 inline-flex items-center ph3 c-on-base-2">
+              <span className="ba br2 br--right b--base-4 inline-flex items-center ph3 gray">
                 {this.props.suffix}
               </span>
             </div>

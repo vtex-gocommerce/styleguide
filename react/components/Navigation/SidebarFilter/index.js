@@ -121,7 +121,7 @@ class SidebarFilter extends PureComponent {
           <div className="flex-auto overflow-y-scroll">
             {enabledOptions && enabledOptions.length > 0 && (
               <div className="w-100">
-                <p className="c-on-base-2 f7 fw6">{this.getTextByLocale('appliedFilters')}</p>
+                <p className="gray f7 fw6">{this.getTextByLocale('appliedFilters')}</p>
                 <div className="flex flex-wrap pt2">
                   {enabledOptions.map((item, index) => {
                     return (
@@ -138,7 +138,7 @@ class SidebarFilter extends PureComponent {
 
             <div className="w-100">
               <div className="pt2">
-                <p className="c-on-base-2 f7 fw6 nb2">{this.getTextByLocale('editFilters')} </p>
+                <p className="gray f7 fw6 nb2">{this.getTextByLocale('editFilters')} </p>
               </div>
             </div>
 

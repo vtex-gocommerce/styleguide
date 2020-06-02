@@ -5,7 +5,7 @@ import IconTimesCircle from '../../../icons/IconTimesCircle'
 
 const styleClasses = {
   default: 'bg-white b--on-base-2',
-  primary: 'bg-primary-light b--primary',
+  primary: 'bg-primary-light b--blue',
   danger: 'bg-danger-light b--danger',
   warning: 'bg-warning-light b--warning',
   success: 'bg-success-light b--success'
@@ -25,7 +25,7 @@ class Tag extends PureComponent {
 
     let tagStyleClasses = styleClasses[style]
 
-    let classes = `${styles.gc_tag} ${tagStyleClasses} f6 dib ph4 mr2 h-small ba br2 c-on-base-2 b--dashed flex justify-center items-center `
+    let classes = `${styles.gc_tag} ${tagStyleClasses} f6 dib ph4 mr2 h-small ba br2 gray b--dashed flex justify-center items-center `
     if (onRemove) classes += 'pointer'
 
     return (

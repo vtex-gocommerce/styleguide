@@ -68,7 +68,7 @@ class Search extends PureComponent {
     const { placeholder, withOptions, options, name, id, size, nav, disabled, isLoading } = this.props
 
     const classes = !nav ? 'b--base-4 bg-white' : 'bg-base-inverted-5 bn c-on-base-inverted'
-    const classesIcon = !nav ? 'c-on-base-2' : 'c-base-inverted-3'
+    const classesIcon = !nav ? 'gray' : 'c-base-inverted-3'
 
     return (
       <div

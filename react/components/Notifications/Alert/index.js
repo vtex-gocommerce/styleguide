@@ -51,7 +51,7 @@ class Alert extends PureComponent {
         <div className="flex items-center mr3 w-100">
           <Icon family="regular" width="42px" height="42px" />
           <div className="ml4">
-            {title && <p className="c-on-base-2 f6 ma0 mb1">{title}</p>}
+            {title && <p className="gray f6 ma0 mb1">{title}</p>}
             <div className="fw6 f5">{this.props.children}</div>
           </div>
         </div>

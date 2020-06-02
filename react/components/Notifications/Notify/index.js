@@ -7,7 +7,7 @@ import './ReactToastify.global.css'
 
 const types = {
   info: {
-    className: 'bg-primary-light b--primary',
+    className: 'bg-primary-light b--blue',
     bodyClassName: 'c-base-inverted-1',
     progressClassName: 'bg-primary'
   },

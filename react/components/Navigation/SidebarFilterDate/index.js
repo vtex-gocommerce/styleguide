@@ -128,7 +128,7 @@ class SidebarFilterDate extends PureComponent {
             </label>
             {showDateRange && (
               <div className={`mt3`}>
-                <p className="ma0 c-on-base-2 f6 mb1">{this.getTextByLocale('from')}</p>
+                <p className="ma0 gray f6 mb1">{this.getTextByLocale('from')}</p>
                 <DateTimePicker
                   className="w-100"
                   placeholder={`Ex. ${currentDate.getFullYear()}-${currentDate.getMonth() + 1}-${currentDate.getDate()}`}
@@ -141,7 +141,7 @@ class SidebarFilterDate extends PureComponent {
                     locale,
                   }}
                 />
-                <p className="ma0 c-on-base-2 f6 mb1 mt3">{this.getTextByLocale('to')}</p>
+                <p className="ma0 gray f6 mb1 mt3">{this.getTextByLocale('to')}</p>
                 <DateTimePicker
                   className="w-100"
                   placeholder={`Ex. ${currentDate.getFullYear()}-${currentDate.getMonth() + 1}-${currentDate.getDate()}`}

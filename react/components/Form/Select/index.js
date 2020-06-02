@@ -48,14 +48,14 @@ class Select extends Component {
     const disabled = _disabled || readOnly
     let classesSelectWrapper = 'ba br2 '
 
-    const disableClass = disabled ? 'bg-base-3 c-on-base-2 ' : `${styles.selectIcon} `
+    const disableClass = disabled ? 'bg-base-3 gray ' : `${styles.selectIcon} `
     if (hasError) classesSelectWrapper += 'b--danger bg-light-danger '
     if (!disabled && !hasError && !withoutStyle) classesSelectWrapper += 'bg-base-1 c-on-base '
-    if (withoutStyle) classesSelectWrapper += 'c-on-base-2 bg-transparent bn '
+    if (withoutStyle) classesSelectWrapper += 'gray bg-transparent bn '
 
     let classes = `pl4 pr2 ${size === 'small' ? " h-small" : " h-large "} `
-    if (disabled) classes += 'c-on-base-2 '
-    if (withoutStyle) classes += 'c-on-base-2 '
+    if (disabled) classes += 'gray '
+    if (withoutStyle) classes += 'gray '
     if (!disabled && !hasError && !withoutStyle) classes += 'c-on-base '
 
     classes += 'b--base-4 bg-transparent  w-100 pointer'

@@ -112,7 +112,7 @@ class Table extends PureComponent {
               return (
                 <th
                   key={column.id}
-                  className={`h-small pv1 ph4 c-on-base-2 fw4 f7 bb b--base-4 ${textAligns[textAlign]}`}
+                  className={`h-small pv1 ph4 gray fw4 f7 bb b--base-4 ${textAligns[textAlign]}`}
                   style={{ width: column.size + '%' }}
                 >
                   {column.label}

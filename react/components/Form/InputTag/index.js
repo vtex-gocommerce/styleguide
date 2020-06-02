@@ -155,7 +155,7 @@ class InputTag extends Component {
     return (
       <div className="flex items-center flex-auto">
         {!!this.props.iconBefore && (
-          <div className="pa4 c-on-base-2 flex">
+          <div className="pa4 gray flex">
             {this.props.iconBefore}
           </div>
         )}
@@ -230,7 +230,7 @@ class InputTag extends Component {
       <React.Fragment>
         {label && (
           <label
-            className="db c-on-base-2 mb1 f6 lh-copy"
+            className="db gray mb1 f6 lh-copy"
             htmlFor={this._inputId}
           >
             {`${label}${required ? '*' : ''}`}

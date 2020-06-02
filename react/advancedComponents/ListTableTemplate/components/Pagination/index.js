@@ -47,7 +47,7 @@ class Pagination extends PureComponent {
           const showingItens = total <= perPage ? total : perPage
 
           return (
-            <div className="flex justify-between items-center c-on-base-2 f6">
+            <div className="flex justify-between items-center gray f6">
               <span className="dn db-ns">
                 <FormattedMessage
                   id="admin/styleguide.tablePagination.showing"

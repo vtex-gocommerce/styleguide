@@ -9,7 +9,7 @@ const Tooltip = ({ className = '', children, text }) => {
     <div className="dib mr2 relative">
       <div className={`absolute ${styles.gc_tooltip_container}`} style={{ width: '250px' }}>
         <div
-          className={`z-5 br2 pa2 bg-base-inverted-1 f7 c-white tc
+          className={`z-5 br2 pa2 bg-serious-black f7 c-white tc
             ${styles.gc_tooltip} ${className} ${show ? '' : 'dn'}`
           }
           style={{ width: 'fit-content' }}
