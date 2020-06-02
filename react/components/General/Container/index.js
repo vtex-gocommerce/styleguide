@@ -12,7 +12,7 @@ class Container extends PureComponent {
     return (
       <div
         id={id}
-        className={`w-100 flex flex-column mb8 br2 ba b--base-4 bg-base-1 gray f5 ${verticalPadding}`}
+        className={`w-100 flex flex-column mb8 br2 ba b--silver bg-base-1 gray f5 ${verticalPadding}`}
       >
         <div className={horizontalPadding}>
           <PlaceholderContainer isPlaceholderActive={isPlaceholderActive} classNameArray={classNameArray}>

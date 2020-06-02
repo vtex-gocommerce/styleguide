@@ -26,11 +26,11 @@ class RadioButton extends PureComponent {
     const { checked } = this.state
 
     const inputId = id || name
-    let classesCircleOutside = `b--base-4 `
+    let classesCircleOutside = `b--silver `
     let classesCircleInside = ''
 
     if (disabled) {
-      classesCircleOutside += 'bg-base-3 b--base-4'
+      classesCircleOutside += 'bg-base-3 b--silver'
     } else {
       classesCircleOutside += 'bg-base-1'
       classesCircleInside += checked ? 'bg-primary' : 'bg-base-1'

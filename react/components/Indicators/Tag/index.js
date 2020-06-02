@@ -6,7 +6,7 @@ import IconTimesCircle from '../../../icons/IconTimesCircle'
 const styleClasses = {
   default: 'bg-white b--on-base-2',
   primary: 'bg-primary-light b--blue',
-  danger: 'bg-danger-light b--danger',
+  danger: 'bg-danger--faded b--danger',
   warning: 'bg-warning-light b--warning',
   success: 'bg-success-light b--success'
 }

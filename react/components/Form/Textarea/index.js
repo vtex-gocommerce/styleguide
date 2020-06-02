@@ -47,9 +47,9 @@ class Textarea extends PureComponent {
     const currentCharacterIndex = maxLength - currentLength
 
     let inputClasses = `${styles.input} pa3 ba br1 `
-    if (disabled) inputClasses += 'b--base-4 bg-base-3 gray '
+    if (disabled) inputClasses += 'b--silver bg-base-3 gray '
     if (hasError) inputClasses += 'b--danger bg-light-danger c-danger '
-    if (!disabled && !hasError) inputClasses += 'b--base-4 bg-base-1 c-on-base-1 '
+    if (!disabled && !hasError) inputClasses += 'b--silver bg-base-1 c-on-base-1 '
 
     inputClasses += className
 

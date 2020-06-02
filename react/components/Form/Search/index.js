@@ -67,7 +67,7 @@ class Search extends PureComponent {
   render() {
     const { placeholder, withOptions, options, name, id, size, nav, disabled, isLoading } = this.props
 
-    const classes = !nav ? 'b--base-4 bg-white' : 'bg-base-inverted-5 bn c-on-base-inverted'
+    const classes = !nav ? 'b--silver bg-white' : 'bg-base-inverted-5 bn c-on-base-inverted'
     const classesIcon = !nav ? 'gray' : 'c-base-inverted-3'
 
     return (
@@ -81,7 +81,7 @@ class Search extends PureComponent {
             id={id || name}
             list={options}
             elementClassName={`bn h-100 ${size === 'small' ? " h-small" : " h-regular"} `}
-            className="h-100 br b--base-4 f6"
+            className="h-100 br b--silver f6"
             onChange={this.handleChangeOption}
             value={this.state.optionValue}
             withoutStyle={nav}

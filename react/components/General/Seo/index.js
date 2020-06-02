@@ -5,7 +5,7 @@ import styles from './style.css'
 class Seo extends Component {
   render() {
     const { className, title, url, description, noBorder } = this.props
-    const border = noBorder ? '' : 'ba br2 b--base-3'
+    const border = noBorder ? '' : 'ba br2 b--light-gray'
     return (
       <div className={`pl5 pt4 ${border} ${styles.gc_seo} ${className}`}>
         <div>

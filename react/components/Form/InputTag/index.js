@@ -237,7 +237,7 @@ class InputTag extends Component {
           </label>
         )}
         <div
-          className={`flex flex-wrap items-center ba br2 b--base-4 ${className} ${disabled ? 'bg-base-2' : ''}`}
+          className={`flex flex-wrap items-center ba br2 b--silver ${className} ${disabled ? 'bg-base-2' : ''}`}
         >
           <div className="dn flex-ns flex-wrap w-100">{this.getTagList()}</div>
           <div className="db dn-ns flex-auto">{this.renderInput(true)}</div>

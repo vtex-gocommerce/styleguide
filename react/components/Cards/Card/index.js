@@ -7,7 +7,7 @@ class Card extends Component {
   render() {
     const { title, isLoading } = this.props
 
-    const classes = 'flex flex-column w-100 h-100 ba b--base-4 bg-white br1'
+    const classes = 'flex flex-column w-100 h-100 ba b--silver bg-white br1'
 
     return (
       <div className={classes}>

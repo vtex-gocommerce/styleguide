@@ -146,7 +146,7 @@ class SidebarFilter extends PureComponent {
               const ComponentListOptions = optionsTypeComponents[filter.optionsType]
 
               return (
-                <div key={`${keyRenderOptions}${filter.code}`} className="pv4 bb b--base-4">
+                <div key={`${keyRenderOptions}${filter.code}`} className="pv4 bb b--silver">
                   <div
                     className="flex outiline c-on-base hover-c-primary pointer"
                     onClick={() => {

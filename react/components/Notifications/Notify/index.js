@@ -17,7 +17,7 @@ const types = {
     progressClassName: 'bg-success'
   },
   danger: {
-    className: 'bg-danger-light b--danger ',
+    className: 'bg-danger--faded b--danger ',
     bodyClassName: 'c-base-inverted-1',
     progressClassName: 'bg-danger'
   },

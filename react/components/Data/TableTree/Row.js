@@ -35,7 +35,7 @@ export default class Row extends React.PureComponent {
       return (
         <div
           key={depth + column.id}
-          className={`flex-grow-1 flex items-center c-on-base-1 ${open || !isLast ? 'bb b--base-4' : ''} ${textAligns[textAlign]} ${hasWrapper ? '' : "pv1 ph4"}`}
+          className={`flex-grow-1 flex items-center c-on-base-1 ${open || !isLast ? 'bb b--silver' : ''} ${textAligns[textAlign]} ${hasWrapper ? '' : "pv1 ph4"}`}
         >
           {buildTableTd(
             column.cellWrapper,
@@ -54,7 +54,7 @@ export default class Row extends React.PureComponent {
     const { open } = this.state
 
     return (
-      <div className={`hover-bg-base-2 bg-animate ${root && open && !isLast ? 'bb b--base-4' : ''}`}>
+      <div className={`hover-bg-base-2 bg-animate ${root && open && !isLast ? 'bb b--silver' : ''}`}>
         <div className={'flex flex-column'}>
           <div
             className={`${(fields.bgColor && 'bg-' + fields.bgColor) || ''} ${(fields.lineLink && 'pointer') ||
@@ -62,9 +62,9 @@ export default class Row extends React.PureComponent {
             onClick={fields.lineLink && fields.lineLink}
             style={{ paddingLeft: `${depth*40}px` }}
           >
-            <div style={{ width: '10px' }} className={`${!open && depth === 0 && !isLast ? 'bb b--base-4' : ''}`} />
+            <div style={{ width: '10px' }} className={`${!open && depth === 0 && !isLast ? 'bb b--silver' : ''}`} />
             {selectable && (
-              <div className={`pv1 f7 tc flex justify-center items-center ${open || !isLast ? 'bb b--base-4' : ''}`} style={{ width: '40px' }}>
+              <div className={`pv1 f7 tc flex justify-center items-center ${open || !isLast ? 'bb b--silver' : ''}`} style={{ width: '40px' }}>
                 <CheckBox
                   onClick={(event, checked) => {
                     this.props.onSelect(checked)
@@ -77,7 +77,7 @@ export default class Row extends React.PureComponent {
               {this.getFormattedRow()}
             </div>
             <div 
-              className={`pv1 f7 tc b--base-4 pointer hover-blue flex items-center justify-center ${!open && depth === 0 && !isLast ? 'bb b--base-4' : ''}`} 
+              className={`pv1 f7 tc b--silver pointer hover-blue flex items-center justify-center ${!open && depth === 0 && !isLast ? 'bb b--silver' : ''}`} 
               style={{ width: '50px' }} 
               onClick={() => this.setState({ open: !open })}
             >

@@ -20,7 +20,7 @@ const types = {
   error: {
     icon: IconBan,
     classes: 'b--danger c-danger',
-    fill: 'bg-danger-light'
+    fill: 'bg-danger--faded'
   },
   info: {
     icon: IconInfoCircle,
