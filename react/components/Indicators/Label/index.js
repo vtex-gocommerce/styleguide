@@ -5,7 +5,7 @@ import IconTimes from '../../../icons/IconTimes'
 class Label extends PureComponent {
   render() {
     const { count, onRemove, bgColor, fullWidth } = this.props
-    const tagBgColor = bgColor ? `bg-${bgColor}` : 'bg-primary'
+    const tagBgColor = bgColor ? `bg-${bgColor}` : 'bg-blue'
     let classes = `dib ph2 fw6 pv1 br2 ${tagBgColor} white f6 `
     if (fullWidth) classes += ' w-100 '
     if (onRemove) classes += 'hover-bg-danger pointer'
