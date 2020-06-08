@@ -17,7 +17,7 @@ class Pagination extends PureComponent {
 
     return (
       <div className="flex gray items-center">
-        <div className="dib mr5 tracked-tight">
+        <div className="dib mr5">
           <span className="c-primary">{currentPage}</span> / <span>{pageCount}</span>
         </div>
 
@@ -27,7 +27,7 @@ class Pagination extends PureComponent {
             if (currentPage > 1) this.handleChange(currentPage - 1)
           }}
         >
-          <IconArrowLeft className={`${currentPage > 1 ? 'gray hover-c-primary pointer' : 'c-base-4'}`} />
+          <IconArrowLeft className={`${currentPage > 1 ? 'gray hover-blue pointer' : 'light-gray'}`} />
         </span>
         <span
           className="db"
@@ -36,7 +36,7 @@ class Pagination extends PureComponent {
           }}
         >
           <IconArrowRight
-            className={`${currentPage < pageCount ? 'gray hover-c-primary pointer ' : 'c-base-4'}`}
+            className={`${currentPage < pageCount ? 'gray hover-blue pointer ' : 'light-gray'}`}
           />
         </span>
       </div>

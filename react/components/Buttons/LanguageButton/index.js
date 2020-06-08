@@ -47,7 +47,7 @@ class LanguageButtonComponent extends PureComponent {
                 <div
                   key={id}
                   id={`appframe-locale@${id}`}
-                  className={`ph4 pv1 f6 gray pointer ${itemClassName} ${abbreviationOn ? 'tc' : 'ml6'}`}
+                  className={`ph4 pv2 f6 gray pointer ${itemClassName} ${abbreviationOn ? 'tc' : 'ml6'}`}
                   onClick={() => {
                     handleClick(id), toggleDropdown()
                   }}

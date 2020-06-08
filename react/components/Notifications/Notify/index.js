@@ -22,7 +22,7 @@ const types = {
     progressClassName: 'bg-danger'
   },
   warning: {
-    className: 'bg-warning-light b--warning',
+    className: 'bg-warning--faded b--warning',
     bodyClassName: 'c-base-inverted-1',
     progressClassName: 'bg-warning'
   }

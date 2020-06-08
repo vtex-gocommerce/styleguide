@@ -106,7 +106,7 @@ class Search extends PureComponent {
 
           {this.state.searchValue && !isLoading && (
             <div
-              className={`pr3 flex pointer hover-c-primary animated fadeIn ${classesIcon}`}
+              className={`pr3 flex pointer hover-blue animated fadeIn ${classesIcon}`}
               onClick={this.handleClearSearch}
             >
               <IconTimesCircle />
@@ -115,7 +115,7 @@ class Search extends PureComponent {
 
           {isLoading && (
             <div
-              className={`pr3 flex pointer hover-c-primary animated fadeIn ${classesIcon}`}
+              className={`pr3 flex pointer hover-blue animated fadeIn ${classesIcon}`}
               onClick={this.handleClearSearch}
             >
               <IconArc />

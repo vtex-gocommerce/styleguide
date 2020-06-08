@@ -4,16 +4,16 @@ import styles from './style.css'
 import IconTimesCircle from '../../../icons/IconTimesCircle'
 
 const styleClasses = {
-  default: 'bg-white b--on-base-2',
-  primary: 'bg-blue-light b--blue',
+  default: 'bg-white b--gray',
+  primary: 'bg-washed-blue b--blue',
   danger: 'bg-danger--faded b--danger',
-  warning: 'bg-warning-light b--warning',
-  success: 'bg-success-light b--success'
+  warning: 'bg-warning--faded b--warning',
+  success: 'bg-washed-green b--green'
 }
 
 const buttonCloseStyleHover = {
-  default: 'hover-c-primary',
-  primary: 'hover-c-primary',
+  default: 'hover-blue',
+  primary: 'hover-blue',
   danger: 'hover-c-danger',
   warning: 'hover-c-warning',
   success: 'hover-c-success'

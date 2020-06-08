@@ -6,10 +6,10 @@ import IconTimes from './../../../icons/IconTimes'
 import styles from './style.css'
 
 const listOfStyles = {
-  primary: `all-animate ba b--blue bg-blue c-on-primary hover-bg-blue-dark hover-b--blue-dark ${styles.activeBgActivePrimary} pointer `,
+  primary: `all-animate ba b--blue bg-blue white hover-bg-blue-dark hover-b--blue-dark ${styles.activeBgActivePrimary} pointer `,
   secondary: `all-animate ba b--light-gray bg-base-4 hover-bg-base-3 hover-b--light-gray c-on-base ${styles.activeBgActiveSecondary} pointer `,
-  outline: `all-animate ba b--light-gray bg-outiline hover-bg-outline-dark c-on-outline ${styles.activeBgActiveOutline} pointer `,
-  danger: `ba b--danger bg-danger c-on-danger hover-bg-danger-dark hover-b--danger-dark  ${styles.activeBgActiveDanger} pointer `
+  outline: `all-animate ba b--light-gray bg-outiline hover-bg-outline-dark ${styles.activeBgActiveOutline} pointer `,
+  danger: `ba b--danger bg-danger white hover-bg-danger-dark hover-b--danger-dark  ${styles.activeBgActiveDanger} pointer `
 }
 
 class Button extends PureComponent {

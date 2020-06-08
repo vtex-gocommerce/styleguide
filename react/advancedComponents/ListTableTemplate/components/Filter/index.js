@@ -34,7 +34,7 @@ class Filter extends PureComponent {
                           handleOpenSidebarFilter()
                         }}
                       >
-                        <IconFilter className="gray hover-c-primary" width="25px" height="19px" />
+                        <IconFilter className="gray hover-blue" width="25px" height="19px" />
                       </span>
                     ) : (
                       <Badge
@@ -42,7 +42,7 @@ class Filter extends PureComponent {
                           handleOpenSidebarFilter()
                         }}
                         text={`${enabledSidebarFilterOptions.length}`}
-                        icon={<IconFilter className="gray hover-c-primary" />}
+                        icon={<IconFilter className="gray hover-blue" />}
                       />
                     )}
                   </span>

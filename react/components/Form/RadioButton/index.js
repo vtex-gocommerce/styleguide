@@ -55,7 +55,7 @@ class RadioButton extends PureComponent {
         <div className={classesCircleOutside} style={{ width: width || '20px', height: height || '20px' }}>
           <span className={`icon ${classesCircleInside}`} />
         </div>
-        {label && <span className="ml2 hover-c-primary pointer" htmlFor={inputId}>{label}</span>}
+        {label && <span className="ml2 hover-blue pointer" htmlFor={inputId}>{label}</span>}
       </label>
     )
   }

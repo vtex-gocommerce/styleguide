@@ -170,7 +170,7 @@ class TableExample extends React.Component {
               With <strong>selectable</strong>:
             </div>
             <Table
-              actions={<span class="hover-c-primary f6 pointer">Remover</span>}
+              actions={<span class="hover-blue f6 pointer">Remover</span>}
               columns={columns}
               rows={rows}
               data={selectableData}

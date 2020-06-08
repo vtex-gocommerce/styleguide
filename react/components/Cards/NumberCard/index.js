@@ -13,7 +13,7 @@ class NumberCard extends Component {
           <span className="flex items-center justify-center br-100 pa5 bg-blue white">
             <Icon width="48px" heigth="48px" />
           </span>
-          <span className="ml4 c-primary f3 fw6 tracked-tight">{value}</span>
+          <span className="ml4 c-primary f3 fw6">{value}</span>
         </div>
       </Card>
     )

@@ -15,7 +15,7 @@ const types = {
   warning: {
     icon: IconExclamationTriangle,
     classes: 'b--warning c-warning',
-    fill: 'bg-warning-light'
+    fill: 'bg-warning--faded'
   },
   error: {
     icon: IconBan,

@@ -42,7 +42,7 @@ class TablePagination extends PureComponent {
         <div className="flex overflow-hidden justify-end">
           <div className="pointer">
             <Select
-              elementClassName="tracked-tight zeitungMicroPro pointer hover-c-primary"
+              elementClassName="zeitungMicroPro pointer hover-blue"
               list={viewPageOptions}
               required
               placeholder={false}
