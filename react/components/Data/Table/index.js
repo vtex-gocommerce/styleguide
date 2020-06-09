@@ -121,7 +121,7 @@ class Table extends PureComponent {
             })}
           </tr>
         </thead>
-        <tbody className="bg-base-1">
+        <tbody className="bg-white">
           {this.props.isLoading
             ? [...Array(placeholderLength).keys()].map(e => (
               <tr key={e} className="h-large">

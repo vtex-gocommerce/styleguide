@@ -46,7 +46,7 @@ class DropdownButton extends PureComponent {
                 return (
                   <li
                     key={index}
-                    className="bb b--light-gray bg-base-1 hover-bg-base-3 pa3 c-on-base-1 pointer"
+                    className="bb b--light-gray bg-white hover-bg-base-3 pa3 c-on-base-1 pointer"
                     onClick={option.callback}
                   >
                     {option.label}

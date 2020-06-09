@@ -15,15 +15,14 @@ class TableList extends PureComponent {
 
     return (
       <table className={`w-100 bg-white`} cellSpacing="0">
-        <thead className="bg-light-silver">
+        <thead>
           <tr>
             {columns.map((column, index) => {
               const textAlign = column.textAlign || 'left'
               return (
                 <th
                   key={column.id}
-                  className={`${index === 0 ? "pl0" : "pl4"} ${index === lastColumn ? "pr0" : "pr4"} 
-                  ${textAligns[textAlign]} gray fw4 f7 `}
+                  className={`${index === 0 ? "pl0" : "pl4"} ${index === lastColumn ? "pr0" : "pr4"} ${textAligns[textAlign]} gray fw4 f7 `}
                   style={{ width: column.size + '%' }}
                 >
                   {column.label}
@@ -32,7 +31,7 @@ class TableList extends PureComponent {
             })}
           </tr>
         </thead>
-        <tbody className="bg-base-1">
+        <tbody className="bg-white">
           {this.props.isLoading
             ? [...Array(3).keys()].map(e => (
               <tr key={e}>

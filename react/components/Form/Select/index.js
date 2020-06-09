@@ -50,7 +50,7 @@ class Select extends Component {
 
     const disableClass = disabled ? 'bg-base-3 gray ' : `${styles.selectIcon} `
     if (hasError) classesSelectWrapper += 'b--danger bg-light-danger '
-    if (!disabled && !hasError && !withoutStyle) classesSelectWrapper += 'bg-base-1 c-on-base '
+    if (!disabled && !hasError && !withoutStyle) classesSelectWrapper += 'bg-white c-on-base '
     if (withoutStyle) classesSelectWrapper += 'gray bg-transparent bn '
 
     let classes = `pl4 pr2 ${size === 'small' ? " h-small" : " h-large "} `

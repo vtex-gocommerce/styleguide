@@ -176,7 +176,7 @@ class Input extends PureComponent {
     const isDisableAspect = disabled || readOnly
     if (isDisableAspect) colors += 'b--silver bg-base-2 gray '
     if (hasError) colors += 'b--danger bg-light-danger c-danger '
-    if (!isDisableAspect && !hasError && !withoutStyle) colors += 'b--silver bg-base-1 c-on-base-1 '
+    if (!isDisableAspect && !hasError && !withoutStyle) colors += 'b--silver bg-white c-on-base-1 '
     if (withoutStyle) colors += 'c-on-base-1 bg-transparent bn '
     const suffixClass = suffix ? 'w-100 dib ba br-0 br1 br--left ' : ''
     const iconBeforeClass = iconBefore ? `bn w-100 dib ${styles.inputIconBefore} ` : ''

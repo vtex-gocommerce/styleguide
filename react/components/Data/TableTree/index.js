@@ -128,7 +128,7 @@ class TableTree extends PureComponent {
             <div className={`pv2 ph4 tc bb b--silver`} style={{ width: '40px' }} />
           </div>
         </div>
-        <div className="bg-base-1">
+        <div className="bg-white">
           {this.props.isLoading
             ? [...Array(placeholderLength).keys()].map(e => (
                 <div key={e} className="h-large flex">

@@ -49,7 +49,7 @@ class Textarea extends PureComponent {
     let inputClasses = `${styles.input} pa3 ba br1 `
     if (disabled) inputClasses += 'b--silver bg-base-3 gray '
     if (hasError) inputClasses += 'b--danger bg-light-danger c-danger '
-    if (!disabled && !hasError) inputClasses += 'b--silver bg-base-1 c-on-base-1 '
+    if (!disabled && !hasError) inputClasses += 'b--silver bg-white c-on-base-1 '
 
     inputClasses += className
 

@@ -64,7 +64,7 @@ class DateTimePicker extends PureComponent {
     let colors = ''
     if (disabled) colors += 'b--silver bg-base-3 gray '
     if (hasError) colors += 'b--danger bg-light-danger c-danger '
-    if (!disabled && !hasError && !withoutStyle) colors += 'b--silver bg-base-1 c-on-base-1 '
+    if (!disabled && !hasError && !withoutStyle) colors += 'b--silver bg-white c-on-base-1 '
     if (withoutStyle) colors += 'c-on-base-1 bg-transparent bn '
 
     const DateTimePickerClasses = style + padding + colors + className

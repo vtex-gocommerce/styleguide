@@ -10,7 +10,7 @@ const types = {
   success: {
     icon: IconCheckCircle,
     classes: 'b--success c-success',
-    fill: ' bg-success-light'
+    fill: ' bg-washed-green'
   },
   warning: {
     icon: IconExclamationTriangle,
@@ -24,8 +24,8 @@ const types = {
   },
   info: {
     icon: IconInfoCircle,
-    classes: 'b--info  c-info',
-    fill: ' bg-info-light'
+    classes: 'b--info c-info',
+    fill: ' bg-washed-blue'
   }
 }
 

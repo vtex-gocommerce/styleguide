@@ -28,7 +28,7 @@ class CheckBox extends PureComponent {
     let classes = `flex justify-center items-center ba br2 ${styles.checkbox} `
 
     if (disabled) {
-      classes += 'bg-base-1 b--light-gray'
+      classes += 'bg-white b--light-gray'
     } else {
       classes += checked ? 'bg-blue b--blue' : 'bg-white b--light-gray'
     }

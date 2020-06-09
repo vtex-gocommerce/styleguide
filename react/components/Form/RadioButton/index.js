@@ -32,8 +32,8 @@ class RadioButton extends PureComponent {
     if (disabled) {
       classesCircleOutside += 'bg-base-3 b--silver'
     } else {
-      classesCircleOutside += 'bg-base-1'
-      classesCircleInside += checked ? 'bg-blue' : 'bg-base-1'
+      classesCircleOutside += 'bg-white'
+      classesCircleInside += checked ? 'bg-blue' : 'bg-white'
     }
 
     classesCircleOutside = hasError ? 'b--danger' : classesCircleOutside

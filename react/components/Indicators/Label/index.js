@@ -14,7 +14,7 @@ class Label extends PureComponent {
       <span className={classes} onClick={onRemove}>
         <span className="flex items-center justify-center">
           {this.props.children}
-          {count && <span className="ml2 ph2 bg-base-1 br-pill f7 c-primary">{count}</span>}
+          {count && <span className="ml2 ph2 bg-white br-pill f7 c-primary">{count}</span>}
           {onRemove && <IconTimes className="ml2" ignoreSize />}
         </span>
       </span>
