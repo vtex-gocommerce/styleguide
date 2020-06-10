@@ -77,7 +77,7 @@ class DateTimePicker extends PureComponent {
       onChange: this.handleChange,
       disabled: disabled,
       defaultValue: defaultValue,
-      calendarClassName: 'zeitungMicroPro',
+      calendarClassName: '',
       useShortMonthInDropdown: true,
       dateFormat: 'P',
       autoComplete: 'off',
