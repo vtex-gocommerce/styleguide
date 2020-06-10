@@ -4,7 +4,7 @@ import IconArrowLeft from '../../../icons/IconArrowLeft'
 
 class Breadcrumb extends PureComponent {
   renderItemLink = (item, icon = false) => {
-    const classesLink = 'c-on-base-2 no-underline hover-c-primary'
+    const classesLink = 'gray no-underline hover-blue'
 
     if (!this.props.link) {
       return (
@@ -43,9 +43,9 @@ class Breadcrumb extends PureComponent {
         {item.hasOwnProperty('to') || item.hasOwnProperty('page') ? (
           this.renderItemLink(item, index === 0)
         ) : (
-          <span className="c-on-base-2 dib">{this.renderItemText(item)}</span>
+          <span className="gray dib">{this.renderItemText(item)}</span>
         )}
-        <span className="c-on-base-2 ph2 dib">{this.props.separator}</span>
+        <span className="gray ph2 dib">{this.props.separator}</span>
       </React.Fragment>
     )
   }
@@ -54,7 +54,7 @@ class Breadcrumb extends PureComponent {
     const { items } = this.props
 
     return (
-      <div className="c-on-base f5 f3-ns fw6 tracked-tight flex items-center overflow-hidden flex-auto pr11-ns">
+      <div className="c-on-base f5 f3-ns fw6 flex items-center overflow-hidden flex-auto pr11-ns">
         {items.map((item, index, items) => {
           if (index + 1 === items.length) {
             return (

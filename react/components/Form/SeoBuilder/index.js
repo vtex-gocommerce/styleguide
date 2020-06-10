@@ -66,7 +66,7 @@ class SeoBuilder extends Component {
           <div className="w-100 w-50-ns pr4-ns">
             <div className="pb4 f6">
               <div className="flex justify-between">
-                <label className="db pb2 c-on-base-2">{this.props.labelPageTitle}</label>
+                <label className="db pb2 gray">{this.props.labelPageTitle}</label>
                 <TextLimitCounter text={this.state.pageTitle} limit={PAGE_TITLE_LIMIT} />
               </div>
               <Input
@@ -79,7 +79,7 @@ class SeoBuilder extends Component {
             </div>
             <div className="pb4 f6">
               <div className="flex justify-between">
-                <label className="db pb2 c-on-base-2">{this.props.labelMetaDescription}</label>
+                <label className="db pb2 gray">{this.props.labelMetaDescription}</label>
                 <TextLimitCounter text={this.state.metaDescription} limit={DESCRIPTION_LIMIT} />
               </div>
               <Textarea
@@ -92,7 +92,7 @@ class SeoBuilder extends Component {
               />
             </div>
             <div className="pb4 f6">
-              <label className="db pb2 c-on-base-2">{this.props.labelUrl}</label>
+              <label className="db pb2 gray">{this.props.labelUrl}</label>
               <Input
                 name="url"
                 placeholder={placeholderUrl}

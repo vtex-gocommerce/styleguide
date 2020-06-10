@@ -14,7 +14,7 @@ class TableList extends PureComponent {
     const lastColumn = columns.length - 1
 
     return (
-      <table className={`w-100`} cellSpacing="0">
+      <table className={`w-100 bg-white`} cellSpacing="0">
         <thead>
           <tr>
             {columns.map((column, index) => {
@@ -22,8 +22,7 @@ class TableList extends PureComponent {
               return (
                 <th
                   key={column.id}
-                  className={`${index === 0 ? "pl0" : "pl4"} ${index === lastColumn ? "pr0" : "pr4"} 
-                  ${textAligns[textAlign]} c-on-base-2 fw4 f7 `}
+                  className={`${index === 0 ? "pl0" : "pl4"} ${index === lastColumn ? "pr0" : "pr4"} ${textAligns[textAlign]} gray fw4 f7 `}
                   style={{ width: column.size + '%' }}
                 >
                   {column.label}
@@ -32,7 +31,7 @@ class TableList extends PureComponent {
             })}
           </tr>
         </thead>
-        <tbody className="bg-base-1">
+        <tbody className="bg-white">
           {this.props.isLoading
             ? [...Array(3).keys()].map(e => (
               <tr key={e}>
@@ -49,7 +48,7 @@ class TableList extends PureComponent {
                 return (
                   <td
                     key={index + column.id}
-                    className={` pv2 ${hasLineDivision ? "bb b--base-3" : ""} ${indexColumn === 0 ? "pl0" : "pl4"} ${indexColumn === lastColumn ? "pr0" : "pr4"}
+                    className={` pv2 ${hasLineDivision ? "bb b--light-gray" : ""} ${indexColumn === 0 ? "pl0" : "pl4"} ${indexColumn === lastColumn ? "pr0" : "pr4"}
                       pv2 c-on-base-1 ${textAligns[textAlign]}`}
                   >
                     <Placeholder className="h1 w-100 mt2 br4" isPlaceholderActive={false}>

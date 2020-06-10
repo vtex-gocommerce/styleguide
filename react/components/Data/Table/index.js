@@ -90,21 +90,21 @@ class Table extends PureComponent {
 
 
     return (
-      <table className={`w-100 f6 ba b--base-4`} cellSpacing="0">
-        <thead className={`tl bg-base-2`}>
+      <table className={`w-100 f6 ba b--silver bg-white`} cellSpacing="0">
+        <thead className={`tl bg-light-silver`}>
           {selectable && (
             <tr>
-              <th className={`pv2 ph4 tc bb b--base-4`} style={{ width: '40px' }}>
+              <th className={`pv2 ph4 tc bb b--silver`} style={{ width: '40px' }}>
                 <CheckBox onClick={this.selectAll} />
               </th>
-              <th className={`pv2 ph4 tl bb b--base-4 normal c-on-base`} colSpan={columns.length}>
+              <th className={`pv2 ph4 tl bb b--silver normal c-on-base`} colSpan={columns.length}>
                 {actions && actions}
               </th>
             </tr>
           )}
 
           <tr>
-            {selectable && <th className={`pv2 ph4 tc bb b--base-4`} style={{ width: '40px' }} />}
+            {selectable && <th className={`pv2 ph4 tc bb b--silver`} style={{ width: '40px' }} />}
             {columns.map((column, index) => {
               const textAlign =
                 (column.textAlign && column.textAlign) || (column && column.isCentered ? 'center' : 'left')
@@ -112,7 +112,7 @@ class Table extends PureComponent {
               return (
                 <th
                   key={column.id}
-                  className={`h-small pv1 ph4 c-on-base-2 fw4 f7 bb b--base-4 ${textAligns[textAlign]}`}
+                  className={`h-small pv1 ph4 gray fw4 f7 bb b--silver ${textAligns[textAlign]}`}
                   style={{ width: column.size + '%' }}
                 >
                   {column.label}
@@ -121,12 +121,12 @@ class Table extends PureComponent {
             })}
           </tr>
         </thead>
-        <tbody className="bg-base-1">
+        <tbody className="bg-white">
           {this.props.isLoading
             ? [...Array(placeholderLength).keys()].map(e => (
               <tr key={e} className="h-large">
                 {[...Array(this.props.columns.length + (selectable ? 1 : 0)).keys()].map(e => (
-                  <td key={e} className={`${placeholderSizes[placeholderSize]} ph4 c-on-base-1 tc bb b--base-4`}>
+                  <td key={e} className={`${placeholderSizes[placeholderSize]} ph4 c-on-base-1 tc bb b--silver`}>
                     <Placeholder className="pa2 w-100 br4" isPlaceholderActive={this.props.isLoading} />
                   </td>
                 ))}
@@ -140,7 +140,7 @@ class Table extends PureComponent {
                 return (
                   <td
                     key={index + column.id}
-                    className={`c-on-base-1 bb b--base-4 ${textAligns[textAlign]} ${hasWrapper ? '' : "pv1 ph4"}`}
+                    className={`c-on-base-1 bb b--silver ${textAligns[textAlign]} ${hasWrapper ? '' : "pv1 ph4"}`}
                   >
                     {buildTableTd(
                       column.cellWrapper,
@@ -161,7 +161,7 @@ class Table extends PureComponent {
                   onClick={fields.lineLink && fields.lineLink}
                 >
                   {selectable && (
-                    <th className="pv1 f7 tc bb b--base-4" style={{ width: '40px' }}>
+                    <th className="pv1 f7 tc bb b--silver" style={{ width: '40px' }}>
                       <CheckBox
                         onClick={(event, checked) => {
                           this.select(index, checked)

@@ -37,12 +37,12 @@ class Toggle extends PureComponent {
     let circle = `absolute br-100 ${styles.toggleCircle} `
 
     if (disabled) {
-      classes += 'bg-base-1 ba b--base-4'
-      circle += checked ? 'bg-primary ' : 'bg-on-base-2 '
+      classes += 'bg-white ba b--silver'
+      circle += checked ? 'bg-blue ' : 'bg-silver '
       circle += checked ? `${styles.toggledCircle}` : 'left-0 '
     } else {
-      classes += 'bg-base-1 ba b--base-4'
-      circle += checked ? 'bg-primary ' : 'bg-on-base-2 '
+      classes += 'bg-white ba b--silver'
+      circle += checked ? 'bg-blue ' : 'bg-silver '
       circle += checked ? `${styles.toggledCircle}` : 'left-0 '
     }
 
@@ -53,7 +53,7 @@ class Toggle extends PureComponent {
         <div className={classes}>
           <div className={circle} />
         </div>
-        {label && <span className="ml3 hover-c-primary pointer" htmlFor={inputId}>{label}</span>}
+        {label && <span className="ml3 hover-blue pointer" htmlFor={inputId}>{label}</span>}
 
         <input
           name={name}

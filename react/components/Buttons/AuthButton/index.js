@@ -5,11 +5,11 @@ import IconFacebook from '../../../icons/IconFacebook'
 import styles from './style.css'
 const providers = {
   google: {
-    classes: `c-base-1 pointer no-underline ${styles.buttonGoogle} `,
+    classes: `white pointer no-underline ${styles.buttonGoogle} `,
     icon: IconGoogle
   },
   facebook: {
-    classes: `c-on-primary pointer no-underline ${styles.buttonFacebook} `,
+    classes: `white pointer no-underline ${styles.buttonFacebook} `,
     icon: IconFacebook
   }
 }

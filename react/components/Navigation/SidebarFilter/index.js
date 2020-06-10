@@ -106,7 +106,7 @@ class SidebarFilter extends PureComponent {
       <div className="fixed z-9999 w-100 w-25-ns vh-100 top-0 right-0 shadow-2 bg-white">
         <div className="flex flex-column vh-100 ph8 pt6 pb0 ">
           <div className="flex justify-between  pb5">
-            <div className="f3 fw6 tracked-tight c-on-base">{this.getTextByLocale('filters')}</div>
+            <div className="f3 fw6 c-on-base">{this.getTextByLocale('filters')}</div>
             <div className="f6">
               <div
                 className="fr ph3 c-on-base pointer hover-c-danger"
@@ -121,7 +121,7 @@ class SidebarFilter extends PureComponent {
           <div className="flex-auto overflow-y-scroll">
             {enabledOptions && enabledOptions.length > 0 && (
               <div className="w-100">
-                <p className="c-on-base-2 f7 fw6">{this.getTextByLocale('appliedFilters')}</p>
+                <p className="gray f7 fw6">{this.getTextByLocale('appliedFilters')}</p>
                 <div className="flex flex-wrap pt2">
                   {enabledOptions.map((item, index) => {
                     return (
@@ -138,7 +138,7 @@ class SidebarFilter extends PureComponent {
 
             <div className="w-100">
               <div className="pt2">
-                <p className="c-on-base-2 f7 fw6 nb2">{this.getTextByLocale('editFilters')} </p>
+                <p className="gray f7 fw6 nb2">{this.getTextByLocale('editFilters')} </p>
               </div>
             </div>
 
@@ -146,9 +146,9 @@ class SidebarFilter extends PureComponent {
               const ComponentListOptions = optionsTypeComponents[filter.optionsType]
 
               return (
-                <div key={`${keyRenderOptions}${filter.code}`} className="pv4 bb b--base-4">
+                <div key={`${keyRenderOptions}${filter.code}`} className="pv4 bb b--silver">
                   <div
-                    className="flex outiline c-on-base hover-c-primary pointer"
+                    className="flex outiline c-on-base hover-blue pointer"
                     onClick={() => {
                       this.handleToggleFilterOption(filter.code)
                     }}

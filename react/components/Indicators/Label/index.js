@@ -5,7 +5,7 @@ import IconTimes from '../../../icons/IconTimes'
 class Label extends PureComponent {
   render() {
     const { count, onRemove, bgColor, fullWidth } = this.props
-    const tagBgColor = bgColor ? `bg-${bgColor}` : 'bg-primary'
+    const tagBgColor = bgColor ? `bg-${bgColor}` : 'bg-blue'
     let classes = `dib ph2 fw6 pv1 br2 ${tagBgColor} white f6 `
     if (fullWidth) classes += ' w-100 '
     if (onRemove) classes += 'hover-bg-danger pointer'
@@ -14,7 +14,7 @@ class Label extends PureComponent {
       <span className={classes} onClick={onRemove}>
         <span className="flex items-center justify-center">
           {this.props.children}
-          {count && <span className="ml2 ph2 bg-base-1 br-pill f7 c-primary">{count}</span>}
+          {count && <span className="ml2 ph2 bg-white br-pill f7 c-primary">{count}</span>}
           {onRemove && <IconTimes className="ml2" ignoreSize />}
         </span>
       </span>

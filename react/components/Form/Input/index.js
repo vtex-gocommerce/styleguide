@@ -13,7 +13,7 @@ const SuffixComponent = ({ children, suffix, className, hasError, colors }) => {
     <div className={`dib ${className}`}>
       <div className="flex">
         {children}
-        <span className={`ba br2 br--right inline-flex items-center ph3 ${!hasError ? 'c-on-base-2' : ''} ${colors}`}>
+        <span className={`ba br2 br--right inline-flex items-center ph3 ${!hasError ? 'gray' : ''} ${colors}`}>
           {suffix}
         </span>
       </div>
@@ -174,9 +174,9 @@ class Input extends PureComponent {
     const style = `${styles.input} ba br2 h-large `
     let colors = ''
     const isDisableAspect = disabled || readOnly
-    if (isDisableAspect) colors += 'b--base-4 bg-base-2 c-on-base-2 '
+    if (isDisableAspect) colors += 'b--silver bg-base-2 gray '
     if (hasError) colors += 'b--danger bg-light-danger c-danger '
-    if (!isDisableAspect && !hasError && !withoutStyle) colors += 'b--base-4 bg-base-1 c-on-base-1 '
+    if (!isDisableAspect && !hasError && !withoutStyle) colors += 'b--silver bg-white c-on-base-1 '
     if (withoutStyle) colors += 'c-on-base-1 bg-transparent bn '
     const suffixClass = suffix ? 'w-100 dib ba br-0 br1 br--left ' : ''
     const iconBeforeClass = iconBefore ? `bn w-100 dib ${styles.inputIconBefore} ` : ''

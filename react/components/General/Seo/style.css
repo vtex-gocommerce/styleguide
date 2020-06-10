@@ -22,12 +22,15 @@
 
 .gc_seo__title {
   color: #1a0dab;
+  word-break: break-word;
 }
 
 .gc_seo__url {
   color: #006621;
+  word-break: break-word;
 }
 
 .gc_seo__description {
   color: #545454;
+  word-break: break-word;
 }

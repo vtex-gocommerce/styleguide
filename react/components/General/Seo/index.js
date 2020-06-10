@@ -5,7 +5,7 @@ import styles from './style.css'
 class Seo extends Component {
   render() {
     const { className, title, url, description, noBorder } = this.props
-    const border = noBorder ? '' : 'ba br2 b--base-3'
+    const border = noBorder ? '' : 'ba br2 b--light-gray'
     return (
       <div className={`pl5 pt4 ${border} ${styles.gc_seo} ${className}`}>
         <div>
@@ -14,10 +14,10 @@ class Seo extends Component {
           <span className={styles.gc_seo_button__minimize} />
         </div>
         <div className="pt5 ">
-          {title && <span className={`db f4 pb1 word-break ${styles.gc_seo__title}`}>{title}</span>}
-          {url && <span className={`db f6 pb1 word-break ${styles.gc_seo__url}`}>{url}</span>}
+          {title && <span className={`db f4 pb1 ${styles.gc_seo__title}`}>{title}</span>}
+          {url && <span className={`db f6 pb1 ${styles.gc_seo__url}`}>{url}</span>}
           {description && (
-            <span className={`db pt1 f6 fw3 word-break ${styles.gc_seo__description}`}>{description}</span>
+            <span className={`db pt1 f6 fw3 ${styles.gc_seo__description}`}>{description}</span>
           )}
         </div>
       </div>

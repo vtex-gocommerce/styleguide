@@ -37,12 +37,12 @@ class TablePagination extends PureComponent {
     ]
 
     return (
-      <div className="flex justify-between items-center c-on-base-2">
+      <div className="flex justify-between items-center gray">
         {total} {recordsLabel || 'records'}
         <div className="flex overflow-hidden justify-end">
           <div className="pointer">
             <Select
-              elementClassName="tracked-tight zeitungMicroPro pointer hover-c-primary"
+              elementClassName="pointer hover-blue"
               list={viewPageOptions}
               required
               placeholder={false}

@@ -4,16 +4,16 @@ import styles from './style.css'
 import IconTimesCircle from '../../../icons/IconTimesCircle'
 
 const styleClasses = {
-  default: 'bg-white b--on-base-2',
-  primary: 'bg-primary-light b--primary',
-  danger: 'bg-danger-light b--danger',
-  warning: 'bg-warning-light b--warning',
-  success: 'bg-success-light b--success'
+  default: 'bg-white b--gray',
+  primary: 'bg-washed-blue b--blue',
+  danger: 'bg-danger--faded b--danger',
+  warning: 'bg-warning--faded b--warning',
+  success: 'bg-washed-green b--green'
 }
 
 const buttonCloseStyleHover = {
-  default: 'hover-c-primary',
-  primary: 'hover-c-primary',
+  default: 'hover-blue',
+  primary: 'hover-blue',
   danger: 'hover-c-danger',
   warning: 'hover-c-warning',
   success: 'hover-c-success'
@@ -25,7 +25,7 @@ class Tag extends PureComponent {
 
     let tagStyleClasses = styleClasses[style]
 
-    let classes = `${styles.gc_tag} ${tagStyleClasses} f6 dib ph4 mr2 h-small ba br2 c-on-base-2 b--dashed flex justify-center items-center `
+    let classes = `${styles.gc_tag} ${tagStyleClasses} f6 dib ph4 mr2 h-small ba br2 gray b--dashed flex justify-center items-center `
     if (onRemove) classes += 'pointer'
 
     return (

@@ -47,7 +47,7 @@ class Pagination extends PureComponent {
           const showingItens = total <= perPage ? total : perPage
 
           return (
-            <div className="flex justify-between items-center c-on-base-2 f6">
+            <div className="flex justify-between items-center gray f6">
               <span className="dn db-ns">
                 <FormattedMessage
                   id="admin/styleguide.tablePagination.showing"
@@ -57,7 +57,7 @@ class Pagination extends PureComponent {
               <div className="flex justify-between justify-end-ns flex-auto">
                 <div className="pointer justify-end nl4 nl0-ns">
                   <Select
-                    elementClassName="tracked-tight pointer hover-c-primary"
+                    elementClassName="pointer hover-blue"
                     className="pl0 pl4-ns"
                     list={this.viewPageOptions(intl)}
                     required

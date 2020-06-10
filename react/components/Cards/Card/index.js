@@ -7,10 +7,8 @@ class Card extends Component {
   render() {
     const { title, isLoading } = this.props
 
-    const classes = 'flex flex-column w-100 h-100 ba b--base-4 bg-white br1'
-
     return (
-      <div className={classes}>
+      <div className="flex flex-column w-100 h-100 ba b--light-gray bg-white br2">
         {title && <h3 className="flex items-center pt4 b--base-1 ma0 ph4 f7 fw6 c-on-base">{title}</h3>}
         <PlaceholderContainer
           classNameArray={[

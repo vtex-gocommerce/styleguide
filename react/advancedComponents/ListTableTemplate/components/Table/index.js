@@ -168,7 +168,7 @@ class Table extends PureComponent {
                 {this.renderTable(rows, columns, startSelected)}
               </div>
               {!isLoading && rows.length === 0 && (
-                <div className="tc c-on-base-2 f2 fw6 pv9 bg-on-inverted bl br bb b--base-4 br--bottom br1">
+                <div className="tc gray f2 fw6 pv9 bg-on-inverted bl br bb b--silver br--bottom br1">
                   <IconSearch width="40px" height="40px" />
                   <p className="mv3">
                     <FormattedMessage id="admin/styleguide.could-not-find-any-item" defaultMessage='Could not find any item' />

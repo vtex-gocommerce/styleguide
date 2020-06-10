@@ -16,9 +16,9 @@
     <Card title="Customer Data">
       <p className="ma0 f4 c-primary">Steven Johnson</p>
       <ul className="flex-auto list pl0">
-        <li className="c-on-base-2 mb3">St. Fourth</li>
-        <li className="c-on-base-2 mb3">Nowhere Land - IDK</li>
-        <li className="c-on-base-2">Phone: (21) 99999-9999</li>
+        <li className="gray mb3">St. Fourth</li>
+        <li className="gray mb3">Nowhere Land - IDK</li>
+        <li className="gray">Phone: (21) 99999-9999</li>
       </ul>
     </Card>
   </div>
@@ -26,19 +26,19 @@
     <Card title="Total Value" isLoading>
       <p className="mt0 f4 c-primary">R$ 332,34</p>
       <ul className="list pl0">
-        <li className="flex justify-between c-on-base-2 mb3">
+        <li className="flex justify-between gray mb3">
           <span>Total Items</span>
           <span>R$ 332,73</span>
         </li>
-        <li className="flex justify-between c-on-base-2 mb3">
+        <li className="flex justify-between gray mb3">
           <span>Discount</span>
           <span>R$ 1,50</span>
         </li>
-        <li className="flex justify-between c-on-base-2 mb3">
+        <li className="flex justify-between gray mb3">
           <span>Shipping</span>
           <span>Free</span>
         </li>
-        <li className="flex justify-between c-on-base-2">
+        <li className="flex justify-between gray">
           <span>Total</span>
           <span>R$ 331,23</span>
         </li>
